@@ -1,0 +1,22 @@
+@import "global";
+.new-user-form{
+  background-color: #e5e5e5;
+  display: flex;
+  flex-direction: column;
+  width: 30%;
+  margin: auto;
+  padding: 15px;
+  input{
+    margin: 10px auto;
+  }
+  input[type=text], input[type=email], input[type=password]{
+    @include form-fields;
+    display: block;
+    font-size: 1em;
+  }
+  input[type=submit]{
+    display: block;
+    font-size: 1em;
+    @include submit;
+  }
+}
