@@ -26,7 +26,7 @@ body {
 nav {
   padding: 3rem;
   width: 100%;
-  background-color: #269ccc;
+  background-color: #468499;
   margin: 0 auto;
 }
 
@@ -81,5 +81,32 @@ nav {
 }
 
 #register {
+
+}
+
+.btn-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+
+.big-btn {
+  color: #999999;
+  background-color: transparent;
+  font-size:20px;
+  letter-spacing: .1rem;
+  font-weight: bold;
+  text-align: center;
+  border: solid #cccccc 1px;
+  border-radius: 5px;
+  padding: 4rem 0;
+  width: 285px;
+  margin:2rem 2rem;
+}
+
+.big-btn:hover {
+  color: #ffffff;
+  background-color: #468499;
 
 }
