@@ -8,10 +8,22 @@ RSpec.describe User, type: :model do
         user.username = nil
         expect(user).to_not be_valid
       end
-      it 'does not have a password'
-      it 'does not have a password'
-      it 'does not have a unique email'
-      it 'does not have a unique username'
+      it 'does not have a password' do
+        user.password = nil
+        expect(user).to_not be_valid
+      end
+      it 'does not have an email' do
+        user.email = nil
+        expect(user).to_not be_valid
+      end
+      it 'does not have a unique email' do
+        user2 = build(:user, username: "cactus")
+        expect(user2).to_not be_valid
+      end
+      it 'does not have a unique username' do
+        user2 = build(:user, email: "cactus@cactus.com")
+        expect(user2).to_not be_valid
+      end
     end
     context 'it is valid when' do
       it 'has all the required fields and email and password are unique'
