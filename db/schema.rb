@@ -16,6 +16,7 @@ ActiveRecord::Schema.define(version: 20171027023527) do
   enable_extension "plpgsql"
 
   create_table "doctors", force: :cascade do |t|
+    t.string "full_name"
     t.string "first_name"
     t.string "last_name"
     t.datetime "created_at", null: false

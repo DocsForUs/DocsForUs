@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Recommendation, type: :model do
-  let!(:doctor) { Doctor.create(first_name: 'Elizabeth', last_name: 'Blackwell') }
+  let!(:doctor) { Doctor.create(full_name: 'Elizabeth Blackwell', first_name: 'Elizabeth', last_name: 'Blackwell') }
 
   describe 'attributes' do
     it 'has a first name' do
