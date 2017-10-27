@@ -19,6 +19,9 @@ gem 'uglifier', '>= 1.3.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 
+# Akin to normalize css file
+gem 'normalize-rails'
+
 # Use CoffeeScript for .coffee assets and views
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
@@ -26,7 +29,7 @@ gem 'uglifier', '>= 1.3.0'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
+gem 'bcrypt', '~> 3.1.7'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
@@ -45,7 +48,7 @@ group :test do
   gem 'capybara'
   gem 'poltergeist'
 
-  gem 'factory_girl_rails'
+  gem "factory_bot_rails", "~> 4.0"
   gem 'database_cleaner'
 end
 

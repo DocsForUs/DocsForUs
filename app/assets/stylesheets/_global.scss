@@ -1,0 +1,14 @@
+@mixin form-fields {
+  padding: 15px;
+}
+@mixin submit {
+  border-radius: 5px;
+  background-color: #f5f5f5;
+  box-shadow: none;
+  padding: 10px;
+  border: 1px solid #cccccc;
+  color: #33363d;
+  &:hover{
+    background-color: #c7d7dd;
+  }
+}
