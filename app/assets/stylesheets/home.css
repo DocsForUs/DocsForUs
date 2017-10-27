@@ -1,0 +1,66 @@
+
+.image-text h1 {
+  letter-spacing: .25rem;
+  font-size: 3rem;
+  position: relative;
+  height: 250px;
+  width: 300px;
+  margin-left: 100px;
+  position: relative;
+  /*margin-top: 400px;*/
+  padding-top: 150px;
+  color: #ffffff;
+}
+
+#home-page {
+  grid-template-columns: 2fr 3fr 3fr 2fr;
+}
+
+.image-container {
+  position: relative;
+  border-radius: 5px;
+  grid-column-start: 2;
+  width: 60%;
+  margin: auto;
+  margin-top: 50px;
+  height: 600px;
+  background-image: url(  https://static.pexels.com/photos/5350/wave-ocean.jpg);
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+
+
+
+
+
+
+
+
+
+
+.btn-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+
+.big-btn {
+  color: #999999;
+  background-color: transparent;
+  font-size:20px;
+  letter-spacing: .15rem;
+  font-weight: bold;
+  text-align: center;
+  border: solid #cccccc 1px;
+  border-radius: 5px;
+  padding: 4rem 0;
+  width: 285px;
+  margin:2rem 2rem;
+}
+
+.big-btn:hover {
+  color: #ffffff;
+  background-color: #468499;
+
+}
