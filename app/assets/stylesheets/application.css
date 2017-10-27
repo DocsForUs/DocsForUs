@@ -13,3 +13,69 @@
  *= require_tree .
  *= require_self
  */
+body {
+  width: 100%;
+  margin: 0;
+  font-family: Helvetica;
+}
+
+nav {
+  padding: 3rem;
+  width: 100%;
+  background-color: #468499;
+  margin: 0 auto;
+}
+
+.main-nav ul {
+  letter-spacing: .25rem;
+  color: #F5F5F5;
+  display: grid;
+  grid-template-columns: 20% auto 10% 10%;
+  margin: 0;
+  list-style: none;
+  margin-right: 15px;
+}
+
+.image-text h1 {
+    letter-spacing: .25rem;
+  font-size: 3rem;
+  position: relative;
+  height: 250px;
+  width: 300px;
+  margin-left: 100px;
+  position: relative;
+  /*margin-top: 400px;*/
+  padding-top: 150px;
+  color: #ffffff;
+}
+
+#home-page {
+  grid-template-columns: 2fr 3fr 3fr 2fr;
+}
+
+.image-container {
+  position: relative;
+  border-radius: 5px;
+  grid-column-start: 2;
+  width: 60%;
+  margin: auto;
+  margin-top: 50px;
+  height: 600px;
+  background-image: url(  https://static.pexels.com/photos/5350/wave-ocean.jpg);
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+
+.title {
+  font-weight: 600;
+  font-size: 2rem;
+  grid-column-start: 1;
+}
+
+#login {
+  grid-column-start: 3;
+}
+
+#register {
+
+}
