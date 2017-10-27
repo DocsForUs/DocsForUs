@@ -12,7 +12,9 @@ RSpec.describe Recommendation, type: :model do
       expect(doctor.last_name).to eq 'Blackwell'
     end
 
-    
+    it 'has a full name' do
+      expect(doctor.full_name). to eq 'Elizabeth Blackwell'
+    end
   end
 
 end
