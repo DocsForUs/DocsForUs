@@ -7,6 +7,11 @@ RSpec.describe RecommendationsController, type: :controller do
       get :new
       expect(response).to have_http_status 200
     end
+
+    it 'creates an instance of a new recommendation' do
+      get :new
+      expect(assigns(:recommend)).to be_a Recommendation
+    end
   end
 
 end
