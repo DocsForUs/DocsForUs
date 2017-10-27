@@ -10,7 +10,7 @@ class RecommendationsController < ActionController::Base
     if @doctor == nil
       render new_doctor_path
     else
-      return '/'
+      redirect_to '/'
     end
   end
 

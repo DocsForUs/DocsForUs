@@ -21,9 +21,9 @@ RSpec.describe RecommendationsController, type: :controller do
   end
 
   describe 'POST #create' do
-    it "responds with a status code of 204" do
+    it "responds with a status code of 302" do
       post :create, { params: { search: "Elizabeth Blackwell" } }
-      expect(response).to have_http_status 204
+      expect(response).to have_http_status 302
     end
 
     it "checks database for existing doctors in database" do
