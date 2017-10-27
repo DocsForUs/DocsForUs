@@ -1,0 +1,12 @@
+<div class="recommend-new">
+  <%= form_tag new_recommendation_path, method: :get, class: "search-form" do %>
+  <label for="search-labl">Doctor</label>
+    <%= text_field_tag(
+        :search,
+        params[:search],
+        placeholder: "Search",
+        class: "form-control"
+    ) %>
+    <%= submit_tag 'Search', :name => nil %>
+  <% end %>
+</div>
