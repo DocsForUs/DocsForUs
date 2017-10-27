@@ -13,6 +13,10 @@
  *= require_tree .
  *= require_self
  */
+
+ /*#468499
+ Optimism Blue: #269ccc
+ Blue Algae: #9ed2c5*/
 body {
   width: 100%;
   margin: 0;
@@ -22,13 +26,13 @@ body {
 nav {
   padding: 3rem;
   width: 100%;
-  background-color: #468499;
+  background-color: #269ccc;
   margin: 0 auto;
 }
 
 .main-nav ul {
   letter-spacing: .25rem;
-  color: #F5F5F5;
+  color: #ffffff;
   display: grid;
   grid-template-columns: 20% auto 10% 10%;
   margin: 0;
@@ -37,7 +41,7 @@ nav {
 }
 
 .image-text h1 {
-    letter-spacing: .25rem;
+  letter-spacing: .25rem;
   font-size: 3rem;
   position: relative;
   height: 250px;
