@@ -1,6 +1,8 @@
 require 'factory_bot'
 require 'simplecov'
-SimpleCov.start 'rails'
+SimpleCov.start 'rails' do
+  add_filter "application"
+end
 
 
 RSpec.configure do |config|
