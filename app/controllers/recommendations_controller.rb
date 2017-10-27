@@ -1,4 +1,4 @@
-class RecommendationsController < ActionController::Base
+class RecommendationsController < ApplicationController
   def add
   end
 
