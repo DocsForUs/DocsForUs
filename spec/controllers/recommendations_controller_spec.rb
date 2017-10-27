@@ -28,7 +28,17 @@ RSpec.describe RecommendationsController, type: :controller do
 
     it "checks database for existing doctors in database" do
       post :create, { params: { search: "Elizabeth Blackwell" } }
-      expect(assigns(:doctor)).to be_a Doctor
+        expect(assigns(:doctor)).to be_a Doctor
+    end
+
+    xit 'will return nil if no doctor is found in database' do
+      post :create, { params: { search: "Elesa Yihdego" } }
+      expect(assigns(:doctor)).to be_nil
+    end
+
+    xit 'redirects the new doctor template if doctor is not in database' do
+      post :create, { params: { search: "Elesa Yihdego" } }
+      expect(response).to redirect_to(new_doctor_path)
     end
   end
 
