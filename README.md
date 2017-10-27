@@ -38,8 +38,8 @@
   - User stories
 - **Initial Design**
   - Low fidelity mockup to get a good idea
-- **Scheme design**
-  - Not final design
+- **Schema design**
+  ![schema](app/assets/images/schema.png)
 - **Task list**
   - Each feature should have min functionality and CSS
   - Organized by **In Progress**, **To Do**, and **Stretch**

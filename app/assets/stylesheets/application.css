@@ -10,6 +10,45 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
- *= require_tree .
+ *= require normalize-rails
  *= require_self
+ *= require_tree .
  */
+
+ /*#468499
+ Optimism Blue: #269ccc
+ Blue Algae: #9ed2c5*/
+body {
+  width: 100%;
+  margin: 0;
+  font-family: Helvetica;
+}
+
+nav {
+  padding: 3rem;
+  width: 100%;
+  background-color: #468499;
+  margin: 0 auto;
+}
+
+.main-nav ul {
+  letter-spacing: .25rem;
+  color: #ffffff;
+  display: grid;
+  grid-template-columns: 20% auto 10% 10%;
+  margin: 0;
+  list-style: none;
+  margin-right: 15px;
+}
+
+
+
+.title {
+  font-weight: 600;
+  font-size: 2rem;
+  grid-column-start: 1;
+}
+
+#login {
+  grid-column-start: 3;
+}
