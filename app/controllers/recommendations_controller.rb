@@ -5,6 +5,7 @@ class RecommendationsController < ActionController::Base
   end
 
   def create
+    @doctor = Doctor.find_by(full_name: params[:full_name])
     redirect_to '/'
   end
 

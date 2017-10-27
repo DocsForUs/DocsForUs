@@ -1,6 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe RecommendationsController, type: :controller do
+  let!(:doctor) { Doctor.create(first_name: 'Elizabeth', last_name: 'Blackwell') }
 
   describe 'GET #new' do
     it 'visits the new recommendation page' do
@@ -23,6 +24,11 @@ RSpec.describe RecommendationsController, type: :controller do
     it "responds with a status code of 302" do
       post :create, { params: { search: "Elizabeth Blackwell" } }
       expect(response).to have_http_status 302
+    end
+
+    it "checks database for existing doctors in database" do
+      post :create, { params: { search: "Elizabeth Blackwell" } }
+      expect(assigns(:doctor)).to be_a Doctor
     end
   end
 
