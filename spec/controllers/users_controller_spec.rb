@@ -31,5 +31,32 @@ RSpec.describe UsersController, type: :controller do
         expect(response).to redirect_to new_user_path
       end
     end
+    context "when user enters invalid input " do
+      let!(:user) {create(:user)}
+      context "user name already exists" do
+        before(:each) do
+          post :create, params: {user: {username: "llama", email: "devbootcamp@camp.com", password: 'ham', password_confirmation: 'ham'}}
+        end
+        it "assigns a errors variable with an error about username" do
+          expect(assigns[:errors]).to include("Username has already been taken")
+        end
+      end
+      context "email already exists" do
+        before(:each) do
+          post :create, params: {user: {username: "Dev", email: "llama@llama.com", password: 'ham', password_confirmation: 'ham'}}
+        end
+        it "assigns a errors variable with an error about email" do
+          expect(assigns[:errors]).to include("Email has already been taken")
+        end
+      end
+      context"passwords dont match" do
+        before(:each) do
+          post :create, params: {user: {username: "Dev", email: "devbootcamp@camp.com", password: 'ham', password_confirmation: 'hamnsoap'}}
+        end
+        it "assigns a errors variable with an error about password" do
+          expect(assigns[:errors]).to include("Password confirmation doesn't match Password")
+        end
+      end
+    end
   end
 end#end of UsersController
