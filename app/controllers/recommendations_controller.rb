@@ -4,4 +4,8 @@ class RecommendationsController < ActionController::Base
     @recommend = Recommendation.new
   end
 
+  def create
+    redirect_to '/'
+  end
+
 end
