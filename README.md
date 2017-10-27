@@ -39,7 +39,7 @@
 - **Initial Design**
   - Low fidelity mockup to get a good idea
 - **Schema design**
-  ![schema](assets/images/schema.png)
+  ![schema](app/assets/images/schema.png)
 - **Task list**
   - Each feature should have min functionality and CSS
   - Organized by **In Progress**, **To Do**, and **Stretch**
