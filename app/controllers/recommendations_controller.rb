@@ -8,9 +8,11 @@ class RecommendationsController < ActionController::Base
 
     @doctor = Doctor.find_by(full_name: params[:search])
     if @doctor == nil
-      redirect_to new_doctor_path
+      p '*' * 40
+      return new_doctor_path
+    else
+      return '/'
     end
-    redirect_to '/'
   end
 
 end

@@ -21,9 +21,9 @@ RSpec.describe RecommendationsController, type: :controller do
   end
 
   describe 'POST #create' do
-    it "responds with a status code of 302" do
+    it "responds with a status code of 204" do
       post :create, { params: { search: "Elizabeth Blackwell" } }
-      expect(response).to have_http_status 302
+      expect(response).to have_http_status 204
     end
 
     it "checks database for existing doctors in database" do
@@ -31,7 +31,7 @@ RSpec.describe RecommendationsController, type: :controller do
         expect(assigns(:doctor)).to be_a Doctor
     end
 
-    xit 'will return nil if no doctor is found in database' do
+    it 'will return nil if no doctor is found in database' do
       post :create, { params: { search: "Elesa Yihdego" } }
       expect(assigns(:doctor)).to be_nil
     end
