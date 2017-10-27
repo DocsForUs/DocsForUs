@@ -1,0 +1,7 @@
+<%= form_for @user do |f| %>
+  <%= f.text_field :username, placeholder: 'username', required: true %>
+  <%= f.email_field :email, placeholder: 'email', required: true %>
+  <%= f.password_field :password, placeholder: 'password', required: true %>
+  <%= f.password_field :password_confirmation, placeholder: 'confirm password', required: true %>
+  <%= f.submit "Create Account" %>
+<% end %>
