@@ -12,6 +12,11 @@ RSpec.describe RecommendationsController, type: :controller do
       get :new
       expect(assigns(:recommend)).to be_a Recommendation
     end
+
+    it 'renders the new template' do
+      get :new
+      expect(response).to render_template(:new)
+    end
   end
 
 end
