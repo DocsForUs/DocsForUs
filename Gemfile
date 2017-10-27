@@ -45,7 +45,7 @@ group :test do
   gem 'capybara'
   gem 'poltergeist'
 
-  gem 'factory_bot'
+  gem "factory_bot_rails", "~> 4.0"
   gem 'database_cleaner'
 end
 
