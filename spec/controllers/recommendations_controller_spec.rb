@@ -38,7 +38,7 @@ RSpec.describe RecommendationsController, type: :controller do
 
     it 'redirects the new doctor template if doctor is not in database' do
       post :create, { params: { search: "Elesa Yihdego" } }
-      expect(response.body).to eq('hello')
+      expect(response).to render_template 'doctors/new'
     end
   end
 
