@@ -1,5 +1,7 @@
 class DoctorsController < ApplicationController
   def index
+    p '*' * 100
+    p search_params
   end
 
 
