@@ -18,7 +18,7 @@ class RecommendationsController < ApplicationController
       @errors = "You must choose at least one tag."
       render :new
     else
-      tags.map! { |tag| TagsController.create(tag)}
+      tags.map! { |tag| Tag.find_or_create_by(description: tag)}
       @recommendation.tags << tags
       @recommendation.save
       redirect_to root_path
