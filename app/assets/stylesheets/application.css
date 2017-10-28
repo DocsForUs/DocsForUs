@@ -34,7 +34,7 @@ nav {
 .main-nav ul {
   color: #ffffff;
   display: grid;
-  grid-template-columns: 2fr minmax(auto, 600px) repeat(2, minmax(150px,1fr)) ;
+  grid-template-columns: minmax(auto, 500px) minmax(auto, 600px) repeat(2, minmax(150px,1fr)) ;
   letter-spacing: .25rem;
   list-style: none;
   margin: 0;
