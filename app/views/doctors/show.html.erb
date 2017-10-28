@@ -1,4 +1,4 @@
-<h1> Doctor's Show Page</h1>
+
 <!--
 <main class="doctor-info-container">
   <div class="img-container">
@@ -16,8 +16,10 @@
       <div class="w3-card-4 w3-dark-grey" style="width:50%">
          <div class="w3-container w3-center">
             <img src="img_avatar3.png" alt="Avatar" style="width:80%">
-            <% @doctor.each do |doctor| %>
-            <h3> <%= doctor.name %>  </h3>
+            <h3> <%= @doctor.first_name %> <%= @doctor.last_name %>  </h3>
+            <% unless @specialty.blank? %>
+              <p><%= @specialty %></p>
+            <% end %>
             <div class="">
               <button class="">Save Doctor</button>
               <button class="">Add a Review</button>
@@ -27,13 +29,43 @@
     </div>
   </div>
   <div class="two">
-    <h3>Contact</h3>
-    <p>
-    </p>
-    <h3>Location</h3>
-    <h3>Gender</h3>
-    <h3>Specialty</h3>
-  </div>
+
+    <%  @doctor.attributes.each do |attr_name, attr_value| %>
+      <% unless attr_value.blank? || attr_name == 'id' || attr_name == 'specialty' || attr_name == 'created_at' || attr_name == 'updated_at'%>
+      <ul class="doc-info-list">
+        <li> <%= attr_value %> </li>
+      </ul>
       <% end %>
+    <% end %>
+
+
+
+
+
+
+
+
+
+
+    <!-- <h3>Location</h3>
+      <% unless @doctor.street.blank? %>
+        <p><%= @street %></p>
+      <% end %>
+      <% unless @doctor.city.blank? %>
+        <p><%= @city %></p>
+      <% end %>
+      <% unless @doctor.state.blank? %>
+        <p><%= @state %></p>
+      <% end %>
+      <p><%= @doctor.zipcode %></p>
+      <h3>Contact</h3>
+      <p><%= @doctor.email_address %></p>
+      <% unless @doctor.phone_number.blank? %>
+        <p><%= @phone_number %></p>
+      <% end %>
+      <% unless @doctor.gender.blank? %>
+        <p><%= @gender %></p>
+      <% end %> -->
+  </div>
   <h4></h4>
   </div>

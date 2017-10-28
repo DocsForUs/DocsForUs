@@ -3,7 +3,6 @@ require 'rails_helper'
 RSpec.describe DoctorsController, type: :controller do
   before(:each) {
     Doctor.create(first_name: 'Rita', last_name: 'Bobita', zipcode: '93023', email_address: 'rita@rita.com')
-    [:id] = 1
   }
 
   describe "GET #show" do

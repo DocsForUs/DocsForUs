@@ -3,8 +3,12 @@ class DoctorsController < ApplicationController
   @doctor = Doctor.new
   end
 
+  def index
+    @doctor = Doctor.all
+  end
+
   def show
-    @Doctor = Doctor.find(params[:id])
+    @doctor = Doctor.find(params[:id])
   end
 
   def create
@@ -15,10 +19,6 @@ class DoctorsController < ApplicationController
       @errors = @doctor.errors.full_messages
       render :new
     end
-  end
-
-  def show
-    @doctor = Doctor.find(params[:id])
   end
 
   private
