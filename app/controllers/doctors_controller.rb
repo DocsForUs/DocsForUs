@@ -6,16 +6,15 @@ class DoctorsController < ApplicationController
   def create
     @doctor = Doctor.new(doctor_params)
     if @doctor.save
-      redirect_to doctor_path
+      redirect_to doctor_path(@doctor)
     else
       @errors = @doctor.errors.full_messages
       render :new
     end
   end
 
-  def index
+  def show
   end
-
 
   private
   def doctor_params
