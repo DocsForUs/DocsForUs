@@ -11,6 +11,22 @@ class RecommendationsController < ApplicationController
   end
 
   def create
+    @recommendation = Recommendation.new(rec_params)
+    @recommendation.user = current_user
+    tags = params[:recommendation][:tags]
+    tags.map! { |tag| TagsController.create(tag)}
+    @recommendation.tags << tags
+    if @recommendation.save
+      redirect_to root_path
+    else
+      @errors = @recommendation.errors.full_messages
+    end
+  end
+
+  private
+
+  def rec_params
+    params.require(:recommendation).permit(:doctor_id, :review)
   end
 
 end

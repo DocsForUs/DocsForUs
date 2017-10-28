@@ -1,6 +1,7 @@
 <h2><%= @doctor.first_name %> <%= @doctor.last_name %></h2>
 
 <%= form_for @recommendation do |f| %>
+  <%= f.hidden_field :doctor_id, value: @doctor.id %>
   <%= f.text_area :review, placeholder: "Write a review..." %>
   <ul class="tag-list">
     <% @tags.each do |tag| %>
@@ -11,9 +12,10 @@
     </li>
     <% end %>
   </ul>
-  <%= f.fields_for :tags do |tag_form| %>
-    <%= tag_form.text_field :description, placeholder: "Add a tag" %>
-    <%= tag_form.submit "Add", class: "add-tag" %>
-  <% end %>
   <%= f.submit %>
+<% end %>
+
+<%= form_tag tags_path do %>
+  <%= text_field_tag :new_tag_description, nil, placeholder: "Add a tag" %>
+  <%= submit_tag "Add", class: "add-tag" %>
 <% end %>

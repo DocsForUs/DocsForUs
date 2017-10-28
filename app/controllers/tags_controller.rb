@@ -1,6 +1,6 @@
 class TagsController < ApplicationController
 
-  def create
-
+  def self.create(tag)
+    Tag.find_or_create_by(description: tag)
   end
 end
