@@ -32,8 +32,8 @@ ActiveRecord::Schema.define(version: 20171028014604) do
   end
 
   create_table "recommendations", force: :cascade do |t|
-    t.bigint "user_id"
-    t.bigint "doctor_id"
+    t.bigint "user_id", null: false
+    t.bigint "doctor_id", null: false
     t.text "review"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
