@@ -2,6 +2,13 @@ class Doctor < ApplicationRecord
   validates :first_name, :last_name, :specialty, :zipcode, presence: true
   validate :email_xor_phone_number
 
+
+  def self.search_api(doctor)
+    full_name = doctor[:first_name] +' '+ doctor[:last_name]
+    location = doctor[:state] + '-' + doctor[:city]
+    HTTParty.get("https://api.betterdoctor.com/2016-03-01/doctors?name=#{full_name}&location=#{location}&skip=2&limit=10&user_key=#{ENV['BETTER_DOCTOR_USER_KEY']}")
+  end
+
   private
   def email_xor_phone_number
     if email_address.blank? && phone_number.blank?

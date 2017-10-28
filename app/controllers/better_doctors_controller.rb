@@ -1,4 +1,5 @@
 class BetterDoctorsController < ApplicationController
+
 #   caches_action :search, cache_path: Proc.new { |c| c.request.url }, expires_in: 30.minutes
 #
 #   def search

@@ -1,4 +1,5 @@
 class DoctorsController < ApplicationController
+    include HTTParty
   def index
     if search_params[:first_name] != "" && search_params[:last_name] != ""
       @doctors = Doctor.where(first_name: search_params[:first_name], last_name: search_params[:last_name])
@@ -24,6 +25,7 @@ class DoctorsController < ApplicationController
   end
 
   private
+
 
   def search_params
    params.require(:doctor).permit(:first_name, :last_name)
