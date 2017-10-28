@@ -19,36 +19,55 @@
  Optimism Blue: #269ccc
  Blue Algae: #9ed2c5*/
 body {
-  width: 100%;
-  margin: 0;
   font-family: Helvetica;
+  margin: 0;
+  width: 100%;
 }
 
 nav {
-  padding: 3rem;
-  width: 100%;
   background-color: #468499;
   margin: 0 auto;
+  padding: 3rem;
+  width: 100%;
 }
 
 .main-nav ul {
-  letter-spacing: .25rem;
   color: #ffffff;
   display: grid;
   grid-template-columns: 20% auto 10% 10%;
-  margin: 0;
+  letter-spacing: .25rem;
   list-style: none;
+  margin: 0;
   margin-right: 15px;
 }
 
+.login li   {
+  grid-column-start: 3;
+}
+
+.register {
+  grid-column-start: 4;
+}
+
+.main-nav {
+  text-decoration: none;
+}
+
+.main-nav  a {
+  text-decoration: none;
+  color: #ffffff;
+}
+
+.main-nav  a:visited {
+  color: #ffffff;
+}
+.main-nav  a:hover {
+  color: #cccccc;
+}
 
 
 .title {
-  font-weight: 600;
   font-size: 2rem;
+  font-weight: 600;
   grid-column-start: 1;
-}
-
-#login {
-  grid-column-start: 3;
 }
