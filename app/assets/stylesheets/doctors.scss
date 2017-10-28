@@ -20,3 +20,32 @@
     @include submit;
   }
 }
+
+
+/*Doctor Show Page*/
+
+.doctor-info-container {
+  background-color: #cccccc;
+  grid-template-columns: 30% 70%;
+  grid-gap: 10px;
+  position: relative;
+  border-radius: 5px;
+  grid-column-start: 2;
+  width: 50%;
+  margin: auto;
+  margin-top: 20px;
+  height: 700px;
+}
+.image-container {
+  grid-column-start: 1;
+  background-color: blue;
+  width: 30%;
+  height: 100%;
+}
+
+.info-container {
+  grid-column-start: 2;
+  background-color: green;
+  width: 70%;
+  height: 100%;
+}
