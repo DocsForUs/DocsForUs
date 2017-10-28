@@ -38,6 +38,7 @@
   background-color: white;
 }
 .doctor-search-box {
+  border-radius: 5px;
   background-color: lightgrey;
   display: flex;
   flex-direction: column;
@@ -57,7 +58,7 @@
   }
   .search-results-container {
     margin-top: 20px;
-    border-top: 5px solid #468499;
+    border-top: 5px solid #269ccc;
     width: 100%;
     height: 70vw;
   }
