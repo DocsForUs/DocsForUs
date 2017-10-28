@@ -14,12 +14,14 @@ class RecommendationsController < ApplicationController
     @recommendation = Recommendation.new(rec_params)
     @recommendation.user = current_user
     tags = params[:recommendation][:tags]
-    tags.map! { |tag| TagsController.create(tag)}
-    @recommendation.tags << tags
-    if @recommendation.save
-      redirect_to root_path
+    if tags == nil
+      @errors = "You must choose at least one tag."
+      render :new
     else
-      @errors = @recommendation.errors.full_messages
+      tags.map! { |tag| TagsController.create(tag)}
+      @recommendation.tags << tags
+      @recommendation.save
+      redirect_to root_path
     end
   end
 
