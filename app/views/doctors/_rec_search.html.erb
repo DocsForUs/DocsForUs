@@ -1,0 +1,16 @@
+<% if defined?@doctors %>
+<div class="rec-search-result">
+  <% @doctors.each do |doctor| %>
+    <p>
+    <%= doctor.first_name%> <%= doctor.last_name %>
+    </p>
+    <p>
+      <%= doctor.specialty %>
+    </p>
+    <p>
+      <%= doctor.city %>, <%= doctor.state %>
+    </p>
+    <% end %>
+</div>
+
+<% end %>
