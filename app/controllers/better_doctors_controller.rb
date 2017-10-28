@@ -1,4 +1,4 @@
-# class BetterDoctorsController < ApplicationController
+class BetterDoctorsController < ApplicationController
 #   caches_action :search, cache_path: Proc.new { |c| c.request.url }, expires_in: 30.minutes
 #
 #   def search
@@ -19,4 +19,4 @@
 #       user_key: ENV["BETTER_DOCTOR_USER_KEY"]
 #     })
 #   end
-# end
+end
