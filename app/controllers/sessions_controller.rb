@@ -6,13 +6,11 @@ class SessionsController < ApplicationController
   end
 
   def create
-    p params
     @user = User.find_by(email: user_params[:email])
     if @user
       valid = @user.authenticate(user_params[:password])
       if valid
         session[:user_id] = @user.id
-        p session
         redirect_to root_path
       else
         @error = "Invalid credentials"
