@@ -12,8 +12,12 @@
     <nav class="main-nav">
       <ul>
         <li class="title">Docs For Us</li>
-        <li id="login">Login</li>
-        <li id="register">Register</li>
+        <% if session[:user_id] %>
+          <li class="login"><%= link_to "Logout", logout_path %></li>
+        <% else %>
+          <li class="login"><%= link_to "Login", login_path %></li>
+          <li class="register"><%= link_to "Register", new_user_path %></li>
+        <% end %>
       </ul>
     </nav>
     <%= yield %>
