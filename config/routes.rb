@@ -4,8 +4,9 @@ Rails.application.routes.draw do
   # resources :sessions, only: [:new, :create, :destroy]
   root to: "index#home"
   resources :users, only: [:new, :create]
+  resources :doctors, only: [:index]
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'
   get '/logout' => 'sessions#destroy'
-
+  get '/recommendations/add', to: "recommendations#add"
 end
