@@ -31,7 +31,7 @@
   <div class="two">
 
     <%  @doctor.attributes.each do |attr_name, attr_value| %>
-      <% unless attr_value.blank? || attr_name == 'id' || attr_name == 'specialty' || attr_name == 'created_at' || attr_name == 'updated_at'%>
+      <% unless attr_value.blank? || attr_name == 'id' || attr_name == 'specialty' || attr_name == 'created_at' || attr_name == 'updated_at' || attr_name == 'first_name'|| attr_name == 'last_name' %>
       <ul class="doc-info-list">
         <li> <%= attr_value %> </li>
       </ul>
