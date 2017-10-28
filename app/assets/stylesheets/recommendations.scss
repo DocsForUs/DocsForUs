@@ -124,6 +124,11 @@
   padding: 10px;
   display: block;
   font-size: 1em;
+  &:focus {
+    border: 1px solid #468499;
+    outline: none;
+    box-shadow: 0 0 10px #468499;
+  }
 }
 
 #rec-submit-button {
@@ -143,6 +148,12 @@
   input[type=text] {
     padding: 10px;
     font-size: 1em;
+    margin-right: 5px;
+    &:focus {
+      border: 1px solid #468499;
+      outline: none;
+      box-shadow: 0 0 10px #468499;
+    }
   }
   .add-tag {
     border: 1px solid #468499;
