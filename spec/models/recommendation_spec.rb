@@ -5,6 +5,7 @@ RSpec.describe Recommendation, type: :model do
   describe 'associations' do
     it {should belong_to(:doctor)}
     it {should belong_to(:user)}
+    it {should have_many(:tags).through(:recommendations_tags)}
     it 'is invalid without a doctor' do
       rec.doctor = nil
       expect(rec).to_not be_valid
