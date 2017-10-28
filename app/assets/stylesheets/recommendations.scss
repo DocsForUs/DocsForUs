@@ -76,3 +76,20 @@
   display: block;
   background-color:  #468499;
 }
+
+.tag-label {
+  border: 1px solid #468499;
+  border-radius: 5px;
+  padding: 5px;
+  margin: 5px;
+  display: inline-block;
+}
+
+.tag {
+  display: none;
+}
+
+.tag:checked + .tag-label {
+  background-color: #468499;
+  color: white;
+}
