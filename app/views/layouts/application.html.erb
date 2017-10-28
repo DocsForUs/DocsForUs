@@ -11,9 +11,9 @@
   <body>
     <nav class="main-nav">
       <ul>
-        <li class="title">Docs For Us</li>
+        <li class="title"> <%= link_to "Docs For Us", root_path %>  </li>
         <% if session[:user_id] %>
-          <li class="login"><%= link_to "Logout", logout_path %></li>
+          <li class="register"><%= link_to "Logout", logout_path %></li>
         <% else %>
           <li class="login"><%= link_to "Login", login_path %></li>
           <li class="register"><%= link_to "Register", new_user_path %></li>
