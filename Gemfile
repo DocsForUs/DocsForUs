@@ -22,7 +22,8 @@ gem 'uglifier', '>= 1.3.0'
 # Akin to normalize css file
 gem 'normalize-rails'
 
-# Use CoffeeScript for .coffee assets and views
+# HTTP Client
+gem 'httparty'
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 # gem 'jbuilder', '~> 2.5'
@@ -37,6 +38,7 @@ gem 'bcrypt', '~> 3.1.7'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'dotenv-rails'
 end
 
 group :test do
