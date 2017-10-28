@@ -1,0 +1,14 @@
+<section class="recommend-new">
+  <article class="instruction-box">
+    <p>
+      Enter the name of the doctor you would like to recommend!
+    </p>
+  </article>
+  <%= form_tag doctors_path, method: :get, class: "search-form" do %>
+  <!-- <label>First Name</label> -->
+    <%= text_field_tag(:first_name, nil, placeholder: 'First Name' )%>
+  <!-- <label>Last Name</label> -->
+    <%= text_field_tag(:last_name, nil, placeholder: 'Last Name') %>
+    <%= submit_tag 'Search', class: "search-submit" %>
+  <% end %>
+</section>
