@@ -1,5 +1,5 @@
 <h1> Doctor's Show Page</h1>
-
+<!--
 <main class="doctor-info-container">
   <div class="img-container">
     <h1>Image</h1>
@@ -7,4 +7,33 @@
   <div class="info-container">
     <h1>Info</h1>
   </div>
-</main>
+</main> -->
+
+
+<div class="doctor-info-container">
+  <div class="one">
+    <div class="w3-container">
+      <div class="w3-card-4 w3-dark-grey" style="width:50%">
+         <div class="w3-container w3-center">
+            <img src="img_avatar3.png" alt="Avatar" style="width:80%">
+            <% @doctor.each do |doctor| %>
+            <h3> <%= doctor.name %>  </h3>
+            <div class="">
+              <button class="">Save Doctor</button>
+              <button class="">Add a Review</button>
+            </div>
+          </div>
+       </div>
+    </div>
+  </div>
+  <div class="two">
+    <h3>Contact</h3>
+    <p>
+    </p>
+    <h3>Location</h3>
+    <h3>Gender</h3>
+    <h3>Specialty</h3>
+  </div>
+      <% end %>
+  <h4></h4>
+  </div>
