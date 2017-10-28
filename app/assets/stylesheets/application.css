@@ -43,10 +43,12 @@ nav {
 
 .login {
   grid-column-start: 3;
+  line-height: 36px;
 }
 
 .register {
   grid-column-start: 4;
+  line-height: 36px;
   padding-right: 20px;
 }
 
