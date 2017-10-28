@@ -8,7 +8,7 @@ class Tag < ApplicationRecord
   def self.default_tags
     default_tags = []
     DEFAULT_TAGS.each do |tag|
-      default_tags = Tag.find_by(description: tag)
+      default_tags << Tag.find_by(description: tag)
     end
   end
 end

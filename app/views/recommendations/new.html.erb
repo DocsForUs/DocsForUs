@@ -2,7 +2,10 @@
 
 <%= form_for @recommendation do |f| %>
   <%= f.text_area :review, placeholder: "Write a review..." %>
-  <%= f.check_box :tags, {multiple: true, class: "tag"}, "used correct pronouns", nil %>
-  <%= f.label :tags_used_correct_pronouns, "used correct pronouns", class: "tag-label" %>
+  <% @tags.each do |tag| %>
+    <%= f.check_box :tags, {multiple: true, class: "tag"}, tag, nil %>
+    <% id = ("tags_" + tag.gsub(" ", "_")).to_sym %>
+    <%= f.label id, tag, class: "tag-label" %>
+  <% end %>
   <%= f.submit %>
 <% end %>

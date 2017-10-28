@@ -5,6 +5,7 @@ class RecommendationsController < ApplicationController
   def new
     @doctor = Doctor.create(first_name: "Lucy", last_name: "Niflheim")
     @recommendation = Recommendation.new(doctor: @doctor, user: current_user)
+    @tags = Tag.default_tags
     render :new
   end
 
