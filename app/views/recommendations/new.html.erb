@@ -7,5 +7,9 @@
     <% id = ("tags_" + tag.gsub(" ", "_")).to_sym %>
     <%= f.label id, tag, class: "tag-label" %>
   <% end %>
+  <%= form_tag tags_path do %>
+    <%= text_field_tag :description, nil, placeholder: "Add a tag" %>
+    <%= submit_tag "Add" %>
+  <% end %>
   <%= f.submit %>
 <% end %>
