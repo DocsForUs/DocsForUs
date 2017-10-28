@@ -1,8 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe DoctorsController, type: :controller do
-<<<<<<< HEAD
-  let(:doctor) { Doctor.create(first_name: 'Elizabeth', last_name: 'Blackwell') }
+  let(:doctor) { Doctor.create(first_name: 'Elizabeth', last_name: 'Blackwell', specialty: 'General',email_address: 'ash@ash.com',zipcode: 35816) }
   let(:doctor2) { Doctor.create(first_name: 'Atul', last_name: 'Gawande') }
   describe 'index route for searching' do
     it 'assigns a instance @doctors to doctors that fit the search result' do
@@ -16,8 +15,6 @@ RSpec.describe DoctorsController, type: :controller do
 
   end
 
-end
-=======
   describe "doctors#new" do
     before(:each) {get :new}
     it "returns the status of 200" do
@@ -48,4 +45,3 @@ end
     end
   end
 end#end of class
->>>>>>> b1eeb327d100fc7aa84bc896b9ab32e433fc7eae
