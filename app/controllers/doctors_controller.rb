@@ -1,6 +1,10 @@
 class DoctorsController < ApplicationController
   def index
   end
+  
+  def show
+    @Doctor = Doctor.find(params[:id])
+  end
 
 
   private
