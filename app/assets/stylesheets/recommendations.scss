@@ -77,6 +77,11 @@
   background-color:  #468499;
 }
 
+.tag-li {
+  display: inline-block;
+  list-style-type: none;
+}
+
 .tag-label {
   border: 1px solid #468499;
   border-radius: 5px;
@@ -92,4 +97,16 @@
 .tag:checked + .tag-label {
   background-color: #468499;
   color: white;
+}
+
+.new-rec-section {
+  width: 60%;
+  margin: auto;
+}
+
+#recommendation_review {
+  width: 90%;
+  margin: auto;
+  height: 10vh;
+  padding: 10px;
 }
