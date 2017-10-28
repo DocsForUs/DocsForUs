@@ -10,6 +10,9 @@
     <p>
       <%= doctor.city %>, <%= doctor.state %>
     </p>
+
+    <%= button_to "Recommend", recommendations_new_path , method: :get, params: { doctor_id: doctor.id} %>
+
     <% end %>
 </div>
 
