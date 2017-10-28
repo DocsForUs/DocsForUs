@@ -3,7 +3,25 @@ class Doctor < ApplicationRecord
   validate :email_xor_phone_number
 
   def self.search_doctor(doctor)
-    Doctor.search_api(doctor)
+    response = Doctor.search_api(doctor)
+    response =  JSON.parse response.body, symbolize_names: true
+    doctors_array = {
+      location: [],
+      first: response[:data][0][:profile][:first_name],
+      last: response[:data][0][:profile][:last_name],
+      gender: response[:data][0][:profile][:gender],
+    }
+    #practices
+    response[:data][0][:practices].each do |practice|
+      location = {
+        city: practice[:visit_address][:city],
+        state: practice[:visit_address][:state],
+        street: practice[:visit_address][:street],
+        zip: practice[:visit_address][:zip]
+      }
+      doctors_array[:location] << location
+    end
+    doctors_array
   end
 
   private
@@ -16,7 +34,6 @@ class Doctor < ApplicationRecord
   def self.search_api(doctor)
     full_name = doctor[:first_name] +' '+ doctor[:last_name]
     location = doctor[:state] + '-' + doctor[:city]
-    p 'this is api call'
-    p HTTParty.get("https://api.betterdoctor.com/2016-03-01/doctors?name=#{full_name}&location=#{location}&limit=10&user_key=#{ENV['BETTER_DOCTOR_USER_KEY']}", format: :plain)
+    HTTParty.get("https://api.betterdoctor.com/2016-03-01/doctors?name=#{full_name}&location=#{location}&limit=10&user_key=#{ENV['BETTER_DOCTOR_USER_KEY']}", format: :plain)
   end
 end

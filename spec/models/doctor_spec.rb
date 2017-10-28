@@ -12,19 +12,33 @@ describe Doctor, type: :model do
     xit 'returns mutliple doctors in a wide result' do
       doctor = {first_name: "John", last_name: "", city: "seattle", state: "wa"}
       response = Doctor.search_api(doctor)
-
       expect(response["meta"]["total"]).to be > 1
     end
 
-    it 'returns hash with all of the important information of a doctor' do
+    xit 'returns hash with all information of a single doctor' do
+      doctor = {first_name: "Sara", last_name: "Waterman", city: "seattle", state: "wa"}
+      response = Doctor.search_api(doctor)
+      response =  JSON.parse response.body, symbolize_names: true
+      expect(response[:meta][:total]).to eq 1
+    end
+
+    xit 'returns the first name of a doctor from an api call' do
       doctor = {first_name: "Sara", last_name: "Waterman", city: "seattle", state: "wa"}
       response = Doctor.search_doctor(doctor)
-      p 'this is before parse'
-      p response.body
-      response =  JSON.parse response.body, symbolize_names: true
-      p 'this is after parse'
+      expect(response).to eq 'Sara'
+    end
+
+    xit 'returns the city a doctor from an api call' do
+      doctor = {first_name: "Sara", last_name: "Waterman", city: "seattle", state: "wa"}
+      response = Doctor.search_doctor(doctor)
+      expect(response).to eq 'Seattle'
+    end
+
+    it 'returns an array of a single doctors information parsed' do
+      doctor = {first_name: "Sara", last_name: "Waterman", city: "seattle", state: "wa"}
+      response = Doctor.search_doctor(doctor)
       p response
-      expect(response).to eq nil
+      expect(response).to eq({:location=>[{:city=>"Seattle", :state=>"WA", :street=>"1200 12th Ave S", :zip=>"98144"}, {:city=>"Seattle", :state=>"WA", :street=>"1200 12th Ave S", :zip=>"98144"}], :first=>"Sara", :last=>"Waterman", :gender=>"female"})
     end
   end
 end
