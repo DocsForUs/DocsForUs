@@ -1,6 +1,8 @@
 class RecommendationsController < ApplicationController
+  include StatesHelper
   def add
     if current_user
+      @states = helpers.states
       render :add
     else
       flash[:alert] = "You must login or register to recommend a doctor"
