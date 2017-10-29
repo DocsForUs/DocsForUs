@@ -21,7 +21,7 @@ class DoctorsController < ApplicationController
   def create
     @doctor = Doctor.new(doctor_params)
     if @doctor.save
-      redirect_to new_recommendation_path(id: @doctor.id)
+      redirect_to new_recommendation_path(id: @doctor)
     else
       @errors = @doctor.errors.full_messages
       render :new
