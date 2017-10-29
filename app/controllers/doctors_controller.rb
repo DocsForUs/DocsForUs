@@ -17,7 +17,7 @@ class DoctorsController < ApplicationController
   end
 
   def index
-   p helpers.get_insurance
+   @insurance = helpers.get_insurance
    @q = Doctor.ransack(params[:q])
    @doctors = @q.result
   end
