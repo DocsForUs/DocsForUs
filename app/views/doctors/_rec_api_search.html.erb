@@ -1,0 +1,24 @@
+
+  <div class="rec-search-result right">
+    <h3>
+      Possible doctors to recommend
+    </h3>
+    <% @api_doctors.each do |doctor| %>
+      <p>
+      <%= doctor[:first_name]%> <%= doctor[:last_name] %>
+      </p>
+      <p>
+        <%= doctor[:specialty] %>
+      </p>
+      <p>
+        <% doctor[:location].uniq.each do |location| %>
+          <div>
+            <%= location[:street] %>, <%= location[:city] %>, <%= location[:state] %>, <%= location[:zip] %>
+          </div>
+        <% end %>
+      </p>
+
+      <%= button_to "Recommend", doctors_path ,  params: { doctor: {first_name: doctor[:first_name], last_name: doctor[:last_name], specialty: doctor[:specialty], gender: doctor[:gender], phone_number: doctor[:phone], street: doctor[:location].last[:street], city: doctor[:location].last[:city], state: doctor[:location].last[:state], zipcode: doctor[:location].last[:zip]} } %>
+
+      <% end %>
+  </div>

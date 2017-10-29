@@ -1,0 +1,214 @@
+@import "global";
+
+.instruction-box {
+  width: 400px;
+  margin: auto;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  height: 200px;
+  border: 2px solid #468499;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.instruction-box p {
+  font-family: helvetica;
+  font-size: 1.5rem;
+  padding-left: 60px;
+  padding-right: 60px;
+  padding-top: 30px;
+}
+
+.search-form {
+  background:#f4f4f4;
+  background:rgba(244,244,244,.79);
+  border: 1px solid #d3d3d3;
+  margin: 0 auto;
+  margin-bottom: 50px;
+  padding: 2px 5px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  height: 200px;
+  width:339px;
+  box-shadow:0 4px 9px rgba(0,0,0,.37);
+  -moz-box-shadow:0 4px 9px rgba(0,0,0,.37);
+  -webkit-box-shadow:0 4px 9px rgba(0,0,0,.37);
+  border-radius: 10px;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px
+}
+
+.search-form input {
+  display: block;
+	background:#fefefe;
+	border: none;
+	font:12px/12px 'HelveticaNeue', Helvetica, Arial, sans-serif;
+	margin-right: 5px;
+  margin-bottom: 10px;
+	padding: 10px;
+	width: 216px;
+	box-shadow: 0 0 4px rgba(0,0,0,.4) inset, 1px 1px 1px rgba(255,255,255,.75);
+	-moz-box-shadow: 0 0 4px rgba(0,0,0,.4) inset, 1px 1px 1px rgba(255,255,255,.75);
+	-webkit-box-shadow: 0 0 4px rgba(0,0,0,.4) inset, 1px 1px 1px rgba(255,255,255,.75);
+  border-radius: 9px;
+  -moz-border-radius: 9px;
+  -webkit-border-radius: 9px
+}
+
+.search-form select {
+  display: inline;
+  margin-bottom: 5px;
+    margin-left: 5px;
+}
+
+
+.search-form input:focus {
+		outline: none;
+		box-shadow:0 0 4px #0d76be inset;
+		-moz-box-shadow:0 0 4px #0d76be inset;
+		-webkit-box-shadow:0 0 4px #0d76be inset;
+	}
+
+  .search-form input::-webkit-input-placeholder {
+  	font-style: italic;
+  	line-height: 15px
+	}
+
+	.search-form input:-moz-placeholder {
+	  font-style: italic;
+  	line-height: 15px
+	}
+
+.search-form label {
+  margin-left: 5px;
+  font-size: .8em;
+  line-height: 15px;
+  color: grey;
+  font-style: italic;
+  display: inline;
+}
+
+.search-submit {
+  display: block;
+  background-color:  #468499;
+  margin-bottom: 10px;
+}
+
+.tag-list {
+  width: 95%;
+  display: block;
+}
+
+.tag-li {
+  display: inline-block;
+  list-style-type: none;
+}
+
+.tag-label {
+  border: 1px solid #468499;
+  border-radius: 5px;
+  padding: 5px;
+  margin: 5px;
+  display: inline-block;
+}
+
+.tag {
+  display: none;
+}
+
+.tag:checked + .tag-label {
+  background-color: #468499;
+  color: white;
+}
+
+#new-rec-section {
+  width: 60%;
+  margin: auto;
+  margin-top: 20px;
+}
+
+#recommendation_review {
+  width: 90%;
+  margin: auto;
+  height: 10vh;
+  padding: 10px;
+  display: block;
+  font-size: 1em;
+  &:focus {
+    border: 1px solid #468499;
+    outline: none;
+    box-shadow: 0 0 10px #468499;
+  }
+}
+
+#rec-submit-button {
+  border: 1px solid #468499;
+  border-radius: 5px;
+  padding: 10px;
+  margin: 5px;
+  margin-top: 20px;
+  background-color: white;
+  float: right;
+}
+
+.add-tags-form {
+  margin-left: 50px;
+  float: left;
+  margin-top: 20px;
+  input[type=text] {
+    padding: 10px;
+    font-size: 1em;
+    margin-right: 5px;
+    &:focus {
+      border: 1px solid #468499;
+      outline: none;
+      box-shadow: 0 0 10px #468499;
+    }
+  }
+  .add-tag {
+    border: 1px solid #468499;
+    border-radius: 5px;
+    padding: 5px;
+    margin: 5px;
+    background-color: white;
+  }
+}
+
+.rec-errors {
+  clear: both;
+  text-align: center;
+  margin: 120px;
+}
+
+.errors {
+  color: red;
+}
+
+.partials-doctors {
+  display:flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: flex-start;
+}
+
+.rec-search-result {
+  flex: 1;
+  min-height: auto;
+  margin: 10px;
+  padding: 25px 50px;
+  border: 1px solid #468499;
+  border-radius: 5px;
+  max-width: 300px;
+}
+
+.new-doctor-button {
+  font: bold 11px Arial;
+  text-decoration: none;
+  background-color: #EEEEEE;
+  color: #333333;
+  padding: 2px 6px 2px 6px;
+  border-top: 1px solid #CCCCCC;
+  border-right: 1px solid #333333;
+  border-bottom: 1px solid #333333;
+  border-left: 1px solid #CCCCCC;
+}

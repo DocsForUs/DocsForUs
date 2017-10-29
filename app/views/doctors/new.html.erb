@@ -14,11 +14,11 @@
     <%= f.text_field :specialty, placeholder: 'Specialty*', required: true %>
     <%= f.text_field :gender, placeholder: 'Gender' %>
     <%= f.email_field :email_address, placeholder: 'Email' %>
-    <%= f.number_field :phone_number, placeholder: 'Phone Number' %>
+    <%= f.text_field :phone_number, placeholder: 'Phone Number' %>
     <%= f.text_field :street, placeholder: 'Street' %>
     <%= f.text_field :city, placeholder: 'City' %>
     <%= f.text_field :state, placeholder: 'State' %>
-    <%= f.number_field :zipcode, placeholder: 'Zipcode*', required: true %>
+    <%= f.text_field :zipcode, placeholder: 'Zipcode*', required: true %>
     <%= f.submit "Add Doctor" %>
   <% end %>
 </div>
