@@ -5,12 +5,12 @@ RSpec.describe DoctorsController, type: :controller do
 
   describe "GET #show" do
      it "responds with a status code of 200" do
-       get :show, { params: { id: doctor.id } }
+       get :show, params: {id: doctor.id}
        expect(response).to have_http_status 200
      end
 
      it "renders the show template" do
-       get :show, { params: { id: doctor.id } }
+       get :show, params: {id: doctor.id}
        expect(response).to render_template(:show)
      end
    end
