@@ -14,6 +14,8 @@ class DoctorsController < ApplicationController
   end
 
   def index
+   @q = Doctor.ransack(params[:q])
+   @doctors = @q.result
   end
 
   def show
@@ -26,5 +28,5 @@ class DoctorsController < ApplicationController
 
   def full_search_params
   end
-  
+
 end
