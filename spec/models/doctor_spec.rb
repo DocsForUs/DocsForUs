@@ -7,7 +7,6 @@ describe Doctor, type: :model do
     xit 'returns an array of a single doctors information parsed' do
       doctor = {first_name: "Sara", last_name: "Waterman", city: "seattle", state: "wa"}
       response = Doctor.search_doctor(doctor)
-      p response
       expect(response).to eq({:location=>[{:city=>"Seattle", :state=>"WA", :street=>"1200 12th Ave S", :zip=>"98144"}, {:city=>"Seattle", :state=>"WA", :street=>"1200 12th Ave S", :zip=>"98144"}], :first=>"Sara", :last=>"Waterman", :gender=>"female"})
     end
 
