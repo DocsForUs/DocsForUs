@@ -5,7 +5,7 @@ class DoctorsController < ApplicationController
       @our_doctors = Doctor.where(first_name: search_params[:first_name], last_name: search_params[:last_name])
 
       doctor_args = {first_name: search_params[:first_name], last_name: search_params[:last_name],city: search_params[:city].downcase, state: search_params[:state].downcase}
-      
+
       @api_doctors=Doctor.search_doctor(doctor_args)
       render "recommendations/add"
     end
@@ -18,7 +18,7 @@ class DoctorsController < ApplicationController
   def create
     @doctor = Doctor.new(doctor_params)
     if @doctor.save
-      redirect_to doctor_path(@doctor)
+      redirect_to new_recommendation_path(@doctor)
     else
       @errors = @doctor.errors.full_messages
       render :new
