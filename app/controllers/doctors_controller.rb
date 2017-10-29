@@ -7,9 +7,7 @@ class DoctorsController < ApplicationController
     @doctor = Doctor.all
   end
 
-  def show
-    @doctor = Doctor.find(params[:id])
-  end
+
 
   def create
     @doctor = Doctor.new(doctor_params)
@@ -21,8 +19,12 @@ class DoctorsController < ApplicationController
     end
   end
 
+  def show
+    @doctor = Doctor.find(doctor_params[:id])
+  end
+
   private
   def doctor_params
-    params.require(:doctor).permit(:first_name, :last_name, :specialty, :gender, :email_address,:phone_number,:street,:city,:state,:zipcode)
+    params.require(:doctor).permit(:first_name, :last_name, :specialty, :gender, :email_address, :phone_number, :street, :city, :state, :zipcode)
   end
 end
