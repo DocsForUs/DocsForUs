@@ -1,6 +1,6 @@
 class DoctorsController < ApplicationController
     include HTTParty
-  def index
+  def find
     if search_params[:first_name] != "" && search_params[:last_name] != ""
       @our_doctors = Doctor.where(first_name: search_params[:first_name], last_name: search_params[:last_name])
 

@@ -5,11 +5,11 @@ RSpec.describe DoctorsController, type: :controller do
   let(:doctor2) { Doctor.create(first_name: 'Atul', last_name: 'Gawande') }
   describe 'index route for searching' do
     it 'assigns a instance @doctors to doctors that fit the search result' do
-      get :index, params: { doctor: {first_name: 'Georgette', last_name: 'Tronkenheim', city: "Seattle", state: "WA"} }
+      get :find, params: { doctor: {first_name: 'Georgette', last_name: 'Tronkenheim', city: "Seattle", state: "WA"} }
       expect(assigns[:our_doctors]).to include(doctor)
     end
     it "it does not return doctors that do not fit the search request" do
-      get :index, params: { doctor: {first_name: 'Georgette', last_name: 'Tronkenheim', city: 'Seattle', state: "WA"} }
+      get :find, params: { doctor: {first_name: 'Georgette', last_name: 'Tronkenheim', city: 'Seattle', state: "WA"} }
       expect(assigns[:our_doctors]).to_not include(doctor2)
     end
 

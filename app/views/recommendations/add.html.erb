@@ -4,7 +4,7 @@
       Enter the name of the doctor you would like to recommend!
     </p>
   </article>
-  <%= form_for :doctor, url: doctors_path, method: :get, html: {class: "search-form"} do |f| %>
+  <%= form_for :doctor, url: { controller: "doctors", action: "find" }, method: :get, html: {class: "search-form"} do |f| %>
   <%= f.text_field :first_name, placeholder: "First Name" %>
   <%= f.text_field :last_name, placeholder: "Last Name" %>
   <%= f.text_field :city, placeholder: "City" %>
