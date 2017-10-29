@@ -15,7 +15,7 @@
       <% end %>
     </p>
 
-
+    <%= button_to "Recommend", doctors_path ,  params: { doctor: {first_name: doctor[:first_name], last_name: doctor[:last_name], specialty: doctor[:specialty], gender: doctor[:gender], phone_number: 5555555555, street: doctor[:location].last[:street], city: doctor[:location].last[:city], state: doctor[:location].last[:state], zipcode: doctor[:location].last[:zip]} } %>
 
     <% end %>
 </div>
