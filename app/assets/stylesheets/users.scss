@@ -79,13 +79,33 @@
   margin: auto;
 }
 
-.recent-recs-section{
+.profile-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
 
+.recent-recs-section{
+  margin: 0px 20px 0px 20px;
+  border: 1px solid #468499;
+  border-radius: 5px;
+  padding: 0px 15px;
+}
+
+.saved-doctors-section {
+  margin: 0px 20px 0px 20px;
+  border: 1px solid #468499;
+  border-radius: 5px;
+  padding: 0px 15px;
 }
 
 .tag-list {
-  width: 95%;
   display: block;
+}
+
+.single-rec {
+  width: 98%;
+  border-top: 1px dotted #468499;
 }
 
 .rec-tags-profile {

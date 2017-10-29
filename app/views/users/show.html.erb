@@ -1,27 +1,35 @@
 <main class="user-profile">
   <h2>Welcome, <%= @user.username %></h2>
 
-  <section class="recent-recs-section">
-    <h3>Your recommendations</h3>
-    <% if @user.recommendations %>
-    <% @user.recommendations.each do |rec| %>
-    <h4>Dr. <%= rec.doctor.first_name %> <%= rec.doctor.last_name %></h4>
-    <div class="review-profile"><%= rec.review %></div>
-    <ul class="tag-list">
-      <% rec.tags.each do |tag| %>
-      <li class="rec-tags-profile">
-        <%= tag.description %>
-      </li>
+  <div class="profile-wrapper">
+    <section class="recent-recs-section">
+      <h3>Your recommendations</h3>
+      <% if @user.recommendations %>
+      <% @user.recommendations.each do |rec| %>
+        <div class="single-rec">
+          <h4>Dr. <%= rec.doctor.first_name %> <%= rec.doctor.last_name %></h4>
+          <div class="review-profile"><%= rec.review %></div>
+          <ul class="tag-list">
+            <% rec.tags.each do |tag| %>
+              <li class="rec-tags-profile">
+                <%= tag.description %>
+              </li>
+            <% end %>
+          </ul>
+          <p>
+            Recommended on <%= rec.created_at.localtime.strftime('%m/%d/%Y at %I:%M %p')
+ %>
+          </p>
+        </div>
       <% end %>
-    </ul>
-    <% end %>
-    <% else %>
-    <p>You have not recommended any doctors yet.</p>
-    <% end %>
-  </section>
+      <% else %>
+      <p>You have not recommended any doctors yet.</p>
+      <% end %>
+    </section>
 
-  <section class="saved-doctors-section">
-    <h3>Your saved doctors</h3>
-    <p>You have not saved any doctors yet.</p>
-  </section>
+    <section class="saved-doctors-section">
+      <h3>Your saved doctors</h3>
+      <p>You have not saved any doctors yet.</p>
+    </section>
+  </div>
 </main>
