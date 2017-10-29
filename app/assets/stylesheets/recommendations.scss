@@ -1,3 +1,5 @@
+@import "global";
+
 .instruction-box {
   width: 400px;
   margin: auto;
@@ -75,4 +77,84 @@
 .search-form .search-submit {
   display: block;
   background-color:  #468499;
+}
+
+.tag-list {
+  width: 95%;
+  display: block;
+}
+
+.tag-li {
+  display: inline-block;
+  list-style-type: none;
+}
+
+.tag-label {
+  border: 1px solid #468499;
+  border-radius: 5px;
+  padding: 5px;
+  margin: 5px;
+  display: inline-block;
+}
+
+.tag {
+  display: none;
+}
+
+.tag:checked + .tag-label {
+  background-color: #468499;
+  color: white;
+}
+
+#new-rec-section {
+  width: 60%;
+  margin: auto;
+  margin-top: 20px;
+}
+
+#recommendation_review {
+  width: 90%;
+  margin: auto;
+  height: 10vh;
+  padding: 10px;
+  display: block;
+  font-size: 1em;
+  &:focus {
+    border: 1px solid #468499;
+    outline: none;
+    box-shadow: 0 0 10px #468499;
+  }
+}
+
+#rec-submit-button {
+  border: 1px solid #468499;
+  border-radius: 5px;
+  padding: 10px;
+  margin: 5px;
+  margin-top: 20px;
+  background-color: white;
+  float: right;
+}
+
+.add-tags-form {
+  margin-left: 50px;
+  float: left;
+  margin-top: 20px;
+  input[type=text] {
+    padding: 10px;
+    font-size: 1em;
+    margin-right: 5px;
+    &:focus {
+      border: 1px solid #468499;
+      outline: none;
+      box-shadow: 0 0 10px #468499;
+    }
+  }
+  .add-tag {
+    border: 1px solid #468499;
+    border-radius: 5px;
+    padding: 5px;
+    margin: 5px;
+    background-color: white;
+  }
 }
