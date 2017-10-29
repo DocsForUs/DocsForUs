@@ -28,7 +28,7 @@ RSpec.describe UsersController, type: :controller do
         expect(session[:user_id]).to_not be nil
       end
       it "redirects to new user path " do
-        expect(response).to redirect_to new_user_path
+        expect(response).to redirect_to '/'
       end
     end
     context "when user enters invalid input " do
