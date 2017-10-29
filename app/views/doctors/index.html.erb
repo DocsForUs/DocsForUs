@@ -1,1 +1,24 @@
-hii
+<section id="dr-search-page">
+  <div class="container">
+
+<h1>Search for a Doctor</h1>
+  <div class="doctor-search-box">
+    <%= form_for :doctor, method: :get  do |f| %>
+      <%= f.text_field :first_name, placeholder: "First Name" %>
+      <%= f.text_field :last_name, placeholder: "Last Name" %>
+      <%= f.text_field :first_name, placeholder: "First Name" %>
+      <%= f.text_field :first_name, placeholder: "First Name" %>
+    <% end %>
+  </div>
+  <div class="search-results-container">
+    <table>
+      <tr class="table-heading">
+        <th>Name</th>
+        <th>Location</th>
+        <th>Specialty</th>
+        <th>Reviews</th>
+      </tr>
+    </table>
+  </div>
+</div>
+</section>

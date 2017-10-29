@@ -9,7 +9,7 @@
   input{
     margin: 10px auto;
   }
-  input[type=text],input[type=number], input[type=email], input[type=password]{
+  input[type=text] {
     @include form-fields;
     display: block;
     font-size: 1em;
@@ -18,5 +18,62 @@
     display: block;
     font-size: 1em;
     @include submit;
+  }
+}
+
+#dr-search-page {
+    background-color: #f5f5f5;
+    height: 100vw;
+    width: 100%;
+  h1 {
+    color: #468499;
+    margin: auto;
+    padding-top: 20px;
+    width: 300px;
+  }
+.container {
+  width: 90%;
+  margin: auto;
+  height: 100vw;
+  background-color: white;
+}
+.doctor-search-box {
+  border-radius: 5px;
+  background-color: lightgrey;
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  margin: auto;
+  height: 300px;
+  padding: 15px;
+  margin-top: 20px;
+  input{
+    margin: 10px auto;
+  }
+  input[type=text] {
+    @include form-fields;
+    display: block;
+    font-size: 1em;
+  }
+  }
+  .search-results-container {
+    margin-top: 20px;
+    border-top: 5px solid #269ccc;
+    width: 100%;
+    height: 70vw;
+  }
+
+  table {
+    padding-top: 20px;
+    width: 80%;
+    margin: auto;
+    .table-heading {
+      text-align: center;
+      background-color: lightgrey;
+      th {
+        width: 25%;
+        height: 20px;
+      }
+    }
   }
 }
