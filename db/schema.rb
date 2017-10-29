@@ -23,8 +23,13 @@ ActiveRecord::Schema.define(version: 20171028021148) do
     t.string "street"
     t.string "city"
     t.string "state"
+<<<<<<< HEAD
     t.integer "zipcode"
     t.integer "phone_number"
+=======
+    t.string "zipcode", null: false
+    t.string "phone_number"
+>>>>>>> dc14029e337ce745864fc41dc9f478d7cfee8de0
     t.string "website"
     t.string "email_address"
     t.datetime "created_at", null: false
