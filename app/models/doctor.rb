@@ -7,11 +7,12 @@ class Doctor < ApplicationRecord
     response = Doctor.search_api(doctor)
     response =  JSON.parse response.body, symbolize_names: true
     doctors_array = []
-    response[:data].each do |doc|
-      doctors_array << Doctor.doctor_data(doc)
+    if response[:data]
+      response[:data].each do |doc|
+        doctors_array << Doctor.doctor_data(doc)
+      end
     end
     doctors_array
-
   end
 
   private
