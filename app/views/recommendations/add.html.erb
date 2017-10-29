@@ -7,10 +7,12 @@
   <%= form_for :doctor, url: doctors_path, method: :get, html: {class: "search-form"} do |f| %>
   <%= f.text_field :first_name, placeholder: "First Name" %>
   <%= f.text_field :last_name, placeholder: "Last Name" %>
+  <%= f.text_field :city, placeholder: "City" %>
+  <%= f.text_field :state, placeholder: "State" %>
   <%= f.submit "Search", html: {class: "search-submit"}%>
 
   <% end %>
 
-
-
+  <%= render 'doctors/rec_search' %>
+  <%= render 'doctors/rec_api_search' %>
 </section>

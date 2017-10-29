@@ -2,7 +2,11 @@ class DoctorsController < ApplicationController
     include HTTParty
   def index
     if search_params[:first_name] != "" && search_params[:last_name] != ""
-      @doctors = Doctor.where(first_name: search_params[:first_name], last_name: search_params[:last_name])
+      @our_doctors = Doctor.where(first_name: search_params[:first_name], last_name: search_params[:last_name])
+
+      doctor_args = {first_name: search_params[:first_name], last_name: search_params[:last_name],city: search_params[:city].downcase, state: search_params[:state].downcase}
+      
+      @api_doctors=Doctor.search_doctor(doctor_args)
       render "recommendations/add"
     end
   end
@@ -28,7 +32,7 @@ class DoctorsController < ApplicationController
 
 
   def search_params
-   params.require(:doctor).permit(:first_name, :last_name)
+   params.require(:doctor).permit(:first_name, :last_name,:city,:state)
   end
 
   def doctor_params

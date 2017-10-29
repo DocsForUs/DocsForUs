@@ -1,0 +1,23 @@
+<% if defined?@api_doctors %>
+<div class="rec-search-result">
+  <% @api_doctors.each do |doctor| %>
+    <p>
+    <%= doctor[:first_name]%> <%= doctor[:last_name] %>
+    </p>
+    <p>
+      <%= doctor[:specialty] %>
+    </p>
+    <p>
+      <% doctor[:location].uniq.each do |location| %>
+        <div>
+          <%= location[:street] %>, <%= location[:city] %>, <%= location[:state] %>, <%= location[:zip] %>
+        </div>
+      <% end %>
+    </p>
+
+
+
+    <% end %>
+</div>
+
+<% end %>
