@@ -59,4 +59,31 @@ RSpec.describe UsersController, type: :controller do
       end
     end
   end
+
+  describe '#show' do
+    let!(:user) { create(:user) }
+    context 'when user is logged in and going to their own show page' do
+      before(:each) do
+        get :show, params: {id: user.id}, session: {user_id: user.id}
+      end
+      it 'renders the user show page' do
+        expect(response).to render_template :show
+      end
+      it 'assigns a user instance variable' do
+        expect(assigns[:user]).to eq user
+      end
+    end
+    context "when user is logged in and trying to look at another user's show page" do
+      it 'redirects to current users show page' do
+        get :show, params: {id: 30}, session: {user_id: user.id}
+        expect(response).to redirect_to user_path(user)
+      end
+    end
+    context 'when user is not logged in' do
+      it 'redirects to login page' do
+        get :show, params: {id: user.id}
+        expect(response).to redirect_to login_path
+      end
+    end
+  end
 end#end of UsersController
