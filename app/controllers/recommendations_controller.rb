@@ -4,7 +4,7 @@ class RecommendationsController < ApplicationController
 
   def new
     if current_user
-      @doctor = Doctor.create(first_name: "Lucy", last_name: "Niflheim")
+      @doctor = Doctor.first
       @recommendation = Recommendation.new(doctor: @doctor, user: current_user)
       @tags = Tag.default_tags
       @tag = Tag.new
@@ -18,11 +18,14 @@ class RecommendationsController < ApplicationController
     if current_user
       @recommendation = Recommendation.new(rec_params)
       @recommendation.user = current_user
-      tags = params[:recommendation][:tags]
-      if tags == nil
-        @errors = "You must choose at least one tag."
+      if !params[:recommendation][:tags]
+        @doctor = Doctor.find(params[:recommendation][:doctor_id])
+        @tags = Tag.default_tags
+        @tag = Tag.new
+        @errors = ["You must choose at least one tag."]
         render :new
       else
+        tags = params[:recommendation][:tags]
         tags.map! { |tag| Tag.find_or_create_by(description: tag)}
         @recommendation.tags << tags
         @recommendation.save
