@@ -7,8 +7,8 @@ FactoryBot.define do
     street "33 Orange St"
     city "Seattle"
     state "WA"
-    zipcode 98103
-    phone_number 2065559999
+    zipcode '98103'
+    phone_number '2065559999'
     website "cats.com"
     email_address "georgette@doctor.com"
   end
