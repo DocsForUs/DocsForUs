@@ -1,6 +1,9 @@
 <section id="new-user-page">
 <h1>Create an Account</h1>
 
+<% if flash[:alert] %>
+  <%= render "/shared/flash" %>
+<% end %>
 <div class="new-user-form">
   <% if @errors %>
   <div class="errors">

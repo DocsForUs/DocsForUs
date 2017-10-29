@@ -8,8 +8,8 @@ class CreateDoctors < ActiveRecord::Migration[5.1]
       t.string :street
       t.string :city
       t.string :state
-      t.integer :zipcode, null: false
-      t.integer :phone_number
+      t.string :zipcode, null: false
+      t.string :phone_number
       t.string :website
       t.string :email_address
 

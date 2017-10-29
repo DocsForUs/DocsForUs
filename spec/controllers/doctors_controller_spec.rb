@@ -1,6 +1,20 @@
 require 'rails_helper'
 
 RSpec.describe DoctorsController, type: :controller do
+  let(:doctor) { create(:doctor) }
+  let(:doctor2) { Doctor.create(first_name: 'Atul', last_name: 'Gawande') }
+  describe 'index route for searching' do
+    it 'assigns a instance @doctors to doctors that fit the search result' do
+      get :find, params: { doctor: {first_name: 'Georgette', last_name: 'Tronkenheim', city: "Seattle", state: "WA"} }
+      expect(assigns[:our_doctors]).to include(doctor)
+    end
+    it "it does not return doctors that do not fit the search request" do
+      get :find, params: { doctor: {first_name: 'Georgette', last_name: 'Tronkenheim', city: 'Seattle', state: "WA"} }
+      expect(assigns[:our_doctors]).to_not include(doctor2)
+    end
+
+  end
+
   describe "doctors#new" do
     before(:each) {get :new}
     it "returns the status of 200" do

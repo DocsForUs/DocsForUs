@@ -1,0 +1,24 @@
+<% if @our_doctors %>
+<% if @our_doctors.length > 0 %>
+<div class="rec-search-result left">
+  <h3>
+    Doctors we already love
+  </h3>
+  <% @our_doctors.each do |doctor| %>
+    <p>
+    <%= doctor.first_name%> <%= doctor.last_name %>
+    </p>
+    <p>
+      <%= doctor.specialty %>
+    </p>
+    <p>
+      <%= doctor.city %>, <%= doctor.state %>
+    </p>
+
+    <%= button_to "Recommend", new_recommendation_path , method: :get, params: { doctor_id: doctor.id} %>
+
+    <% end %>
+</div>
+
+<% end %>
+<% end %>
