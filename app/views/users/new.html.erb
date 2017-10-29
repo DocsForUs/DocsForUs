@@ -1,5 +1,8 @@
+<section id="new-user-page">
+<h1>Create an Account</h1>
+
 <div class="new-user-form">
-  <% if defined?@errors %>
+  <% if @errors %>
   <div class="errors">
     <% @errors.each do |e| %>
       <p> <%= e %> </p>
@@ -14,3 +17,5 @@
     <%= f.submit "Create Account" %>
   <% end %>
 </div>
+
+</section>
