@@ -7,8 +7,8 @@
     <%= f.label 'first name' %>
     <%= f.search_field :first_name_cont %>
     <%= f.label 'City' %>
-    <%= f.select :city_eq, options_from_collection_for_select(Doctor.order('city ASC'), 'id','city', @q.city_eq), include_blank: true %>
-
+    <%= f.select :city_eq, options_from_collection_for_select(Doctor.order('city ASC'), 'id','city', @q.city_eq), include_blank: true, multiple: true %>
+    <!-- <%= f.collection_check_boxes :state_eq, @insurance, :first, :last  %> -->
     <%= f.submit %>
 <% end %>
   </div>
