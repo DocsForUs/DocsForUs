@@ -1,5 +1,12 @@
 class RecommendationsController < ApplicationController
   def add
+    if current_user
+      render :add
+    else
+      flash[:alert] = "You must login or register to recommend a doctor"
+      @user = User.new
+      render "/users/new"
+    end
   end
 
   def new

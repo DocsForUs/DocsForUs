@@ -1,4 +1,5 @@
-<% if defined?@our_doctors %>
+<% if @our_doctors %>
+<% if @our_doctors.length > 0 %>
 <div class="rec-search-result left">
   <h3>
     Doctors we already love
@@ -19,4 +20,5 @@
     <% end %>
 </div>
 
+<% end %>
 <% end %>

@@ -3,7 +3,6 @@ class DoctorsController < ApplicationController
   def find
     if search_params[:first_name] != "" && search_params[:last_name] != ""
       @our_doctors = Doctor.where(first_name: search_params[:first_name], last_name: search_params[:last_name])
-
       doctor_args = {first_name: search_params[:first_name], last_name: search_params[:last_name],city: search_params[:city].downcase, state: search_params[:state].downcase}
 
       @api_doctors=Doctor.search_doctor(doctor_args)
