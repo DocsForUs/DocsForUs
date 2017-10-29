@@ -34,7 +34,7 @@ class DoctorsController < ApplicationController
   def index
    @insurance = helpers.get_insurance
    @states = helpers.states
-   @specialties = helpers.get_specialties
+   @specialties = helpers.get_specialties + Doctor.select('specialty').distinct.map {|dr| dr.specialty}
    @q = Doctor.ransack(params[:q])
    @doctors = @q.result
   end

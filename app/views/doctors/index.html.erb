@@ -12,9 +12,9 @@
     <%= f.select :city_eq, options_from_collection_for_select( Doctor.select('city').distinct , 'id','city', @q.city_eq), include_blank: true, multiple: true %>
     <!-- <%= f.collection_check_boxes :state_eq, @insurance, :first, :last  %> -->
     <%= f.label 'State' %>
-    <%= f.select :state_eq, options_from_collection_for_select(Doctor.order('state ASC'), 'id','state', @q.state_eq), include_blank: true, multiple: true %>
+    <%= f.select :state_eq, options_from_collection_for_select(Doctor.select('state').distinct, 'id','state', @q.state_eq), include_blank: true, multiple: true %>
     <%= f.label 'Specialty' %>
-    <%= f.select :specialty, options_for_select(@specialties, :last), required: true, multiple: "multiple"%>
+    <%= f.select :specialty_matches_any, options_for_select(@specialties, :last), include_blank: true, multiple: true %>
 
     <%= f.submit %>
 <% end %>
@@ -24,14 +24,20 @@
       <thead>
         <tr class="table-heading">
           <th><%= sort_link(@q, :first_name) %></th>
+          <th><%= sort_link(@q, :last_name) %></th>
           <th><%= sort_link(@q, :city) %></th>
+          <th><%= sort_link(@q, :state) %></th>
+          <th><%= sort_link(@q, :specialty) %></th>
         </tr>
       </thead>
       <tbody>
         <% @doctors.each do |doctor| %>
         <tr>
           <td><%= doctor.first_name %></td>
+          <td><%= doctor.last_name %></td>
           <td><%= doctor.city %></td>
+          <td><%= doctor.state %></td>
+          <td><%= doctor.specialty %></td>
         </tr>
         <% end %>
       </tbody>
