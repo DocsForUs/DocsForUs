@@ -24,7 +24,4 @@ class DoctorsController < ApplicationController
     params.require(:doctor).permit(:first_name, :last_name, :specialty, :gender, :email_address,:phone_number,:street,:city,:state,:zipcode)
   end
 
-  def full_search_params
-  end
-
 end
