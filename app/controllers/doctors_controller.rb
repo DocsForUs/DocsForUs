@@ -35,7 +35,6 @@ class DoctorsController < ApplicationController
    @insurance = helpers.get_insurance
    @states = helpers.states
    @specialties = helpers.get_specialties
-   p @specialties
    @q = Doctor.ransack(params[:q])
    @doctors = @q.result
   end

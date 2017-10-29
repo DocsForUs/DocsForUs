@@ -22,9 +22,9 @@ gem 'uglifier', '>= 1.3.0'
 # Akin to normalize css file
 gem 'normalize-rails'
 
-
 #Ransack Search Gem
 gem 'ransack'
+gem 'select2-rails', '~> 4.0', '>= 4.0.3'
 # HTTP Client
 gem 'httparty'
 gem 'jquery-rails'

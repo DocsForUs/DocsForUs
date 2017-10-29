@@ -14,7 +14,7 @@
     <%= f.label 'State' %>
     <%= f.select :state, options_for_select(@states, :first), required: true%>
     <%= f.label 'Specialty' %>
-    <%= f.select :specialty, options_for_select(@specialties, :last), required: true%>
+    <%= f.select :specialty, options_for_select(@specialties, :last), required: true, multiple: "multiple"%>
 
     <%= f.submit %>
 <% end %>
