@@ -16,4 +16,3 @@ end
 Doctor.create(first_name: 'Eliza', last_name: "Brine", street: "1 Main Street", specialty: specialties.sample, city: 'Northport', state: "NY", email_address:"dr@doctor.com", zipcode: "09099")
 Doctor.create(first_name: 'Eliza', last_name: "Brine", street: "1 Main Street", specialty: specialties.sample, city: 'New York', state: "NY", email_address:"dr@doctor.com", zipcode: "09099")
 Doctor.create(first_name: 'Eliza', last_name: "Brine", street: "1 Main Street", specialty: specialties.sample, city: 'Syracuse', state: "NY", email_address:"dr@doctor.com", zipcode: "09099")
->>>>>>> dc14029e337ce745864fc41dc9f478d7cfee8de0
