@@ -9,8 +9,11 @@
     <%= f.label 'last name' %>
     <%= f.search_field :last_name_cont %>
     <%= f.label 'City' %>
-    <%= f.select :city_eq, options_from_collection_for_select(Doctor.order('city ASC'), 'id','city', @q.city_eq), include_blank: true, multiple: true %>
-
+    <%= f.select :city_eq, options_from_collection_for_select( Doctor.select('city').distinct , 'id','city', @q.city_eq), include_blank: true, multiple: true %>
+    <%= f.label 'State' %>
+    <%= f.select :state_eq, options_from_collection_for_select(Doctor.order('state ASC'), 'id','state', @q.state_eq), include_blank: true, multiple: true %>
+    <%= f.label 'Specialty' %>
+    <%= f.select :specialty, options_for_select(@specialties, :last), required: true, multiple: "multiple"%>
     <%= f.submit %>
 <% end %>
   </div>

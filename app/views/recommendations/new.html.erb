@@ -1,0 +1,26 @@
+<section id="new-rec-section">
+
+  <%= form_for @recommendation do |f| %>
+    <%= f.hidden_field :doctor_id, value: @doctor.id %>
+    <%= f.text_area :review, placeholder: "Write a review..." %>
+    <ul class="tag-list">
+      <% @tags.each do |tag| %>
+      <li class="tag-li">
+        <%= f.check_box :tags, {multiple: true, class: "tag"}, tag, nil %>
+        <% id = ("tags_" + tag.gsub(" ", "_")).to_sym %>
+        <%= f.label id, tag, class: "tag-label" %>
+      </li>
+      <% end %>
+    </ul>
+    <%= f.submit "Submit Recommendation", id: "rec-submit-button" %>
+  <% end %>
+
+  <%= form_tag root_path, class: "add-tags-form" do %>
+    <%= text_field_tag :new_tag_description, nil, placeholder: "Add a tag" %>
+    <%= submit_tag "Add", class: "add-tag" %>
+  <% end %>
+</section>
+
+<div class="rec-errors">
+  <%= render "shared/errors" %>
+</div>

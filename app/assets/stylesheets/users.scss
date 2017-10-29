@@ -1,4 +1,6 @@
 @import "global";
+
+// REGISTRATION STYLES
 .new-user-form{
     border-radius: 5px;
   background-color: #e5e5e5;
@@ -36,6 +38,8 @@
     width: 290px;
   }
 }
+
+// LOGIN STYLES
 #login-page {
   h1 {
     color: #468499;
@@ -67,4 +71,54 @@
     font-size: 1em;
     @include submit;
   }
+}
+
+// PROFILE STYLES
+.user-profile {
+  width: 80%;
+  margin: auto;
+}
+
+.profile-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
+.recent-recs-section{
+  margin: 0px 20px 0px 20px;
+  border: 1px solid #468499;
+  border-radius: 5px;
+  padding: 0px 15px;
+}
+
+.saved-doctors-section {
+  margin: 0px 20px 0px 20px;
+  border: 1px solid #468499;
+  border-radius: 5px;
+  padding: 0px 15px;
+}
+
+.tag-list {
+  display: block;
+}
+
+.single-rec {
+  width: 98%;
+  border-top: 1px dotted #468499;
+}
+
+.rec-tags-profile {
+  display: inline-block;
+  list-style-type: none;
+  border: 1px solid #468499;
+  border-radius: 5px;
+  padding: 5px;
+  margin: 5px;
+}
+
+.review-profile {
+  border: 1px solid #468499;
+  padding: 10px;
+  border-radius: 5px;
 }
