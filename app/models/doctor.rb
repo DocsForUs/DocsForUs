@@ -6,6 +6,7 @@ class Doctor < ApplicationRecord
   def self.search_doctor(doctor)
     response = Doctor.search_api(doctor)
     response =  JSON.parse response.body, symbolize_names: true
+    p response
     doctors_array = []
     if response[:data]
       response[:data].each do |doc|
@@ -34,6 +35,7 @@ class Doctor < ApplicationRecord
       last_name: doctor[:profile][:last_name],
       gender: doctor[:profile][:gender],
       specialty: doctor[:specialties][0][:name],
+      phone: doctor[:practices].last[:phones][0][:number],
       location: []
     }
     #practices
