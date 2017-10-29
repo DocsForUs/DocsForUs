@@ -1,0 +1,20 @@
+<h2>Welcome, <%= @user.username %></h2>
+
+<section class="recent-recs-section">
+  <h3>Your recommendations</h3>
+  <% if @user.recommendations %>
+    <% @user.recommendations.each do |rec| %>
+      <h4>Dr. <%= rec.doctor.first_name %> <%= rec.doctor.last_name %></h4>
+      <p><%= rec.review %></p>
+      <ul class="tag-list">
+        <% rec.tags.each do |tag| %>
+          <li>
+            <%= tag.description %>
+          </li>
+        <% end %>
+      </ul>
+    <% end %>
+  <% else %>
+    <p>You have not recommended any doctors yet.</p>
+  <% end %>
+</section>
