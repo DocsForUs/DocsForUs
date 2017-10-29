@@ -1,4 +1,11 @@
 <div class="new-user-form">
+  <% if defined?@errors %>
+  <div class="errors">
+    <% @errors.each do |e| %>
+      <p> <%= e %> </p>
+    <% end %>
+  </div>
+  <% end %>
   <%= form_for @user do |f| %>
     <%= f.text_field :username, placeholder: 'username', required: true %>
     <%= f.email_field :email, placeholder: 'email', required: true %>

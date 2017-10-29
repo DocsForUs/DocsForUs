@@ -24,6 +24,8 @@ gem 'normalize-rails'
 
 # HTTP Client
 gem 'httparty'
+gem 'jquery-rails'
+# Use CoffeeScript for .coffee assets and views
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 # gem 'jbuilder', '~> 2.5'
