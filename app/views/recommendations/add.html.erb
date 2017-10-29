@@ -14,8 +14,18 @@
 
   <% end %>
   <aside class="partials-doctors">
-    <%= render 'doctors/rec_search' %>
-    <%= render 'doctors/rec_api_search' %>
-    <%= render 'doctors/new_button' %>
+    <% if @our_doctors %>
+      <% if @our_doctors.length > 0 %>
+    <%= render 'doctors/rec_search'  %>
+      <% end %>
+    <% end %>
+    <% if @api_doctors %>
+      <% if@api_doctors.length > 0 %>
+    <%= render 'doctors/rec_api_search'  %>
+      <% end %>
+    <% end %>
+    <% if @show_new_doctor %>
+      <%= render 'doctors/new_button' %>
+    <% end %>
   </aside>
 </section>
