@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   root to: "index#home"
   resources :users, only: [:new, :create]
   resources :doctors, only: [:new, :create, :index, :show]
+  resources :recommendations, only: [:new, :create]
+
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'
   get '/logout' => 'sessions#destroy'

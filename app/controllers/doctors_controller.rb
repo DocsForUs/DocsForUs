@@ -19,6 +19,9 @@ class DoctorsController < ApplicationController
     end
   end
 
+  def index
+  end
+
   def show
     @doctor = Doctor.find(doctor_params[:id])
   end
@@ -27,4 +30,5 @@ class DoctorsController < ApplicationController
   def doctor_params
     params.require(:doctor).permit(:first_name, :last_name, :specialty, :gender, :email_address, :phone_number, :street, :city, :state, :zipcode)
   end
+
 end

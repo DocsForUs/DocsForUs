@@ -1,10 +1,12 @@
 @import "global";
 .new-user-form{
+    border-radius: 5px;
   background-color: #e5e5e5;
   display: flex;
   flex-direction: column;
   width: 30%;
   margin: auto;
+  margin-top: 20px;
   padding: 15px;
   input{
     margin: 10px auto;
@@ -26,13 +28,43 @@
   text-align: center;
 }
 
-.login-form{
-  display: block;
-  position: absolute;
-  left: 40%;
-  padding: 25px 25px;
-  margin: 25px;
-  width: 20%;
-  text-align: center;
-  border: 2px solid black;
+#new-user-page {
+  h1 {
+    color: #468499;
+    margin: auto;
+    margin-top: 20px;
+    width: 290px;
+  }
+}
+#login-page {
+  h1 {
+    color: #468499;
+    margin: auto;
+    margin-top: 20px;
+    width: 90px;
+  }
+}
+
+.login-form {
+  border-radius: 5px;
+  background-color: #e5e5e5;
+  display: flex;
+  flex-direction: column;
+  width: 30%;
+  margin: auto;
+  margin-top: 20px;
+  padding: 15px;
+  input{
+    margin: 10px auto;
+  }
+  input[type=text], input[type=email], input[type=password]{
+    @include form-fields;
+    display: block;
+    font-size: 1em;
+  }
+  input[type=submit]{
+    display: block;
+    font-size: 1em;
+    @include submit;
+  }
 }

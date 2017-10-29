@@ -1,18 +1,16 @@
 require 'rails_helper'
 
 RSpec.describe DoctorsController, type: :controller do
-  before(:each) {
-    Doctor.create(first_name: 'Rita', last_name: 'Bobita', specialty: 'pediatrician', zipcode: '93023', email_address: 'rita@rita.com')
-  }
+  let!(:doctor) { create(:doctor) }
 
   describe "GET #show" do
      it "responds with a status code of 200" do
-       get :show, { params: { id: 1 } }
+       get :show, { params: { id: doctor.id } }
        expect(response).to have_http_status 200
      end
 
      it "renders the show template" do
-       get :show, { params: { id: 1 } }
+       get :show, { params: { id: doctor.id } }
        expect(response).to render_template(:show)
      end
    end
