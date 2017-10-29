@@ -12,7 +12,8 @@
   <%= f.submit "Search", html: {class: "search-submit"}%>
 
   <% end %>
-
-  <%= render 'doctors/rec_search' %>
-  <%= render 'doctors/rec_api_search' %>
+  <aside class="partials-doctors">
+    <%= render 'doctors/rec_search' %>
+    <%= render 'doctors/rec_api_search' %>
+  </aside>
 </section>

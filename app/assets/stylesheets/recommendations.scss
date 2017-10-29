@@ -21,13 +21,12 @@
   background:#f4f4f4;
   background:rgba(244,244,244,.79);
   border: 1px solid #d3d3d3;
-	left: 50%;
+  margin: 0 auto;
   padding: 2px 5px;
   padding-top: 10px;
   padding-bottom: 10px;
-  position: absolute;
-	margin: -22px 0 0 -170px;
-	top: 50%;
+
+  height: 200px;
   width:339px;
   box-shadow:0 4px 9px rgba(0,0,0,.37);
   -moz-box-shadow:0 4px 9px rgba(0,0,0,.37);
@@ -157,4 +156,16 @@
     margin: 5px;
     background-color: white;
   }
+}
+
+.partials-doctors {
+  margin: 0 auto;
+}
+
+.rec-search-result {
+  padding: 25px 50px;
+  border: 1px solid #468499;
+  border-radius: 5px;
+  max-width: 300px;
+  float: left;
 }

@@ -1,5 +1,8 @@
 <% if defined?@our_doctors %>
-<div class="rec-search-result">
+<div class="rec-search-result left">
+  <h3>
+    Doctors we already love
+  </h3>
   <% @our_doctors.each do |doctor| %>
     <p>
     <%= doctor.first_name%> <%= doctor.last_name %>
