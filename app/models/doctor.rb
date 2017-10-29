@@ -6,7 +6,6 @@ class Doctor < ApplicationRecord
   def self.search_doctor(doctor)
     response = Doctor.search_api(doctor)
     response =  JSON.parse response.body, symbolize_names: true
-    p response
     doctors_array = []
     if response[:data]
       response[:data].each do |doc|

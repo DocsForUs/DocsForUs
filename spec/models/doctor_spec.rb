@@ -11,10 +11,9 @@ describe Doctor, type: :model do
       expect(response).to eq({:location=>[{:city=>"Seattle", :state=>"WA", :street=>"1200 12th Ave S", :zip=>"98144"}, {:city=>"Seattle", :state=>"WA", :street=>"1200 12th Ave S", :zip=>"98144"}], :first=>"Sara", :last=>"Waterman", :gender=>"female"})
     end
 
-    it 'returns an array of doctors information parsed' do
+    xit 'returns an array of doctors information parsed' do
       doctor = {first_name: "John", last_name: "Christopher", city: "seattle", state: "wa"}
       response = Doctor.search_doctor(doctor)
-      p response[0]
       expect(response.count).to eq 3
     end
 
