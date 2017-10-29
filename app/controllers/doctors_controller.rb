@@ -2,6 +2,7 @@
 
 class DoctorsController < ApplicationController
     include StatesHelper
+    include SpecialtyDataHelper
     include HTTParty
   def find
       @states = helpers.states
@@ -32,6 +33,9 @@ class DoctorsController < ApplicationController
 
   def index
    @insurance = helpers.get_insurance
+   @states = helpers.states
+   @specialties = helpers.get_specialties
+   p @specialties
    @q = Doctor.ransack(params[:q])
    @doctors = @q.result
   end
@@ -46,11 +50,7 @@ class DoctorsController < ApplicationController
    params.require(:doctor).permit(:first_name, :last_name,:city,:state)
   end
 
-<<<<<<< HEAD
-end
-=======
   def doctor_params
     params.require(:doctor).permit(:first_name, :last_name, :specialty, :gender, :email_address,:phone_number,:street,:city,:state,:zipcode)
   end
 end#end of class
->>>>>>> dc14029e337ce745864fc41dc9f478d7cfee8de0

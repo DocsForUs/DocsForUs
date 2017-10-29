@@ -22,7 +22,7 @@ gem 'uglifier', '>= 1.3.0'
 # Akin to normalize css file
 gem 'normalize-rails'
 
-=======
+
 #Ransack Search Gem
 gem 'ransack'
 # HTTP Client
