@@ -27,12 +27,4 @@ class DoctorsController < ApplicationController
   def full_search_params
   end
 
-  def specialties_list
-    alternative_medicine = {'acupuncturist' => 'Acupuncturist'}
-    general = {'primary-care-nurse-practitioner' => 'Primary Care Nurse Practitioner', "primary-care" => "Primary Care"}
-    mental_health = {'group-psychotherapy-psychologist' => "Group Psychotherapy Psychologist", 'professional-counselor' => "Professional Counselor", 'psychiatrist' => "Psychiatrist", 'psychiatry-neurology-addiction-medicine' =>  'Psychiatry & Neurology Addiction Medicine', 'health-service-psychologist' => 'Health Service Psychologist', 'addiction-psychiatrist'=> 'Addiction Psychiatrist', 'clinical-psychiatrist'=> 'Clinical Psychiatrist', 'rehabilitation-counselor' => 'Rehabilitation Counselor'}
-    cosmetic = ['facial-plastic-surgeon']
-    specialties = []
-    7a3b4f815a099b84eddd9c78187d4d0d
-  end
 end
