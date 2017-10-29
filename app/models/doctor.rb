@@ -1,4 +1,5 @@
 class Doctor < ApplicationRecord
+  has_many :recommendations
   validates :first_name, :last_name, :specialty, :zipcode, presence: true
   validate :email_xor_phone_number
 

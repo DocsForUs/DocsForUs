@@ -21,7 +21,7 @@ gem 'uglifier', '>= 1.3.0'
 
 # Akin to normalize css file
 gem 'normalize-rails'
-
+gem 'jquery-rails'
 # Use CoffeeScript for .coffee assets and views
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
