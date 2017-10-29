@@ -6,6 +6,8 @@
     <%= search_form_for @q do |f| %>
     <%= f.label 'first name' %>
     <%= f.search_field :first_name_cont %>
+    <%= f.label 'City' %>
+    <%= f.select :city_eq, options_from_collection_for_select(Doctor.order('city ASC'), 'id','city', @q.city_eq), include_blank: true %>
     <%= f.submit %>
 <% end %>
   </div>
@@ -20,6 +22,7 @@
         <% @doctors.each do |doctor| %>
         <tr>
           <td><%= doctor.first_name %></td>
+          <td><%= doctor.city %></td>
         </tr>
         <% end %>
       </tbody>
