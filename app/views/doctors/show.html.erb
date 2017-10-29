@@ -16,12 +16,11 @@
       <div class="w3-card-4 w3-dark-grey" style="width:50%">
          <div class="w3-container w3-center">
             <img src="img_avatar3.png" alt="Avatar" style="width:80%">
-            <h3> <%= @doctor.first_name %> <%= @doctor.last_name %>  </h3>
-            <% unless @specialty.blank? %>
-              <p><%= @specialty %></p>
+            <h3><%= @doctor.first_name %> <%= @doctor.last_name %>  </h3>
+            <% if @doctor.specialty %>
+              <p><%= @doctor.specialty %></p>
             <% end %>
-            <div class="">
-            </div>
+
           </div>
        </div>
     </div>
@@ -35,9 +34,22 @@
       </ul>
       <% end %>
     <% end %>
-
+    <div class="doctor-tags-div">
+      <% if !@doctor.recommendations.empty? %>
+        <h4>Users said this doctor...</h4>
+        <ul class="doctor-tags">
+          <% @doctor.recommendations.each do |rec| %>
+            <% rec.tags.each do |t| %>
+              <li>
+                <%= t.description %>
+              </li>
+            <% end %>
+          <% end %>
+        </ul>
+      <% end %>
+    </div>
   </div>
   <div class="three">
-    <button class="">Add a Review</button>
+    <%= link_to "Recommend this doctor", new_recommendation_path %>
   </div>
   </div>
