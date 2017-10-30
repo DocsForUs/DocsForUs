@@ -1,6 +1,11 @@
+
+
 class DoctorsController < ApplicationController
     include StatesHelper
+    include SpecialtyDataHelper
     include HTTParty
+    include GendersHelper
+    include TagsHelper
   def find
       @states = helpers.states
     if search_params[:first_name] != "" && search_params[:last_name] != ""
@@ -16,6 +21,13 @@ class DoctorsController < ApplicationController
 
   def new
     @doctor = Doctor.new
+    @states = helpers.states
+    @genders = helpers.genders
+    @specialties = helpers.get_specialties + Doctor.select('specialty').distinct.map {|dr| dr.specialty}
+  end
+
+  def index
+    @doctor = Doctor.all
   end
 
   def create
@@ -45,9 +57,26 @@ class DoctorsController < ApplicationController
   end
 
   def index
+   @insurance = helpers.get_insurance
+   @states = helpers.states
+   @genders = helpers.genders
+   @specialties = helpers.get_specialties + Doctor.select('specialty').distinct.map {|dr| dr.specialty}
+   @tags = helpers.tags + Tag.select('description').distinct.map {|tag| tag.description}
+   @q = Doctor.ransack(params[:q])
+   @doctors = @q.result.includes(:recommendations)
   end
 
   def show
+    @doctor = Doctor.find(params[:id])
+    @tags = []
+    if @doctor.recommendations.length > 0
+      @doctor.recommendations.each do |rec|
+        rec.tags.each do |tag|
+          @tags << tag
+        end
+      end
+      @tags = @tags.uniq
+    end
   end
 
   private
@@ -58,10 +87,12 @@ class DoctorsController < ApplicationController
   end
 
   def doctor_params
-    params.require(:doctor).permit(:first_name, :last_name, :specialty, :gender, :email_address,:phone_number,:street,:city,:state,:zipcode)
+    params.require(:doctor).permit(:first_name, :last_name, :specialty, :gender, :email_address, :phone_number, :street, :city, :state, :zipcode)
   end
+
   def insurance_param
     params.require(:doctor).permit(:uid)
   end
 
 end#end of class
+

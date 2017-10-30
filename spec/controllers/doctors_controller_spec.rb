@@ -15,6 +15,25 @@ RSpec.describe DoctorsController, type: :controller do
 
   end
 
+  describe "GET #show" do
+     it "responds with a status code of 200" do
+       get :show, params: {id: doctor.id}
+       expect(response).to have_http_status 200
+     end
+
+     it "renders the show template" do
+       get :show, params: {id: doctor.id}
+       expect(response).to render_template(:show)
+     end
+
+     xit "assigns a tags instance variable" do
+       rec = build(:recommendation)
+       tag = build(:tag)
+       rec.tags << tag
+       expect(assigns[:tags]).to include tag
+     end
+   end
+
   describe "doctors#new" do
     before(:each) {get :new}
     it "returns the status of 200" do
@@ -34,6 +53,7 @@ RSpec.describe DoctorsController, type: :controller do
         expect(response.status).to eq 302
       end
     end
+
     context "when inputs are invalid" do
       before(:each) {post :create, params: {doctor: {first_name: 'Ash', last_name: 'Jay', specialty: 'General',zipcode: 35816,city:'seattle',state:'wa'}}}
       it "assigns the errors variable" do

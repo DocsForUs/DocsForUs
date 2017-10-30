@@ -3,7 +3,7 @@
   background-color: #e5e5e5;
   display: flex;
   flex-direction: column;
-  width: 30%;
+  width: 40%;
   margin: auto;
   padding: 15px;
   input{
@@ -36,31 +36,47 @@
     padding-top: 20px;
     width: 300px;
   }
+}
+
 .container {
   width: 90%;
   margin: auto;
   height: 100vw;
   background-color: white;
 }
+
 .doctor-search-box {
   border-radius: 5px;
-  background-color: lightgrey;
-  display: flex;
-  flex-direction: column;
-  width: 50%;
+  background-color: #e5e5e5;
+  width: 650px;
   margin: auto;
-  height: 300px;
+  height: relative;
   padding: 15px;
   margin-top: 20px;
   input{
-    margin: 10px auto;
-  }
-  input[type=text] {
-    @include form-fields;
     display: block;
-    font-size: 1em;
+    margin-bottom: 10px;
+    border-radius: 5px;
   }
+  span {
+    display: block;
+    margin-bottom: 10px;
   }
+  input[type=submit] {
+    display: block;
+    margin: auto;
+    @include submit;
+    margin-right: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+  select {
+    display: block;
+  }
+
+}
+
+
   .search-results-container {
     margin-top: 20px;
     border-top: 5px solid #269ccc;
@@ -68,17 +84,125 @@
     height: 70vw;
   }
 
+
   table {
     padding-top: 20px;
     width: 80%;
     margin: auto;
     .table-heading {
       text-align: center;
-      background-color: lightgrey;
+      background-color: #e5e5e5;
       th {
-        width: 25%;
+        width: 10%;
         height: 20px;
       }
     }
+    td a {
+      text-decoration: none;
+      color: #269ccc;
+    }
+    tr:nth-child(2n){
+      background-color: #c7d7dd;
+    }
+    td p {
+      padding: 0;
+      margin: 0;
+      border: 1px solid #468499;
+      border-radius: 5px;
+      margin: 1px;
+      text-align: center;
+    }
+    td {
+      padding: 4px;
+    }
+    .table-tags{
+      padding: 0px;
+    }
   }
+
+/*Doctor Show Page*/
+
+.doctor-info-container {
+  box-sizing: border-box;
+  width: 70%;
+  margin: auto;
+  border: 1px solid #468499;
+  padding: 0px 15px;
+  border-radius: 5px;
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  h3 {
+    margin-left: 20px;
+    text-align: center;
+  }
+}
+
+.doctor-main {
+  flex-shrink: 30%;
+  flex-grow: 100%;
+  text-align: center;
+  margin: 10px 10px 10px 0px;
+  padding-right: 20px;
+  border-right: 1px dotted #468499;
+  .doctor-links {
+    list-style-type: none;
+    a {
+      color: #468499;
+    }
+    li {
+      padding: 10px 0px;
+    }
+  }
+}
+
+.doctor-details {
+  flex-basis: 60%;
+  margin: 0px 10px;
+}
+
+.doc-info-list {
+  list-style-type: none;
+}
+
+.doctor-reviews {
+  flex-basis: 95%;
+  margin: auto;
+  border-top: 1px dotted #468499;
+}
+
+.single-rec {
+  width: 98%;
+  padding: 10px;
+  border-top: 1px dotted #468499;
+}
+
+.doctor-tags li {
+  display: inline-block;
+  list-style-type: none;
+  border: 1px solid #468499;
+  border-radius: 5px;
+  padding: 5px;
+  margin: 5px;
+}
+
+.button {
+  color: darkslategrey;
+  background-color: white;
+  font-size: 18px;
+  letter-spacing: .15rem;
+  text-align: center;
+  border-radius: 5px;
+  width: 120px;
+  margin:2rem 2rem;
+}
+.reset {
+  width: 180px;
+}
+
+.button:hover {
+  color: #ffffff;
+  background-color: #c7d7dd;
+
 }
