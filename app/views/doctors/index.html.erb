@@ -15,7 +15,7 @@
     <%= f.label 'Specialty' %>
     <%= f.select :specialty_matches_any, options_for_select(@specialties, :last), include_blank: true %>
     <%= f.label 'Insurance' %>
-    <%= f.select :insurances_insurance_name_in, options_for_select(@insurance, :first), include_blank: true%>
+    <%= f.select :insurances_insurance_uid_eq, options_for_select(@insurance, :first), include_blank: true%>
     <%= f.label 'Gender' %>
     <%= f.select :gender_in, options_for_select(@genders, 'gender'),{}, multiple: true, include_blank: true %>
     <%= f.label 'Tags' %>
