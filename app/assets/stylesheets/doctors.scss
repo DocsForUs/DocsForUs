@@ -63,6 +63,7 @@
   input{
     display: block;
     margin-bottom: 10px;
+    border-radius: 5px;
   }
   span {
     display: block;
@@ -119,7 +120,7 @@
 }
 
 .button {
-  color: #999999;
+  color: darkslategrey;
   background-color: white;
   font-size: 18px;
   letter-spacing: .15rem;
