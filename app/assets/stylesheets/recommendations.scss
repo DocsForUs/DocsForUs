@@ -1,4 +1,4 @@
-@import "global";
+@import "variables";
 
 .instruction-box {
   width: 400px;
@@ -6,7 +6,7 @@
   margin-top: 50px;
   margin-bottom: 50px;
   height: 200px;
-  border: 2px solid #468499;
+  border: 2px solid $teal;
   border-radius: 5px;
   text-align: center;
 }
@@ -20,9 +20,8 @@
 }
 
 .search-form {
-  background:#f4f4f4;
-  background:rgba(244,244,244,.79);
-  border: 1px solid #d3d3d3;
+  background:$bg-grey;
+  border: 1px solid $border-grey;
   margin: 0 auto;
   margin-bottom: 50px;
   padding: 2px 5px;
@@ -30,52 +29,35 @@
   padding-bottom: 10px;
   height: 200px;
   width:339px;
-  box-shadow:0 4px 9px rgba(0,0,0,.37);
-  -moz-box-shadow:0 4px 9px rgba(0,0,0,.37);
-  -webkit-box-shadow:0 4px 9px rgba(0,0,0,.37);
   border-radius: 10px;
-  -moz-border-radius: 10px;
-  -webkit-border-radius: 10px
 }
 
 .search-form input {
   display: block;
-	background:#fefefe;
+  background: $search-button-grey;
 	border: none;
 	font:12px/12px 'HelveticaNeue', Helvetica, Arial, sans-serif;
 	margin-right: 5px;
   margin-bottom: 10px;
 	padding: 10px;
 	width: 216px;
-	box-shadow: 0 0 4px rgba(0,0,0,.4) inset, 1px 1px 1px rgba(255,255,255,.75);
-	-moz-box-shadow: 0 0 4px rgba(0,0,0,.4) inset, 1px 1px 1px rgba(255,255,255,.75);
-	-webkit-box-shadow: 0 0 4px rgba(0,0,0,.4) inset, 1px 1px 1px rgba(255,255,255,.75);
   border-radius: 9px;
-  -moz-border-radius: 9px;
-  -webkit-border-radius: 9px
 }
 
 .search-form select {
   display: inline;
   margin-bottom: 5px;
-    margin-left: 5px;
+  margin-left: 5px;
 }
 
 
 .search-form input:focus {
 		outline: none;
-		box-shadow:0 0 4px #0d76be inset;
-		-moz-box-shadow:0 0 4px #0d76be inset;
-		-webkit-box-shadow:0 0 4px #0d76be inset;
+		box-shadow:0 0 4px $teal inset;
 	}
 
-  .search-form input::-webkit-input-placeholder {
+  .search-form input::placeholder {
   	font-style: italic;
-  	line-height: 15px
-	}
-
-	.search-form input:-moz-placeholder {
-	  font-style: italic;
   	line-height: 15px
 	}
 
@@ -83,14 +65,14 @@
   margin-left: 5px;
   font-size: .8em;
   line-height: 15px;
-  color: grey;
+  color: $text-grey;
   font-style: italic;
   display: inline;
 }
 
 .search-submit {
   display: block;
-  background-color:  #468499;
+  background-color:  $teal;
   margin-bottom: 10px;
 }
 
@@ -105,7 +87,7 @@
 }
 
 .tag-label {
-  border: 1px solid #468499;
+  border: 1px solid $teal;
   border-radius: 5px;
   padding: 5px;
   margin: 5px;
@@ -117,7 +99,7 @@
 }
 
 .tag:checked + .tag-label {
-  background-color: #468499;
+  background-color: $teal;
   color: white;
 }
 
@@ -135,14 +117,14 @@
   display: block;
   font-size: 1em;
   &:focus {
-    border: 1px solid #468499;
+    border: 1px solid $teal;
     outline: none;
-    box-shadow: 0 0 10px #468499;
+    box-shadow: 0 0 10px $teal;
   }
 }
 
 #rec-submit-button {
-  border: 1px solid #468499;
+  border: 1px solid $teal;
   border-radius: 5px;
   padding: 10px;
   margin: 5px;
@@ -160,13 +142,13 @@
     font-size: 1em;
     margin-right: 5px;
     &:focus {
-      border: 1px solid #468499;
+      border: 1px solid $teal;
       outline: none;
-      box-shadow: 0 0 10px #468499;
+      box-shadow: 0 0 10px $teal;
     }
   }
   .add-tag {
-    border: 1px solid #468499;
+    border: 1px solid $teal;
     border-radius: 5px;
     padding: 5px;
     margin: 5px;
@@ -196,19 +178,7 @@
   min-height: auto;
   margin: 10px;
   padding: 25px 50px;
-  border: 1px solid #468499;
+  border: 1px solid $teal;
   border-radius: 5px;
   max-width: 300px;
-}
-
-.new-doctor-button {
-  font: bold 11px Arial;
-  text-decoration: none;
-  background-color: #EEEEEE;
-  color: #333333;
-  padding: 2px 6px 2px 6px;
-  border-top: 1px solid #CCCCCC;
-  border-right: 1px solid #333333;
-  border-bottom: 1px solid #333333;
-  border-left: 1px solid #CCCCCC;
 }

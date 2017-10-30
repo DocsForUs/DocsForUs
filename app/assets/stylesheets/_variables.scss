@@ -1,3 +1,10 @@
+// VARIABLES
+$bg-grey: #e5e5e5;
+$teal: #468499;
+$border-grey: #d3d3d3;
+$search-button-grey: #fefefe;
+$text-grey: grey;
+
 @mixin form-fields {
   padding: 15px;
 }
@@ -14,3 +21,5 @@
   color: #ffffff;
   }
 }
+
+// helvetica, helvetica/arial/sans-serif

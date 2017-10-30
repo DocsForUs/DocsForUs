@@ -1,6 +1,6 @@
-@import "global";
+@import "variables";
 .new-doctor-form{
-  background-color: #e5e5e5;
+  background-color: $bg-grey;
   display: flex;
   flex-direction: column;
   width: 40%;
@@ -31,7 +31,7 @@
     height: 100vw;
     width: 100%;
   h1 {
-    color: #468499;
+    color: $teal;
     margin: auto;
     padding-top: 20px;
     width: 300px;
@@ -47,7 +47,7 @@
 
 .doctor-search-box {
   border-radius: 5px;
-  background-color: #e5e5e5;
+  background-color: $bg-grey;
   width: 650px;
   margin: auto;
   height: relative;
@@ -77,7 +77,7 @@
 }
   .search-results-container {
     margin-top: 20px;
-    border-top: 5px solid #269ccc;
+    border-top: 5px solid $teal;
     width: 100%;
     height: 70vw;
   }
@@ -89,7 +89,7 @@
     margin: auto;
     .table-heading {
       text-align: center;
-      background-color: #e5e5e5;
+      background-color: $bg-grey;
       th {
         width: 10%;
         height: 20px;
@@ -105,7 +105,7 @@
     td p {
       padding: 0;
       margin: 0;
-      border: 1px solid #468499;
+      border: 1px solid $teal;
       border-radius: 5px;
       margin: 1px;
       text-align: center;
@@ -124,7 +124,7 @@
   box-sizing: border-box;
   width: 70%;
   margin: auto;
-  border: 1px solid #468499;
+  border: 1px solid $teal;
   padding: 0px 15px;
   border-radius: 5px;
   display: flex;
@@ -143,11 +143,11 @@
   text-align: center;
   margin: 10px 10px 10px 0px;
   padding-right: 20px;
-  border-right: 1px dotted #468499;
+  border-right: 1px dotted $teal;
   .doctor-links {
     list-style-type: none;
     a {
-      color: #468499;
+      color: $teal;
     }
     li {
       padding: 10px 0px;
@@ -167,19 +167,19 @@
 .doctor-reviews {
   flex-basis: 95%;
   margin: auto;
-  border-top: 1px dotted #468499;
+  border-top: 1px dotted $teal;
 }
 
 .single-rec {
   width: 98%;
   padding: 10px;
-  border-top: 1px dotted #468499;
+  border-top: 1px dotted $teal;
 }
 
 .doctor-tags li {
   display: inline-block;
   list-style-type: none;
-  border: 1px solid #468499;
+  border: 1px solid $teal;
   border-radius: 5px;
   padding: 5px;
   margin: 5px;
@@ -207,7 +207,7 @@
 .save-button {
   background-color: inherit;
   border: none;
-  color: #468499;
+  color: $teal;
   text-decoration: underline;
   cursor: pointer;
 }
