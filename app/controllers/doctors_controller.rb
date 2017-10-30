@@ -20,10 +20,15 @@ class DoctorsController < ApplicationController
   end
 
   def new
-    @doctor = Doctor.new
-    @states = helpers.states
-    @genders = helpers.genders
-    @specialties = helpers.get_specialties + Doctor.select('specialty').distinct.map {|dr| dr.specialty}
+    if current_user
+      @doctor = Doctor.new
+      @states = helpers.states
+      @genders = helpers.genders
+      @specialties = helpers.get_specialties + Doctor.select('specialty').distinct.map {|dr| dr.specialty}
+    else
+      flash[:alert] = 'You must be logged in to add a doctor'
+      redirect_to login_path
+    end
   end
 
   def index
