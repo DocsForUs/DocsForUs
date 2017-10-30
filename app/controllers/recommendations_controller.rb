@@ -13,7 +13,7 @@ class RecommendationsController < ApplicationController
 
   def new
     if current_user
-      @doctor = Doctor.first
+      @doctor = Doctor.find(params[:id])
       @recommendation = Recommendation.new(doctor: @doctor, user: current_user)
       @tags = Tag.default_tags
       @tag = Tag.new

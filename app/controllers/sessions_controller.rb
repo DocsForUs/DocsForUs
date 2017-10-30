@@ -7,16 +7,11 @@ class SessionsController < ApplicationController
 
   def create
     @user = User.find_by(email: user_params[:email])
-    if @user
-      valid = @user.authenticate(user_params[:password])
-      if valid
-        session[:user_id] = @user.id
-        redirect_to user_path(@user)
-      else
-        @error = "Invalid credentials"
-      end
+    if @user && @user.authenticate(user_params[:password])
+      session[:user_id] = @user.id
+      redirect_to user_path(@user)
     else
-      @error = "Invalid credentials"
+      flash[:alert] = "Your email or password is incorrect"
       redirect_to login_path
     end
   end
