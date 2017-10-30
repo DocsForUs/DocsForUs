@@ -31,23 +31,33 @@ class DoctorsController < ApplicationController
   end
 
   def create
-    @doctor = Doctor.new(doctor_params)
-    insurances = Doctor.get_insurances(insurance_param)
-    if @doctor.save
-      doc = Doctor.find(@doctor.id)
-      insurances.each do |insurance|
-        insurance_database = Insurance.find_by(insurance_uid: insurance[:uid])
-        if insurance_database
-          doc.insurances << insurance_database
-        else
-          insurance_new = Insurance.create(insurance_uid: insurance[:uid], insurance_name: insurance[:name])
-          doc.insurances << insurance_new
-        end
+    if params[:user_id]
+      @doctor = Doctor.find(params[:doctor_id])
+      if current_user.doctors.include?(@doctor)
+        redirect_to doctor_path(@doctor)
+      else
+        current_user.doctors << @doctor
+        redirect_to doctor_path(@doctor)
       end
-      redirect_to new_recommendation_path(id: @doctor.id)
     else
-      @errors = @doctor.errors.full_messages
-      render :new
+      @doctor = Doctor.new(doctor_params)
+      insurances = Doctor.get_insurances(insurance_param)
+      if @doctor.save
+        doc = Doctor.find(@doctor.id)
+        insurances.each do |insurance|
+          insurance_database = Insurance.find_by(insurance_uid: insurance[:uid])
+          if insurance_database
+            doc.insurances << insurance_database
+          else
+            insurance_new = Insurance.create(insurance_uid: insurance[:uid], insurance_name: insurance[:name])
+            doc.insurances << insurance_new
+          end
+        end
+        redirect_to new_recommendation_path(id: @doctor.id)
+      else
+        @errors = @doctor.errors.full_messages
+        render :new
+      end
     end
   end
 
@@ -90,4 +100,3 @@ class DoctorsController < ApplicationController
   end
 
 end#end of class
-
