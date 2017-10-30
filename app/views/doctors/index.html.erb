@@ -47,7 +47,7 @@
             <% doctor.recommendations.each do |rec| %>
             <% if rec.tags.length > 0 %>
               <% rec.tags.each do |tag| %>
-                <%= tag.description %>
+              <p><%= tag.description %></p>  
               <% end %>
             <% end %>
             <% end %>
