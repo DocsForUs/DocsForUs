@@ -7,7 +7,6 @@ class DoctorsController < ApplicationController
     include GendersHelper
   def find
       @states = helpers.states
-      @genders = helpers.genders
     if search_params[:first_name] != "" && search_params[:last_name] != ""
       @our_doctors = Doctor.where(first_name: search_params[:first_name], last_name: search_params[:last_name])
       doctor_args = {first_name: search_params[:first_name], last_name: search_params[:last_name],city: search_params[:city].downcase, state: search_params[:state].downcase}
@@ -21,6 +20,7 @@ class DoctorsController < ApplicationController
 
   def new
     @doctor = Doctor.new
+    @states = helpers.states
   end
 
   def create
@@ -36,7 +36,7 @@ class DoctorsController < ApplicationController
   def index
    @insurance = helpers.get_insurance
    @states = helpers.states
-  @genders = helpers.genders
+   @genders = helpers.genders
    @specialties = helpers.get_specialties + Doctor.select('specialty').distinct.map {|dr| dr.specialty}
    @q = Doctor.ransack(params[:q])
    @doctors = @q.result.includes(:recommendations)
