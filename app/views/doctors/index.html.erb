@@ -36,26 +36,28 @@
           <th><%= sort_link(@q, :state) %></th>
           <th><%= sort_link(@q, :specialty) %></th>
           <th><%= sort_link(@q, :tags) %></th>
+          <th>Select</th>
         </tr>
       </thead>
       <tbody>
         <% @doctors.each do |doctor| %>
         <tr>
-          <td><%= link_to doctor.first_name, doctor_path(doctor.id) %></td>
+          <td class='table-name'><%= doctor.first_name %></td>
           <td><%= doctor.last_name %></td>
           <td><%= doctor.city %></td>
           <td><%= doctor.gender %></td>
           <td><%= doctor.state %></td>
           <td><%= doctor.specialty %></td>
-          <td> <% if doctor.recommendations.length > 0 %>
+          <td class="table-tags"> <% if doctor.recommendations.length > 0 %>
             <% doctor.recommendations.each do |rec| %>
             <% if rec.tags.length > 0 %>
               <% rec.tags.each do |tag| %>
-                <%= tag.description %>
+              <p><%= tag.description %></p>
               <% end %>
             <% end %>
             <% end %>
           <% end %> </td>
+          <td><%= link_to "View Doctor", doctor_path(doctor.id) %></td>
         </tr>
         <% end %>
       </tbody>
