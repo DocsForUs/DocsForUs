@@ -2,6 +2,8 @@ class Doctor < ApplicationRecord
   has_many :recommendations
   validates :first_name, :last_name, :specialty, :zipcode, presence: true
   validate :email_xor_phone_number
+  has_many :doctors_insurances
+  has_many :insurances, through: :doctors_insurances
 
   def self.search_doctor(doctor)
     response = Doctor.search_api(doctor)
@@ -13,6 +15,18 @@ class Doctor < ApplicationRecord
       end
     end
     doctors_array
+  end
+
+  def self.get_insurances(doctor_uid)
+    uid = doctor_uid["uid"]
+    response = Doctor.insurance_search_api(uid)
+    response =  JSON.parse response.body, symbolize_names: true
+    insurance_array = []
+    if response[:data]
+      doc = response[:data]
+        insurance_array = Doctor.insurance_data(doc)
+    end
+   insurance_array
   end
 
   private
@@ -28,6 +42,10 @@ class Doctor < ApplicationRecord
     HTTParty.get("https://api.betterdoctor.com/2016-03-01/doctors?name=#{full_name}&location=#{location}&limit=10&user_key=#{ENV['BETTER_DOCTOR_USER_KEY']}", format: :plain)
   end
 
+  def self.insurance_search_api(uid)
+    HTTParty.get("https://api.betterdoctor.com/2016-03-01/doctors/#{uid}?user_key=#{ENV['BETTER_DOCTOR_USER_KEY']}", format: :plain)
+  end
+
   def self.doctor_data(doctor)
     doctor_hash = {
       first_name: doctor[:profile][:first_name],
@@ -35,7 +53,10 @@ class Doctor < ApplicationRecord
       gender: doctor[:profile][:gender],
       specialty: doctor[:specialties][0][:name],
       phone: doctor[:practices].last[:phones][0][:number],
-      location: []
+      uid: doctor[:uid],
+      location: [],
+      insurances: []
+
     }
     #practices
     doctor[:practices].each do |practice|
@@ -47,6 +68,18 @@ class Doctor < ApplicationRecord
       }
       doctor_hash[:location] << location
     end
-    doctor_hash
+    p doctor_hash
   end
-end
+  def self.insurance_data(doctor)
+    doctor_insurances=[]
+    doctor[:insurances].each do |insurance|
+      insurance={
+        uid: insurance[:insurance_plan][:uid],
+        name: insurance[:insurance_plan][:name]
+      }
+      doctor_insurances << insurance
+    end
+    doctor_insurances
+  end
+
+end#end of class
