@@ -21,6 +21,7 @@ class DoctorsController < ApplicationController
   def new
     @doctor = Doctor.new
     @states = helpers.states
+    @genders = helpers.genders
   end
 
   def create
