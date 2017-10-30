@@ -9,13 +9,13 @@
     <%= f.label 'last name' %>
     <%= f.search_field :last_name_cont %>
     <%= f.label 'City' %>
-    <%= f.select :city_eq, options_from_collection_for_select( Doctor.select('city').distinct , 'id','city', @q.city_eq), include_blank: true, multiple: true %>
+    <%= f.select :city_eq, options_from_collection_for_select( Doctor.select('city').distinct , 'city','city', @q.city_eq), include_blank: true, multiple: true %>
     <%= f.label 'State' %>
-    <%= f.select :state_eq, options_from_collection_for_select(Doctor.select('state').distinct, 'id','state', @q.state_eq), include_blank: true, multiple: true %>
+    <%= f.select :state_eq, options_from_collection_for_select(Doctor.select('state').distinct, 'state','state', @q.state_eq), include_blank: true, multiple: true %>
     <%= f.label 'Specialty' %>
     <%= f.select :specialty_matches_any, options_for_select(@specialties, :last), include_blank: true, multiple: true %>
     <%= f.label 'Gender' %>
-    <%= f.select :gender, options_for_select(@genders), required: true, include_blank: true, multiple: "multiple" %>
+    <%= f.select :gender_matches_any, options_for_select(@genders), include_blank: true, multiple: "multiple" %>
     <%= f.submit %>
     <%= link_to "Reset Search", doctors_path %>
 <% end %>
