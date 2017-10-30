@@ -5,6 +5,7 @@ class DoctorsController < ApplicationController
     include SpecialtyDataHelper
     include HTTParty
     include GendersHelper
+    include TagsHelper
   def find
       @states = helpers.states
     if search_params[:first_name] != "" && search_params[:last_name] != ""
@@ -40,7 +41,7 @@ class DoctorsController < ApplicationController
    @states = helpers.states
    @genders = helpers.genders
    @specialties = helpers.get_specialties + Doctor.select('specialty').distinct.map {|dr| dr.specialty}
-   @tags = Tag.select('description').distinct.map {|tag| tag.description}
+   @tags = helpers.tags + Tag.select('description').distinct.map {|tag| tag.description}
    @q = Doctor.ransack(params[:q])
    @doctors = @q.result.includes(:recommendations)
   end
