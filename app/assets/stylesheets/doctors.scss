@@ -3,7 +3,7 @@
   background-color: #e5e5e5;
   display: flex;
   flex-direction: column;
-  width: 30%;
+  width: 40%;
   margin: auto;
   padding: 15px;
   input{
@@ -19,6 +19,42 @@
     font-size: 1em;
     @include submit;
   }
+}
+// .reset-search {
+//   border: 1px solid grey;
+//   border-radius: 10px;
+//   background-color: white;
+//   text-align: center;
+//   line-height: 26px;
+//   height: 25px;
+//   width: 100px;
+//   margin: auto;
+//   margin-right: 100px;
+//   a {
+//     text-decoration: none;
+//     color: black;
+//   }
+// }
+.button {
+  color: #999999;
+  background-color: white;
+  font-size: 18px;
+  letter-spacing: .15rem;
+  // font-weight: bold;
+  text-align: center;
+  border: solid #white 1px;
+  border-radius: 5px;
+  width: 120px;
+  margin:2rem 2rem;
+}
+.reset {
+  width: 180px;
+}
+
+.button:hover {
+  color: #ffffff;
+  background-color: #468499;
+
 }
 
 #dr-search-page {
@@ -40,29 +76,26 @@
 .doctor-search-box {
   border-radius: 5px;
   background-color: lightgrey;
-  // flex-direction: column;
-  width: 50%;
+  width: 650px;
   margin: auto;
-  height: 300px;
+  height: 400px;
   padding: 15px;
   margin-top: 20px;
   input{
-    // margin: 10px auto;
     display: block;
+    margin-bottom: 10px;
   }
   span {
     display: block;
+      margin-bottom: 10px;
   }
   input[type=submit] {
     display: block;
+    margin: auto;
+    margin-right:50px;
   }
   select {
     display: block;
-  }
-  input[type=text] {
-    @include form-fields;
-    display: block;
-    font-size: 1em;
   }
   }
   .search-results-container {

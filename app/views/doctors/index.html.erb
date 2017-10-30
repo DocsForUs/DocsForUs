@@ -17,9 +17,11 @@
     <%= f.label 'Tags' %>
     <%= f.select :recommendations_tags_description_matches_any, options_for_select(@tags, 'tag'), include_blank: true %>
 
-    <%= f.submit %>
-    <%= link_to "Reset Search", doctors_path %>
+    <%= f.submit class: "button"%>
 <% end %>
+<div class="reset-search">
+  <%= button_to "Reset Search", doctors_path, method: :get, class: 'button reset'%>
+</div>
   </div>
   <div class="search-results-container">
     <table>
