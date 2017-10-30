@@ -14,21 +14,21 @@ $text-grey: #999999;
 $error-red: #ff0000;
 $link-blue: #269ccc;
 
+////////// MIXINS ///////////
 @mixin form-fields {
   padding: 15px;
 }
+
 @mixin submit {
   border-radius: 5px;
-  background-color: #ffffff;
+  background-color: $white;
   letter-spacing: .09rem;
   box-shadow: none;
   padding: 5px 20px 5px;
-  border: 1px solid #cccccc;
-  color:#888888;
+  border: 1px solid $border-grey;
+  color: $text-grey;
   &:hover{
-  background-color: #c7d7dd;
-  color: #ffffff;
+  background-color: $contrast-blue;
+  color: $white;
   }
 }
-
-// helvetica, helvetica/arial/sans-serif

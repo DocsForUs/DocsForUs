@@ -1,5 +1,6 @@
 @import "variables";
 
+// RECOMMENDATION ADD PAGE
 .instruction-box {
   width: 400px;
   margin: auto;
@@ -27,7 +28,6 @@
   padding: 2px 5px;
   padding-top: 10px;
   padding-bottom: 10px;
-  height: 200px;
   width:339px;
   border-radius: 10px;
 }
@@ -36,7 +36,6 @@
   display: block;
   background: $white;
 	border: none;
-	font:12px/12px 'HelveticaNeue', Helvetica, Arial, sans-serif;
 	margin-right: 5px;
   margin-bottom: 10px;
 	padding: 10px;
@@ -49,7 +48,6 @@
   margin-bottom: 5px;
   margin-left: 5px;
 }
-
 
 .search-form input:focus {
 		outline: none;
@@ -72,9 +70,10 @@
 
 .search-submit {
   display: block;
-  background-color:  $teal;
-  margin-bottom: 10px;
+  margin: 10px;
 }
+
+// NEW RECOMMENDATION PAGE
 
 .tag-list {
   width: 95%;

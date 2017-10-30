@@ -1,8 +1,7 @@
 @import 'variables';
-// Optimism Blue: #269ccc
-// Blue Algae: #9ed2c5*/
+
 body {
- font-family: Helvetica;
+ font-family: Arial;
  margin: 0;
  width: 100%;
 }
@@ -11,12 +10,11 @@ nav {
  background-color: $teal;
  margin: 0 auto;
  padding: 3rem;
- /*width: 100%;*/
  box-sizing: border-box;
 }
 
 .main-nav ul {
- color: #ffffff;
+ color: $white;
  display: grid;
  grid-template-columns: minmax(auto, 500px) minmax(auto, 600px) repeat(2, minmax(150px,1fr)) ;
  letter-spacing: .25rem;
@@ -43,17 +41,14 @@ nav {
 
 .main-nav  a {
  text-decoration: none;
- color: #ffffff;
+ color: $white;
+  &:visited {
+   color: $white;
+  }
+  &:hover {
+   color: #c7d7dd;
+  }
 }
-
-.main-nav  a:visited {
- color: #ffffff;
-}
-
-.main-nav  a:hover {
- color: #c7d7dd;
-}
-
 
 .title {
  font-size: 2rem;
@@ -65,8 +60,8 @@ nav {
  width: 400px;
  margin: auto;
  margin-top: 20px;
- border: 1px solid red;
- color: red;
+ border: 1px solid $error-red;
+ color: $error-red;
  background-color: rgba(255, 0, 0, 0.3);
  text-align: center;
  border-radius: 10px;

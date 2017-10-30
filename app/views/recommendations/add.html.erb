@@ -10,7 +10,7 @@
   <%= f.text_field :city, placeholder: "City", required: true %>
   <%= f.label "State" %>
   <%= f.select :state, options_for_select(@states, :first), required: true %>
-  <%= f.submit "Search", html: {class: "search-submit"}%>
+  <%= f.submit "Search", class: "search-submit" %>
 
   <% end %>
   <aside class="partials-doctors">
