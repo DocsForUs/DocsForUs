@@ -4,7 +4,7 @@
   <div class="profile-wrapper">
     <section class="recent-recs-section">
       <h3>Your recommendations</h3>
-      <% if @user.recommendations %>
+      <% if @user.recommendations.length > 0%>
       <% @user.recommendations.each do |rec| %>
         <div class="single-rec">
           <h4>Dr. <%= rec.doctor.first_name %> <%= rec.doctor.last_name %></h4>
