@@ -31,7 +31,7 @@ class RecommendationsController < ApplicationController
       @recommendation.user = current_user
       if !params[:recommendation][:tags]
         @doctor = Doctor.find(params[:recommendation][:doctor_id])
-        @tags = Tag.default_tags
+        @tags = helpers.default_tags
         @tag = Tag.new
         @errors = ["You must choose at least one tag."]
         render :new
@@ -40,7 +40,7 @@ class RecommendationsController < ApplicationController
         tags.map! { |tag| Tag.find_or_create_by(description: tag)}
         @recommendation.tags << tags
         @recommendation.save
-        redirect_to root_path
+        redirect_to doctor_path(@recommendation.doctor.id)
       end
     else
       redirect_to root_path
