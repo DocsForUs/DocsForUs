@@ -36,13 +36,10 @@ class DoctorsController < ApplicationController
   def index
    @insurance = helpers.get_insurance
    @states = helpers.states
-   @genders = helpers.genders
-   @specialties = helpers.get_specialties
-   p '*' * 100
-   p params[:q]
-   p '*' * 100
+  @genders = helpers.genders
+   @specialties = helpers.get_specialties + Doctor.select('specialty').distinct.map {|dr| dr.specialty}
    @q = Doctor.ransack(params[:q])
-   @doctors = @q.result
+   @doctors = @q.result.includes(:recommendations)
   end
 
   def show
