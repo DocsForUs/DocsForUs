@@ -43,11 +43,11 @@
           <td><%= doctor.city %></td>
           <td><%= doctor.state %></td>
           <td><%= doctor.specialty %></td>
-          <td> <% if doctor.recommendations.length > 0 %>
+          <td class="table-tags"> <% if doctor.recommendations.length > 0 %>
             <% doctor.recommendations.each do |rec| %>
             <% if rec.tags.length > 0 %>
               <% rec.tags.each do |tag| %>
-              <p><%= tag.description %></p>  
+              <p><%= tag.description %></p>
               <% end %>
             <% end %>
             <% end %>
