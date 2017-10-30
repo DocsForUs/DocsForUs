@@ -10,21 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171029213229) do
+ActiveRecord::Schema.define(version: 20171030034859) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "doctors", force: :cascade do |t|
-    t.string "first_name"
-    t.string "last_name"
-    t.string "specialty"
+    t.string "first_name", null: false
+    t.string "last_name", null: false
+    t.string "specialty", null: false
     t.string "gender"
     t.string "street"
     t.string "city"
     t.string "state"
-    t.string "zipcode", null: false
-    t.string "phone_number"
+    t.integer "zipcode", null: false
+    t.integer "phone_number"
     t.string "website"
     t.string "email_address"
     t.datetime "created_at", null: false
@@ -34,6 +34,11 @@ ActiveRecord::Schema.define(version: 20171029213229) do
   create_table "doctors_insurances", id: false, force: :cascade do |t|
     t.bigint "insurance_id", null: false
     t.bigint "doctor_id", null: false
+  end
+
+  create_table "doctors_users", id: false, force: :cascade do |t|
+    t.bigint "doctor_id", null: false
+    t.bigint "user_id", null: false
   end
 
   create_table "insurances", force: :cascade do |t|
