@@ -2,6 +2,9 @@ require 'rails_helper'
 
 RSpec.describe User, type: :model do
   let!(:user) {create(:user)}
+  describe 'associations' do
+    it { should have_many(:doctors).through(:doctors_users) }
+  end
   describe 'validations' do
     context 'it is invalid when' do
       it 'does not have a username' do

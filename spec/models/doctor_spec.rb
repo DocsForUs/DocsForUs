@@ -2,6 +2,9 @@ require 'rails_helper'
 require 'json'
 
 describe Doctor, type: :model do
+  describe 'associations' do
+    it {should have_many(:users).through(:doctors_users) }
+  end
   context 'searches the api with first and last name parameters' do
 
     xit 'returns an array of a single doctors information parsed' do

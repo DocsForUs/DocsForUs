@@ -1,9 +1,11 @@
 class Doctor < ApplicationRecord
-  has_many :recommendations
   validates :first_name, :last_name, :specialty, :zipcode, presence: true
   validate :email_xor_phone_number
+  has_many :recommendations
   has_many :doctors_insurances
   has_many :insurances, through: :doctors_insurances
+  has_many :doctors_users
+  has_many :users, through: :doctors_users
 
   def self.search_doctor(doctor)
     response = Doctor.search_api(doctor)
