@@ -21,6 +21,7 @@ class DoctorsController < ApplicationController
 
   def new
     if current_user
+      @insurance = helpers.get_insurance
       @doctor = Doctor.new
       @states = helpers.states
       @genders = helpers.genders

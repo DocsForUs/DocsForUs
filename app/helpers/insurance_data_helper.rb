@@ -8,7 +8,8 @@ data = [{"uid":"amerihealth","name":"Amerihealth","plans":[{"uid":"amerihealth-a
 
     ins =[]
     data.each do |entry|
-      ins << [entry[:uid], entry[:name]]
+      ins << [ entry[:name], entry[:uid]]
+      ins = ins.sort_by { |item| item[0].downcase }
     end
     ins
   end
