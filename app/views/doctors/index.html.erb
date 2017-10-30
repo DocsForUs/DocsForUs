@@ -17,7 +17,8 @@
     <%= f.label 'Gender' %>
     <%= f.select :gender_matches_any, options_for_select(@genders), include_blank: true, multiple: "multiple" %>
     <%= f.label 'Tags' %>
-    <%= f.search_field :recommendations_tags_description_matches_any %>
+    <%= f.select :recommendations_tags_description_matches_any, options_for_select(@tags, 'tag'), include_blank: true %>
+
     <%= f.submit %>
     <%= link_to "Reset Search", doctors_path %>
 <% end %>
@@ -38,7 +39,7 @@
       <tbody>
         <% @doctors.each do |doctor| %>
         <tr>
-          <td><%= doctor.first_name %></td>
+          <td><%= link_to doctor.first_name, doctor_path(doctor.id) %></td>
           <td><%= doctor.last_name %></td>
           <td><%= doctor.city %></td>
           <td><%= doctor.gender %></td>
