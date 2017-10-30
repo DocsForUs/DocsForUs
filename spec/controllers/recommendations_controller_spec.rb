@@ -13,7 +13,7 @@ RSpec.describe RecommendationsController, type: :controller do
     context 'when user is logged in' do
       before(:each) do
         create(:doctor)
-        get :new, session: {user_id: user.id}
+        get :new, session: {user_id: user.id}, params: { id: 1 }
       end
       it 'assigns a doctor instance variable' do
         expect(assigns[:doctor]).to be_a Doctor
@@ -31,7 +31,7 @@ RSpec.describe RecommendationsController, type: :controller do
     context 'when user is not logged in' do
       it 'redirects to root path' do
         get :new
-        expect(response).to redirect_to root_path
+        expect(response).to redirect_to login_path
       end
     end
   end

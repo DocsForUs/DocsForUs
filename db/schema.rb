@@ -10,28 +10,40 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171028021148) do
+ActiveRecord::Schema.define(version: 20171030034859) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "doctors", force: :cascade do |t|
-    t.string "first_name"
-    t.string "last_name"
-    t.string "specialty"
+    t.string "first_name", null: false
+    t.string "last_name", null: false
+    t.string "specialty", null: false
     t.string "gender"
     t.string "street"
     t.string "city"
     t.string "state"
-<<<<<<< HEAD
-    t.integer "zipcode"
+    t.integer "zipcode", null: false
     t.integer "phone_number"
-=======
-    t.string "zipcode", null: false
-    t.string "phone_number"
->>>>>>> dc14029e337ce745864fc41dc9f478d7cfee8de0
     t.string "website"
     t.string "email_address"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "doctors_insurances", id: false, force: :cascade do |t|
+    t.bigint "insurance_id", null: false
+    t.bigint "doctor_id", null: false
+  end
+
+  create_table "doctors_users", id: false, force: :cascade do |t|
+    t.bigint "doctor_id", null: false
+    t.bigint "user_id", null: false
+  end
+
+  create_table "insurances", force: :cascade do |t|
+    t.string "insurance_uid"
+    t.string "insurance_name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

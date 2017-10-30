@@ -1,11 +1,12 @@
 class RecommendationsController < ApplicationController
   include StatesHelper
+  include TagsHelper
   def add
     if current_user
       @states = helpers.states
       render :add
     else
-      flash[:alert] = "You must login or register to recommend a doctor"
+      flash.now[:alert] = "You must login or register to recommend a doctor"
       @user = User.new
       render "/users/new"
     end
@@ -13,13 +14,14 @@ class RecommendationsController < ApplicationController
 
   def new
     if current_user
-      @doctor = Doctor.first
+      @doctor = Doctor.find(params[:id])
       @recommendation = Recommendation.new(doctor: @doctor, user: current_user)
-      @tags = Tag.default_tags
+      @tags = helpers.default_tags
       @tag = Tag.new
       render :new
     else
-      redirect_to root_path
+      flash[:alert] = "You must be logged in to recommend a doctor"
+      redirect_to login_path
     end
   end
 

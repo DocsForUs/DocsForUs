@@ -1,0 +1,63 @@
+
+<!--
+<main class="doctor-info-container">
+  <div class="img-container">
+    <h1>Image</h1>
+  </div>
+  <div class="info-container">
+    <h1>Info</h1>
+  </div>
+</main> -->
+
+
+<div class="doctor-info-container">
+  <div class="doctor-main">
+    <h3><%= @doctor.first_name %> <%= @doctor.last_name %>  </h3>
+    <p><%= @doctor.specialty %></p>
+    <ul class="doctor-links">
+      <li><%= link_to "Recommend this doctor", new_recommendation_path(id: @doctor.id) %></li>
+      <% if User.find(session[:user_id]).doctors.include?(@doctor) %>
+        <li>You have saved this doctor</li>
+      <% else %>
+        <li><%= button_to "Save this doctor", user_doctors_path(User.find(session[:user_id])), class: "save-button", params: {doctor_id: @doctor.id} %></li>
+      <% end %>
+    </ul>
+  </div>
+  <div class="doctor-details">
+    <ul class="doc-info-list">
+      <li>Gender: <%= @doctor.gender %></li>
+      <li>Address:
+        <%= "#{@doctor.street}, #{@doctor.city}, #{@doctor.state} #{@doctor.zipcode}"%>
+      </li>
+      <li>Phone Number: <%= @doctor.phone_number %></li>
+      <li>Email Address: <%= @doctor.email_address %></li>
+    </ul>
+    <div class="doctor-tags-div">
+      <% if !@doctor.recommendations.empty? %>
+        <h4>Users said this doctor...</h4>
+        <ul class="doctor-tags">
+          <% @tags.each do |t| %>
+            <li>
+              <%= t.description %>
+            </li>
+          <% end %>
+        </ul>
+      <% end %>
+    </div>
+  </div>
+  <div class="doctor-reviews">
+    <h4>Users who recommended this doctor said...</h4>
+    <% if @doctor.recommendations.length > 0 %>
+    <% @doctor.recommendations.each do |rec| %>
+      <div class="single-rec">
+        <div class="review-profile"><%= rec.review %></div>
+        <p>
+          Recommended on <%= rec.created_at.localtime.strftime('%m/%d/%Y at %I:%M %p') %> by <%= rec.user.username %>
+        </p>
+      </div>
+    <% end %>
+    <% else %>
+      <p>This doctor has not been recommended yet.</p>
+    <% end %>
+  </div>
+  </div>
