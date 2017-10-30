@@ -27,6 +27,10 @@ class DoctorsController < ApplicationController
     @specialties = helpers.get_specialties + Doctor.select('specialty').distinct.map {|dr| dr.specialty}
   end
 
+  def index
+    @doctor = Doctor.all
+  end
+
   def create
     @doctor = Doctor.new(doctor_params)
     if @doctor.save
@@ -48,6 +52,16 @@ class DoctorsController < ApplicationController
   end
 
   def show
+    @doctor = Doctor.find(params[:id])
+    @tags = []
+    if @doctor.recommendations.length > 0
+      @doctor.recommendations.each do |rec|
+        rec.tags.each do |tag|
+          @tags << tag
+        end
+      end
+      @tags = @tags.uniq
+    end
   end
 
   private
@@ -58,6 +72,6 @@ class DoctorsController < ApplicationController
   end
 
   def doctor_params
-    params.require(:doctor).permit(:first_name, :last_name, :specialty, :gender, :email_address,:phone_number,:street,:city,:state,:zipcode)
+    params.require(:doctor).permit(:first_name, :last_name, :specialty, :gender, :email_address, :phone_number, :street, :city, :state, :zipcode)
   end
 end #end of class
