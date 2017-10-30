@@ -20,7 +20,7 @@
       <%= f.label "Specialty" %>
       <%= f.select :specialty, options_for_select(@specialties, :last), required: true %>
       <%= f.label "Gender" %>
-      <%= f.select :gender, options_for_select(@genders, :first), required: true %>
+      <%= f.select :gender, options_for_select(@genders, :first), required: true, include_blank: true %>
       <%= f.email_field :email_address, placeholder: 'Email' %>
       <%= f.text_field :phone_number, placeholder: 'Phone Number' %>
       <%= f.text_field :street, placeholder: 'Street' %>

@@ -15,9 +15,9 @@
     <%= f.label 'Specialty' %>
     <%= f.select :specialty_matches_any, options_for_select(@specialties, :last), include_blank: true, multiple: true %>
     <%= f.label 'Gender' %>
-    <%= f.select :gender_matches_any, options_for_select(@genders), include_blank: true, multiple: "multiple" %>
+    <%= f.select :gender_in, options_for_select(@genders, 'gender'),{}, multiple: true, include_blank: true %>
     <%= f.label 'Tags' %>
-    <%= f.select :recommendations_tags_description_matches_any, options_for_select(@tags, 'tag'), include_blank: true %>
+    <%= f.select :recommendations_tags_description_in, options_for_select(@tags, 'tag'), {}, multiple: true, include_blank: true %>
 
     <%= f.submit class: "button"%>
 <% end %>
@@ -35,7 +35,7 @@
           <th><%= sort_link(@q, :gender) %></th>
           <th><%= sort_link(@q, :state) %></th>
           <th><%= sort_link(@q, :specialty) %></th>
-          <th><%= sort_link(@q, :tags) %></th>
+          <th class="tags"><%= sort_link(@q, :tags) %></th>
           <th>Select</th>
         </tr>
       </thead>
