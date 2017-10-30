@@ -77,6 +77,9 @@
 .user-profile {
   width: 80%;
   margin: auto;
+  a {
+    color: #468499;
+  }
 }
 
 .profile-wrapper {
@@ -90,6 +93,7 @@
   border: 1px solid #468499;
   border-radius: 5px;
   padding: 0px 15px;
+  flex-basis: 55%;
 }
 
 .saved-doctors-section {
@@ -97,6 +101,7 @@
   border: 1px solid #468499;
   border-radius: 5px;
   padding: 0px 15px;
+  flex-basis: 30%;
 }
 
 .tag-list {
@@ -121,4 +126,8 @@
   border: 1px solid #468499;
   padding: 10px;
   border-radius: 5px;
+}
+
+.saved-docs-list li {
+  margin-bottom: 15px;
 }

@@ -202,5 +202,12 @@
 .button:hover {
   color: #ffffff;
   background-color: #c7d7dd;
+}
 
+.save-button {
+  background-color: inherit;
+  border: none;
+  color: #468499;
+  text-decoration: underline;
+  cursor: pointer;
 }
