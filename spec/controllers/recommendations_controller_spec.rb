@@ -52,8 +52,8 @@ RSpec.describe RecommendationsController, type: :controller do
         it 'creates relationship between tags and the recommendation' do
           expect(assigns[:recommendation].tags).to include(Tag.find_by(description: "ham"))
         end
-        it 'redirects to root path' do
-          expect(response).to redirect_to root_path
+        it 'redirects to dr page' do
+          expect(response).to redirect_to doctor_path(doctor)
         end
       end
       context 'when recommendation is not created successfully' do
