@@ -13,7 +13,9 @@
     <%= f.label 'State' %>
     <%= f.select :state_eq, options_from_collection_for_select(Doctor.order('state ASC'), 'id','state', @q.state_eq), include_blank: true, multiple: true %>
     <%= f.label 'Specialty' %>
-    <%= f.select :specialty, options_for_select(@specialties, :last), required: true, multiple: "multiple"%>
+    <%= f.select :specialty, options_for_select(@specialties, :last), required: true, include_blank: true, multiple: "multiple"%>
+    <%= f.label 'Gender' %>
+    <%= f.select :gender, options_for_select(@genders), required: true, include_blank: true, multiple: "multiple" %>
     <%= f.submit %>
 <% end %>
   </div>
@@ -23,6 +25,7 @@
         <tr class="table-heading">
           <th><%= sort_link(@q, :first_name) %></th>
           <th><%= sort_link(@q, :city) %></th>
+          <th><%= sort_link(@q, :gender) %></th>
         </tr>
       </thead>
       <tbody>
@@ -30,6 +33,7 @@
         <tr>
           <td><%= doctor.first_name %></td>
           <td><%= doctor.city %></td>
+          <td><%= doctor.gender %></td>
         </tr>
         <% end %>
       </tbody>

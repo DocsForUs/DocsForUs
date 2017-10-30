@@ -4,8 +4,10 @@ class DoctorsController < ApplicationController
     include StatesHelper
     include SpecialtyDataHelper
     include HTTParty
+    include GendersHelper
   def find
       @states = helpers.states
+      @genders = helpers.genders
     if search_params[:first_name] != "" && search_params[:last_name] != ""
       @our_doctors = Doctor.where(first_name: search_params[:first_name], last_name: search_params[:last_name])
       doctor_args = {first_name: search_params[:first_name], last_name: search_params[:last_name],city: search_params[:city].downcase, state: search_params[:state].downcase}
@@ -34,7 +36,11 @@ class DoctorsController < ApplicationController
   def index
    @insurance = helpers.get_insurance
    @states = helpers.states
+   @genders = helpers.genders
    @specialties = helpers.get_specialties
+   p '*' * 100
+   p params[:q]
+   p '*' * 100
    @q = Doctor.ransack(params[:q])
    @doctors = @q.result
   end
@@ -52,4 +58,4 @@ class DoctorsController < ApplicationController
   def doctor_params
     params.require(:doctor).permit(:first_name, :last_name, :specialty, :gender, :email_address,:phone_number,:street,:city,:state,:zipcode)
   end
-end#end of class
+end #end of class

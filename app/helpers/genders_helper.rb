@@ -2,7 +2,7 @@ module GendersHelper
   include ApplicationHelper
   def genders
     genders = []
-      gender  = %w(male female non-binary, neutral, genderqueer, transgender, rather not say, gender non-conforming, unsure)
+      gender  = ["male", "female", "non-binary", "gender neutral", "genderqueer", "transgender", "gender non-conforming"]
       gender.each do |gender|
         genders << Array[gender]
       end
