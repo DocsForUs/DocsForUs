@@ -1,9 +1,18 @@
-// VARIABLES
-$bg-grey: #e5e5e5;
+///////// VARIABLES /////////
 $teal: #468499;
+$white: #ffffff;
+
+// BACKGROUNDS
+$bg-grey: #e5e5e5;
+$contrast-blue: #c7d7dd;
+
+// BORDERS
 $border-grey: #d3d3d3;
-$search-button-grey: #fefefe;
-$text-grey: grey;
+
+// TEXT
+$text-grey: #999999;
+$error-red: #ff0000;
+$link-blue: #269ccc;
 
 @mixin form-fields {
   padding: 15px;

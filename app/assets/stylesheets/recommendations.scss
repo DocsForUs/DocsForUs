@@ -34,7 +34,7 @@
 
 .search-form input {
   display: block;
-  background: $search-button-grey;
+  background: $white;
 	border: none;
 	font:12px/12px 'HelveticaNeue', Helvetica, Arial, sans-serif;
 	margin-right: 5px;
@@ -100,7 +100,7 @@
 
 .tag:checked + .tag-label {
   background-color: $teal;
-  color: white;
+  color: $white;
 }
 
 #new-rec-section {
@@ -129,7 +129,7 @@
   padding: 10px;
   margin: 5px;
   margin-top: 20px;
-  background-color: white;
+  background-color: $white;
   float: right;
 }
 
@@ -152,7 +152,7 @@
     border-radius: 5px;
     padding: 5px;
     margin: 5px;
-    background-color: white;
+    background-color: $white;
   }
 }
 
@@ -163,7 +163,7 @@
 }
 
 .errors {
-  color: red;
+  color: $error-red;
 }
 
 .partials-doctors {

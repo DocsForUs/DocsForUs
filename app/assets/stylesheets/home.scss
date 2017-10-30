@@ -1,3 +1,4 @@
+@import "variables";
 
 .image-text h1 {
   letter-spacing: .25rem;
@@ -7,9 +8,8 @@
   width: 300px;
   margin-left: 100px;
   position: relative;
-  /*margin-top: 400px;*/
   padding-top: 150px;
-  color: #ffffff;
+  color: $white;
 }
 
 #home-page {
@@ -33,17 +33,16 @@
   display: flex;
   align-items: center;
   justify-content: center;
-
 }
 
 .big-btn {
-  color: #999999;
+  color: $text-grey;
   background-color: transparent;
   font-size:20px;
   letter-spacing: .15rem;
   font-weight: bold;
   text-align: center;
-  border: solid #cccccc 1px;
+  border: solid $border-grey 1px;
   border-radius: 5px;
   padding: 4rem 0;
   width: 285px;
@@ -51,7 +50,6 @@
 }
 
 .big-btn:hover {
-  color: #ffffff;
-  background-color: #468499;
-
+  color: $white;
+  background-color: $teal;
 }
