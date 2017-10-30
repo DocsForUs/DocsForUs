@@ -25,6 +25,13 @@ RSpec.describe DoctorsController, type: :controller do
        get :show, params: {id: doctor.id}
        expect(response).to render_template(:show)
      end
+
+     xit "assigns a tags instance variable" do
+       rec = build(:recommendation)
+       tag = build(:tag)
+       rec.tags << tag
+       expect(assigns[:tags]).to include tag
+     end
    end
 
   describe "doctors#new" do

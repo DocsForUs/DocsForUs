@@ -49,12 +49,14 @@ class DoctorsController < ApplicationController
   def show
     @doctor = Doctor.find(params[:id])
     @tags = []
-    @doctor.recommendations.each do |rec|
-      rec.tags.each do |tag|
-        @tags << tag
+    if @doctor.recommendations.length > 0
+      @doctor.recommendations.each do |rec|
+        rec.tags.each do |tag|
+          @tags << tag
+        end
       end
+      @tags = @tags.uniq
     end
-    @tags = @tags.uniq
   end
 
   private

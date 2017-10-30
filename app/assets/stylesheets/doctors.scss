@@ -111,6 +111,12 @@
   border-right: 1px dotted #468499;
   .doctor-links {
     list-style-type: none;
+    a {
+      color: #468499;
+    }
+    li {
+      padding: 10px 0px;
+    }
   }
 }
 
