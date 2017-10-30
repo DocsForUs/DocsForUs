@@ -33,12 +33,13 @@
           <th><%= sort_link(@q, :state) %></th>
           <th><%= sort_link(@q, :specialty) %></th>
           <th><%= sort_link(@q, :tags) %></th>
+          <th>Select</th>
         </tr>
       </thead>
       <tbody>
         <% @doctors.each do |doctor| %>
         <tr>
-          <td><%= link_to doctor.first_name, doctor_path(doctor.id) %></td>
+          <td class='table-name'><%= doctor.first_name %></td>
           <td><%= doctor.last_name %></td>
           <td><%= doctor.city %></td>
           <td><%= doctor.state %></td>
@@ -52,6 +53,7 @@
             <% end %>
             <% end %>
           <% end %> </td>
+          <td><%= link_to "View Doctor", doctor_path(doctor.id) %></td>
         </tr>
         <% end %>
       </tbody>
