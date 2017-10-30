@@ -20,7 +20,8 @@ class RecommendationsController < ApplicationController
       @tag = Tag.new
       render :new
     else
-      redirect_to root_path
+      flash[:alert] = "You must be logged in to recommend a doctor"
+      redirect_to login_path
     end
   end
 
