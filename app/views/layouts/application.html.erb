@@ -11,7 +11,9 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.4/js/select2.min.js"></script>
     <script type="text/javascript">
       $(document).ready(() => {
-        $('#q_specialty').select2();
+        $('#q_specialty_matches_any').select2();
+        $('#q_city_eq').select2();
+        $('#q_state_eq').select2();
       })
     </script>
     <%= stylesheet_link_tag    'application', media: 'all' %>
