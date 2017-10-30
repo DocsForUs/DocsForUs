@@ -14,25 +14,14 @@
     <%= f.select :state_eq, options_from_collection_for_select(Doctor.select('state').distinct, 'state', 'state'), include_blank: true%>
     <%= f.label 'Specialty' %>
     <%= f.select :specialty_matches_any, options_for_select(@specialties, :last), include_blank: true, multiple: true %>
-    <%= f.label 'Recommendation' %>
-    <%= f.search_field :recommendations_review_cont %>
+    <%= f.label 'Tags' %>
+    <%= f.search_field :recommendations_tags_description_matches_any %>
 
     <%= f.submit %>
     <%= link_to "Reset Search", doctors_path %>
 <% end %>
   </div>
   <div class="search-results-container">
-    <!-- <%= content_tag :table do %>
-      <%= content_tag :th, sort_link(@q, :first_name)  %>
-      <%= content_tag :th, sort_link(@q, :last_name)  %>
-      <%= content_tag :th, sort_link(@q, :city)   %>
-      <%= content_tag :th, sort_link(@q, :state)  %>
-      <%= content_tag :th, sort_link(@q, :specialty)  %>
-      <%= content_tag :th, sort_link(@q, :recommendations_review) %>
-    <% end %> -->
-
-
-
     <table>
       <thead>
         <tr class="table-heading">
@@ -41,7 +30,7 @@
           <th><%= sort_link(@q, :city) %></th>
           <th><%= sort_link(@q, :state) %></th>
           <th><%= sort_link(@q, :specialty) %></th>
-          <th><%= sort_link(@q, :recommendations_review) %></th>
+          <th><%= sort_link(@q, :tags) %></th>
         </tr>
       </thead>
       <tbody>
@@ -52,7 +41,15 @@
           <td><%= doctor.city %></td>
           <td><%= doctor.state %></td>
           <td><%= doctor.specialty %></td>
-          <td><%= doctor.recommendations.first.review %> </td>
+          <td> <% if doctor.recommendations.length > 0 %>
+            <% doctor.recommendations.each do |rec| %>
+            <% if rec.tags.length > 0 %>
+              <% rec.tags.each do |tag| %>
+                <%= tag.description %>
+              <% end %>
+            <% end %>
+            <% end %>
+          <% end %> </td>
         </tr>
         <% end %>
       </tbody>
