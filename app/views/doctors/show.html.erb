@@ -16,7 +16,7 @@
     <p><%= @doctor.specialty %></p>
     <ul class="doctor-links">
       <li><%= link_to "Recommend this doctor", new_recommendation_path %></li>
-      <li><%= link_to "Save this doctor" %></li>
+      <li><%= button_to "Save this doctor", user_doctors_path(User.find(session[:user_id])), params: {doctor_id: @doctor.id} %></li>
     </ul>
   </div>
   <div class="doctor-details">

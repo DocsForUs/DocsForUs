@@ -32,8 +32,13 @@ class DoctorsController < ApplicationController
 
   def create
     if params[:user_id]
-      current_user.doctors << Doctor.find(params[:doctor_id])
-      redirect_to doctor_path(params[:doctor_id])
+      @doctor = Doctor.find(params[:doctor_id])
+      if current_user.doctors.include?(@doctor)
+        redirect_to doctor_path(@doctor)
+      else
+        current_user.doctors << @doctor
+        redirect_to doctor_path(@doctor)
+      end
     else
       @doctor = Doctor.new(doctor_params)
       insurances = Doctor.get_insurances(insurance_param)
@@ -95,4 +100,3 @@ class DoctorsController < ApplicationController
   end
 
 end#end of class
-
