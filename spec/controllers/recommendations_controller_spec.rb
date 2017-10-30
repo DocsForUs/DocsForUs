@@ -31,7 +31,7 @@ RSpec.describe RecommendationsController, type: :controller do
     context 'when user is not logged in' do
       it 'redirects to root path' do
         get :new
-        expect(response).to redirect_to root_path
+        expect(response).to redirect_to login_path
       end
     end
   end
