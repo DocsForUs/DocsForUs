@@ -6,6 +6,11 @@ body {
  width: 100%;
 }
 
+a {
+  color: $link-blue;
+  text-decoration: none;
+}
+
 nav {
  background-color: $teal;
  margin: 0 auto;

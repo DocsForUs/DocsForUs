@@ -94,10 +94,6 @@
         height: 20px;
       }
     }
-    td a {
-      text-decoration: none;
-      color: $link-blue;
-    }
     tr:nth-child(2n){
       background-color: $contrast-blue;
     }
@@ -164,9 +160,6 @@
   border-right: 1px dotted $teal;
   .doctor-links {
     list-style-type: none;
-    a {
-      color: $teal;
-    }
     li {
       padding: 10px 0px;
     }
