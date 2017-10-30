@@ -13,7 +13,7 @@ RSpec.describe RecommendationsController, type: :controller do
     context 'when user is logged in' do
       before(:each) do
         create(:doctor)
-        get :new, session: {user_id: user.id}, params: { id: 1 }
+        get :new, session: {user_id: user.id}, params: { doctor_id: 1 }
       end
       it 'assigns a doctor instance variable' do
         expect(assigns[:doctor]).to be_a Doctor
