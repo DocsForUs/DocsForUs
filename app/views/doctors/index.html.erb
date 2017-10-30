@@ -3,21 +3,64 @@
 
 <h1>Search for a Doctor</h1>
   <div class="doctor-search-box">
-    <%= form_for :doctor, method: :get  do |f| %>
-      <%= f.text_field :first_name, placeholder: "First Name" %>
-      <%= f.text_field :last_name, placeholder: "Last Name" %>
-      <%= f.text_field :first_name, placeholder: "First Name" %>
-      <%= f.text_field :first_name, placeholder: "First Name" %>
-    <% end %>
+    <%= search_form_for @q do |f| %>
+    <%= f.label 'first name' %>
+    <%= f.search_field :first_name_cont %>
+    <%= f.label 'last name' %>
+    <%= f.search_field :last_name_cont %>
+    <%= f.label 'City' %>
+    <%= f.select :city_eq, options_from_collection_for_select(Doctor.select('city').distinct , 'city','city'), include_blank: true, multiple: true %>
+    <%= f.label 'State' %>
+    <%= f.select :state_eq, options_from_collection_for_select(Doctor.select('state').distinct, 'state', 'state'), include_blank: true%>
+    <%= f.label 'Specialty' %>
+    <%= f.select :specialty_matches_any, options_for_select(@specialties, :last), include_blank: true, multiple: true %>
+    <%= f.label 'Gender' %>
+    <%= f.select :gender_matches_any, options_for_select(@genders), include_blank: true, multiple: "multiple" %>
+    <%= f.label 'Tags' %>
+    <%= f.select :recommendations_tags_description_matches_any, options_for_select(@tags, 'tag'), include_blank: true %>
+
+    <%= f.submit class: "button"%>
+<% end %>
+<div class="reset-search">
+  <%= button_to "Reset Search", doctors_path, method: :get, class: 'button reset'%>
+</div>
   </div>
   <div class="search-results-container">
     <table>
-      <tr class="table-heading">
-        <th>Name</th>
-        <th>Location</th>
-        <th>Specialty</th>
-        <th>Reviews</th>
-      </tr>
+      <thead>
+        <tr class="table-heading">
+          <th><%= sort_link(@q, :first_name) %></th>
+          <th><%= sort_link(@q, :last_name) %></th>
+          <th><%= sort_link(@q, :city) %></th>
+          <th><%= sort_link(@q, :gender) %></th>
+          <th><%= sort_link(@q, :state) %></th>
+          <th><%= sort_link(@q, :specialty) %></th>
+          <th><%= sort_link(@q, :tags) %></th>
+          <th>Select</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @doctors.each do |doctor| %>
+        <tr>
+          <td class='table-name'><%= doctor.first_name %></td>
+          <td><%= doctor.last_name %></td>
+          <td><%= doctor.city %></td>
+          <td><%= doctor.gender %></td>
+          <td><%= doctor.state %></td>
+          <td><%= doctor.specialty %></td>
+          <td class="table-tags"> <% if doctor.recommendations.length > 0 %>
+            <% doctor.recommendations.each do |rec| %>
+            <% if rec.tags.length > 0 %>
+              <% rec.tags.each do |tag| %>
+              <p><%= tag.description %></p>
+              <% end %>
+            <% end %>
+            <% end %>
+          <% end %> </td>
+          <td><%= link_to "View Doctor", doctor_path(doctor.id) %></td>
+        </tr>
+        <% end %>
+      </tbody>
     </table>
   </div>
 </div>

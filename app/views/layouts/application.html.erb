@@ -3,7 +3,23 @@
   <head>
     <title>DocsForUs</title>
     <%= csrf_meta_tags %>
-
+    <script
+  src="https://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.4/css/select2.min.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.4/js/select2.min.js"></script>
+    <script type="text/javascript">
+      $(document).ready(() => {
+        $('#q_specialty_matches_any').select2();
+        $('#q_city_eq').select2();
+        $('#q_state_eq').select2();
+        $('#doctor_specialty').select2();
+        $('#doctor_gender').select2();
+        $('#doctor_state').select2();
+        $('#q_recommendations_tags_description_matches_any').select2();
+      })
+    </script>
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
   </head>
