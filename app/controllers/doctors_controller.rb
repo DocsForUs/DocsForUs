@@ -36,7 +36,7 @@ class DoctorsController < ApplicationController
    @states = helpers.states
    @specialties = helpers.get_specialties + Doctor.select('specialty').distinct.map {|dr| dr.specialty}
    @q = Doctor.ransack(params[:q])
-   @doctors = @q.result
+   @doctors = @q.result.includes(:recommendations)
   end
 
   def show

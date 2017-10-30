@@ -17,6 +17,7 @@
     <%= f.select :specialty_matches_any, options_for_select(@specialties, :last), include_blank: true, multiple: true %>
 
     <%= f.submit %>
+    <%= link_to "Reset Search", doctors_path %>
 <% end %>
   </div>
   <div class="search-results-container">
