@@ -1,5 +1,8 @@
 <section id="home-page">
   <main class="home-page-container">
+    <% if flash[:alert] %>
+    <%= render '/shared/flash' %>
+    <% end %>
     <div class="image-container">
       <div class="image-text">
         <h1>Access to inclusive doctors in your hands </h1>
