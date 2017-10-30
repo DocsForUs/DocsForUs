@@ -31,6 +31,10 @@ RSpec.describe User, type: :model do
         user.password = 'ham'
         expect(user).to_not be_valid
       end
+      it 'includes special characters' do
+        user.password = 'docsforus'
+        expect(user).to_not be_valid
+      end
     end
     context 'it is valid when' do
       it 'has all the required fields and email and password are unique' do
@@ -43,7 +47,7 @@ RSpec.describe User, type: :model do
       expect(user.authenticate('cats')).to eq false
     end
     it 'returns the user if they login successfully' do
-      expect(user.authenticate('hamnspam7')).to eq user
+      expect(user.authenticate('!hamnspam7')).to eq user
     end
   end
 end
