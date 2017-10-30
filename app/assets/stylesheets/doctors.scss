@@ -98,6 +98,7 @@
     display: block;
     margin: auto;
     margin-right:50px;
+    @include submit;
   }
   select {
     display: block;
