@@ -16,5 +16,10 @@ describe Doctor, type: :model do
       expect(response.count).to eq 3
     end
 
+    xit "it returns an array of the doctor's insurances" do
+      doctor = {first_name: "John", last_name: "Anderson", city: "seattle", state: "wa"}
+      response = Doctor.search_doctor(doctor)
+      expect(response).to eq nil
+    end
   end
 end
