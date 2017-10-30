@@ -8,7 +8,7 @@ data = [{"uid":"amerihealth","name":"Amerihealth","plans":[{"uid":"amerihealth-a
 
     ins =[]
     data.each do |entry|
-      ins << [entry[:uid], entry[:name]]
+      ins << [ entry[:name], entry[:uid]]
     end
     ins
   end
