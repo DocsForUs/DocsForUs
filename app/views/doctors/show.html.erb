@@ -15,7 +15,7 @@
     <h3><%= @doctor.first_name %> <%= @doctor.last_name %>  </h3>
     <p><%= @doctor.specialty %></p>
     <ul class="doctor-links">
-      <li><%= link_to "Recommend this doctor", new_recommendation_path %></li>
+      <li><%= link_to "Recommend this doctor", new_recommendation_path(id: @doctor.id) %></li>
       <li><%= link_to "Save this doctor" %></li>
     </ul>
   </div>
