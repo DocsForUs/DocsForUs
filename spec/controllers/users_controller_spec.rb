@@ -57,6 +57,14 @@ RSpec.describe UsersController, type: :controller do
           expect(assigns[:errors]).to include("Password confirmation doesn't match Password")
         end
       end
+      context"passwords aren't secure" do
+        before(:each) do
+          post :create, params: {user: {username: "Dev", email: "devbootcamp@camp.com", password: 'ham', password_confirmation: 'ham'}}
+        end
+        xit "assigns a errors variable with an error about password" do
+          expect(assigns[:errors]).to include("Password is too short (minimum is 6 characters)")
+        end
+      end
     end
   end
 

@@ -27,6 +27,10 @@ RSpec.describe User, type: :model do
         user2 = build(:user, email: "cactus@cactus.com")
         expect(user2).to_not be_valid
       end
+      it 'has a short password' do
+        user.password = 'ham'
+        expect(user).to_not be_valid
+      end
     end
     context 'it is valid when' do
       it 'has all the required fields and email and password are unique' do
