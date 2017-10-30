@@ -36,13 +36,9 @@
           <th><%= sort_link(@q, :city) %></th>
           <th><%= sort_link(@q, :state) %></th>
           <th><%= sort_link(@q, :specialty) %></th>
-<<<<<<< HEAD
-          <th class="tags"><%= sort_link(@q, :tags) %></th>
-=======
           <th><%= sort_link(@q, :insurance) %></th>
           <th><%= sort_link(@q, :gender) %></th>
-          <th><%= sort_link(@q, :tags) %></th>
->>>>>>> ae19488747906a5557c8c5b2b507c05a71e11217
+          <th class="tags"><%= sort_link(@q, :tags) %></th>
           <th>Select</th>
         </tr>
       </thead>
@@ -54,8 +50,8 @@
           <td><%= doctor.city %></td>
           <td><%= doctor.state %></td>
           <td><%= doctor.specialty %></td>
-          <td><% doctor.insurances.each do |ins| %>
-                <p><%= ins.insurance_name %></p>
+          <td class="insurance-tags"><% doctor.insurances.each do |ins| %>
+                <p class="ins-text"><%= ins.insurance_name %></p>
               <% end %>
           </td>
           <td><%= doctor.gender %></td>
