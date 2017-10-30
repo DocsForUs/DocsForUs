@@ -13,7 +13,7 @@
       <ul>
         <li class="title"> <%= link_to "Docs For Us", root_path %>  </li>
         <% if session[:user_id] %>
-          <li class="login"><%= link_to "Profile", user_path(User.find(session[:user_id])) %></li>
+          <li class="login"><%= link_to "Account", user_path(User.find(session[:user_id])) %></li>
           <li class="register"><%= link_to "Logout", logout_path %></li>
         <% else %>
           <li class="login"><%= link_to "Login", login_path %></li>
