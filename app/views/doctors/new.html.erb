@@ -7,22 +7,29 @@
   </ul>
   <% end %>
 </div>
-<div class="new-doctor-form">
-  <%= form_for @doctor do |f| %>
-    <%= f.text_field :first_name, placeholder: 'First Name*', required: true %>
-    <%= f.text_field :last_name, placeholder: 'Last Name*', required: true %>
 
-    <%= f.label "Specialty" %>
-    <%= f.select :specialty, options_for_select(@specialties, :last), required: true %>
-    <%= f.label "Gender" %>
-    <%= f.select :gender, options_for_select(@genders, :first), required: true %>
-    <%= f.email_field :email_address, placeholder: 'Email' %>
-    <%= f.text_field :phone_number, placeholder: 'Phone Number' %>
-    <%= f.text_field :street, placeholder: 'Street' %>
-    <%= f.text_field :city, placeholder: 'City*' %>
-    <%= f.label "State*" %>
-    <%= f.select :state, options_for_select(@states, :first), required: true %>
-    <%= f.text_field :zipcode, placeholder: 'Zipcode*', required: true %>
-    <%= f.submit "Add Doctor" %>
-  <% end %>
-</div>
+
+<section id="dr-search-page">
+  <div class="container">
+  <h1>Recommend a New Doctor</h1>
+  <div class="doctor-search-box">
+    <%= form_for @doctor do |f| %>
+      <%= f.text_field :first_name, placeholder: 'First Name*', required: true %>
+      <%= f.text_field :last_name, placeholder: 'Last Name*', required: true %>
+
+      <%= f.label "Specialty" %>
+      <%= f.select :specialty, options_for_select(@specialties, :last), required: true %>
+      <%= f.label "Gender" %>
+      <%= f.select :gender, options_for_select(@genders, :first), required: true %>
+      <%= f.email_field :email_address, placeholder: 'Email' %>
+      <%= f.text_field :phone_number, placeholder: 'Phone Number' %>
+      <%= f.text_field :street, placeholder: 'Street' %>
+      <%= f.text_field :city, placeholder: 'City*' %>
+      <%= f.label "State*" %>
+      <%= f.select :state, options_for_select(@states, :first), required: true %>
+      <%= f.text_field :zipcode, placeholder: 'Zipcode*', required: true %>
+      <%= f.submit "Add Doctor" %>
+    <% end %>
+  </div>
+  </div>
+</section>
