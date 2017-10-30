@@ -16,7 +16,7 @@ RSpec.describe UsersController, type: :controller do
   describe "create" do
     context "when user enters valid input " do
       before(:each) do
-        post :create, params: {user: {username: "Dev", email: "devbootcamp@camp.com", password: 'ham', password_confirmation: 'ham'}}
+        post :create, params: {user: {username: "Dev", email: "devbootcamp@camp.com", password: 'docs-f0r-us', password_confirmation: 'docs-f0r-us'}}
       end
       it "assigns a user variable" do
         expect(assigns[:user]).to be_a User
@@ -35,7 +35,7 @@ RSpec.describe UsersController, type: :controller do
       let!(:user) {create(:user)}
       context "user name already exists" do
         before(:each) do
-          post :create, params: {user: {username: "llama", email: "devbootcamp@camp.com", password: 'ham', password_confirmation: 'ham'}}
+          post :create, params: {user: {username: "llama", email: "devbootcamp@camp.com", password: 'docs-f0r-us', password_confirmation: 'docs-f0r-us'}}
         end
         it "assigns a errors variable with an error about username" do
           expect(assigns[:errors]).to include("Username has already been taken")
@@ -43,7 +43,7 @@ RSpec.describe UsersController, type: :controller do
       end
       context "email already exists" do
         before(:each) do
-          post :create, params: {user: {username: "Dev", email: "llama@llama.com", password: 'ham', password_confirmation: 'ham'}}
+          post :create, params: {user: {username: "Dev", email: "llama@llama.com", password: 'docs-f0r-us', password_confirmation: 'docs-f0r-us'}}
         end
         it "assigns a errors variable with an error about email" do
           expect(assigns[:errors]).to include("Email has already been taken")
@@ -61,7 +61,7 @@ RSpec.describe UsersController, type: :controller do
         before(:each) do
           post :create, params: {user: {username: "Dev", email: "devbootcamp@camp.com", password: 'ham', password_confirmation: 'ham'}}
         end
-        xit "assigns a errors variable with an error about password" do
+        it "assigns a errors variable with an error of too short" do
           expect(assigns[:errors]).to include("Password is too short (minimum is 6 characters)")
         end
       end
