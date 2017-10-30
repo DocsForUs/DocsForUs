@@ -40,15 +40,24 @@
 .doctor-search-box {
   border-radius: 5px;
   background-color: lightgrey;
-  display: flex;
-  flex-direction: column;
+  // flex-direction: column;
   width: 50%;
   margin: auto;
   height: 300px;
   padding: 15px;
   margin-top: 20px;
   input{
-    margin: 10px auto;
+    // margin: 10px auto;
+    display: block;
+  }
+  span {
+    display: block;
+  }
+  input[type=submit] {
+    display: block;
+  }
+  select {
+    display: block;
   }
   input[type=text] {
     @include form-fields;
