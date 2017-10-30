@@ -24,7 +24,7 @@ RSpec.describe DoctorsController, type: :controller do
       expect(response).to render_template(:new)
     end
   end
-  describe "doctors#create" do
+  xdescribe "doctors#create" do
     context "when inputs are valid" do
       before(:each) {post :create, params: {doctor: {first_name: 'Ash', last_name: 'Jay', specialty: 'General',email_address: 'ash@ash.com',zipcode: 35816, city: 'seattle',state: 'wa'}}}
       it "creates the doctor when all details are provided" do
