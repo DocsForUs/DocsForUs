@@ -91,6 +91,8 @@ nav {
 
 .accreditation {
   font-size: .8em;
+  position: relative;
+  top: 10px;
 }
 
 .accreditation a:link {
