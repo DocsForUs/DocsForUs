@@ -84,33 +84,28 @@
 /*Doctor Show Page*/
 
 .doctor-info-container {
+  width: 80%;
+  margin: auto;
   background-color: #cccccc;
   border-radius: 5px;
-  margin: auto;
-  width: 50%;
-  display: grid;
-  padding: 50px;
-  grid-template-columns: repeat(3, 1fr);
-  grid-gap: 10px;
-  grid-auto-rows: minmax(100px, auto);
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
   h3 {
     margin-left: 20px;
+    text-align: center;
   }
-}
-
-.one {
-  grid-column: 1;
-  grid-row: 1;
-  background-color: white;
-  height: 300px;
-}
-
-.two {
-  grid-column: 2 / 4;
-  grid-row: 1 / 3;
-  background-color: white;
 }
 
 .doc-info-list {
   list-style-type: none;
+}
+
+.doctor-tags li {
+  display: inline-block;
+  list-style-type: none;
+  border: 1px solid #468499;
+  border-radius: 5px;
+  padding: 5px;
+  margin: 5px;
 }
