@@ -88,3 +88,11 @@ nav {
   text-align: center;
   border-radius: 10px;
 }
+
+.accreditation {
+  font-size: .8em;
+}
+
+.accreditation a:link {
+  text-decoration: none;
+}
