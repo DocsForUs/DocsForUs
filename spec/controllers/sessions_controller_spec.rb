@@ -18,13 +18,13 @@ RSpec.describe SessionsController, type: :controller do
       post :create, params: {user:{email: 'ash@ash.com', password: 'abc'}}
       expect(session[:user_id]).to eq (user.id)
     end
-    it "creates a error when input password is invalid" do
+    it "creates a flash notice when input password is invalid" do
       post :create, params: {user:{email: 'ash@ash.com', password: 'abagwg'}}
-      expect(assigns[:error]).to eq ("Invalid credentials")
+      expect(flash[:alert]).to eq ("Your email or password is incorrect")
     end
     it "creates a error when input email is invalid" do
       post :create, params: {user:{email: 'ashish@ash.com', password: 'abagwg'}}
-      expect(assigns[:error]).to eq ("Invalid credentials")
+      expect(flash[:alert]).to eq ("Your email or password is incorrect")
     end
   end
   describe "session#destroy" do

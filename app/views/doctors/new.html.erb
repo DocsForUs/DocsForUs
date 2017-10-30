@@ -16,8 +16,8 @@
     <%= f.email_field :email_address, placeholder: 'Email' %>
     <%= f.text_field :phone_number, placeholder: 'Phone Number' %>
     <%= f.text_field :street, placeholder: 'Street' %>
-    <%= f.text_field :city, placeholder: 'City' %>
-    <%= f.text_field :state, placeholder: 'State' %>
+    <%= f.text_field :city, placeholder: 'City*', required: true %>
+    <%= f.text_field :state, placeholder: 'State*', required: true %>
     <%= f.text_field :zipcode, placeholder: 'Zipcode*', required: true %>
     <%= f.submit "Add Doctor" %>
   <% end %>

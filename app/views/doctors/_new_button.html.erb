@@ -1,8 +1,7 @@
-<% if @show_new_doctor %>
-  <div class="rec-search-result right">
+
+  <div class="rec-search-result">
     <h3>
       Don't see the doctor you're looking for?
     </h3>
-      <%= link_to "Add a new doctor", new_doctor_path %>
+      <a href="/doctors/new"><button type="button">Add a new doctor</button></a>
   </div>
-<% end %>
