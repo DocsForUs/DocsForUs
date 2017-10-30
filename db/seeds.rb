@@ -1,5 +1,7 @@
 include InsuranceDataHelper
 
+include InsuranceDataHelper
+
 first_name = ["Elizabeth", "Karen", "Michael", "Elesa", "Kevin"]
 
 last_name = ["Blackwell", "Smith", "Mengesha", "Holly"]
