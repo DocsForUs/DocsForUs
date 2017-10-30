@@ -6,6 +6,7 @@ class DoctorsController < ApplicationController
     include HTTParty
     include GendersHelper
     include TagsHelper
+
   def find
       @states = helpers.states
     if search_params[:first_name] != "" && search_params[:last_name] != ""
