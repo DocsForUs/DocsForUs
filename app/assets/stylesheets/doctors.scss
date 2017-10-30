@@ -89,12 +89,14 @@
 /*Doctor Show Page*/
 
 .doctor-info-container {
-  width: 80%;
+  width: 70%;
   margin: auto;
-  background-color: #cccccc;
+  border: 1px solid #468499;
+  padding: 0px 15px;
   border-radius: 5px;
   display: flex;
   flex-wrap: wrap;
+  margin-top: 20px;
   margin-bottom: 20px;
   h3 {
     margin-left: 20px;
@@ -102,8 +104,35 @@
   }
 }
 
+.doctor-main {
+  flex-basis: 30%;
+  text-align: center;
+  margin: 10px 10px 10px 0px;
+  border-right: 1px dotted #468499;
+  .doctor-links {
+    list-style-type: none;
+  }
+}
+
+.doctor-details {
+  flex-basis: 60%;
+  margin: 0px 10px;
+}
+
 .doc-info-list {
   list-style-type: none;
+}
+
+.doctor-reviews {
+  flex-basis: 95%;
+  margin: auto;
+  border-top: 1px dotted #468499;
+}
+
+.single-rec {
+  width: 98%;
+  padding: 10px;
+  border-top: 1px dotted #468499;
 }
 
 .doctor-tags li {

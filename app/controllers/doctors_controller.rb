@@ -22,8 +22,6 @@ class DoctorsController < ApplicationController
     @doctor = Doctor.all
   end
 
-
-
   def create
     @doctor = Doctor.new(doctor_params)
     insurances = Doctor.get_insurances(insurance_param)
@@ -50,6 +48,13 @@ class DoctorsController < ApplicationController
 
   def show
     @doctor = Doctor.find(params[:id])
+    @tags = []
+    @doctor.recommendations.each do |rec|
+      rec.tags.each do |tag|
+        @tags << tag
+      end
+    end
+    @tags = @tags.uniq
   end
 
   private

@@ -32,37 +32,28 @@
       <% if !@doctor.recommendations.empty? %>
         <h4>Users said this doctor...</h4>
         <ul class="doctor-tags">
-          <% @doctor.recommendations.each do |rec| %>
-            <% rec.tags.each do |t| %>
-              <li>
-                <%= t.description %>
-              </li>
-            <% end %>
+          <% @tags.each do |t| %>
+            <li>
+              <%= t.description %>
+            </li>
           <% end %>
         </ul>
       <% end %>
     </div>
   </div>
   <div class="doctor-reviews">
-    <% if @doctor.recommendations %>
+    <h4>Users who recommended this doctor said...</h4>
+    <% if @doctor.recommendations.length > 0 %>
     <% @doctor.recommendations.each do |rec| %>
       <div class="single-rec">
         <div class="review-profile"><%= rec.review %></div>
-        <ul class="tag-list">
-          <% rec.tags.each do |tag| %>
-            <li class="rec-tags-profile">
-              <%= tag.description %>
-            </li>
-          <% end %>
-        </ul>
         <p>
-          Recommended on <%= rec.created_at.localtime.strftime('%m/%d/%Y at %I:%M %p')
-%>
+          Recommended on <%= rec.created_at.localtime.strftime('%m/%d/%Y at %I:%M %p') %> by <%= rec.user.username %>
         </p>
       </div>
     <% end %>
     <% else %>
-    <p>You have not recommended any doctors yet.</p>
+      <p>This doctor has not been recommended yet.</p>
     <% end %>
   </div>
   </div>
