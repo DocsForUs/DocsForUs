@@ -8,5 +8,6 @@ class DoctorUsersController < ApplicationController
   def destroy
     @doctor = Doctor.find(params[:id])
     @doctor.users.destroy(current_user)
+    redirect_to doctor_path(@doctor)
   end
 end
