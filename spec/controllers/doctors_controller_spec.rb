@@ -1,6 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe DoctorsController, type: :controller do
+  let(:user) { create(:user) }
   let(:doctor) { create(:doctor) }
   let(:doctor2) { Doctor.create(first_name: 'Atul', last_name: 'Gawande', city: 'seattle', state:'wa') }
   describe 'index route for searching' do
@@ -35,12 +36,14 @@ RSpec.describe DoctorsController, type: :controller do
    end
 
   describe "doctors#new" do
-    before(:each) {get :new}
-    it "returns the status of 200" do
-      expect(response.status).to eq 200
-    end
-    it "returns the form for creating new doctor" do
-      expect(response).to render_template(:new)
+    before(:each) {get :new, session: {user_id: user.id}}
+    context "when logged in" do
+      it "returns the status of 200 if " do
+        expect(response.status).to eq 200
+      end
+      it "returns the form for creating new doctor" do
+        expect(response).to render_template(:new)
+      end
     end
   end
   describe "doctors#create" do
@@ -73,6 +76,24 @@ RSpec.describe DoctorsController, type: :controller do
     before(:each) {post :create, params: {doctor: {first_name: 'John', last_name: 'Anderson', specialty: 'General',zipcode: 35816,city:'seattle',state:'wa',email_address:'ash@ash.com',uid:"c886464a49f370de7f69b20ef7d67585"}}}
     xit "creates the insurances if it isnt available in the database" do
       expect(assigns[:doctor].insurances.count).to eq 24
+    end
+  end
+
+  describe 'doctors#destroy' do
+    let!(:user) { create(:user) }
+    before(:each) do
+      user.doctors << doctor
+      delete :destroy, params: {user_id: user.id, id: doctor.id}, session: {user_id: user.id}
+    end
+    it 'creates a doctor instance variable' do
+      expect(assigns[:doctor]).to eq doctor
+    end
+    it 'redirects to the doctor show page' do
+      expect(response).to redirect_to doctor_path(doctor)
+    end
+    it 'destroys the association between doctor and user' do
+      user.reload
+      expect(user.doctors).to_not include doctor
     end
   end
 end#end of class

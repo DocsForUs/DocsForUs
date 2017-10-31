@@ -1,5 +1,3 @@
-
-
 class DoctorsController < ApplicationController
     include StatesHelper
     include SpecialtyDataHelper
@@ -22,10 +20,16 @@ class DoctorsController < ApplicationController
   end
 
   def new
-    @doctor = Doctor.new
-    @states = helpers.states
-    @genders = helpers.genders
-    @specialties = helpers.get_specialties + Doctor.select('specialty').distinct.map {|dr| dr.specialty}
+    if current_user
+      @insurance = helpers.get_insurance
+      @doctor = Doctor.new
+      @states = helpers.states
+      @genders = helpers.genders
+      @specialties = helpers.get_specialties + Doctor.select('specialty').distinct.map {|dr| dr.specialty}
+    else
+      flash[:alert] = 'You must be logged in to add a doctor'
+      redirect_to login_path
+    end
   end
 
   def index
@@ -44,6 +48,7 @@ class DoctorsController < ApplicationController
     else
       insurances = Doctor.get_insurances(insurance_param)
       @doctor = Doctor.find_or_initialize_by(doctor_params)
+      insurance = Insurance.find_by(insurance_uid: insurances_param['insurances'])
         if @doctor.save
           doc = Doctor.find(@doctor.id)
           insurances.each do |insurance|
@@ -54,6 +59,9 @@ class DoctorsController < ApplicationController
               insurance_new = Insurance.create(insurance_uid: insurance[:uid], insurance_name: insurance[:name])
               doc.insurances << insurance_new
             end
+          end
+          if insurance
+            doc.insurances << insurance
           end
           redirect_to new_recommendation_path(id: @doctor.id)
         else
@@ -86,6 +94,14 @@ class DoctorsController < ApplicationController
     end
   end
 
+  def destroy
+    @doctor = Doctor.find(params[:id])
+    if params[:user_id].to_i == current_user.id
+      current_user.doctors.destroy(@doctor)
+    end
+    redirect_to doctor_path(@doctor)
+  end
+
   private
 
 
@@ -101,6 +117,10 @@ class DoctorsController < ApplicationController
     params.require(:doctor).permit(:uid)
   end
 
+
+  def insurances_param
+    params.require(:doctor).permit(:insurances)
+  end
 
 
 end#end of class
