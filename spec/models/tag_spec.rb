@@ -17,6 +17,14 @@ RSpec.describe Tag, type: :model do
       tag2 = build(:tag)
       expect(tag2).to_not be_valid
     end
+    it 'is invalid without a default boolean' do
+      tag.default = nil
+      expect(tag).to_not be_valid
+    end
+    it 'is invalid without a category' do
+      tag.category = nil
+      expect(tag).to_not be_valid
+    end
   end
 
 end

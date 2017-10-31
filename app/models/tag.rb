@@ -3,7 +3,7 @@ DEFAULT_TAGS = ["used correct pronouns", "was familiar with my medical needs", "
 class Tag < ApplicationRecord
   has_many :recommendations_tags
   has_many :recommendations, through: :recommendations_tags
-  validates :description, presence: true, uniqueness: true
+  validates :description, :category, :default,  presence: true, uniqueness: true
 
   def self.default_tags
     default_tags = []
