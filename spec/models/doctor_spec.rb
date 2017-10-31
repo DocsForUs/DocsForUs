@@ -12,15 +12,16 @@ describe Doctor, type: :model do
       expect(doctor).to_not be_valid
     end
   end
-  
-  describe 'searches the api with first and last name parameters' do
 
+  describe '.search_doctor' do
     it 'returns an array of doctors information parsed' do
       doctor = {first_name: "Laura", last_name: "Spring", city: "Seattle", state: "WA"}
       response = Doctor.search_doctor(doctor)
       expect(response[0][:first_name]).to eq "Laura"
     end
+  end
 
+  describe '.get_insurances'
     it "it returns an array of the doctor's insurances" do
       doctor_uid = {uid: "ewrwewrewrew"}
       response = Doctor.get_insurances(doctor_uid)
