@@ -33,28 +33,16 @@ class DoctorsController < ApplicationController
   end
 
   def create
-    insurances = Doctor.get_insurances(insurance_param)
-    @doctor = Doctor.find_or_initialize_by(doctor_params)
-    insurance = Insurance.find_by(insurance_uid: insurances_param['insurances'])
-      if @doctor.save
-        insurances.each do |insurance|
-          insurance_database = Insurance.find_by(insurance_uid: insurance[:uid])
-          if insurance_database
-            @doctor.insurances << insurance_database
-          else
-            insurance_new = Insurance.create(insurance_uid: insurance[:uid], insurance_name: insurance[:name])
-            @doctor.insurances << insurance_new
-          end
-        end
-        if insurance
-          @doctor.insurances << insurance
-        end
-        redirect_to new_recommendation_path(id: @doctor.id)
-      else
-        @errors = @doctor.errors.full_messages
-        render :new
-      end
-
+    @doctor = Doctor.find_or_create_by(doctor_params)
+    if !@doctor.save
+      @errors = @doctor.errors.full_messages
+      render :new
+    elsif params.include?(:uid)
+      @doctor.associate_insurances_api(insurance_param)
+    elsif params.include?('insurances')
+      @doctor.assign_insurance(param)
+    end
+    redirect_to new_recommendation_path(id: @doctor.id)
   end
 
   def index
@@ -92,11 +80,6 @@ class DoctorsController < ApplicationController
   end
 
   private
-
-  def insurance_asso
-
-  end
-
 
   def search_params
    params.require(:doctor).permit(:first_name, :last_name,:city,:state)
