@@ -38,8 +38,7 @@
           <th><%= sort_link(@q, :specialty) %></th>
           <th><%= sort_link(@q, :insurance) %></th>
           <th><%= sort_link(@q, :gender) %></th>
-          <th><%= sort_link(@q, :tags) %></th>
-
+          <th class="tags"><%= sort_link(@q, :tags) %></th>
           <th>Select</th>
         </tr>
       </thead>
@@ -51,8 +50,8 @@
           <td><%= doctor.city %></td>
           <td><%= doctor.state %></td>
           <td><%= doctor.specialty %></td>
-          <td><% doctor.insurances.each do |ins| %>
-                <p><%= ins.insurance_name %></p>
+          <td class="insurance-tags"><% doctor.insurances.each do |ins| %>
+                <p class="ins-text"><%= ins.insurance_name %></p>
               <% end %>
           </td>
           <td><%= doctor.gender %></td>
@@ -70,6 +69,10 @@
         <% end %>
       </tbody>
     </table>
+    <div id="paginator">
+    <%= paginate @doctors, window: 2 %>
+    </div>
+
   </div>
 </div>
 </section>

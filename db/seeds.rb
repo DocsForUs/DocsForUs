@@ -1,3 +1,4 @@
+include InsuranceDataHelper
 
 include InsuranceDataHelper
 
@@ -20,7 +21,7 @@ Doctor.create(first_name: 'Eliza', last_name: "Brine", street: "1 Main Street", 
 Doctor.create(first_name: 'Eliza', last_name: "Brine", street: "1 Main Street", specialty: specialties.sample, city: 'Syracuse', state: "NY", email_address:"dr@doctor.com", zipcode: "09099")
 
 insurances = InsuranceDataHelper.get_insurance
-10.times do |i|
+insurances.length.times do |i|
   ins = Insurance.create(insurance_uid: insurances[i][1], insurance_name: insurances[i][0])
-  Doctor.find(i+1).insurances << ins
+  Doctor.all.sample.insurances << ins
 end

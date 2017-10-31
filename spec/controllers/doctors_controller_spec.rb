@@ -1,6 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe DoctorsController, type: :controller do
+  let(:user) { create(:user) }
   let(:doctor) { create(:doctor) }
   let(:doctor2) { Doctor.create(first_name: 'Atul', last_name: 'Gawande', city: 'seattle', state:'wa') }
   describe 'index route for searching' do
@@ -35,12 +36,14 @@ RSpec.describe DoctorsController, type: :controller do
    end
 
   describe "doctors#new" do
-    before(:each) {get :new}
-    it "returns the status of 200" do
-      expect(response.status).to eq 200
-    end
-    it "returns the form for creating new doctor" do
-      expect(response).to render_template(:new)
+    before(:each) {get :new, session: {user_id: user.id}}
+    context "when logged in" do
+      it "returns the status of 200 if " do
+        expect(response.status).to eq 200
+      end
+      it "returns the form for creating new doctor" do
+        expect(response).to render_template(:new)
+      end
     end
   end
   describe "doctors#create" do
