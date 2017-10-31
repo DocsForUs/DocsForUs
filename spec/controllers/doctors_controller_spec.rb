@@ -3,6 +3,7 @@ require 'rails_helper'
 RSpec.describe DoctorsController, type: :controller do
   let(:user) { create(:user) }
   let(:doctor) { create(:doctor) }
+
   let(:doctor2) { Doctor.create(first_name: 'Atul', last_name: 'Gawande', city: 'seattle', state:'wa') }
   describe 'index route for searching' do
     it 'assigns a instance @doctors to doctors that fit the search result' do
@@ -17,21 +18,25 @@ RSpec.describe DoctorsController, type: :controller do
   end
 
   describe "GET #show" do
+    let!(:rec) { create(:recommendation, doctor: doctor) }
+    let!(:tag) { create(:tag) }
+    before(:each) do
+      rec.tags << tag
+      get :show, params: {id: doctor.id}
+    end
      it "responds with a status code of 200" do
-       get :show, params: {id: doctor.id}
        expect(response).to have_http_status 200
      end
 
      it "renders the show template" do
-       get :show, params: {id: doctor.id}
        expect(response).to render_template(:show)
      end
 
-     xit "assigns a tags instance variable" do
-       rec = build(:recommendation)
-       tag = build(:tag)
-       rec.tags << tag
+     it "assigns a tags instance variable" do
        expect(assigns[:tags]).to include tag
+     end
+     it 'assigns a doctor instance variable' do
+       expect(assigns[:doctor]).to eq doctor
      end
    end
 
@@ -73,9 +78,9 @@ RSpec.describe DoctorsController, type: :controller do
     end
   end
   describe "creating insurances for the doctor" do
-    before(:each) {post :create, params: {doctor: {first_name: 'John', last_name: 'Anderson', specialty: 'General',zipcode: 35816,city:'seattle',state:'wa',email_address:'ash@ash.com',uid:"c886464a49f370de7f69b20ef7d67585"}}}
+    before(:each) {post :create, params: {doctor: {first_name: 'Laura', last_name: 'Spring', specialty: 'Family Medicine',zipcode: '98103',city:'Seattle',state:'WA',uid:"ewrwewrewrew"}}}
     xit "creates the insurances if it isnt available in the database" do
-      expect(assigns[:doctor].insurances.count).to eq 24
+      expect(assigns[:doctor].insurances.count).to eq 2
     end
   end
 
