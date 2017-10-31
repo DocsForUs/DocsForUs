@@ -5,7 +5,7 @@ class DoctorsController < ApplicationController
     include GendersHelper
     include TagsHelper
     include InsuranceDataHelper
-
+    helper_method :current_user
 
   def find
       @states = helpers.states
@@ -34,38 +34,29 @@ class DoctorsController < ApplicationController
   end
 
   def create
-    if params[:user_id]
-      @doctor = Doctor.find(params[:doctor_id])
-      if current_user.doctors.include?(@doctor)
-        redirect_to doctor_path(@doctor)
-      else
-        current_user.doctors << @doctor
-        redirect_to doctor_path(@doctor)
-      end
-    else
-      insurances = Doctor.get_insurances(insurance_param)
-      @doctor = Doctor.find_or_initialize_by(doctor_params)
-      insurance = Insurance.find_by(insurance_uid: insurances_param['insurances'])
-        if @doctor.save
-          doc = Doctor.find(@doctor.id)
-          insurances.each do |insurance|
-            insurance_database = Insurance.find_by(insurance_uid: insurance[:uid])
-            if insurance_database
-              doc.insurances << insurance_database
-            else
-              insurance_new = Insurance.create(insurance_uid: insurance[:uid], insurance_name: insurance[:name])
-              doc.insurances << insurance_new
-            end
+    insurances = Doctor.get_insurances(insurance_param)
+    @doctor = Doctor.find_or_initialize_by(doctor_params)
+    insurance = Insurance.find_by(insurance_uid: insurances_param['insurances'])
+      if @doctor.save
+        doc = Doctor.find(@doctor.id)
+        insurances.each do |insurance|
+          insurance_database = Insurance.find_by(insurance_uid: insurance[:uid])
+          if insurance_database
+            doc.insurances << insurance_database
+          else
+            insurance_new = Insurance.create(insurance_uid: insurance[:uid], insurance_name: insurance[:name])
+            doc.insurances << insurance_new
           end
-          if insurance
-            doc.insurances << insurance
-          end
-          redirect_to new_recommendation_path(id: @doctor.id)
-        else
-          @errors = @doctor.errors.full_messages
-          render :new
         end
-    end
+        if insurance
+          doc.insurances << insurance
+        end
+        redirect_to new_recommendation_path(id: @doctor.id)
+      else
+        @errors = @doctor.errors.full_messages
+        render :new
+      end
+
   end
 
   def index
