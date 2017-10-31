@@ -17,7 +17,7 @@
     <ul class="doctor-links">
       <li><%= link_to "Recommend this doctor", new_recommendation_path(id: @doctor.id) %></li>
       <% if User.find(session[:user_id]).doctors.include?(@doctor) %>
-        <li>You have saved this doctor</li>
+        <li><li><%= button_to "Unsave this doctor", user_doctor_path(User.find(session[:user_id]), @doctor.id), method: "delete", class: "save-button" %></li></li>
       <% else %>
         <li><%= button_to "Save this doctor", user_doctors_path(User.find(session[:user_id])), class: "save-button", params: {doctor_id: @doctor.id} %></li>
       <% end %>
