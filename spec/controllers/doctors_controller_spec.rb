@@ -3,6 +3,7 @@ require 'rails_helper'
 RSpec.describe DoctorsController, type: :controller do
   let(:user) { create(:user) }
   let(:doctor) { create(:doctor) }
+
   let(:doctor2) { Doctor.create(first_name: 'Atul', last_name: 'Gawande', city: 'seattle', state:'wa') }
   describe 'index route for searching' do
     it 'assigns a instance @doctors to doctors that fit the search result' do
@@ -17,20 +18,22 @@ RSpec.describe DoctorsController, type: :controller do
   end
 
   describe "GET #show" do
+    before(:each) do
+      get :show, params: {id: doctor.id}
+    end
      it "responds with a status code of 200" do
-       get :show, params: {id: doctor.id}
        expect(response).to have_http_status 200
      end
 
      it "renders the show template" do
-       get :show, params: {id: doctor.id}
        expect(response).to render_template(:show)
      end
 
      it "assigns a tags instance variable" do
-       rec = build(:recommendation)
-       tag = build(:tag)
+       rec = create(:recommendation)
+       tag = create(:tag)
        rec.tags << tag
+       get :show, params: {id: doctor.id}
        expect(assigns[:tags]).to include tag
      end
    end
