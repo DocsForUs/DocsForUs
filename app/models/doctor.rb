@@ -9,7 +9,6 @@ class Doctor < ApplicationRecord
 
   def self.search_doctor(doctor)
     response = Doctor.search_api(doctor)
-    response =  JSON.parse response.body, symbolize_names: true
     doctors_array = []
     if response[:data]
       response[:data].each do |doc|
@@ -41,11 +40,14 @@ class Doctor < ApplicationRecord
   def self.search_api(doctor)
     full_name = doctor[:first_name] +' '+ doctor[:last_name]
     location = doctor[:state] + '-' + doctor[:city]
-    HTTParty.get("https://api.betterdoctor.com/2016-03-01/doctors?name=#{full_name}&location=#{location}&limit=10&user_key=#{ENV['BETTER_DOCTOR_USER_KEY']}", format: :plain)
+    response = HTTParty.get("https://api.betterdoctor.com/2016-03-01/doctors?name=#{full_name}&location=#{location}&limit=10&user_key=#{ENV['BETTER_DOCTOR_USER_KEY']}", format: :plain)
+    p response = JSON.parse(response.body, symbolize_names: true)
+    p JSON.pretty_generate(response)
+    response
   end
 
   def self.insurance_search_api(uid)
-    HTTParty.get("https://api.betterdoctor.com/2016-03-01/doctors/#{uid}?user_key=#{ENV['BETTER_DOCTOR_USER_KEY']}", format: :plain)
+    p HTTParty.get("https://api.betterdoctor.com/2016-03-01/doctors/#{uid}?user_key=#{ENV['BETTER_DOCTOR_USER_KEY']}", format: :plain)
   end
 
   def self.doctor_data(doctor)
