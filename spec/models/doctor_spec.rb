@@ -5,7 +5,15 @@ describe Doctor, type: :model do
   describe 'associations' do
     it {should have_many(:users).through(:doctors_users) }
   end
-  context 'searches the api with first and last name parameters' do
+
+  describe 'validations' do
+    it 'is invalid without either a phone number or an email' do
+      doctor = build(:doctor, email_address: nil, phone_number: nil)
+      expect(doctor).to_not be_valid
+    end
+  end
+  
+  describe 'searches the api with first and last name parameters' do
 
     it 'returns an array of doctors information parsed' do
       doctor = {first_name: "Laura", last_name: "Spring", city: "Seattle", state: "WA"}
@@ -14,9 +22,9 @@ describe Doctor, type: :model do
     end
 
     it "it returns an array of the doctor's insurances" do
-      doctor = {first_name: "John", last_name: "Anderson", city: "seattle", state: "wa"}
-      response = Doctor.search_doctor(doctor)
-      expect(response).to eq nil
+      doctor_uid = {uid: "ewrwewrewrew"}
+      response = Doctor.get_insurances(doctor_uid)
+      expect(response[0][:uid]).to eq "insurance-insurance"
     end
   end
 end
