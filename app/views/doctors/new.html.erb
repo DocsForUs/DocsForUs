@@ -25,8 +25,8 @@
       <%= f.select :gender, options_for_select(@genders, :first), required: true, include_blank: true %>
       <%= f.email_field :email_address, placeholder: 'Email' %>
       <%= f.text_field :phone_number, placeholder: 'Phone Number' %>
-      <%= f.text_field :street, placeholder: 'Street' %>
-      <%= f.text_field :city, placeholder: 'City*' %>
+      <%= f.text_field :street, placeholder: 'Street*', required: true%>
+      <%= f.text_field :city, placeholder: 'City*', required: true%>
       <%= f.label "State*" %>
       <%= f.select :state, options_for_select(@states, :first), required: true %>
       <%= f.text_field :zipcode, placeholder: 'Zipcode*', required: true %>

@@ -46,14 +46,19 @@ RSpec.describe DoctorsController, type: :controller do
       end
     end
   end
-  xdescribe "doctors#create" do
+  describe "doctors#create" do
     context "when inputs are valid" do
-      before(:each) {post :create, params: {doctor: {first_name: 'Ash', last_name: 'Jay', specialty: 'General',email_address: 'ash@ash.com',zipcode: 35816, city: 'seattle',state: 'wa'}}}
+      let!(:doctor) {create(:doctor)}
+      before(:each) {post :create, params: {doctor: {first_name: 'Ash', last_name: 'Ram', specialty: 'nuclear-cardiologist',email_address: 'ash@ash.com',zipcode: "98052", street:'150,S jumba', city: 'seattle',state: 'WA'}}}
       it "creates the doctor when all details are provided" do
         expect(Doctor.find_by(email_address: 'ash@ash.com')).to be_a Doctor
       end
       it "redirects to the doctor_path" do
         expect(response.status).to eq 302
+      end
+      it "checks if the doctor is available in the database first before creating" do
+        post :create, params: {doctor: {first_name: 'Georgette', last_name: 'Tronkenheim', specialty: 'Family Practice',email_address: 'georgette@doctor.com',zipcode: "98103", street:'33 Orange St', city: 'Seattle',state: 'WA'}}
+        expect(Doctor.where(first_name: 'Georgette').count).to eq 1
       end
     end
 
