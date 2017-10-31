@@ -31,7 +31,7 @@
     <nav class="main-nav">
       <ul>
         <li class="title"> <%= link_to "Docs For Us", root_path %>  </li>
-        <li class="about"> <%= link_to "About", about_path%> </li>
+        <li class="about2"> <%= link_to "About", about_path%> </li>
         <% if session[:user_id] %>
           <li class="login"><%= link_to "Profile", user_path(User.find(session[:user_id])) %></li>
           <li class="register"><%= link_to "Logout", logout_path %></li>

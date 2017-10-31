@@ -17,11 +17,15 @@ nav {
  padding: 3rem;
  box-sizing: border-box;
 }
+.about2 {
+  grid-column-start: 3;
+  line-height: 36px;
+}
 
 .main-nav ul {
  color: $white;
  display: grid;
- grid-template-columns: minmax(auto, 500px) minmax(auto, 600px) repeat(2, minmax(150px,1fr)) ;
+ grid-template-columns: minmax(auto, 500px) minmax(auto, 600px) repeat(3, minmax(150px,1fr)) ;
  letter-spacing: .25rem;
  list-style: none;
  margin: 0;
@@ -30,15 +34,16 @@ nav {
 }
 
 .login {
- grid-column-start: 3;
+ grid-column-start: 4;
  line-height: 36px;
 }
 
 .register {
- grid-column-start: 4;
+ grid-column-start: 5;
  line-height: 36px;
  padding-right: 20px;
 }
+
 
 .main-nav {
  text-decoration: none;
@@ -51,7 +56,7 @@ nav {
    color: $white;
   }
   &:hover {
-   color: #c7d7dd;
+   color: $contrast-blue;
   }
 }
 
@@ -70,4 +75,14 @@ nav {
  background-color: rgba(255, 0, 0, 0.3);
  text-align: center;
  border-radius: 10px;
+}
+
+.accreditation {
+  font-size: .8em;
+  position: relative;
+  top: 10px;
+}
+
+.accreditation a:link {
+  text-decoration: none;
 }
