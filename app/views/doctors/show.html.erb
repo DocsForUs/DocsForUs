@@ -31,6 +31,8 @@
       </li>
       <li>Phone Number: <%= @doctor.phone_number %></li>
       <li>Email Address: <%= @doctor.email_address %></li>
+      <li>Insurances Accepted Include: <% string = '' %><% @doctor.insurances.each do |ins| %> <% string += ' ' + ins.insurance_name + ',' %><% end %> <%= string.chop %>
+      </li>
     </ul>
     <div class="doctor-tags-div">
       <% if !@doctor.recommendations.empty? %>
