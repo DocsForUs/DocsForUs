@@ -4,9 +4,11 @@ RSpec.describe DoctorUsersController, type: :controller do
   let!(:doctor) { create(:doctor) }
   let!(:user) { create(:user) }
   describe 'saved doctors of user profile' do
-    before(:each) { session[:user_id] = user.id }
-    before(:each) { post :create, params: { id: '1' } }
-    it 'sends the doctor id in params' do
+    before(:each) do
+      session[:user_id] = user.id
+      post :create, params: { id: '1' }
+    end
+    it 'assigns the @doctor instance based on params id' do
       expect(assigns[:doctor]).to eq doctor
     end
     it 'creates the association' do
@@ -18,10 +20,12 @@ RSpec.describe DoctorUsersController, type: :controller do
   end
 
   describe 'deleting doctors from a user profile' do
-    before(:each) { session[:user_id] = user.id }
-    before(:each) { doctor.users << user }
-    before(:each) { delete :destroy, params: { id: '1' } }
-    it 'sends the doctor id in params' do
+    before(:each) do
+      session[:user_id] = user.id
+      doctor.users << user
+      delete :destroy, params: { id: '1' }
+    end
+    it 'assigns the @doctor instance based on params id' do
       expect(assigns[:doctor]).to eq doctor
     end
     it 'deletes the association' do

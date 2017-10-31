@@ -37,6 +37,7 @@ class DoctorsController < ApplicationController
     if !@doctor.save
       @errors = @doctor.errors.full_messages
       render :new
+    elsife
     elsif params.include?(:uid)
       @doctor.associate_insurances_api(insurance_param)
     elsif params.include?('insurances')
@@ -88,15 +89,5 @@ class DoctorsController < ApplicationController
   def doctor_params
     params.require(:doctor).permit(:first_name, :last_name, :specialty, :gender, :email_address, :phone_number, :street, :city, :state, :zipcode)
   end
-
-  def insurance_param
-    params.require(:doctor).permit(:uid)
-  end
-
-
-  def insurances_param
-    params.require(:doctor).permit(:insurances)
-  end
-
 
 end#end of class

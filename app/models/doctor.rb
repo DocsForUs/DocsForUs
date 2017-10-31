@@ -105,4 +105,13 @@ class Doctor < ApplicationRecord
     doctor_insurances
   end
 
+  def insurance_param
+    params.require(:doctor).permit(:uid)
+  end
+
+
+  def insurances_param
+    params.require(:doctor).permit(:insurances)
+  end
+
 end#end of class
