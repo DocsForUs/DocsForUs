@@ -36,7 +36,6 @@
           <th><%= sort_link(@q, :city) %></th>
           <th><%= sort_link(@q, :state) %></th>
           <th><%= sort_link(@q, :specialty) %></th>
-          <th><%= sort_link(@q, :insurance) %></th>
           <th><%= sort_link(@q, :gender) %></th>
           <th class="tags"><%= sort_link(@q, :tags) %></th>
           <th>Select</th>
@@ -50,10 +49,6 @@
           <td><%= doctor.city %></td>
           <td><%= doctor.state %></td>
           <td><%= doctor.specialty %></td>
-          <td class="insurance-tags"><% doctor.insurances.each do |ins| %>
-                <p class="ins-text"><%= ins.insurance_name %></p>
-              <% end %>
-          </td>
           <td><%= doctor.gender %></td>
           <td class="table-tags"> <% if doctor.recommendations.length > 0 %>
             <% doctor.recommendations.each do |rec| %>
