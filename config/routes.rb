@@ -12,7 +12,7 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :doctor_users, only: [:create, :delete]
+  resources :doctor_users, only: [:create, :destroy]
   resources :recommendations, only: [:new, :create]
 
   get '/login' => 'sessions#new'
