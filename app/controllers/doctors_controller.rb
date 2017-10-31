@@ -38,18 +38,17 @@ class DoctorsController < ApplicationController
     @doctor = Doctor.find_or_initialize_by(doctor_params)
     insurance = Insurance.find_by(insurance_uid: insurances_param['insurances'])
       if @doctor.save
-        doc = Doctor.find(@doctor.id)
         insurances.each do |insurance|
           insurance_database = Insurance.find_by(insurance_uid: insurance[:uid])
           if insurance_database
-            doc.insurances << insurance_database
+            @doctor.insurances << insurance_database
           else
             insurance_new = Insurance.create(insurance_uid: insurance[:uid], insurance_name: insurance[:name])
-            doc.insurances << insurance_new
+            @doctor.insurances << insurance_new
           end
         end
         if insurance
-          doc.insurances << insurance
+          @doctor.insurances << insurance
         end
         redirect_to new_recommendation_path(id: @doctor.id)
       else
@@ -94,7 +93,6 @@ class DoctorsController < ApplicationController
   end
 
   private
-
 
   def search_params
    params.require(:doctor).permit(:first_name, :last_name,:city,:state)
