@@ -54,7 +54,7 @@ group :test do
   gem 'faker'
   gem 'capybara'
   gem 'poltergeist'
-
+  gem 'webmock'
   gem "factory_bot_rails", "~> 4.0"
   gem 'database_cleaner'
 end
