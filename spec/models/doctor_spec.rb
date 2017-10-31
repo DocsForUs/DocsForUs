@@ -5,24 +5,27 @@ describe Doctor, type: :model do
   describe 'associations' do
     it {should have_many(:users).through(:doctors_users) }
   end
-  context 'searches the api with first and last name parameters' do
 
-    xit 'returns an array of a single doctors information parsed' do
-      doctor = {first_name: "Sara", last_name: "Waterman", city: "seattle", state: "wa"}
-      response = Doctor.search_doctor(doctor)
-      expect(response).to eq({:location=>[{:city=>"Seattle", :state=>"WA", :street=>"1200 12th Ave S", :zip=>"98144"}, {:city=>"Seattle", :state=>"WA", :street=>"1200 12th Ave S", :zip=>"98144"}], :first=>"Sara", :last=>"Waterman", :gender=>"female"})
+  describe 'validations' do
+    it 'is invalid without either a phone number or an email' do
+      doctor = build(:doctor, email_address: nil, phone_number: nil)
+      expect(doctor).to_not be_valid
     end
+  end
 
-    xit 'returns an array of doctors information parsed' do
-      doctor = {first_name: "John", last_name: "Christopher", city: "seattle", state: "wa"}
+  describe '.search_doctor' do
+    it 'returns an array of doctors information parsed' do
+      doctor = {first_name: "Laura", last_name: "Spring", city: "Seattle", state: "WA"}
       response = Doctor.search_doctor(doctor)
-      expect(response.count).to eq 3
+      expect(response[0][:first_name]).to eq "Laura"
     end
+  end
 
-    xit "it returns an array of the doctor's insurances" do
-      doctor = {first_name: "John", last_name: "Anderson", city: "seattle", state: "wa"}
-      response = Doctor.search_doctor(doctor)
-      expect(response).to eq nil
+  describe '.get_insurances' do
+    it "it returns an array of the doctor's insurances" do
+      doctor_uid = {uid: "ewrwewrewrew"}
+      response = Doctor.get_insurances(doctor_uid)
+      expect(response[0][:uid]).to eq "insurance-insurance"
     end
   end
 end
