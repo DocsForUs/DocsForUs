@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   # resources :sessions, only: [:new, :create, :destroy]
   root to: "index#home"
   resources :users, only: [:new, :create, :show] do
-    resources :doctors, only: :create
+    resources :doctors, only: [:create, :destroy]
   end
   resources :doctors, only: [:new, :create, :index, :show] do
     collection do

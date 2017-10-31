@@ -27,6 +27,22 @@ RSpec.describe User, type: :model do
         user2 = build(:user, email: "cactus@cactus.com")
         expect(user2).to_not be_valid
       end
+      it 'has a short password' do
+        user.password = 'ham'
+        expect(user).to_not be_valid
+      end
+      it 'doesnt includes special characters' do
+        user.password = 'DBCS3attle'
+        expect(user).to_not be_valid
+      end
+      it 'doesnt includes numbers' do
+        user.password = 'DBCS+attle'
+        expect(user).to_not be_valid
+      end
+      it 'doesnt includes uppercase letters' do
+        user.password = 'dbcs3#attle'
+        expect(user).to_not be_valid
+      end
     end
     context 'it is valid when' do
       it 'has all the required fields and email and password are unique' do
@@ -39,7 +55,7 @@ RSpec.describe User, type: :model do
       expect(user.authenticate('cats')).to eq false
     end
     it 'returns the user if they login successfully' do
-      expect(user.authenticate('hamnspam7')).to eq user
+      expect(user.authenticate('!m0pdxsPd')).to eq user
     end
   end
 end
