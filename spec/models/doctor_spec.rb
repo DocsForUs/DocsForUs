@@ -7,7 +7,7 @@ describe Doctor, type: :model do
   end
   context 'searches the api with first and last name parameters' do
     before(:each) do
-      allow(Doctor).to receive(:search_api).and_return(:faked_doctor_search)
+      allow(Doctor).to receive(:search_api).and_return(faked_doctor_search)
     end
     it 'returns an array of a single doctors information parsed' do
       doctor = {first_name: "Sara", last_name: "Waterman", city: "seattle", state: "wa"}
