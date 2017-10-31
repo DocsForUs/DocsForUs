@@ -1,0 +1,29 @@
+<div class="doctor-info-container">
+  <div class="doctor-main">
+    <h3>Dr. <%= @doctor.first_name %> <%= @doctor.last_name %>  </h3>
+    <p><%= @doctor.specialty %></p>
+    <ul class="doctor-links">
+      <% if session[:user_id] %>
+        <% if User.find(session[:user_id]).doctors.include?(@doctor) %>
+          <li>You have saved this doctor</li>
+        <% else %>
+          <li><%= button_to "Save this doctor", user_doctors_path(User.find(session[:user_id])), class: "save-button", params: {doctor_id: @doctor.id} %></li>
+        <% end %>
+      <%end %>
+    </ul>
+  </div>
+  <div class="doctor-details">
+    <ul class="doc-info-list">
+      <li>Gender: <%= @doctor.gender %></li>
+      <li>Address:
+        <%= "#{@doctor.street}, #{@doctor.city}, #{@doctor.state} #{@doctor.zipcode}"%>
+      </li>
+      <% if @doctor.phone_number != "" %>
+        <li>Phone Number: <%= @doctor.phone_number %></li>
+      <% else %>
+      <li>Email Address: <%= @doctor.email_address %></li>
+      <% end %>
+      <li>Insurances Accepted Include: <% string = '' %><% @doctor.insurances.each do |ins| %> <% string += ' ' + ins.insurance_name + ',' %><% end %> <%= string.chop %>
+      </li>
+    </ul>
+  </div>
