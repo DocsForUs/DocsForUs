@@ -138,6 +138,19 @@
     background-color: $contrast-blue;
   }
 
+/* Kaminari Pagination a tags */
+
+.pagination a {
+  color: $white;
+}
+.pagination a:hover {
+  color: $border-grey;
+}
+
+.page.current {
+  color: $border-grey;
+}
+
 /*Doctor Show Page*/
 
 .doctor-info-container {
