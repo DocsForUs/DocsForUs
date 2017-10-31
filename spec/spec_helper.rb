@@ -1,5 +1,9 @@
 require 'factory_bot'
 require 'simplecov'
+require 'webmock/rspec'
+require_relative 'support/api.rb'
+
+WebMock.disable_net_connect!(allow_localhost: true)
 SimpleCov.start 'rails' do
   add_filter "application"
 end
@@ -9,6 +13,11 @@ RSpec.configure do |config|
   # rspec-expectations config goes here. You can use an alternate
   # assertion/expectation library such as wrong or the stdlib/minitest
   # assertions if you prefer.
+  config.before(:each) do
+    allow(Doctor).to receive(:search_api).and_return(faked_doctor_search)
+    allow(Doctor).to receive(:insurance_search_api).and_return(faked_insurance_search)
+  end
+
   config.expect_with :rspec do |expectations|
     # This option will default to `true` in RSpec 4. It makes the `description`
     # and `failure_message` of custom matchers include text for helper methods
