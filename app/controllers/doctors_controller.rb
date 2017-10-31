@@ -8,16 +8,17 @@ class DoctorsController < ApplicationController
     helper_method :current_user
 
   def find
-      @states = helpers.states
-    if search_params[:first_name] != "" && search_params[:last_name] != ""
-      @our_doctors = Doctor.where(first_name: search_params[:first_name], last_name: search_params[:last_name])
-      doctor_args = {first_name: search_params[:first_name], last_name: search_params[:last_name],city: search_params[:city].downcase, state: search_params[:state].downcase}
+    @states = helpers.states
+    p search_params
+    p '*' * 50
+    p search_params[:first_name]
+    @our_doctors = Doctor.where("first_name LIKE ? AND last_name LIKE ?", "%#{search_params[:first_name]}%", "%#{search_params[:last_name]}%")
+    doctor_args = {first_name: search_params[:first_name], last_name: search_params[:last_name],city: search_params[:city].downcase, state: search_params[:state].downcase}
 
-      @api_doctors=Doctor.search_doctor(doctor_args)
+    @api_doctors=Doctor.search_doctor(doctor_args)
 
-      @show_new_doctor = true
-      render "recommendations/add"
-    end
+    @show_new_doctor = true
+    render "recommendations/add"
   end
 
   def new
@@ -38,17 +39,18 @@ class DoctorsController < ApplicationController
     @doctor = Doctor.find_or_initialize_by(doctor_params)
     insurance = Insurance.find_by(insurance_uid: insurances_param['insurances'])
       if @doctor.save
+        doc = Doctor.find(@doctor.id)
         insurances.each do |insurance|
           insurance_database = Insurance.find_by(insurance_uid: insurance[:uid])
           if insurance_database
-            @doctor.insurances << insurance_database
+            doc.insurances << insurance_database
           else
             insurance_new = Insurance.create(insurance_uid: insurance[:uid], insurance_name: insurance[:name])
-            @doctor.insurances << insurance_new
+            doc.insurances << insurance_new
           end
         end
         if insurance
-          @doctor.insurances << insurance
+          doc.insurances << insurance
         end
         redirect_to new_recommendation_path(id: @doctor.id)
       else
@@ -93,6 +95,11 @@ class DoctorsController < ApplicationController
   end
 
   private
+
+  def insurance_asso
+
+  end
+
 
   def search_params
    params.require(:doctor).permit(:first_name, :last_name,:city,:state)
