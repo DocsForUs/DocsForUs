@@ -1,4 +1,6 @@
 
+include InsuranceDataHelper
+
 first_name = ["Elizabeth", "Karen", "Michael", "Elesa", "Kevin"]
 
 last_name = ["Blackwell", "Smith", "Mengesha", "Holly"]
@@ -16,3 +18,9 @@ end
 Doctor.create(first_name: 'Eliza', last_name: "Brine", street: "1 Main Street", specialty: specialties.sample, city: 'Northport', state: "NY", email_address:"dr@doctor.com", zipcode: "09099")
 Doctor.create(first_name: 'Eliza', last_name: "Brine", street: "1 Main Street", specialty: specialties.sample, city: 'New York', state: "NY", email_address:"dr@doctor.com", zipcode: "09099")
 Doctor.create(first_name: 'Eliza', last_name: "Brine", street: "1 Main Street", specialty: specialties.sample, city: 'Syracuse', state: "NY", email_address:"dr@doctor.com", zipcode: "09099")
+
+insurances = InsuranceDataHelper.get_insurance
+10.times do |i|
+  ins = Insurance.create(insurance_uid: insurances[i][1], insurance_name: insurances[i][0])
+  Doctor.find(i+1).insurances << ins
+end

@@ -1,0 +1,34 @@
+///////// VARIABLES /////////
+$teal: #468499;
+$white: #ffffff;
+
+// BACKGROUNDS
+$bg-grey: #e5e5e5;
+$contrast-blue: #c7d7dd;
+
+// BORDERS
+$border-grey: #d3d3d3;
+
+// TEXT
+$text-grey: #999999;
+$error-red: #ff0000;
+$link-blue: #269ccc;
+
+////////// MIXINS ///////////
+@mixin form-fields {
+  padding: 15px;
+}
+
+@mixin submit {
+  border-radius: 5px;
+  background-color: $white;
+  letter-spacing: .09rem;
+  box-shadow: none;
+  padding: 5px 20px 5px;
+  border: 1px solid $border-grey;
+  color: $text-grey;
+  &:hover{
+  background-color: $contrast-blue;
+  color: $white;
+  }
+}
