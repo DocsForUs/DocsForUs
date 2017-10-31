@@ -5,7 +5,7 @@ RSpec.describe DoctorUsersController, type: :controller do
   let!(:user) { create(:user) }
   describe 'saved doctors of user profile' do
     before(:each) { session[:user_id] = user.id }
-    before(:each) { post :create, params: { doctor_id: '1' } }
+    before(:each) { post :create, params: { id: '1' } }
     it 'sends the doctor id in params' do
       expect(assigns[:doctor]).to eq doctor
     end

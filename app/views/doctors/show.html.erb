@@ -20,7 +20,7 @@
         <% if current_user.doctors.include?(@doctor) %>
           <li>You have saved this doctor</li>
         <% else %>
-          <li><%= button_to "Save this doctor", user_doctors_path(current_user), class: "save-button", params: {doctor_id: @doctor.id} %></li>
+          <li><%= button_to "Save this doctor", save_path(current_user), class: "save-button", params: {id: @doctor.id} %></li>
         <% end %>
       <%end %>
     </ul>
