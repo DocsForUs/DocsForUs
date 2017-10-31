@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe DoctorsController, type: :controller do
-  let(:user) {User.create(username: "llama", email: "devbootcamp@camp.com", password: 'ham', password_confirmation: 'ham')}
+  let(:user) { create(:user) }
   let(:doctor) { create(:doctor) }
   let(:doctor2) { Doctor.create(first_name: 'Atul', last_name: 'Gawande', city: 'seattle', state:'wa') }
   describe 'index route for searching' do
