@@ -50,6 +50,7 @@ class DoctorsController < ApplicationController
     else
       @doctor = Doctor.new(doctor_params)
       insurances = Doctor.get_insurances(insurance_param)
+      insurance = Insurance.find_by(insurance_uid: insurances_param['insurances'])
       if @doctor.save
         doc = Doctor.find(@doctor.id)
         insurances.each do |insurance|
@@ -60,6 +61,9 @@ class DoctorsController < ApplicationController
             insurance_new = Insurance.create(insurance_uid: insurance[:uid], insurance_name: insurance[:name])
             doc.insurances << insurance_new
           end
+        end
+        if insurance
+          doc.insurances << insurance
         end
         redirect_to new_recommendation_path(id: @doctor.id)
       else
@@ -105,6 +109,10 @@ class DoctorsController < ApplicationController
 
   def insurance_param
     params.require(:doctor).permit(:uid)
+  end
+
+  def insurances_param
+    params.require(:doctor).permit(:insurances)
   end
 
 end#end of class
