@@ -49,10 +49,8 @@ class DoctorsController < ApplicationController
       end
     else
       insurances = Doctor.get_insurances(insurance_param)
-
-
       @doctor = Doctor.find_or_initialize_by(doctor_params)
-       insurance = Insurance.find_by(insurance_uid: insurances_param['insurances'])
+      insurance = Insurance.find_by(insurance_uid: insurances_param['insurances'])
         if @doctor.save
           doc = Doctor.find(@doctor.id)
           insurances.each do |insurance|
@@ -64,21 +62,14 @@ class DoctorsController < ApplicationController
               doc.insurances << insurance_new
             end
           end
+          if insurance
+            doc.insurances << insurance
+          end
           redirect_to new_recommendation_path(id: @doctor.id)
         else
           @errors = @doctor.errors.full_messages
           render :new
         end
-
-        if insurance
-          doc.insurances << insurance
-        end
-        redirect_to new_recommendation_path(id: @doctor.id)
-      else
-        @errors = @doctor.errors.full_messages
-        render :new
-      end
-
     end
   end
 
