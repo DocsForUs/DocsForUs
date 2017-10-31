@@ -1,17 +1,13 @@
-<div class="errors">
-  <% if @errors %>
-  <ul>
-    <% @errors.each do |error|%>
-      <li><%= error %></li>
-    <% end %>
-  </ul>
-  <% end %>
-</div>
 
 
 <section id="dr-search-page">
   <div class="container">
   <h1>Recommend a New Doctor</h1>
+  <div class="errors-cont">
+    <% if @errors %>
+    <%= render 'shared/errors' %>
+    <% end %>
+  </div>
   <div class="doctor-search-box">
     <%= form_for @doctor do |f| %>
       <%= f.text_field :first_name, placeholder: 'First Name*', required: true %>
