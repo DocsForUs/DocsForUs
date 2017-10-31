@@ -7,5 +7,6 @@ class DoctorUsersController < ApplicationController
 
   def destroy
     @doctor = Doctor.find(params[:id])
+    @doctor.users.destroy(current_user)
   end
 end
