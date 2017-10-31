@@ -94,7 +94,11 @@
         width: 10%;
         height: 20px;
       }
+      .tags {
+        width: 20%;
+      }
     }
+
     td a {
       text-decoration: none;
       color: #269ccc;
@@ -103,6 +107,9 @@
       background-color: #c7d7dd;
     }
     td p {
+      background-color: rgba(70,132,153,.25);
+      width: 47%;
+      display: inline-block;
       padding: 0;
       margin: 0;
       border: 1px solid #468499;
