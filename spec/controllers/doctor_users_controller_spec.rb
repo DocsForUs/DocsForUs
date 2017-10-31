@@ -12,6 +12,8 @@ RSpec.describe DoctorUsersController, type: :controller do
     it 'creates the association' do
       expect(user.doctors).to include doctor
     end
-    it 'redirects to the users show page'
+    it 'redirects to the users show page' do
+      expect(response.status).to eq 302
+    end
   end
 end
