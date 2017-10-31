@@ -12,8 +12,8 @@ Rails.application.routes.draw do
 
   resources :recommendations, only: [:new, :create]
 
-  get '/save' => 'doctor_users#create'
-  get '/remove' => 'doctor_users#destroy'
+  post '/save' => 'doctor_users#create'
+  delete '/remove' => 'doctor_users#destroy'
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'
   get '/logout' => 'sessions#destroy'
