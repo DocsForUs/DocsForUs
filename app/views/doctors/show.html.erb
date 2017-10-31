@@ -16,11 +16,13 @@
     <p><%= @doctor.specialty %></p>
     <ul class="doctor-links">
       <li><%= link_to "Recommend this doctor", new_recommendation_path(id: @doctor.id) %></li>
-      <% if User.find(session[:user_id]).doctors.include?(@doctor) %>
-        <li>You have saved this doctor</li>
-      <% else %>
-        <li><%= button_to "Save this doctor", user_doctors_path(User.find(session[:user_id])), class: "save-button", params: {doctor_id: @doctor.id} %></li>
-      <% end %>
+      <% if session[:user_id] %>
+        <% if User.find(session[:user_id]).doctors.include?(@doctor) %>
+          <li>You have saved this doctor</li>
+        <% else %>
+          <li><%= button_to "Save this doctor", user_doctors_path(User.find(session[:user_id])), class: "save-button", params: {doctor_id: @doctor.id} %></li>
+        <% end %>
+      <%end %>
     </ul>
   </div>
   <div class="doctor-details">
