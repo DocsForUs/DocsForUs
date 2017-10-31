@@ -6,6 +6,7 @@ class DoctorsController < ApplicationController
     include TagsHelper
     include InsuranceDataHelper
 
+
   def find
       @states = helpers.states
     if search_params[:first_name] != "" && search_params[:last_name] != ""
@@ -30,10 +31,6 @@ class DoctorsController < ApplicationController
       flash[:alert] = 'You must be logged in to add a doctor'
       redirect_to login_path
     end
-  end
-
-  def index
-    @doctor = Doctor.all
   end
 
   def create
@@ -77,8 +74,11 @@ class DoctorsController < ApplicationController
    @genders = helpers.genders
    @specialties = helpers.get_specialties + Doctor.select('specialty').distinct.map {|dr| dr.specialty}
    @tags = helpers.tags + Tag.select('description').distinct.map {|tag| tag.description}
+
+   page = params[:page]
+   per_page = params[:per_page]
    @q = Doctor.ransack(params[:q])
-   @doctors = @q.result.includes(:recommendations, :insurances)
+   @doctors = @q.result.includes(:recommendations, :insurances).page(page).per(10)
   end
 
   def show

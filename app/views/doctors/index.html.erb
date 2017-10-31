@@ -69,6 +69,10 @@
         <% end %>
       </tbody>
     </table>
+    <div id="paginator">
+    <%= paginate @doctors, window: 2 %>
+    </div>
+
   </div>
 </div>
 </section>
