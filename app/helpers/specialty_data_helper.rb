@@ -7,6 +7,7 @@ def get_specialties
     uids = []
     response.each do |el|
       uids << [el[:actor], el[:uid]]
+      uids = uids.sort_by {|item| item[0].downcase }
     end
     uids
   end

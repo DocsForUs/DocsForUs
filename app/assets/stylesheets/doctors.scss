@@ -90,17 +90,21 @@
       text-align: center;
       background-color: $bg-grey;
       th {
-        width: 10%;
+        width: 5%;
         height: 20px;
       }
       .tags {
-        width: 20%;
+        width: 15%;
+      }
+      .insurance-tags {
+        width: 15%;
+        padding: 0px;
       }
     }
     tr:nth-child(2n){
       background-color: $contrast-blue;
     }
-    td p {
+    .table-tags p {
       background-color: rgba(70,132,153,.25);
       width: 47%;
       display: inline-block;
@@ -116,7 +120,14 @@
     }
     .table-tags{
       padding: 0px;
+      margin: 0;
     }
+  }
+  .ins-text:nth-child(even) {
+    font-weight: bolder;
+  }
+  .ins-text {
+    margin: 0;
   }
 
   .button {
