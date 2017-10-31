@@ -1,0 +1,20 @@
+<div class="doctor-info-container">
+  <div class="doctor-main">
+    <h3>Dr. <%= @doctor.first_name %> <%= @doctor.last_name %>  </h3>
+    <p><%= @doctor.specialty %></p>
+  </div>
+  <div class="doctor-details">
+    <ul class="doc-info-list">
+      <li>Gender: <%= @doctor.gender %></li>
+      <li>Address:
+        <%= "#{@doctor.street}, #{@doctor.city}, #{@doctor.state} #{@doctor.zipcode}"%>
+      </li>
+      <% if @doctor.phone_number != "" %>
+        <li>Phone Number: <%= @doctor.phone_number %></li>
+      <% elsif @doctor.email_address != "" %>
+        <li>Email Address: <%= @doctor.email_address %></li>
+      <% end %>
+      <li>Insurances Accepted Include: <% string = '' %><% @doctor.insurances.each do |ins| %> <% string += ' ' + ins.insurance_name + ',' %><% end %> <%= string.chop %>
+      </li>
+    </ul>
+  </div>
