@@ -70,6 +70,7 @@ class Doctor < ApplicationRecord
       }
       doctor_hash[:location] << location
     end
+    doctor_hash
   end
 
   def self.insurance_data(doctor)

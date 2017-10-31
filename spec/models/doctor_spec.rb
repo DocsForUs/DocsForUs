@@ -21,7 +21,7 @@ describe Doctor, type: :model do
     end
   end
 
-  describe '.get_insurances'
+  describe '.get_insurances' do
     it "it returns an array of the doctor's insurances" do
       doctor_uid = {uid: "ewrwewrewrew"}
       response = Doctor.get_insurances(doctor_uid)

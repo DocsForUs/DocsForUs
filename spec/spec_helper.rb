@@ -15,7 +15,7 @@ RSpec.configure do |config|
   # assertions if you prefer.
   config.before(:each) do
     allow(Doctor).to receive(:search_api).and_return(faked_doctor_search)
-    allow(Doctor).to receive(:get_insurances).and_return(faked_doctor_search)
+    allow(Doctor).to receive(:insurance_search_api).and_return(faked_insurance_search)
   end
 
   config.expect_with :rspec do |expectations|

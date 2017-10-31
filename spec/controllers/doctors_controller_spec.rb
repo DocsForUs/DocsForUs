@@ -27,7 +27,7 @@ RSpec.describe DoctorsController, type: :controller do
        expect(response).to render_template(:show)
      end
 
-     xit "assigns a tags instance variable" do
+     it "assigns a tags instance variable" do
        rec = build(:recommendation)
        tag = build(:tag)
        rec.tags << tag
@@ -74,7 +74,7 @@ RSpec.describe DoctorsController, type: :controller do
   end
   describe "creating insurances for the doctor" do
     before(:each) {post :create, params: {doctor: {first_name: 'John', last_name: 'Anderson', specialty: 'General',zipcode: 35816,city:'seattle',state:'wa',email_address:'ash@ash.com',uid:"c886464a49f370de7f69b20ef7d67585"}}}
-    xit "creates the insurances if it isnt available in the database" do
+    it "creates the insurances if it isnt available in the database" do
       expect(assigns[:doctor].insurances.count).to eq 24
     end
   end
