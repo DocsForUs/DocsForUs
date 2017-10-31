@@ -2,16 +2,9 @@ class User < ApplicationRecord
   validates :username, :email, :password_digest, presence: true
   validates :username, :email, uniqueness: true
   has_secure_password
-  validates :password, length: { minimum: 6, maximum: 20 }
-  validate :include_special_character
+  validates :password, {confirmation: true, presence: true, length: { minimum: 8 }, format: { with: /((?:(?=.*[a-z])(?=.*[A-Z])(?=.*\W)(?=.*\d).*))/x, message: "must contain the following: a lowercase letter, an uppercase letter, a digit, a non-word character or symbol" } }
   has_many :recommendations
   has_many :doctors_users
   has_many :doctors, through: :doctors_users
-
-  def include_special_character
-    if password.present? && password.include?('!') == false
-      errors.add(:special_character_requirement, "Requires one special character")
-    end
-  end
 
 end

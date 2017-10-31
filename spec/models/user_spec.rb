@@ -31,8 +31,16 @@ RSpec.describe User, type: :model do
         user.password = 'ham'
         expect(user).to_not be_valid
       end
-      it 'includes special characters' do
-        user.password = 'docsforus'
+      it 'doesnt includes special characters' do
+        user.password = 'DBCS3attle'
+        expect(user).to_not be_valid
+      end
+      it 'doesnt includes numbers' do
+        user.password = 'DBCS+attle'
+        expect(user).to_not be_valid
+      end
+      it 'doesnt includes uppercase letters' do
+        user.password = 'dbcs3#attle'
         expect(user).to_not be_valid
       end
     end
@@ -47,7 +55,7 @@ RSpec.describe User, type: :model do
       expect(user.authenticate('cats')).to eq false
     end
     it 'returns the user if they login successfully' do
-      expect(user.authenticate('!hamnspam7')).to eq user
+      expect(user.authenticate('!m0pdxsPd')).to eq user
     end
   end
 end
