@@ -75,4 +75,22 @@ RSpec.describe DoctorsController, type: :controller do
       expect(assigns[:doctor].insurances.count).to eq 24
     end
   end
+
+  describe 'doctors#destroy' do
+    let!(:user) { create(:user) }
+    before(:each) do
+      user.doctors << doctor
+      delete :destroy, params: {user_id: user.id, id: doctor.id}, session: {user_id: user.id}
+    end
+    it 'creates a doctor instance variable' do
+      expect(assigns[:doctor]).to eq doctor
+    end
+    it 'redirects to the doctor show page' do
+      expect(response).to redirect_to doctor_path(doctor)
+    end
+    it 'destroys the association between doctor and user' do
+      user.reload
+      expect(user.doctors).to_not include doctor
+    end
+  end
 end#end of class

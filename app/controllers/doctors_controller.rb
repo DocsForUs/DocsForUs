@@ -1,5 +1,3 @@
-
-
 class DoctorsController < ApplicationController
     include StatesHelper
     include SpecialtyDataHelper
@@ -84,6 +82,14 @@ class DoctorsController < ApplicationController
       end
       @tags = @tags.uniq
     end
+  end
+
+  def destroy
+    @doctor = Doctor.find(params[:id])
+    if params[:user_id].to_i == current_user.id
+      current_user.doctors.destroy(@doctor)
+    end
+    redirect_to doctor_path(@doctor)
   end
 
   private
