@@ -7,6 +7,15 @@ class Doctor < ApplicationRecord
   has_many :doctors_users
   has_many :users, through: :doctors_users
 
+
+  def insurance(params)
+    if params.include?(:uid)
+      self.associate_insurances_api(insurance_param)
+    elsif params.include?('insurances')
+      self.assign_insurance(param)
+    end
+  end
+
   def associate_insurances_api(params)
     insurances = Doctor.get_insurances(params[:uid])
     insurances.each do |insurance|

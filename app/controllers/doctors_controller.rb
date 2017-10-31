@@ -36,12 +36,9 @@ class DoctorsController < ApplicationController
     @doctor = Doctor.find_or_create_by(doctor_params)
     if !@doctor.save
       @errors = @doctor.errors.full_messages
-      render :new
-    elsife
-    elsif params.include?(:uid)
-      @doctor.associate_insurances_api(insurance_param)
-    elsif params.include?('insurances')
-      @doctor.assign_insurance(param)
+      return :new
+    else
+      @doctor.insurance(params)
     end
     redirect_to new_recommendation_path(id: @doctor.id)
   end
