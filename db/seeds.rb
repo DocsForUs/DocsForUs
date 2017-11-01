@@ -27,4 +27,4 @@ insurances.length.times do |i|
 end
 
 
-User.create(username:'admin', email: ENV['admin_email'], password: ENV['admin_password'], admin: true)
+User.create(username:'admin', email: ENV['admin_email'], password: ENV['admin_password'], admin: true, superadmin: true)
