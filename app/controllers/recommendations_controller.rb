@@ -51,17 +51,31 @@ class RecommendationsController < ApplicationController
       @recommendation = Recommendation.find(params[:id])
     if current_user == @recommendation.user
       @doctor = @recommendation.doctor
+      @tags = helpers.default_tags
     else
     end
   end
 
   def update
+    @recommendation = Recommendation.find(params[:id])
+    @recommendation.update_attribute('review', rec_updated_params[:review])
+    @recommendation.tags.delete_all
+    if params[:recommendation][:tags]
+      tags = params[:recommendation][:tags].map { |tag| Tag.find_or_create_by(description: tag)}
+      @recommendation.tags << tags
+    end
+    @recommendation.save
+    redirect_to doctor_path(@recommendation.doctor.id)
   end
 
   private
 
   def rec_params
     params.require(:recommendation).permit(:doctor_id, :review)
+  end
+
+  def rec_updated_params
+    params.require(:recommendation).permit(:review, :tags)
   end
 
 end

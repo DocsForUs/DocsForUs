@@ -3,16 +3,24 @@
 
 <section id="new-rec-section">
 
-  <%= form_for @recommendation do |f| %>
+  <%= form_for @recommendation, action: :update do |f| %>
     <%= f.hidden_field :doctor_id, value: @doctor.id %>
     <%= f.text_area :review, placeholder: "Write a review..." %>
     <ul class="tag-list">
-      <% @recommendation.tags.each do |tag| %>
-      <li class="tag-li">
-        <%= f.check_box :tags, {multiple: true, class: "tag"}, tag.description, nil %>
-        <% id = ("tags_" + tag.description.gsub(" ", "_")).to_sym %>
-        <%= f.label id, tag.description, class: "tag-label" %>
-      </li>
+      <% @tags.each do |tag| %>
+      <% if @recommendation.tags.include? Tag.find_by(description: tag) %>
+        <li class="tag-li">
+          <%= f.check_box :tags, {multiple: true, class: "tag", checked: true}, tag, nil %>
+          <% id = ("tags_" + tag.gsub(" ", "_")).to_sym %>
+          <%= f.label id, tag, class: "tag-label" %>
+        </li>
+      <% else %>
+        <li class="tag-li">
+          <%= f.check_box :tags, {multiple: true, class: "tag"}, tag, nil %>
+          <% id = ("tags_" + tag.gsub(" ", "_")).to_sym %>
+          <%= f.label id, tag, class: "tag-label" %>
+        </li>
+      <% end %>
       <% end %>
     </ul>
     <%= f.submit "Update Recommendation", id: "rec-submit-button" %>
