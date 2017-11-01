@@ -20,12 +20,13 @@ nav {
 .about2 {
   grid-column-start: 3;
   line-height: 36px;
+  grid-row: 2;
 }
 
 .main-nav ul {
  color: $white;
  display: grid;
- grid-template-columns: minmax(auto, 500px) minmax(auto, 600px) repeat(3, minmax(150px,1fr)) ;
+ grid-template-columns: minmax(auto, 500px) minmax(auto, 600px) repeat(4, minmax(150px,1fr)) ;
  letter-spacing: .25rem;
  list-style: none;
  margin: 0;
@@ -36,12 +37,21 @@ nav {
 .login {
  grid-column-start: 4;
  line-height: 36px;
+ grid-row: 2;
 }
 
 .register {
- grid-column-start: 5;
+ grid-column-start: 6;
  line-height: 36px;
  padding-right: 20px;
+ grid-row: 2;
+}
+
+.resources {
+  grid-column-start: 5;
+  line-height: 36px;
+  grid-row: 2;
+  padding-right: 20px;
 }
 
 
