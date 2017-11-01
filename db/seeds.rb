@@ -35,3 +35,19 @@ competencies = ["sex workers", "youth", "teen", "adult", "blind or visually impa
 actions = ["asked for pronouns", "used my preferred name", "used my preferred pronouns", "was body positive", "was sex positive", "was fat positive", "respected my partner(s)", "was familiar with my medical concerns", "listened actively", "did not make harmful assumptions", "was up-to-date with current research", "avoided perpetuating stereotypes"]
 
 services = ["hormone therapy", "fertility", "top surgery", "lower surgery", "ffs", "fms", "clitoroplasty", "body sculpting", "breast augmentation", "buttock augmentation", "glansplasty", "hair grafting", "hysterectomy", "labiaplasty", "metoidioplasty", "orchiectomy", "penile implant", "phalloplasty", "scrotoplasty", "tracheal shave", "urethroplasty", "vaginectomy", "vaginoplasty", "reconstructive urology", "cognitive behavioral therapy", "neuro feedback", "acupuncture", "ivf", "endocrinology", "testesterone therapy", "speech therapy", "mental health", "counseling","transition counseling"]
+
+safe.each do |tag|
+  Tag.create!(description: tag, default: true, category: "safe")
+end
+
+competencies.each do |tag|
+  Tag.create(description: tag, default: true, category: "competencies")
+end
+
+actions.each do |tag|
+  Tag.create(description: tag, default: true, category: "actions")
+end
+
+services.each do |tag|
+  Tag.create(description: tag, default: true, category: "services")
+end

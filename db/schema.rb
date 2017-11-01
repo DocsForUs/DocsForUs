@@ -16,9 +16,9 @@ ActiveRecord::Schema.define(version: 20171031220506) do
   enable_extension "plpgsql"
 
   create_table "doctors", force: :cascade do |t|
-    t.string "first_name"
-    t.string "last_name"
-    t.string "specialty"
+    t.string "first_name", null: false
+    t.string "last_name", null: false
+    t.string "specialty", null: false
     t.string "gender"
     t.string "street"
     t.string "city"

@@ -16,7 +16,7 @@ class RecommendationsController < ApplicationController
     if current_user
       @doctor = Doctor.find(params[:id])
       @recommendation = Recommendation.new(doctor: @doctor, user: current_user)
-      @tags = helpers.default_tags
+      @tags = Tag.default_tags
       @tag = Tag.new
       render :new
     else
