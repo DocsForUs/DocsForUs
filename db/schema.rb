@@ -27,7 +27,6 @@ ActiveRecord::Schema.define(version: 20171030034859) do
     t.string "phone_number"
     t.string "website"
     t.string "email_address"
-    t.boolean "admin", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -74,6 +73,7 @@ ActiveRecord::Schema.define(version: 20171030034859) do
     t.string "username", null: false
     t.string "email", null: false
     t.string "password_digest", null: false
+    t.boolean "admin", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
