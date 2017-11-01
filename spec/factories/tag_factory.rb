@@ -2,6 +2,6 @@ FactoryBot.define do
   factory :tag do
     description "likes cats"
     default true
-    category "Action"
+    category "action"
   end
 end

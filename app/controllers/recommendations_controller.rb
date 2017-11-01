@@ -37,7 +37,7 @@ class RecommendationsController < ApplicationController
         render :new
       else
         tags = params[:recommendation][:tags]
-        tags.map! { |tag| Tag.find_or_create_by(description: tag)}
+        tags.map! { |tag| Tag.find_or_create_by(description: tag) }
         @recommendation.tags << tags
         @recommendation.save
         redirect_to doctor_path(@recommendation.doctor.id)
