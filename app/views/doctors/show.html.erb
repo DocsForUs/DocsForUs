@@ -23,6 +23,11 @@
         <% else %>
           <li><%= button_to "Save this doctor", save_path, class: "save-button", params: {id: @doctor.id} %></li>
         <% end %>
+        <% if current_user && current_user.admin %>
+          <li>
+          <%= link_to 'Delete doctor', doctor_path(@doctor), method: :delete %>
+          <% end %>
+          </li>
       <%end %>
     </ul>
   </div>
