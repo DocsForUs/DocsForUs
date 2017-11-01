@@ -94,7 +94,9 @@ RSpec.describe RecommendationsController, type: :controller do
       it 'deletes the recommendation from the database' do
         expect(Recommendation.count).to eq 0
       end
-      it 'redirects to the homepage'
+      it 'redirects to the homepage' do
+        expect(response).to redirect_to root_path
+      end
     end
   end
 end
