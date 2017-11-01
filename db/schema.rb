@@ -27,6 +27,7 @@ ActiveRecord::Schema.define(version: 20171030034859) do
     t.string "phone_number"
     t.string "website"
     t.string "email_address"
+    t.boolean "admin", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
