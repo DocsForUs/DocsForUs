@@ -94,13 +94,23 @@ RSpec.describe RecommendationsController, type: :controller do
       end
     end
     context "when user attempts to edit their own post" do
-      it "returns a status of 200" do
+      before(:each) do
         get :edit, params: {id: 1}, session: { user_id: user.id}
+      end
+      it "returns a status of 200" do
         expect(response).to be_ok
       end
       it "renders the edit page" do
-        get :edit, params: {id: 1}, session: { user_id: user.id}
         expect(response).to render_template :edit
+      end
+      it "assigns the recommendation to edit to an instance variable" do
+        expect(assigns[:recommendation]).to eq recommendation
+      end
+      it "assigns the doctor of the recommendation to edit to an instance variable" do
+        expect(assigns[:doctor]).to eq doctor
+      end
+      it "assigns the default tags to an instance variable" do
+        expect(assigns[:tags]).to include "gay"
       end
     end
   end
