@@ -105,4 +105,13 @@ RSpec.describe UsersController, type: :controller do
       expect(response).to render_template :check
     end
   end
+
+  describe "association to doctor" do
+    let!(:user) {create(:user)}
+    let!(:doctor) {create(:doctor)}
+    it "has a doctor id" do
+      user.doctor_id = doctor.id
+      expect(user.doctor_id).to eq (doctor.id)
+    end
+  end
 end#end of UsersController
