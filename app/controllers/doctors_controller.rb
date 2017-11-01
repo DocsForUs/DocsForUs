@@ -84,7 +84,6 @@ class DoctorsController < ApplicationController
     @doctor = Doctor.find(params[:id])
     if @doctor.recommendations.length > 0
       @tags = Tag.joins(:recommendations).where(recommendations: { doctor: @doctor})
-      @tags = @tags.uniq
     end
   end
 

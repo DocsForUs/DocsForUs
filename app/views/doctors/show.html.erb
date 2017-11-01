@@ -39,14 +39,16 @@
     </ul>
     <div class="doctor-tags-div">
       <% if !@doctor.recommendations.empty? %>
-        <h4><%= tag_title[:safe] %></h4>
-        <ul class="doctor-tags">
-          <% @tags.each do |t| %>
+        <% tag_title.each_pair do |category, title| %>
+          <h4><%= title %></h4>
+          <ul class="doctor-tags">
+            <% @tags.where(category: category.to_s).uniq.each do |t| %>
             <li>
               <%= t.description %>
             </li>
-          <% end %>
-        </ul>
+            <% end %>
+          </ul>
+        <% end %>
       <% end %>
     </div>
   </div>
