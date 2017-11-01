@@ -116,6 +116,14 @@ RSpec.describe RecommendationsController, type: :controller do
   end
 
   describe "recommendations#update" do
+    let!(:doctor) {create(:doctor)}
+    let!(:recommendation) {Recommendation.create!(review: "good job", doctor_id: 1, user_id: user.id)}
+    context "when user is not logged in" do
+      it "redirects to home page" do
+        put :update, params: { id: recommendation.id, recommendation: {review: '', doctor_id: doctor.id.to_s, tags: []}}
+        expect(response).to redirect_to root_path
+      end
+    end
 
   end
 

@@ -59,15 +59,19 @@ class RecommendationsController < ApplicationController
   end
 
   def update
-    @recommendation = Recommendation.find(params[:id])
-    @recommendation.update_attribute('review', rec_updated_params[:review])
-    @recommendation.tags.delete_all
-    if params[:recommendation][:tags]
-      tags = params[:recommendation][:tags].map { |tag| Tag.find_or_create_by(description: tag)}
-      @recommendation.tags << tags
+    if current_user
+      @recommendation = Recommendation.find(params[:id])
+      @recommendation.update_attribute('review', rec_updated_params[:review])
+      @recommendation.tags.delete_all
+      if params[:recommendation][:tags]
+        tags = params[:recommendation][:tags].map { |tag| Tag.find_or_create_by(description: tag)}
+        @recommendation.tags << tags
+      end
+      @recommendation.save
+      redirect_to doctor_path(@recommendation.doctor.id)
+    else
+      redirect_to root_path
     end
-    @recommendation.save
-    redirect_to doctor_path(@recommendation.doctor.id)
   end
 
   def destroy
