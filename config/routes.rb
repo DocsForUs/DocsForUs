@@ -10,7 +10,7 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :recommendations, only: [:new, :create]
+  resources :recommendations, only: [:new, :create, :destroy]
 
   post '/save' => 'doctor_users#create'
   delete '/remove' => 'doctor_users#destroy'
