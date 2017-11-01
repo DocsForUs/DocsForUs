@@ -35,11 +35,11 @@ class DoctorsController < ApplicationController
     if !@doctor.save
       @errors = @doctor.errors.full_messages
       @form_data = helpers.get_variables
-      return :new
+      render :new
     else
       @doctor.insurance(params)
+      redirect_to new_recommendation_path(id: @doctor.id)
     end
-    redirect_to new_recommendation_path(id: @doctor.id)
   end
 
   def index
@@ -68,13 +68,6 @@ class DoctorsController < ApplicationController
     end
   end
 
-  def destroy
-    @doctor = Doctor.find(params[:id])
-    if params[:user_id].to_i == current_user.id
-      current_user.doctors.destroy(@doctor)
-    end
-    redirect_to doctor_path(@doctor)
-  end
 
   private
 
