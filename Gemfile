@@ -22,8 +22,11 @@ gem 'uglifier', '>= 1.3.0'
 # Akin to normalize css file
 gem 'normalize-rails'
 
-#Ransack Search Gem
+# Ransack Search Gem
 gem 'ransack'
+# Kaminari Pagination
+gem 'kaminari'
+# Select2 for forms
 gem 'select2-rails', '~> 4.0', '>= 4.0.3'
 # HTTP Client
 gem 'httparty'
@@ -54,7 +57,7 @@ group :test do
   gem 'faker'
   gem 'capybara'
   gem 'poltergeist'
-
+  gem 'webmock'
   gem "factory_bot_rails", "~> 4.0"
   gem 'database_cleaner'
 end

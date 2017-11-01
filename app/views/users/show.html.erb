@@ -4,32 +4,39 @@
   <div class="profile-wrapper">
     <section class="recent-recs-section">
       <h3>Your recommendations</h3>
-      <% if @user.recommendations.length > 0%>
-      <% @user.recommendations.each do |rec| %>
-        <div class="single-rec">
-          <h4>Dr. <%= rec.doctor.first_name %> <%= rec.doctor.last_name %></h4>
-          <div class="review-profile"><%= rec.review %></div>
-          <ul class="tag-list">
-            <% rec.tags.each do |tag| %>
-              <li class="rec-tags-profile">
-                <%= tag.description %>
-              </li>
-            <% end %>
-          </ul>
-          <p>
-            Recommended on <%= rec.created_at.localtime.strftime('%m/%d/%Y at %I:%M %p')
- %>
-          </p>
-        </div>
-      <% end %>
+      <% if @user.recommendations.length > 0 %>
+        <% @user.recommendations.each do |rec| %>
+          <div class="single-rec">
+            <h4><%= link_to "Dr. #{rec.doctor.first_name} #{rec.doctor.last_name}", doctor_path(rec.doctor) %></h4>
+            <div class="review-profile"><%= rec.review %></div>
+            <ul class="tag-list">
+              <% rec.tags.each do |tag| %>
+                <li class="rec-tags-profile">
+                  <%= tag.description %>
+                </li>
+              <% end %>
+            </ul>
+            <p>
+              Recommended on <%= rec.created_at.localtime.strftime('%m/%d/%Y at %I:%M %p') %>
+            </p>
+          </div>
+        <% end %>
       <% else %>
-      <p>You have not recommended any doctors yet.</p>
+        <p>You have not recommended any doctors yet.</p>
       <% end %>
     </section>
 
     <section class="saved-doctors-section">
       <h3>Your saved doctors</h3>
-      <p>You have not saved any doctors yet.</p>
+      <% if @user.doctors.length > 0 %>
+        <ul class="saved-docs-list">
+          <% @user.doctors.each do |doc| %>
+            <li><%= link_to "#{doc.first_name} #{doc.last_name}", doctor_path(doc) %></li>
+          <% end %>
+        </ul>
+      <% else %>
+        <p>You have not saved any doctors yet.</p>
+      <% end %>
     </section>
   </div>
 </main>

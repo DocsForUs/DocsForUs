@@ -1,9 +1,9 @@
-@import "global";
+@import "variables";
 
 // REGISTRATION STYLES
 .new-user-form{
     border-radius: 5px;
-  background-color: #e5e5e5;
+  background-color: $bg-grey;
   display: flex;
   flex-direction: column;
   width: 30%;
@@ -26,13 +26,13 @@
 }
 
 .new-user-form .errors {
-  color: red;
+  color: $error-red;
   text-align: center;
 }
 
 #new-user-page {
   h1 {
-    color: #468499;
+    color: $teal;
     margin: auto;
     margin-top: 20px;
     width: 290px;
@@ -42,7 +42,7 @@
 // LOGIN STYLES
 #login-page {
   h1 {
-    color: #468499;
+    color: $teal;
     margin: auto;
     margin-top: 20px;
     width: 90px;
@@ -51,7 +51,7 @@
 
 .login-form {
   border-radius: 5px;
-  background-color: #e5e5e5;
+  background-color: $bg-grey;
   display: flex;
   flex-direction: column;
   width: 30%;
@@ -77,6 +77,9 @@
 .user-profile {
   width: 80%;
   margin: auto;
+  a {
+    color: $link-blue;
+  }
 }
 
 .profile-wrapper {
@@ -87,16 +90,18 @@
 
 .recent-recs-section{
   margin: 0px 20px 0px 20px;
-  border: 1px solid #468499;
+  border: 1px solid $teal;
   border-radius: 5px;
   padding: 0px 15px;
+  flex-basis: 55%;
 }
 
 .saved-doctors-section {
   margin: 0px 20px 0px 20px;
-  border: 1px solid #468499;
+  border: 1px solid $teal;
   border-radius: 5px;
   padding: 0px 15px;
+  flex-basis: 30%;
 }
 
 .tag-list {
@@ -105,20 +110,24 @@
 
 .single-rec {
   width: 98%;
-  border-top: 1px dotted #468499;
+  border-top: 1px dotted $teal;
 }
 
 .rec-tags-profile {
   display: inline-block;
   list-style-type: none;
-  border: 1px solid #468499;
+  border: 1px solid $teal;
   border-radius: 5px;
   padding: 5px;
   margin: 5px;
 }
 
 .review-profile {
-  border: 1px solid #468499;
+  border: 1px solid $teal;
   padding: 10px;
   border-radius: 5px;
+}
+
+.saved-docs-list li {
+  margin-bottom: 15px;
 }

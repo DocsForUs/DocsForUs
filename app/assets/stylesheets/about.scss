@@ -1,0 +1,33 @@
+@import "variables";
+
+#about-page{
+  display: grid;
+  grid-template-columns: 3fr 4fr 3fr;
+}
+
+.about-content{
+  padding: 10px;
+  margin: auto;
+  text-align: justify;
+}
+
+.about-content p{
+  text-indent: 50px;
+}
+
+.content-container{
+  display: block;
+  position: relative;
+  border-radius: 5px;
+  grid-column-start: 2;
+  margin: 50px;
+  border: 1px solid $teal;
+  padding: 15px;
+  border-radius: 5px;
+}
+
+.header{
+  text-align: center;
+  padding: 5px;
+  margin: 2px;
+}

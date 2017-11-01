@@ -9,12 +9,16 @@ Rails.application.routes.draw do
       get 'find'
     end
   end
-  
+
   resources :recommendations, only: [:new, :create]
 
+  post '/save' => 'doctor_users#create'
+  delete '/remove' => 'doctor_users#destroy'
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'
   get '/logout' => 'sessions#destroy'
+  get '/about' => 'index#about'
+  get '/resources' => 'index#resources'
 
   get '/recommendations/add', to: "recommendations#add"
 end

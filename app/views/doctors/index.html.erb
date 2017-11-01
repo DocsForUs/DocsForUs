@@ -9,15 +9,17 @@
     <%= f.label 'last name' %>
     <%= f.search_field :last_name_cont %>
     <%= f.label 'City' %>
-    <%= f.select :city_eq, options_from_collection_for_select(Doctor.select('city').distinct , 'city','city'), include_blank: true, multiple: true %>
+    <%= f.select :city_eq, options_from_collection_for_select(Doctor.select('city').distinct , 'city','city'), include_blank: true %>
     <%= f.label 'State' %>
     <%= f.select :state_eq, options_from_collection_for_select(Doctor.select('state').distinct, 'state', 'state'), include_blank: true%>
     <%= f.label 'Specialty' %>
-    <%= f.select :specialty_matches_any, options_for_select(@specialties, :last), include_blank: true, multiple: true %>
+    <%= f.select :specialty_matches_any, options_for_select(@form_data[:specialties], :last), include_blank: true %>
+    <%= f.label 'Insurance' %>
+    <%= f.select :insurances_insurance_uid_eq, options_for_select(@form_data[:insurance], :first), include_blank: true%>
     <%= f.label 'Gender' %>
-    <%= f.select :gender_matches_any, options_for_select(@genders), include_blank: true, multiple: "multiple" %>
+    <%= f.select :gender_in, options_for_select(@form_data[:genders], 'gender'),{}, multiple: true, include_blank: true %>
     <%= f.label 'Tags' %>
-    <%= f.select :recommendations_tags_description_matches_any, options_for_select(@tags, 'tag'), include_blank: true %>
+    <%= f.select :recommendations_tags_description_in, options_for_select(@tags, 'tag'), {}, multiple: true, include_blank: true %>
 
     <%= f.submit class: "button"%>
 <% end %>
@@ -32,10 +34,10 @@
           <th><%= sort_link(@q, :first_name) %></th>
           <th><%= sort_link(@q, :last_name) %></th>
           <th><%= sort_link(@q, :city) %></th>
-          <th><%= sort_link(@q, :gender) %></th>
           <th><%= sort_link(@q, :state) %></th>
           <th><%= sort_link(@q, :specialty) %></th>
-          <th><%= sort_link(@q, :tags) %></th>
+          <th><%= sort_link(@q, :gender) %></th>
+          <th class="tags"><%= sort_link(@q, :tags) %></th>
           <th>Select</th>
         </tr>
       </thead>
@@ -45,9 +47,9 @@
           <td class='table-name'><%= doctor.first_name %></td>
           <td><%= doctor.last_name %></td>
           <td><%= doctor.city %></td>
-          <td><%= doctor.gender %></td>
           <td><%= doctor.state %></td>
           <td><%= doctor.specialty %></td>
+          <td><%= doctor.gender %></td>
           <td class="table-tags"> <% if doctor.recommendations.length > 0 %>
             <% doctor.recommendations.each do |rec| %>
             <% if rec.tags.length > 0 %>
@@ -62,6 +64,10 @@
         <% end %>
       </tbody>
     </table>
+    <div id="paginator">
+    <%= paginate @doctors, window: 2 %>
+    </div>
+
   </div>
 </div>
 </section>

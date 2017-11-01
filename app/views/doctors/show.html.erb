@@ -11,12 +11,19 @@
 
 
 <div class="doctor-info-container">
+
   <div class="doctor-main">
     <h3><%= @doctor.first_name %> <%= @doctor.last_name %>  </h3>
     <p><%= @doctor.specialty %></p>
     <ul class="doctor-links">
       <li><%= link_to "Recommend this doctor", new_recommendation_path(id: @doctor.id) %></li>
-      <li><%= link_to "Save this doctor" %></li>
+      <% if session[:user_id] %>
+        <% if current_user.doctors.include?(@doctor) %>
+          <li><%= button_to "Unsave this doctor", remove_path, method: "delete", class: "save-button", params: {id: @doctor.id}%></li>
+        <% else %>
+          <li><%= button_to "Save this doctor", save_path, class: "save-button", params: {id: @doctor.id} %></li>
+        <% end %>
+      <%end %>
     </ul>
   </div>
   <div class="doctor-details">
@@ -27,6 +34,8 @@
       </li>
       <li>Phone Number: <%= @doctor.phone_number %></li>
       <li>Email Address: <%= @doctor.email_address %></li>
+      <li>Insurances Accepted Include: <% string = '' %><% @doctor.insurances.each do |ins| %> <% string += ' ' + ins.insurance_name + ',' %><% end %> <%= string.chop %>
+      </li>
     </ul>
     <div class="doctor-tags-div">
       <% if !@doctor.recommendations.empty? %>
@@ -40,6 +49,12 @@
         </ul>
       <% end %>
     </div>
+  </div>
+    <div class="map">
+      <iframe width="300" height="300" frameborder="0" style="border:0"
+      src="https://www.google.com/maps/embed/v1/place?key=<%=ENV["GOOGLE_MAPS"]%>&q=<%=@doctor.street%><%=@doctor.zipcode%>"
+      allowfullscreen>
+    </iframe>
   </div>
   <div class="doctor-reviews">
     <h4>Users who recommended this doctor said...</h4>

@@ -16,8 +16,11 @@
         $('#q_state_eq').select2();
         $('#doctor_specialty').select2();
         $('#doctor_gender').select2();
+        $('#q_gender_in').select2();
         $('#doctor_state').select2();
-        $('#q_recommendations_tags_description_matches_any').select2();
+        $('#q_recommendations_tags_description_in').select2();
+        $('#q_insurances_insurance_uid_eq').select2();
+        $('#doctor_insurances').select2();
       })
     </script>
     <%= stylesheet_link_tag    'application', media: 'all' %>
@@ -28,6 +31,8 @@
     <nav class="main-nav">
       <ul>
         <li class="title"> <%= link_to "Docs For Us", root_path %>  </li>
+        <li class="about2"> <%= link_to "About", about_path%> </li>
+        <li class="resources"> <%= link_to "Resources", resources_path %> </li>
         <% if session[:user_id] %>
           <li class="login"><%= link_to "Profile", user_path(User.find(session[:user_id])) %></li>
           <li class="register"><%= link_to "Logout", logout_path %></li>

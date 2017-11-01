@@ -1,6 +1,6 @@
-@import "global";
+@import "variables";
 .new-doctor-form{
-  background-color: #e5e5e5;
+  background-color: $bg-grey;
   display: flex;
   flex-direction: column;
   width: 40%;
@@ -27,11 +27,10 @@
 }
 
 #dr-search-page {
-    background-color: #f5f5f5;
     height: 100vw;
     width: 100%;
   h1 {
-    color: #468499;
+    color: $teal;
     margin: auto;
     padding-top: 20px;
     width: 300px;
@@ -42,12 +41,12 @@
   width: 90%;
   margin: auto;
   height: 100vw;
-  background-color: white;
+  background-color: $white;
 }
 
 .doctor-search-box {
   border-radius: 5px;
-  background-color: #e5e5e5;
+  background-color: $bg-grey;
   width: 650px;
   margin: auto;
   height: relative;
@@ -77,7 +76,7 @@
 }
   .search-results-container {
     margin-top: 20px;
-    border-top: 5px solid #269ccc;
+    border-top: 5px solid $teal;
     width: 100%;
     height: 70vw;
   }
@@ -89,23 +88,29 @@
     margin: auto;
     .table-heading {
       text-align: center;
-      background-color: #e5e5e5;
+      background-color: $bg-grey;
       th {
-        width: 10%;
+        width: 5%;
         height: 20px;
       }
-    }
-    td a {
-      text-decoration: none;
-      color: #269ccc;
+      .tags {
+        width: 15%;
+      }
+      .insurance-tags {
+        width: 15%;
+        padding: 0px;
+      }
     }
     tr:nth-child(2n){
-      background-color: #c7d7dd;
+      background-color: $contrast-blue;
     }
-    td p {
+    .table-tags p {
+      background-color: rgba(70,132,153,.25);
+      width: 47%;
+      display: inline-block;
       padding: 0;
       margin: 0;
-      border: 1px solid #468499;
+      border: 1px solid $teal;
       border-radius: 5px;
       margin: 1px;
       text-align: center;
@@ -115,8 +120,47 @@
     }
     .table-tags{
       padding: 0px;
+      margin: 0;
     }
   }
+  .ins-text:nth-child(even) {
+    font-weight: bolder;
+  }
+  .ins-text {
+    margin: 0;
+  }
+
+  .button {
+    background-color: $white;
+    font-size: 18px;
+    letter-spacing: .15rem;
+    text-align: center;
+    border-radius: 5px;
+    width: 120px;
+    margin:2rem 2rem;
+  }
+
+  .reset {
+    width: 180px;
+  }
+
+  .button:hover {
+    color: $white;
+    background-color: $contrast-blue;
+  }
+
+/* Kaminari Pagination a tags */
+
+.pagination a {
+  color: $white;
+}
+.pagination a:hover {
+  color: $border-grey;
+}
+
+.page.current {
+  color: $border-grey;
+}
 
 /*Doctor Show Page*/
 
@@ -124,7 +168,7 @@
   box-sizing: border-box;
   width: 70%;
   margin: auto;
-  border: 1px solid #468499;
+  border: 1px solid $teal;
   padding: 0px 15px;
   border-radius: 5px;
   display: flex;
@@ -143,12 +187,9 @@
   text-align: center;
   margin: 10px 10px 10px 0px;
   padding-right: 20px;
-  border-right: 1px dotted #468499;
+  border-right: 1px dotted $teal;
   .doctor-links {
     list-style-type: none;
-    a {
-      color: #468499;
-    }
     li {
       padding: 10px 0px;
     }
@@ -156,7 +197,8 @@
 }
 
 .doctor-details {
-  flex-basis: 60%;
+  border-right: 1px dotted $teal;
+  flex-basis: 50%;
   margin: 0px 10px;
 }
 
@@ -167,40 +209,49 @@
 .doctor-reviews {
   flex-basis: 95%;
   margin: auto;
-  border-top: 1px dotted #468499;
+  border-top: 1px dotted $teal;
 }
 
 .single-rec {
   width: 98%;
   padding: 10px;
-  border-top: 1px dotted #468499;
+  border-top: 1px dotted $teal;
 }
 
 .doctor-tags li {
   display: inline-block;
   list-style-type: none;
-  border: 1px solid #468499;
+  border: 1px solid $teal;
   border-radius: 5px;
   padding: 5px;
   margin: 5px;
 }
 
-.button {
-  color: darkslategrey;
-  background-color: white;
-  font-size: 18px;
-  letter-spacing: .15rem;
+.save-button {
+  background-color: inherit;
+  border: none;
+  color: $link-blue;
+  cursor: pointer;
+}
+
+
+.errors-cont {
+  width: 400px;
+  margin: auto;
+  margin-top: 20px;
+  border: 1px solid $error-red;
+  color: $error-red;
+  background-color: rgba(255, 0, 0, 0.3);
   text-align: center;
-  border-radius: 5px;
-  width: 120px;
-  margin:2rem 2rem;
-}
-.reset {
-  width: 180px;
+  border-radius: 10px;
 }
 
-.button:hover {
-  color: #ffffff;
-  background-color: #c7d7dd;
-
+.map {
+  float: right;
+  flex-basis: 20%;
+  margin: auto;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  width: 300px;
+  height: 300px;
 }
