@@ -87,12 +87,9 @@ RSpec.describe RecommendationsController, type: :controller do
         rec.tags << ham
         rec.save
         delete :destroy, params: { id: rec.id }
-<<<<<<< HEAD
         rec2 = Recommendation.create!(user: user, doctor: doctor, review: "fishy fishy fishy")
         rec2.tags << ham
         rec2.save
-=======
->>>>>>> 0234d3b1e568677e9d6c95a871fcaa5b186e58f2
       end
       it 'assigns the recommendation instance variable from params' do
         expect(assigns[:recommendation]).to be_a Recommendation
