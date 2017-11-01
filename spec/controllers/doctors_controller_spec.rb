@@ -5,7 +5,17 @@ RSpec.describe DoctorsController, type: :controller do
   let(:doctor) { create(:doctor) }
 
   let(:doctor2) { Doctor.create(first_name: 'Atul', last_name: 'Gawande', city: 'seattle', state:'wa') }
-  describe 'index route for searching' do
+  describe 'doctors#index route for searching' do
+    it "assigns data for form dropdowns to @form_data variable" do
+      get :index
+      expect(assigns[:form_data]).to include(:specialties, :insurance, :genders)
+    end
+    it "assigns tag strings to @tags variable for form dropdown" do
+      get :index
+      expect(assigns[:tags]).to be_an Array
+      expect(assigns[:tags]).to include(a_kind_of(String))
+
+    end
     it 'assigns a instance @doctors to doctors that fit the search result' do
       get :find, params: { doctor: {first_name: 'Georgette', last_name: 'Tronkenheim', city: "Seattle", state: "WA"} }
       expect(assigns[:our_doctors]).to include(doctor)
@@ -41,13 +51,22 @@ RSpec.describe DoctorsController, type: :controller do
    end
 
   describe "doctors#new" do
-    before(:each) {get :new, session: {user_id: user.id}}
     context "when logged in" do
+      before(:each) {get :new, session: {user_id: user.id}}
       it "returns the status of 200 if " do
         expect(response.status).to eq 200
       end
       it "returns the form for creating new doctor" do
         expect(response).to render_template(:new)
+      end
+    end
+    context "when not logged in" do
+      before(:each) { get :new }
+      it "sets a flash alert message" do
+        expect(flash[:alert]).to eq "You must be logged in to add a doctor"
+      end
+      it "redirects to login page" do
+        expect(response.status).to be 302
       end
     end
   end

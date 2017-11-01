@@ -43,16 +43,12 @@ class DoctorsController < ApplicationController
   end
 
   def index
-   @insurance = helpers.get_insurance
-   @states = helpers.states
-   @genders = helpers.genders
-   @specialties = helpers.get_specialties + Doctor.select('specialty').distinct.map {|dr| dr.specialty}
-   @tags = helpers.tags + Tag.select('description').distinct.map {|tag| tag.description}
-
-   page = params[:page]
-   per_page = params[:per_page]
-   @q = Doctor.ransack(params[:q])
-   @doctors = @q.result.includes(:recommendations, :insurances).page(page).per(10)
+    @form_data = helpers.get_variables
+    @tags = helpers.tags + Tag.select('description').distinct.map {|tag| tag.description}
+    page = params[:page]
+    per_page = params[:per_page]
+    @q = Doctor.ransack(params[:q])
+    @doctors = @q.result.includes(:recommendations, :insurances).page(page).per(10)
   end
 
   def show

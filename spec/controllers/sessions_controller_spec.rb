@@ -13,10 +13,13 @@ RSpec.describe SessionsController, type: :controller do
     end
   end
   describe "session#create" do
-    let!(:user) {User.create(email:'ash@ash.com', username:'Ash', password: 'abc')}
+    let!(:user) {User.create!(email:'ash@ash.com', username:'Ash', password: 'Abc11!!!')}
     it "creates a new session when input is valid" do
-      post :create, params: {user:{email: 'ash@ash.com', password: 'abc'}}
+      post :create, params: {user:{email: 'ash@ash.com', password: 'Abc11!!!'}}
       expect(session[:user_id]).to eq (user.id)
+    end
+    it "redirects to user profile page when input is valid" do
+      expect( post :create, params: {user:{email: 'ash@ash.com', password: 'Abc11!!!'}} ).to redirect_to user_path(user)
     end
     it "creates a flash notice when input password is invalid" do
       post :create, params: {user:{email: 'ash@ash.com', password: 'abagwg'}}
