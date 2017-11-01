@@ -26,6 +26,12 @@ class UsersController < ApplicationController
     end
   end
 
+  def check
+  end
+
+  def user_doctor
+  end
+
   private
 
   def user_params

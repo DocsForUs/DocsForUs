@@ -19,6 +19,6 @@ Rails.application.routes.draw do
   get '/logout' => 'sessions#destroy'
   get '/about' => 'index#about'
   get '/resources' => 'index#resources'
-
+  get '/check' => 'users#check'
   get '/recommendations/add', to: "recommendations#add"
 end

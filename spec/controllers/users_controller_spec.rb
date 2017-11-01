@@ -94,4 +94,15 @@ RSpec.describe UsersController, type: :controller do
       end
     end
   end
+
+  describe "#check" do
+    it "returns a status 200" do
+      get :check
+      expect(response.status).to eq 200
+    end
+    it "renders the check page" do
+      get :check
+      expect(response).to render_template :check
+    end
+  end
 end#end of UsersController
