@@ -52,7 +52,9 @@ class RecommendationsController < ApplicationController
     if current_user == @recommendation.user
       @doctor = @recommendation.doctor
       @tags = helpers.default_tags
+      render :edit
     else
+      redirect_to root_path
     end
   end
 

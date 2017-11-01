@@ -77,6 +77,38 @@ RSpec.describe RecommendationsController, type: :controller do
     end
   end
 
+
+  describe "recommendations#edit" do
+    let!(:doctor) {create(:doctor)}
+    let!(:recommendation) {Recommendation.create!(review: "good job", doctor_id: 1, user_id: user.id)}
+    context "when user is not logged in" do
+      it "redirects to home page" do
+        get :edit, params: {id: 1}
+        expect(response).to redirect_to root_path
+      end
+    end
+    context "when user is not the author of the post" do
+      it "redirects to home page" do
+        get :edit, params: {id: 1}, session: { user_id: 2}
+        expect(response).to redirect_to root_path
+      end
+    end
+    context "when user attempts to edit their own post" do
+      it "returns a status of 200" do
+        get :edit, params: {id: 1}, session: { user_id: user.id}
+        expect(response).to be_ok
+      end
+      it "renders the edit page" do
+        get :edit, params: {id: 1}, session: { user_id: user.id}
+        expect(response).to render_template :edit
+      end
+    end
+  end
+
+  describe "recommendations#update" do
+
+  end
+
   describe '#destroy' do
     context 'when an admin is deleting poor content' do
       before(:each) do
