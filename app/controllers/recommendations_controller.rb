@@ -47,6 +47,17 @@ class RecommendationsController < ApplicationController
     end
   end
 
+  def edit
+      @recommendation = Recommendation.find(params[:id])
+    if current_user == @recommendation.user
+      @doctor = @recommendation.doctor
+    else
+    end
+  end
+
+  def update
+  end
+
   private
 
   def rec_params
