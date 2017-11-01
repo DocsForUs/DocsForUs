@@ -11,10 +11,10 @@ RSpec.describe DoctorsController, type: :controller do
       expect(assigns[:form_data]).to include(:specialties, :insurance, :genders)
     end
     it "assigns tag strings to @tags variable for form dropdown" do
+      create(:tag)
       get :index
       expect(assigns[:tags]).to be_an Array
       expect(assigns[:tags]).to include(a_kind_of(String))
-
     end
     it 'assigns a instance @doctors to doctors that fit the search result' do
       get :find, params: { doctor: {first_name: 'Georgette', last_name: 'Tronkenheim', city: "Seattle", state: "WA"} }
@@ -102,5 +102,5 @@ RSpec.describe DoctorsController, type: :controller do
       expect(assigns[:doctor].insurances.count).to eq 2
     end
   end
-  
+
 end#end of class

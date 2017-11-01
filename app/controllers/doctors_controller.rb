@@ -44,7 +44,7 @@ class DoctorsController < ApplicationController
 
   def index
     @form_data = helpers.get_variables
-    @tags = helpers.tags + Tag.select('description').distinct.map {|tag| tag.description}
+    @tags = Tag.all.map {|tag| tag.description}
     page = params[:page]
     per_page = params[:per_page]
     @q = Doctor.ransack(params[:q])
