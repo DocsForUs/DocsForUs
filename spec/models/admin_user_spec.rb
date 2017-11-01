@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe User, type: :model do
   let!(:user) {create(:user)}
   let!(:admin) {User.create(username: 'admin', email: 'admin@email.com', password: 'P@ssword1', admin: true)}
-  let!(:superadmin) {User.create(username: 'admin', email: 'admin@email.com', password: 'P@ssword1', admin: true, superadmin: true)}
+  let!(:superadmin) {User.create(username: 'superadmin', email: 'superadmin@email.com', password: 'P@ssword1', admin: true, superadmin: true)}
   describe 'admin attribute' do
     it 'a normal user created has admin attribute as false' do
       expect(user.admin).to be false
