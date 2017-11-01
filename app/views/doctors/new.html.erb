@@ -4,9 +4,7 @@
   <div class="container">
   <h1>Recommend a New Doctor</h1>
   <div class="errors-cont">
-    <% if @errors %>
     <%= render 'shared/errors' %>
-    <% end %>
   </div>
   <div class="doctor-search-box">
     <%= form_for @doctor do |f| %>
