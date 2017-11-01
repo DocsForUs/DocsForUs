@@ -5,7 +5,7 @@ module TagTitleHelper
       competencies: "This doctor was competent with the concerns of people who are...",
       actions: "This doctor...",
       services: "This doctor offers these services...",
-      user: "Add additional tags..."
+      custom: "Additional tags..."
     }
   end
 end
