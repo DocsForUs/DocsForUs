@@ -26,6 +26,8 @@ insurances.length.times do |i|
   Doctor.all.sample.insurances << ins
 end
 
+
+User.create(username:'admin', email: ENV['admin_email'], password: ENV['admin_password'], admin: true, superadmin: true)
 Tag.destroy_all
 
 safe = ["transgender", "non-binary", "queer", "genderqueer", "trans masculine", "trans feminine", "polyamorous", "asexual", "gay", "lesbian", "bisexual", "pansexual", "latinx", "american indian", "asian", "black", "african american", "middle eastern", "multiracial", "intersex", "a person of color", "female", "male", "two-spirit"]
