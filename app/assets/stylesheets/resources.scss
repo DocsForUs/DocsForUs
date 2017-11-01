@@ -6,8 +6,8 @@
 }
 
 .content-container{
-  padding: 10px;
-  margin: auto;
+  padding: 50px;
+  margin: 50px;
   text-align: justify;
 }
 
@@ -22,12 +22,10 @@
   border-radius: 5px;
 }
 
-.resources-list ul{
-  list-style-type: none;
-}
-
 .resources-list li{
   padding: 20px;
+  list-style-type: none;
+  text-align: justify;
 }
 
 .header{

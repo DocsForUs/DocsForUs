@@ -8,4 +8,8 @@ class IndexController < ApplicationController
     render :"about"
   end
 
+  def resources
+    render :"resources"
+  end
+
 end
