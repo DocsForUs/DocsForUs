@@ -74,6 +74,7 @@ ActiveRecord::Schema.define(version: 20171030034859) do
     t.string "email", null: false
     t.string "password_digest", null: false
     t.boolean "admin", default: false
+    t.boolean "superadmin", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
