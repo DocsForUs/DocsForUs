@@ -2,6 +2,7 @@ require 'rails_helper'
 
 RSpec.describe RecommendationsController, type: :controller do
   let!(:user) { create(:user) }
+  let!(:admin) {User.create(username: 'admin', email: 'admin@email.com', password: 'P@ssword1', admin: true)}
   describe "initiating a new recommendation" do
     it "returns a status 200" do
       get :add
@@ -76,4 +77,26 @@ RSpec.describe RecommendationsController, type: :controller do
     end
   end
 
+  describe '#destroy' do
+    context 'when an admin is deleting poor content' do
+      before(:each) do
+        session[:user_id] = admin.id
+        doctor = create(:doctor)
+        ham = Tag.create(description: 'ham')
+        rec = Recommendation.new(user: user, doctor: doctor, review: "fish fish fish")
+        rec.tags << ham
+        rec.save
+        delete :destroy, params: { id: '1' }
+      end
+      it 'assigns the recommendation instance variable from params' do
+        expect(assigns[:recommendation]).to be_a Recommendation
+      end
+      it 'deletes the recommendation from the database' do
+        expect(Recommendation.count).to eq 0
+      end
+      it 'redirects to the homepage' do
+        expect(response).to redirect_to root_path
+      end
+    end
+  end
 end

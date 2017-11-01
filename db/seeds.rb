@@ -25,3 +25,6 @@ insurances.length.times do |i|
   ins = Insurance.create(insurance_uid: insurances[i][1], insurance_name: insurances[i][0])
   Doctor.all.sample.insurances << ins
 end
+
+
+User.create(username:'admin', email: ENV['admin_email'], password: ENV['admin_password'], admin: true, superadmin: true)

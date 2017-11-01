@@ -65,6 +65,9 @@
         <p>
           Recommended on <%= rec.created_at.localtime.strftime('%m/%d/%Y at %I:%M %p') %> by <%= rec.user.username %>
         </p>
+        <% if current_user && current_user.admin %>
+          <%= link_to 'delete recommendation', recommendation_path(rec), method: :delete %>
+        <% end %>
       </div>
     <% end %>
     <% else %>
