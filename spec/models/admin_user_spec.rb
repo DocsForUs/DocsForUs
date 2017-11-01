@@ -15,5 +15,10 @@ RSpec.describe User, type: :model do
       superadmin.make_admin(user.id)
       expect(user.reload.admin).to be true
     end
+
+    it 'cant appoint admins as a regular admin' do
+      admin.make_admin(user.id)
+      expect(user.reload.admin).to be false
+    end
   end
 end
