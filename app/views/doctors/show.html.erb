@@ -65,6 +65,9 @@
         <p>
           Recommended on <%= rec.created_at.localtime.strftime('%m/%d/%Y at %I:%M %p') %> by <%= rec.user.username %>
         </p>
+        <% if rec.user == current_user %>
+          <p> <%=link_to "edit recommendation"  %> </p>
+        <% end %>
       </div>
     <% end %>
     <% else %>
