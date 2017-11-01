@@ -66,6 +66,7 @@ class RecommendationsController < ApplicationController
     end
     @recommendation.save
     redirect_to doctor_path(@recommendation.doctor.id)
+  end
 
   def destroy
     @recommendation = Recommendation.find(params[:id])
