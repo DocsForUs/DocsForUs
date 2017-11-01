@@ -89,9 +89,11 @@ RSpec.describe RecommendationsController, type: :controller do
         delete :destroy, params: { id: '1' }
       end
       it 'assigns the recommendation instance variable from params' do
-        expect(assigns[:recommendation]).to eq Recommendation.find(1)
+        expect(assigns[:recommendation]).to be_a Recommendation
       end
-      it 'deletes the recommendation from the database'
+      it 'deletes the recommendation from the database' do
+        expect(Recommendation.count).to eq 0
+      end
       it 'redirects to the homepage'
     end
   end

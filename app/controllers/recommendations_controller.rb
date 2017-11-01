@@ -49,6 +49,7 @@ class RecommendationsController < ApplicationController
 
   def destroy
     @recommendation = Recommendation.find(params[:id])
+    @recommendation.delete
   end
 
   private
