@@ -87,12 +87,15 @@ RSpec.describe RecommendationsController, type: :controller do
         rec.tags << ham
         rec.save
         delete :destroy, params: { id: '1' }
+        rec2 = Recommendation.new(user: user, doctor: doctor, review: "fishy fishy fishy")
+        rec2.tags << ham
+        rec2.save
       end
       it 'assigns the recommendation instance variable from params' do
         expect(assigns[:recommendation]).to be_a Recommendation
       end
       it 'deletes the recommendation from the database' do
-        expect(Recommendation.count).to eq 0
+        expect{ delete :destroy, params: { id: '2' }}.to change{ Recommendation.count }.by -1
       end
       it 'redirects to the homepage' do
         expect(response).to redirect_to root_path

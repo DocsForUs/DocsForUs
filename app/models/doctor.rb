@@ -7,6 +7,7 @@ class Doctor < ApplicationRecord
   has_many :doctors_users
   has_many :users, through: :doctors_users
 
+  #def remove
 
   def insurance(params)
     if params.include?(:uid)

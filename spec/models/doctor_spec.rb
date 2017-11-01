@@ -28,4 +28,13 @@ describe Doctor, type: :model do
       expect(response[0][:uid]).to eq "insurance-insurance"
     end
   end
+
+  describe 'methods' do
+    context 'that delete' do
+      it 'remove the doctor from the database' do
+        expect{ doctor.remove(admin.id) }.to change{ Doctor.count }.by -1
+      end
+      it 'wont work unless an admin'
+    end
+  end
 end
