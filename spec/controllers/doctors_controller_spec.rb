@@ -3,7 +3,6 @@ require 'rails_helper'
 RSpec.describe DoctorsController, type: :controller do
   let(:user) { create(:user) }
   let(:doctor) { create(:doctor) }
-
   let(:doctor2) { Doctor.create(first_name: 'Atul', last_name: 'Gawande', city: 'seattle', state:'wa') }
   describe 'doctors#index route for searching' do
     it "assigns data for form dropdowns to @form_data variable" do
@@ -102,5 +101,7 @@ RSpec.describe DoctorsController, type: :controller do
       expect(assigns[:doctor].insurances.count).to eq 2
     end
   end
-  
+
+  describe "deleting a doctor as an admin"
+
 end#end of class
