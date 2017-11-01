@@ -66,6 +66,11 @@ class RecommendationsController < ApplicationController
     end
     @recommendation.save
     redirect_to doctor_path(@recommendation.doctor.id)
+
+  def destroy
+    @recommendation = Recommendation.find(params[:id])
+    @recommendation.remove(session[:user_id])
+    redirect_to root_path
   end
 
   private
