@@ -66,7 +66,8 @@ class DoctorsController < ApplicationController
 
   def destroy
     @doctor = Doctor.find(params[:id])
-    @doctor.
+    @doctor.remove(current_user.id)
+    redirect_to root_path
   end
 
   private

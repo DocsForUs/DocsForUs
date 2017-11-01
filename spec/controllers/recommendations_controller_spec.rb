@@ -82,12 +82,12 @@ RSpec.describe RecommendationsController, type: :controller do
       before(:each) do
         session[:user_id] = admin.id
         doctor = create(:doctor)
-        ham = Tag.create(description: 'ham')
-        rec = Recommendation.new(user: user, doctor: doctor, review: "fish fish fish")
+        ham = create(:tag)
+        rec = Recommendation.create!(user: user, doctor: doctor, review: "fish fish fish")
         rec.tags << ham
         rec.save
-        delete :destroy, params: { id: '1' }
-        rec2 = Recommendation.new(user: user, doctor: doctor, review: "fishy fishy fishy")
+        delete :destroy, params: { id: rec.id }
+        rec2 = Recommendation.create!(user: user, doctor: doctor, review: "fishy fishy fishy")
         rec2.tags << ham
         rec2.save
       end
