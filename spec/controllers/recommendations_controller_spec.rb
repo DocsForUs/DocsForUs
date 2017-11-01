@@ -124,6 +124,23 @@ RSpec.describe RecommendationsController, type: :controller do
         expect(response).to redirect_to root_path
       end
     end
+    context "successful update" do
+      before(:each) do
+        put :update, params: { id: recommendation.id, recommendation: {review: "i had a really positive experience", doctor_id: doctor.id.to_s, tags: ['cats']}}, session: { user_id: user.id}
+      end
+      it "redirects to doctor page" do
+        expect(response).to redirect_to doctor_path(doctor)
+      end
+      it "updates recommendation review" do
+        recommendation.reload
+        expect(recommendation.review).to eq "i had a really positive experience"
+      end
+      it "updates recommendation tags to the ones selected on edit page" do
+        recommendation.reload
+        tags = recommendation.tags.map { |t| t.description}
+        expect(tags).to eq ['cats']
+      end
+    end
 
   end
 
