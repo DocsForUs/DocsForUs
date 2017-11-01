@@ -2,8 +2,8 @@ require 'rails_helper'
 
 RSpec.describe DoctorsController, type: :controller do
   let(:user) { create(:user) }
+  let!(:admin) {User.create(username: 'admin', email: 'admin@email.com', password: 'P@ssword1', admin: true)}
   let(:doctor) { create(:doctor) }
-
   let(:doctor2) { Doctor.create(first_name: 'Atul', last_name: 'Gawande', city: 'seattle', state:'wa') }
   describe 'doctors#index route for searching' do
     it "assigns data for form dropdowns to @form_data variable" do
@@ -100,6 +100,29 @@ RSpec.describe DoctorsController, type: :controller do
     before(:each) {post :create, params: {doctor: {first_name: 'Laura', last_name: 'Spring', specialty: 'Family Medicine',zipcode: '98103',city:'Seattle',state:'WA',uid:"ewrwewrewrew"}}}
     xit "creates the insurances if it isnt available in the database" do
       expect(assigns[:doctor].insurances.count).to eq 2
+    end
+  end
+
+  describe "deleting a doctor as an admin" do
+    context 'when an admin is deleting a doctor' do
+      before(:each) do
+
+        session[:user_id] = admin.id
+        doctor = create(:doctor)
+        doctor2 = build(:doctor)
+        doctor2.first_name = "Mary"
+        doctor2.save
+        delete :destroy, params: { id: '1' }
+      end
+      it 'assigns the doctor instance variable from params' do
+        expect(assigns[:doctor]).to be_a Doctor
+      end
+      it 'deletes the doctor from the database' do
+        expect{ delete :destroy, params: { id: '2' }}.to change{ Doctor.count }.by -1
+      end
+      it 'redirects to the homepage' do
+        expect(response).to redirect_to root_path
+      end
     end
   end
 

@@ -47,7 +47,7 @@ class RecommendationsController < ApplicationController
 
   def destroy
     @recommendation = Recommendation.find(params[:id])
-    @recommendation.remove(session[:user_id])
+    @recommendation.remove(current_user.id)
     redirect_to root_path
   end
 
