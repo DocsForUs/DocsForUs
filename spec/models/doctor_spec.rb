@@ -32,6 +32,8 @@ describe Doctor, type: :model do
   describe 'methods' do
     context 'that delete' do
       it 'remove the doctor from the database' do
+        doctor = create(:doctor)
+        admin = User.create(username: 'admin', email: 'admin@email.com', password: 'P@ssword1', admin: true)
         expect{ doctor.remove(admin.id) }.to change{ Doctor.count }.by -1
       end
       it 'wont work unless an admin'
