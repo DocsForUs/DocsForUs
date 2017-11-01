@@ -4,7 +4,7 @@ module TagsHelper
     tags = []
       tag  = [  ]
       tag.each do |tag|
-        tags << Array[tag]
+        tags << tag
       end
       tags
   end

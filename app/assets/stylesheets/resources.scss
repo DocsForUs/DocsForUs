@@ -1,0 +1,35 @@
+@import "variables";
+
+#resources-page{
+  display: grid;
+  grid-template-columns: 3fr 4fr 3fr;
+}
+
+.content-container{
+  padding: 50px;
+  margin: 50px;
+  text-align: justify;
+}
+
+.link-container{
+  display: block;
+  position: relative;
+  border-radius: 5px;
+  grid-column-start: 2;
+  margin: 50px;
+  border: 1px solid $teal;
+  padding: 15px;
+  border-radius: 5px;
+}
+
+.resources-list li{
+  padding: 20px;
+  list-style-type: none;
+  text-align: justify;
+}
+
+.header{
+  text-align: center;
+  padding: 5px;
+  margin: 2px;
+}

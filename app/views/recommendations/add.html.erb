@@ -14,15 +14,13 @@
 
   <% end %>
   <aside class="partials-doctors">
-    <% if @our_doctors %>
-      <% if @our_doctors.length > 0 %>
-    <%= render 'doctors/rec_search'  %>
-      <% end %>
+    <% if @our_doctors && @our_doctors.length > 0 %>
+      <%= render 'doctors/rec_search'  %>
     <% end %>
     <% if @api_doctors %>
       <% if@api_doctors.length > 0 %>
     <%= render 'doctors/rec_api_search'  %>
-    
+
       <% end %>
     <% end %>
     <% if @show_new_doctor %>

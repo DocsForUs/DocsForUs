@@ -7,6 +7,35 @@ class Doctor < ApplicationRecord
   has_many :doctors_users
   has_many :users, through: :doctors_users
 
+
+  def insurance(params)
+    if params.include?(:uid)
+      self.associate_insurances_api(insurance_param)
+    elsif params.include?('insurances')
+      self.assign_insurance(param)
+    end
+  end
+
+  def associate_insurances_api(params)
+    insurances = Doctor.get_insurances(params[:uid])
+    insurances.each do |insurance|
+      insurance_database = Insurance.find_by(insurance_uid: insurance[:uid])
+      if insurance_database
+        self.insurances << insurance_database
+      else
+        insurance_new = Insurance.create(insurance_uid: insurance[:uid], insurance_name: insurance[:name])
+        self.insurances << insurance_new
+      end
+    end
+  end
+
+  def assign_insurance(param)
+    insurance = Insurance.find_by(insurance_uid: insurances_param['insurances'])
+    if insurance
+      @doctor.insurances << insurance
+    end
+  end
+
   def self.search_doctor(doctor)
     response = Doctor.search_api(doctor)
     doctors_array = []
@@ -83,6 +112,15 @@ class Doctor < ApplicationRecord
       doctor_insurances << insurance
     end
     doctor_insurances
+  end
+
+  def insurance_param
+    params.require(:doctor).permit(:uid)
+  end
+
+
+  def insurances_param
+    params.require(:doctor).permit(:insurances)
   end
 
 end#end of class

@@ -1,14 +1,9 @@
 # docforme
 
-# Hours
-
-  ## Weekdays: 9am - 8pm (With respect to individual needs).
-
-  ## Weekends: 11am - 8pm
-
-
   - **Team agreements**
   - Work hour expectations
+    - Weekdays: 9am - 8pm (with respect to individual needs)
+    - Weekends: 11am - 8pm
   - Agree that each member will have ownership of a part of the design, client, and server
   - Agree that each member will rotate between scrum, git, design master and dev ops master role.
     -Will choose before assigning first tasks.
