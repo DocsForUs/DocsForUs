@@ -18,6 +18,7 @@ Rails.application.routes.draw do
   post '/login' => 'sessions#create'
   get '/logout' => 'sessions#destroy'
   get '/about' => 'index#about'
+  get '/resources' => 'index#about'
 
   get '/recommendations/add', to: "recommendations#add"
 end
