@@ -197,7 +197,8 @@
 }
 
 .doctor-details {
-  flex-basis: 60%;
+  border-right: 1px dotted $teal;
+  flex-basis: 50%;
   margin: 0px 10px;
 }
 
@@ -233,6 +234,7 @@
   cursor: pointer;
 }
 
+
 .errors-cont {
   width: 400px;
   margin: auto;
@@ -242,4 +244,14 @@
   background-color: rgba(255, 0, 0, 0.3);
   text-align: center;
   border-radius: 10px;
+}
+
+.map {
+  float: right;
+  flex-basis: 20%;
+  margin: auto;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  width: 300px;
+  height: 300px;
 }
