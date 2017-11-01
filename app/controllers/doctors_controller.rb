@@ -64,6 +64,10 @@ class DoctorsController < ApplicationController
     end
   end
 
+  def destroy
+    @doctor = Doctor.find(params[:id])
+    @doctor.
+  end
 
   private
 
