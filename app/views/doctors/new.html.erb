@@ -3,9 +3,11 @@
 <section id="dr-search-page">
   <div class="container">
   <h1>Recommend a New Doctor</h1>
+  <% if @errors %>
   <div class="errors-cont">
     <%= render 'shared/errors' %>
   </div>
+  <% end %>
   <div class="doctor-search-box">
     <%= form_for @doctor do |f| %>
       <%= f.text_field :first_name, placeholder: 'First Name*', required: true %>
