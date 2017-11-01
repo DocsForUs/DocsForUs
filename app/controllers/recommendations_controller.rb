@@ -47,6 +47,10 @@ class RecommendationsController < ApplicationController
     end
   end
 
+  def destroy
+
+  end
+
   private
 
   def rec_params

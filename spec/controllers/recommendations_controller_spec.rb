@@ -82,11 +82,14 @@ RSpec.describe RecommendationsController, type: :controller do
       before(:each) do
         session[:user_id] = admin.id
         doctor = create(:doctor)
-        post :create, params: {"recommendation"=>{"doctor_id"=>doctor.id, "review"=>"fish fish fish", "tags"=>["ham"]}}, session: {user_id: user.id}
+        ham = Tag.create(description: 'ham')
+        rec = Recommendation.new(user: user, doctor: doctor, review: "fish fish fish")
+        rec.tags << ham
+        rec.save
         delete :destroy, params: { id: '1' }
       end
       it 'assigns the recommendation instance variable from params' do
-        expect(assigns[:recommendation]).to eq rec
+        expect(assigns[:recommendation]).to eq Recommendation.find(1)
       end
       it 'deletes the recommendation from the database'
       it 'redirects to the homepage'
