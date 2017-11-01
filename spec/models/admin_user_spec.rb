@@ -11,5 +11,9 @@ RSpec.describe User, type: :model do
     it 'a user created with admin true will be an admin' do
       expect(admin.admin).to be true
     end
+    it 'can be appointed' do
+      admin.make_admin(user.id)
+      expect(user.reload.admin).to be true
+    end
   end
 end

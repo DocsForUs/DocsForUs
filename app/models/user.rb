@@ -7,4 +7,11 @@ class User < ApplicationRecord
   has_many :doctors_users
   has_many :doctors, through: :doctors_users
 
+  def make_admin(id)
+    if self.admin == true
+      user = User.find(id)
+      user.update_attribute(:admin, true)
+    end
+  end
+  
 end
