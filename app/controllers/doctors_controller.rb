@@ -82,13 +82,8 @@ class DoctorsController < ApplicationController
 
   def show
     @doctor = Doctor.find(params[:id])
-    @tags = []
     if @doctor.recommendations.length > 0
-      @doctor.recommendations.each do |rec|
-        rec.tags.each do |tag|
-          @tags << tag
-        end
-      end
+      @tags = Tag.joins(:recommendations).where(recommendations: { doctor: @doctor})
       @tags = @tags.uniq
     end
   end
