@@ -5,6 +5,7 @@ class DoctorsController < ApplicationController
     include GendersHelper
     include TagsHelper
     include InsuranceDataHelper
+    include FormVariablesHelper
 
 
   def find
@@ -22,11 +23,8 @@ class DoctorsController < ApplicationController
 
   def new
     if current_user
-      @insurance = helpers.get_insurance
+      @form_data = helpers.get_variables
       @doctor = Doctor.new
-      @states = helpers.states
-      @genders = helpers.genders
-      @specialties = helpers.get_specialties + Doctor.select('specialty').distinct.map {|dr| dr.specialty}
     else
       flash[:alert] = 'You must be logged in to add a doctor'
       redirect_to login_path
@@ -63,6 +61,7 @@ class DoctorsController < ApplicationController
           redirect_to new_recommendation_path(id: @doctor.id)
         else
           @errors = @doctor.errors.full_messages
+          @form_data = helpers.get_variables
           render :new
         end
     end
