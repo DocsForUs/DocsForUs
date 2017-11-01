@@ -14,5 +14,11 @@ class User < ApplicationRecord
     end
   end
 
+  def remove_admin(id)
+    if self.superadmin == true
+      admin = User.find(id)
+      admin.update_attribute(:admin, false)
+    end
+  end
 
 end

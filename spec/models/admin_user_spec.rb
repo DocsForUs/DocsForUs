@@ -11,14 +11,17 @@ RSpec.describe User, type: :model do
     it 'a user created with admin true will be an admin' do
       expect(admin.admin).to be true
     end
-    it 'can be appointed' do
+    it 'can be appointed by superadmins' do
       superadmin.make_admin(user.id)
       expect(user.reload.admin).to be true
     end
-
     it 'cant appoint admins as a regular admin' do
       admin.make_admin(user.id)
       expect(user.reload.admin).to be false
+    end
+    it 'can be removed by a superadmin' do
+      superadmin.remove_admin(admin.id)
+      expect(admin.reload.admin).to be false
     end
   end
 end
