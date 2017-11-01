@@ -1,6 +1,5 @@
 class RecommendationsController < ApplicationController
   include StatesHelper
-  include TagsHelper
   def add
     if current_user
       @states = helpers.states
@@ -31,7 +30,7 @@ class RecommendationsController < ApplicationController
       @recommendation.user = current_user
       if !params[:recommendation][:tags]
         @doctor = Doctor.find(params[:recommendation][:doctor_id])
-        @tags = helpers.default_tags
+        @tags = Tag.default_tags
         @tag = Tag.new
         @errors = ["You must choose at least one tag."]
         render :new

@@ -3,7 +3,6 @@ class DoctorsController < ApplicationController
     include SpecialtyDataHelper
     include HTTParty
     include GendersHelper
-    include TagsHelper
     include InsuranceDataHelper
     include FormVariablesHelper
     helper_method :current_user
