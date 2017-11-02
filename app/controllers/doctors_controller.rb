@@ -1,9 +1,4 @@
 class DoctorsController < ApplicationController
-    include SpecialtyDataHelper
-    include HTTParty
-    include GendersHelper
-    include InsuranceDataHelper
-    include FormVariablesHelper
     helper_method :current_user
     helper_method :states
     helper_method :form_data

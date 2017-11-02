@@ -1,4 +1,5 @@
 class Doctor < ApplicationRecord
+  include HTTParty
   validates :first_name, :last_name, :specialty, :zipcode, presence: true
   validate :email_xor_phone_number
   has_many :recommendations
