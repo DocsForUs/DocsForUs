@@ -4,6 +4,7 @@ RSpec.describe User, type: :model do
   let!(:user) {create(:user)}
   describe 'associations' do
     it { should have_many(:doctors).through(:doctors_users) }
+    it { should have_one(:doctor) }
   end
   describe 'validations' do
     context 'it is invalid when' do
