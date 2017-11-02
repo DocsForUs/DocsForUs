@@ -133,5 +133,9 @@ RSpec.describe UsersController, type: :controller do
       put :update, session: {user_id: superadmin.id}, params: {id: admin.id}
       expect(admin.reload.admin).to eq false
     end
+    it 'redirects to admin user management page' do
+      put :update, session: {user_id: superadmin.id}, params: {id: admin.id}
+      expect(response.status).to eq 302
+    end
   end
 end#end of UsersController
