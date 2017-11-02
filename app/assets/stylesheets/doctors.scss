@@ -319,3 +319,8 @@
   width: 350px;
   height: 75px;
 }
+
+.doctor-search-box input:focus {
+		outline: none;
+		box-shadow:0 0 4px $teal inset;
+	}
