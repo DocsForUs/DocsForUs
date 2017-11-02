@@ -1,0 +1,13 @@
+<h2 class="admin-user">Admin Association Page</h2>
+
+<%= form_for :usernames, url: { controller: "users", action: "index" }, method: :get, html: {class: "search-form"} do |f| %>
+<%= f.text_field :username, placeholder: "Enter Usernames", required: true %>
+<%= f.submit "Search", class: "search-submit" %>
+
+<% end %>
+
+<%= render '/users/all_admins' %>
+
+<% if @users %>
+  <%= render '/users/search_users' %>
+<% end %>

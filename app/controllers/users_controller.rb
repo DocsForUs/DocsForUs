@@ -28,10 +28,34 @@ class UsersController < ApplicationController
     end
   end
 
+  def index
+    if !current_user || !current_user.superadmin
+      redirect_to(root_path)
+    end
+    if params[:usernames]
+      @users = User.where("username LIKE ?", "%#{admin_params[:username]}")
+    end
+    @admins = User.where(admin: true)
+  end
+
+  def update
+    @user = User.find(params[:id])
+    if @user.admin == false
+      @user.make_admin(current_user)
+    else
+      @user.remove_admin(current_user)
+    end
+    redirect_to users_path
+  end
+
   private
 
   def user_params
     params.require(:user).permit(:username, :email, :password, :password_confirmation)
+  end
+
+  def admin_params
+    params.require(:usernames).permit(:username)
   end
 
 end

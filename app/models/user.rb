@@ -7,17 +7,15 @@ class User < ApplicationRecord
   has_many :doctors_users
   has_many :doctors, through: :doctors_users
 
-  def make_admin(id)
-    if self.superadmin == true
-      user = User.find(id)
-      user.update_attribute(:admin, true)
+  def make_admin(admin)
+    if admin.superadmin == true
+      self.update_attribute(:admin, true)
     end
   end
 
-  def remove_admin(id)
-    if self.superadmin == true
-      admin = User.find(id)
-      admin.update_attribute(:admin, false)
+  def remove_admin(admin)
+    if admin.superadmin == true
+      self.update_attribute(:admin, false)
     end
   end
 
