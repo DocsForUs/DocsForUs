@@ -97,14 +97,18 @@ RSpec.describe UsersController, type: :controller do
 
   describe '#index' do
     let!(:user) { create(:user) }
-    let!(:admin) {User.create(username: 'admin', email: 'admin@email.com', password: 'P@ssword1', admin: true, superadmin: true)}
+    let!(:superadmin) {User.create(username: 'admin', email: 'admin@email.com', password: 'P@ssword1', admin: true, superadmin: true)}
     it 'is accessible to superadmins' do
-      get :index, session: {user_id: admin.id}
+      get :index, session: {user_id: superadmin.id}
       expect(response.status).to eq 200
     end
     it 'is not accessible to non admins' do
       get :index, session: {user_id: user.id}
       expect(response.status).to eq 302
+    end
+    it 'creates an instance variable collection of user objects based on username search' do
+      get :index, session: {user_id: superadmin.id}
+      expect(assigns[:users]).to include(user)
     end
   end
 end#end of UsersController
