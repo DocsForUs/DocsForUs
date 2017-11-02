@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   helper_method :current_user
+  helper_method :form_data
 
   def new
     @user = User.new
@@ -90,7 +91,6 @@ class UsersController < ApplicationController
       current_user.doctor = @doctor
       redirect_to doctor_path(@doctor)
     else
-    @form_data = helpers.get_variables
     @doctor = Doctor.new
     render "new_doc_user_form"
     end
