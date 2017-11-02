@@ -108,17 +108,30 @@ RSpec.describe UsersController, type: :controller do
       expect(response.status).to eq 302
     end
     it 'creates an instance variable collection of user objects based on username search' do
-      get :index, params: {username: 'llama'}, session: {user_id: superadmin.id}
+      get :index, params: {usernames: {username: 'llama'}, session: {user_id: superadmin.id}}
       expect(assigns[:users]).to include(user)
     end
     it '@users is nil if passed no params' do
       get :index, session: {user_id: superadmin.id}
       expect(assigns[:users]).to be_nil
     end
-    it 'renders a search partial when passed params of users'
     it 'lists all admins when visiting the page' do
       get :index
       expect(assigns[:admins]).to include(admin)
+    end
+  end
+
+  describe '#update' do
+    let!(:user) { create(:user) }
+    let!(:admin) {User.create(username: 'admino', email: 'admino@email.com', password: 'P@ssword1', admin: true)}
+    let!(:superadmin) {User.create(username: 'admin', email: 'admin@email.com', password: 'P@ssword1', admin: true, superadmin: true)}
+    it 'can turn a user into an admin' do
+      put :update, session: {user_id: superadmin.id}, params: {id: user.id}
+      expect(user.reload.admin).to eq true
+    end
+    it 'can turn an admin back to user' do
+      put :update, session: {user_id: superadmin.id}, params: {id: admin.id}
+      expect(admin.reload.admin).to eq false
     end
   end
 end#end of UsersController
