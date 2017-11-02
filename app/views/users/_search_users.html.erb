@@ -1,4 +1,9 @@
-<% @users.each do |user| %>
-  <%= user.username %>
-
-<% end %>
+<h2>Users returned</h2>
+<ul>
+  <% @users.each do |user| %>
+  <li>
+    <%= user.username %> admin:<%= user.admin %>
+    <%= link_to "Change Admin Status", user_path(user), :method=> :put %>
+  </li>
+  <% end %>
+</ul>

@@ -43,7 +43,7 @@ class UsersController < ApplicationController
     else
       @user.remove_admin(current_user)
     end
-    redirect_to user_path
+    redirect_to users_path
   end
 
   private
