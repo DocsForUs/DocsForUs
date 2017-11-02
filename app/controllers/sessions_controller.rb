@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
     @user = User.find_by(email: user_params[:email])
     if @user && @user.authenticate(user_params[:password])
       session[:user_id] = @user.id
-      redirect_to user_path(@user)
+      session_redirect(@user)
     else
       flash[:alert] = "Your email or password is incorrect"
       redirect_to login_path
@@ -24,5 +24,13 @@ class SessionsController < ApplicationController
   private
   def user_params
     params.require(:user).permit(:email, :password)
+  end
+
+  def session_redirect(user)
+    if user.superadmin == true
+      redirect_to users_path
+    else
+      redirect_to user_path(@user)
+    end
   end
 end#end of class
