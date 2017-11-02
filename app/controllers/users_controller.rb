@@ -26,6 +26,12 @@ class UsersController < ApplicationController
     end
   end
 
+  def index
+    if current_user.superadmin == false
+      redirect_to(root_path)
+    end
+  end
+
   private
 
   def user_params
