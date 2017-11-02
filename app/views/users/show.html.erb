@@ -47,8 +47,9 @@
     </section>
   </div>
 
-  <aside class="admin-link">
-    <%= link_to "Admin Control Page", users_path %>
-  </aside>
-
-</main>
+  <% if current_user.superadmin %>
+    <aside class="admin-link">
+      <%= link_to "Admin Control Page", users_path %>
+    </aside>
+  <% end %>
+  </main>
