@@ -12,15 +12,15 @@ RSpec.describe User, type: :model do
       expect(admin.admin).to be true
     end
     it 'can be appointed by superadmins' do
-      superadmin.make_admin(user.id)
+      user.make_admin(superadmin)
       expect(user.reload.admin).to be true
     end
     it 'cant appoint admins as a regular admin' do
-      admin.make_admin(user.id)
+      user.make_admin(user)
       expect(user.reload.admin).to be false
     end
     it 'can be removed by a superadmin' do
-      superadmin.remove_admin(admin.id)
+      admin.remove_admin(superadmin)
       expect(admin.reload.admin).to be false
     end
   end
