@@ -29,13 +29,40 @@ class UsersController < ApplicationController
   def check
   end
 
-  def user_doctor
+  def doc_search
+    @states = helpers.states
+    render :'doctor_form'
+  end
+
+  def find
+    @states = helpers.states
+
+    @our_doctors = Doctor.where("first_name LIKE ? AND last_name LIKE ?", "%#{search_params[:first_name]}%", "%#{search_params[:last_name]}%")
+
+    @show_new_doctor = true
+    render "users/doctor_form"
+  end
+
+  def doctor_new
+    @user_doctor = User.new
+    render "users/new_doctor_user"
+  end
+
+  def doctor_signup
+    #gets the new doctor form when they dont exist in the database.
+    @form_data = helpers.get_variables
+    @doctor = Doctor.new
+    render "users/new_doc_user_form"
   end
 
   private
 
   def user_params
     params.require(:user).permit(:username, :email, :password, :password_confirmation)
+  end
+
+  def search_params
+   params.require(:doctor).permit(:first_name, :last_name,:city,:state)
   end
 
 end

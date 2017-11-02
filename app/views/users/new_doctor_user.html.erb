@@ -1,0 +1,23 @@
+<section id="new-user-page">
+<h1>Create an Account</h1>
+
+<% if flash[:alert] %>
+  <%= render "/shared/flash" %>
+<% end %>
+<div class="new-user-form">
+  <% if @errors %>
+  <div class="errors">
+    <% @errors.each do |e| %>
+      <p> <%= e %> </p>
+    <% end %>
+  </div>
+  <% end %>
+  <%= form_for @user_doctor do |f| %>
+    <%= f.text_field :username, placeholder: 'username', required: true %>
+    <%= f.email_field :email, placeholder: 'email', required: true %>
+    <%= f.password_field :password, placeholder: 'password', required: true %>
+    <%= f.password_field :password_confirmation, placeholder: 'confirm password', required: true %>
+    <%= f.submit "Create Account" %>
+  <% end %>
+</div>
+</section>

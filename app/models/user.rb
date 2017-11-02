@@ -6,6 +6,7 @@ class User < ApplicationRecord
   has_many :recommendations
   has_many :doctors_users
   has_many :doctors, through: :doctors_users
+  has_one :doctor
 
   def make_admin(id)
     if self.superadmin == true

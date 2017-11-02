@@ -1,0 +1,19 @@
+  <div class="rec-search-result left">
+    <h3>
+      Are You ...
+    </h3>
+    <% @our_doctors.each do |doctor| %>
+      <p>
+      <%= doctor.first_name%> <%= doctor.last_name %>
+      </p>
+      <p>
+        <%= doctor.specialty %>
+      </p>
+      <p>
+        <%= doctor.city %>, <%= doctor.state %>
+      </p>
+
+      <%= button_to "This is Me" %>
+
+      <% end %>
+  </div>
