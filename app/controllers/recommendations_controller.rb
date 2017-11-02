@@ -64,7 +64,6 @@ class RecommendationsController < ApplicationController
       @recommendation.tags.delete_all
       if params[:recommendation][:tags]
         tags = params[:recommendation][:tags].map { |tag| Tag.find_or_create_by(description: tag)}
-        p tags
         tags.each do |tag|
           @recommendation.tags << tag
         end
