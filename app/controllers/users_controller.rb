@@ -76,13 +76,13 @@ class UsersController < ApplicationController
       redirect_to doctor_signup_path
     else
       @errors = @user_doctor.errors.full_messages
-      render :new
+      render "users/new_doctor_user"
     end
   end
 
   def doctor_signup
     #gets the new doctor form when they dont exist in the database.
-    @form_data = helpers.get_variables
+    @form_data = helpers.form_data
     @doctor = Doctor.new
     render "new_doc_user_form"
   end
