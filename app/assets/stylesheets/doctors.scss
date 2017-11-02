@@ -202,6 +202,12 @@
   margin: 0px 10px;
 }
 
+.doctor-details-rec {
+  flex-basis: 70%;
+  margin: 0px 10px;
+  border-bottom: 1px dotted $teal;
+}
+
 .doc-info-list {
   list-style-type: none;
 }
