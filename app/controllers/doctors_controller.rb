@@ -22,6 +22,7 @@ class DoctorsController < ApplicationController
   end
 
   def create
+    p doctor_params
     @doctor = Doctor.find_or_create_by(doctor_params)
     if !@doctor.save
       errors_route
