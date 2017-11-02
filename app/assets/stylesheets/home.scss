@@ -29,6 +29,12 @@
   background-repeat: no-repeat;
 }
 
+@media only screen and (max-device-width: 1024px) {
+  .image-container {
+    width: 95%;
+  }
+}
+
 .btn-container {
   display: flex;
   align-items: center;
