@@ -1,12 +1,12 @@
 
 <!--
 <main class="doctor-info-container">
-  <div class="img-container">
-    <h1>Image</h1>
-  </div>
-  <div class="info-container">
-    <h1>Info</h1>
-  </div>
+<div class="img-container">
+<h1>Image</h1>
+</div>
+<div class="info-container">
+<h1>Info</h1>
+</div>
 </main> -->
 
 
@@ -17,20 +17,21 @@
     <p><%= @doctor.specialty %></p>
     <ul class="doctor-links">
       <% if current_user.doctor == @doctor %>
-        <li><%= link_to "Edit Your Profile", edit_doctor_path(@doctor) %></li>
+      <li><%= link_to "Edit Your Profile", edit_doctor_path(@doctor) %></li>
       <% else %>
-        <li><%= link_to "Recommend this doctor", new_recommendation_path(id: @doctor.id) %></li>
-        <% if session[:user_id] %>
-        <% if current_user.doctors.include?(@doctor) %>
-        <li><%= button_to "Unsave this doctor", remove_path, method: "delete", class: "save-button", params: {id: @doctor.id}%></li>
-        <% else %>
-        <li><%= button_to "Save this doctor", save_path, class: "save-button", params: {id: @doctor.id} %></li>
+      <li><%= link_to "Recommend this doctor", new_recommendation_path(id: @doctor.id) %></li>
+      <% end %>
+      <% if session[:user_id] %>
+      <% if current_user.doctors.include?(@doctor) %>
+      <li><%= button_to "Unsave this doctor", remove_path, method: "delete", class: "save-button", params: {id: @doctor.id}%></li>
+      <% else %>
+      <li><%= button_to "Save this doctor", save_path, class: "save-button", params: {id: @doctor.id} %></li>
+      <% end %>
+      <% if current_user && current_user.admin %>
+      <li>
+        <%= link_to 'Delete doctor', doctor_path(@doctor), method: :delete %>
         <% end %>
-        <% if current_user && current_user.admin %>
-          <li>
-          <%= link_to 'Delete doctor', doctor_path(@doctor), method: :delete %>
-          <% end %>
-          </li>
+      </li>
       <%end %>
     </ul>
   </div>
@@ -47,45 +48,45 @@
     </ul>
     <div class="doctor-tags-div">
       <% if !@doctor.recommendations.empty? %>
-        <% tag_title.each_pair do |category, title| %>
-          <h4><%= title %></h4>
-          <ul class="doctor-tags">
-            <% @tags.where(category: category.to_s).uniq.each do |t| %>
-            <li>
-              <%= t.description %>
-            </li>
-            <% end %>
-          </ul>
+      <% tag_title.each_pair do |category, title| %>
+      <h4><%= title %></h4>
+      <ul class="doctor-tags">
+        <% @tags.where(category: category.to_s).uniq.each do |t| %>
+        <li>
+          <%= t.description %>
+        </li>
         <% end %>
+      </ul>
+      <% end %>
       <% end %>
     </div>
   </div>
-    <div class="map">
-      <iframe width="300" height="300" frameborder="0" style="border:0"
-      src="https://www.google.com/maps/embed/v1/place?key=<%=ENV["GOOGLE_MAPS"]%>&q=<%=@doctor.street%><%=@doctor.zipcode%>"
-      allowfullscreen>
-    </iframe>
-  </div>
-  <div class="doctor-reviews">
-    <h4>Users who recommended this doctor said...</h4>
-    <% if @doctor.recommendations.length > 0 %>
-    <% @doctor.recommendations.each do |rec| %>
-      <div class="single-rec">
-        <div class="review-profile"><%= rec.review %></div>
-        <p>
-          Recommended on <%= rec.created_at.localtime.strftime('%m/%d/%Y at %I:%M %p') %> by <%= rec.user.username %>
-        </p>
+  <div class="map">
+    <iframe width="300" height="300" frameborder="0" style="border:0"
+    src="https://www.google.com/maps/embed/v1/place?key=<%=ENV["GOOGLE_MAPS"]%>&q=<%=@doctor.street%><%=@doctor.zipcode%>"
+    allowfullscreen>
+  </iframe>
+</div>
+<div class="doctor-reviews">
+  <h4>Users who recommended this doctor said...</h4>
+  <% if @doctor.recommendations.length > 0 %>
+  <% @doctor.recommendations.each do |rec| %>
+  <div class="single-rec">
+    <div class="review-profile"><%= rec.review %></div>
+    <p>
+      Recommended on <%= rec.created_at.localtime.strftime('%m/%d/%Y at %I:%M %p') %> by <%= rec.user.username %>
+    </p>
 
-        <% if rec.user == current_user %>
-          <p> <%=link_to "edit recommendation", edit_recommendation_path(rec)%> </p>
-        <% end %>
-        <% if current_user && current_user.admin %>
-          <%= link_to 'delete recommendation', recommendation_path(rec), method: :delete %>
-        <% end %>
-      </div>
+    <% if rec.user == current_user %>
+    <p> <%=link_to "edit recommendation", edit_recommendation_path(rec)%> </p>
     <% end %>
-    <% else %>
-      <p>This doctor has not been recommended yet.</p>
+    <% if current_user && current_user.admin %>
+    <%= link_to 'delete recommendation', recommendation_path(rec), method: :delete %>
     <% end %>
   </div>
-  </div>
+  <% end %>
+  <% else %>
+  <p>This doctor has not been recommended yet.</p>
+  <% end %>
+</div>
+</div>
