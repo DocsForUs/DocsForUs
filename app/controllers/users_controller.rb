@@ -46,6 +46,7 @@ class UsersController < ApplicationController
       @user.remove_admin(current_user)
     end
     redirect_to users_path
+  end
   def check
   end
 
@@ -95,6 +96,8 @@ class UsersController < ApplicationController
 
   def admin_params
     params.require(:usernames).permit(:username)
+  end
+
   def search_params
    params.require(:doctor).permit(:first_name, :last_name,:city,:state)
   end
