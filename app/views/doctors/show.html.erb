@@ -8,6 +8,7 @@
 <h1>Info</h1>
 </div>
 </main> -->
+
 <% if current_user.doctor == @doctor %>
 <section id="new-user-page">
 <h2>Review Your Information as it Appears on Your Profile</h2>
@@ -34,8 +35,8 @@
         <%= link_to 'Delete doctor', doctor_path(@doctor), method: :delete %>
         <% end %>
       </li>
-      <%end %>
-      <%end %>
+      <% end %>
+      <% end %>
     </ul>
   </div>
   <div class="doctor-details">
