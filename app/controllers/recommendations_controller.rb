@@ -49,7 +49,7 @@ class RecommendationsController < ApplicationController
       @recommendation = Recommendation.find(params[:id])
     if current_user == @recommendation.user
       @doctor = @recommendation.doctor
-      @tags = helpers.default_tags
+      @tags = Tag.default_tags
       render :edit
     else
       redirect_to root_path

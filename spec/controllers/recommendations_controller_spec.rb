@@ -110,7 +110,7 @@ RSpec.describe RecommendationsController, type: :controller do
         expect(assigns[:doctor]).to eq doctor
       end
       it "assigns the default tags to an instance variable" do
-        expect(assigns[:tags]).to include "gay"
+        expect(assigns[:tags]).to be_a Hash
       end
     end
   end
