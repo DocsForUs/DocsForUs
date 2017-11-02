@@ -1,7 +1,6 @@
 module FormVariablesHelper
   include ApplicationHelper
   include GendersHelper
-  include TagsHelper
   include InsuranceDataHelper
   include StatesHelper
   include SpecialtyDataHelper

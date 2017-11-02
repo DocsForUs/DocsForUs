@@ -3,7 +3,6 @@ class DoctorsController < ApplicationController
     include SpecialtyDataHelper
     include HTTParty
     include GendersHelper
-    include TagsHelper
     include InsuranceDataHelper
     include FormVariablesHelper
     helper_method :current_user
@@ -50,7 +49,7 @@ class DoctorsController < ApplicationController
 
   def index
     @form_data = helpers.get_variables
-    @tags = helpers.tags + Tag.select('description').distinct.map {|tag| tag.description}
+    @tags = Tag.all.map {|tag| tag.description}
     page = params[:page]
     per_page = params[:per_page]
     @q = Doctor.ransack(params[:q])
@@ -59,15 +58,15 @@ class DoctorsController < ApplicationController
 
   def show
     @doctor = Doctor.find(params[:id])
-    @tags = []
     if @doctor.recommendations.length > 0
-      @doctor.recommendations.each do |rec|
-        rec.tags.each do |tag|
-          @tags << tag
-        end
-      end
-      @tags = @tags.uniq
+      @tags = Tag.joins(:recommendations).where(recommendations: { doctor: @doctor})
     end
+  end
+
+  def destroy
+    @doctor = Doctor.find(params[:id])
+    @doctor.remove(current_user.id)
+    redirect_to root_path
   end
 
   def edit

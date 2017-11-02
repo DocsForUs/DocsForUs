@@ -26,13 +26,17 @@
         <% else %>
         <li><%= button_to "Save this doctor", save_path, class: "save-button", params: {id: @doctor.id} %></li>
         <% end %>
-        <%end %>
-      <% end %>
+        <% if current_user && current_user.admin %>
+          <li>
+          <%= link_to 'Delete doctor', doctor_path(@doctor), method: :delete %>
+          <% end %>
+          </li>
+      <%end %>
     </ul>
   </div>
   <div class="doctor-details">
     <ul class="doc-info-list">
-      <li>Gender: <%= @doctor.gender %></li>
+      <li> Gender: <%= @doctor.gender %></li>
       <li>Address:
         <%= "#{@doctor.street}, #{@doctor.city}, #{@doctor.state} #{@doctor.zipcode}"%>
       </li>
@@ -43,14 +47,16 @@
     </ul>
     <div class="doctor-tags-div">
       <% if !@doctor.recommendations.empty? %>
-        <h4>Users said this doctor...</h4>
-        <ul class="doctor-tags">
-          <% @tags.each do |t| %>
+        <% tag_title.each_pair do |category, title| %>
+          <h4><%= title %></h4>
+          <ul class="doctor-tags">
+            <% @tags.where(category: category.to_s).uniq.each do |t| %>
             <li>
               <%= t.description %>
             </li>
-          <% end %>
-        </ul>
+            <% end %>
+          </ul>
+        <% end %>
       <% end %>
     </div>
   </div>
@@ -69,6 +75,10 @@
         <p>
           Recommended on <%= rec.created_at.localtime.strftime('%m/%d/%Y at %I:%M %p') %> by <%= rec.user.username %>
         </p>
+
+        <% if rec.user == current_user %>
+          <p> <%=link_to "edit recommendation", edit_recommendation_path(rec)%> </p>
+        <% end %>
         <% if current_user && current_user.admin %>
           <%= link_to 'delete recommendation', recommendation_path(rec), method: :delete %>
         <% end %>
