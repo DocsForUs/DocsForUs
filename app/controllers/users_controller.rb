@@ -67,9 +67,9 @@ class UsersController < ApplicationController
   def doctor_new
     if params[:id]
       session[:doctor_id]=params[:id]
+      @user_doctor = User.new
+      render "users/new_doctor_user"
     end
-    @user_doctor = User.new
-    render "users/new_doctor_user"
   end
 
   def doctor_create
