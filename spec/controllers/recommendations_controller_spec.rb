@@ -77,6 +77,74 @@ RSpec.describe RecommendationsController, type: :controller do
     end
   end
 
+
+  describe "recommendations#edit" do
+    let!(:doctor) {create(:doctor)}
+    let!(:recommendation) {Recommendation.create!(review: "good job", doctor_id: 1, user_id: user.id)}
+    context "when user is not logged in" do
+      it "redirects to home page" do
+        get :edit, params: {id: 1}
+        expect(response).to redirect_to root_path
+      end
+    end
+    context "when user is not the author of the post" do
+      it "redirects to home page" do
+        get :edit, params: {id: 1}, session: { user_id: 2}
+        expect(response).to redirect_to root_path
+      end
+    end
+    context "when user attempts to edit their own post" do
+      before(:each) do
+        get :edit, params: {id: 1}, session: { user_id: user.id}
+      end
+      it "returns a status of 200" do
+        expect(response).to be_ok
+      end
+      it "renders the edit page" do
+        expect(response).to render_template :edit
+      end
+      it "assigns the recommendation to edit to an instance variable" do
+        expect(assigns[:recommendation]).to eq recommendation
+      end
+      it "assigns the doctor of the recommendation to edit to an instance variable" do
+        expect(assigns[:doctor]).to eq doctor
+      end
+      it "assigns the default tags to an instance variable" do
+        expect(assigns[:tags]).to be_a Hash
+      end
+    end
+  end
+
+  describe "recommendations#update" do
+    let!(:doctor) {create(:doctor)}
+    let!(:recommendation) {Recommendation.create!(review: "good job", doctor_id: 1, user_id: user.id)}
+    context "when user is not logged in" do
+      it "redirects to home page" do
+        put :update, params: { id: recommendation.id, recommendation: {review: '', doctor_id: doctor.id.to_s, tags: []}}
+        expect(response).to redirect_to root_path
+      end
+    end
+    context "successful update" do
+      before(:each) do
+        tag = Tag.create(description: 'developmental disability', category: "actions", default: true)
+        put :update, params: { id: recommendation.id, recommendation: {review: "i had a really positive experience", doctor_id: doctor.id.to_s, tags: ['developmental disability']}}, session: { user_id: user.id}
+      end
+      it "redirects to doctor page" do
+        expect(response).to redirect_to doctor_path(doctor)
+      end
+      it "updates recommendation review" do
+        recommendation.reload
+        expect(recommendation.review).to eq "i had a really positive experience"
+      end
+      it "updates recommendation tags to the ones selected on edit page" do
+        recommendation.reload
+        tags = recommendation.tags.map { |t| t.description}
+        expect(tags).to eq ['developmental disability']
+      end
+    end
+
+  end
+
   describe '#destroy' do
     context 'when an admin is deleting poor content' do
       before(:each) do

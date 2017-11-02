@@ -95,7 +95,22 @@ RSpec.describe DoctorsController, type: :controller do
         expect(Doctor.find_by(first_name: 'Ash')).to be nil
       end
     end
+
+    context "when user is a doctor" do
+      before(:each) do
+        session[:doctor] = true
+        session[:user_id] = user.id
+        post :create, params: {doctor: {first_name: 'Ash', last_name: 'Ram', specialty: 'nuclear-cardiologist',email_address: 'ash@ash.com',zipcode: "98052", street:'150,S jumba', city: 'seattle',state: 'WA'}}
+      end
+      it 'sets the current users doctor id to the created doctors id' do
+        expect(user.doctor).to eq Doctor.last
+      end
+      it 'redirects to doctor path' do
+        expect(response).to redirect_to doctor_path(Doctor.last)
+      end
+    end
   end
+
   describe "creating insurances for the doctor" do
     before(:each) {post :create, params: {doctor: {first_name: 'Laura', last_name: 'Spring', specialty: 'Family Medicine',zipcode: '98103',city:'Seattle',state:'WA',uid:"ewrwewrewrew"}}}
     xit "creates the insurances if it isnt available in the database" do

@@ -37,7 +37,13 @@ class DoctorsController < ApplicationController
       render :new
     else
       @doctor.insurance(params)
-      redirect_to new_recommendation_path(id: @doctor.id)
+      if session[:doctor]
+        current_user.doctor = @doctor
+        current_user.save
+        redirect_to doctor_path(@doctor)
+      else
+        redirect_to new_recommendation_path(id: @doctor.id)
+      end
     end
   end
 
@@ -63,6 +69,17 @@ class DoctorsController < ApplicationController
     redirect_to root_path
   end
 
+  def edit
+    @form_data = helpers.get_variables
+    @doctor = Doctor.find(params[:id])
+  end
+
+  def update
+    @doctor = Doctor.find(params[:id])
+    @doctor.update_attributes(doctor_params)
+    redirect_to doctor_path(@doctor)
+  end
+
   private
 
   def search_params
@@ -70,7 +87,7 @@ class DoctorsController < ApplicationController
   end
 
   def doctor_params
-    params.require(:doctor).permit(:first_name, :last_name, :specialty, :gender, :email_address, :phone_number, :street, :city, :state, :zipcode)
+    params.require(:doctor).permit(:first_name, :last_name, :specialty, :gender, :email_address, :phone_number, :street, :city, :state, :zipcode, :user_id)
   end
 
 end#end of class

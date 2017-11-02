@@ -12,15 +12,12 @@
     <% end %>
   </div>
   <% end %>
-  <%= form_for @user do |f| %>
+  <%= form_for @user_doctor, url: doctor_create_path  do |f| %>
     <%= f.text_field :username, placeholder: 'username', required: true %>
     <%= f.email_field :email, placeholder: 'email', required: true %>
     <%= f.password_field :password, placeholder: 'password', required: true %>
     <%= f.password_field :password_confirmation, placeholder: 'confirm password', required: true %>
     <%= f.submit "Create Account" %>
   <% end %>
-</div>
-<div class= "btn-container">
-  <%= link_to 'Doctor? Join our Family', check_path ,{class: 'big-btn'} %>
 </div>
 </section>
