@@ -65,6 +65,9 @@ class UsersController < ApplicationController
   end
 
   def doctor_new
+    if params[:id]
+      session[:doctor_id]=params[:id]
+    end
     @user_doctor = User.new
     render "users/new_doctor_user"
   end
@@ -77,15 +80,21 @@ class UsersController < ApplicationController
       redirect_to doctor_signup_path
     else
       @errors = @user_doctor.errors.full_messages
-      render :new
+      render "users/new_doctor_user"
     end
   end
 
   def doctor_signup
     #gets the new doctor form when they dont exist in the database.
+    if session[:doctor_id]
+      @doctor = Doctor.find(session[:doctor_id])
+      current_user.doctor = @doctor
+      redirect_to doctor_path(@doctor)
+    else
     @form_data = helpers.get_variables
     @doctor = Doctor.new
     render "new_doc_user_form"
+    end
   end
 
   private
