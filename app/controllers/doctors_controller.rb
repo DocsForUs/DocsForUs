@@ -6,10 +6,9 @@ class DoctorsController < ApplicationController
     include InsuranceDataHelper
     include FormVariablesHelper
     helper_method :current_user
+    helper_method :states
 
   def find
-    @states = helpers.states
-
     @our_doctors = Doctor.where("first_name LIKE ? AND last_name LIKE ?", "%#{search_params[:first_name]}%", "%#{search_params[:last_name]}%")
     doctor_args = {first_name: search_params[:first_name], last_name: search_params[:last_name],city: search_params[:city].downcase, state: search_params[:state].downcase}
 
