@@ -1,6 +1,10 @@
 <main class="user-profile">
+  <% if current_user.doctor %>
+    <h2>Welcome, Dr. <%= @user.username.capitalize %></h2>
+    <%= link_to 'View Profile', doctor_path(current_user.doctor) %>
+  <% else %>
   <h2>Welcome, <%= @user.username %></h2>
-
+  <% end %>
   <div class="profile-wrapper">
     <section class="recent-recs-section">
       <h3>Your recommendations</h3>

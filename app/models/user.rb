@@ -22,9 +22,5 @@ class User < ApplicationRecord
     end
   end
 
-  def doctor?
-    return true if self.doctor
-    false
-  end
 
 end

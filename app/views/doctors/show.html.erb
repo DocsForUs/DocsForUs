@@ -20,14 +20,14 @@
         <li><%= link_to "Edit Your Profile", edit_doctor_path(@doctor) %></li>
       <% else %>
         <li><%= link_to "Recommend this doctor", new_recommendation_path(id: @doctor.id) %></li>
-      <% end %>
-      <% if session[:user_id] %>
+        <% if session[:user_id] %>
         <% if current_user.doctors.include?(@doctor) %>
-          <li><%= button_to "Unsave this doctor", remove_path, method: "delete", class: "save-button", params: {id: @doctor.id}%></li>
+        <li><%= button_to "Unsave this doctor", remove_path, method: "delete", class: "save-button", params: {id: @doctor.id}%></li>
         <% else %>
-          <li><%= button_to "Save this doctor", save_path, class: "save-button", params: {id: @doctor.id} %></li>
+        <li><%= button_to "Save this doctor", save_path, class: "save-button", params: {id: @doctor.id} %></li>
         <% end %>
-      <%end %>
+        <%end %>
+      <% end %>
     </ul>
   </div>
   <div class="doctor-details">
