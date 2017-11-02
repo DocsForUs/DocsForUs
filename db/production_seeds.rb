@@ -33,6 +33,7 @@ class ProductionSeed
     user = User.find_by(username: username)
     user.superadmin = true
     user.admin = true
+    user.save!
     puts "#{username} is now a superadmin"
   end
 end

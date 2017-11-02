@@ -1,4 +1,4 @@
-require 'db/production_seeds'
+require_relative '../../db/production_seeds'
 
 namespace :production do
   desc "Seed the production database with tags, etc."
