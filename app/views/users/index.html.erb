@@ -1,13 +1,16 @@
-<h2 class="admin-user">Admin Association Page</h2>
+<div class="admin-home">
 
-<%= form_for :usernames, url: { controller: "users", action: "index" }, method: :get, html: {class: "search-form"} do |f| %>
-<%= f.text_field :username, placeholder: "Enter Usernames", required: true %>
-<%= f.submit "Search", class: "search-submit" %>
+  <h2 class="admin-user">Admin Page</h2>
 
-<% end %>
+  <%= form_for :usernames, url: { controller: "users", action: "index" }, method: :get, html: {class: "search-form"} do |f| %>
+  <%= f.text_field :username, placeholder: "Enter Usernames", required: true %>
+  <%= f.submit "Search", class: "search-submit" %>
 
-<%= render '/users/all_admins' %>
+  <% end %>
 
-<% if @users %>
-  <%= render '/users/search_users' %>
-<% end %>
+  <%= render '/users/all_admins' %>
+
+  <% if @users %>
+    <%= render '/users/search_users' %>
+  <% end %>
+</div>

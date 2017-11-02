@@ -77,9 +77,6 @@ RSpec.describe UsersController, type: :controller do
       it 'renders the user show page' do
         expect(response).to render_template :show
       end
-      it 'assigns a user instance variable' do
-        expect(assigns[:user]).to eq user
-      end
     end
     context "when user is logged in and trying to look at another user's show page" do
       it 'redirects to current users show page' do

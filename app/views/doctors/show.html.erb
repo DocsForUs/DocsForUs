@@ -23,20 +23,20 @@
       <% if current_user.doctor == @doctor %>
       <li><%= link_to "Edit Your Profile", edit_doctor_path(@doctor) %></li>
       <% else %>
-      <li><%= link_to "Recommend this doctor", new_recommendation_path(id: @doctor.id) %></li>
-      <% if session[:user_id] %>
-      <% if current_user.doctors.include?(@doctor) %>
-      <li><%= button_to "Unsave this doctor", remove_path, method: "delete", class: "save-button", params: {id: @doctor.id}%></li>
-      <% else %>
-      <li><%= button_to "Save this doctor", save_path, class: "save-button", params: {id: @doctor.id} %></li>
-      <% end %>
-      <% if current_user && current_user.admin %>
-      <li>
-        <%= link_to 'Delete doctor', doctor_path(@doctor), method: :delete %>
+        <li><%= link_to "Recommend this doctor", new_recommendation_path(id: @doctor.id) %></li>
+        <% if current_user %>
+          <% if current_user.doctors.include?(@doctor) %>
+          <li><%= button_to "Unsave this doctor", remove_path, method: "delete", class: "save-button", params: {id: @doctor.id}%></li>
+          <% else %>
+          <li><%= button_to "Save this doctor", save_path, class: "save-button", params: {id: @doctor.id} %></li>
         <% end %>
-      </li>
-      <% end %>
-      <% end %>
+        <% if current_user && current_user.admin %>
+          <li>
+          <%= link_to 'Delete doctor', doctor_path(@doctor), method: :delete %>
+          <% end %>
+          </li>
+        <% end %>
+      <%end %>
     </ul>
   </div>
   <div class="doctor-details">

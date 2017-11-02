@@ -9,7 +9,7 @@
   <%= f.text_field :last_name, placeholder: "Last Name", required: true%>
   <%= f.text_field :city, placeholder: "City", required: true %>
   <%= f.label "State" %>
-  <%= f.select :state, options_for_select(@states, :first), required: true %>
+  <%= f.select :state, options_for_select(states, :first), required: true %>
   <%= f.submit "Search", class: "search-submit" %>
 
   <% end %>
