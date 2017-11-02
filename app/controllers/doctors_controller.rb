@@ -13,7 +13,6 @@ class DoctorsController < ApplicationController
 
   def new
     if current_user
-
       @doctor = Doctor.new
     else
       flash[:alert] = 'You must be logged in to add a doctor'
@@ -22,7 +21,6 @@ class DoctorsController < ApplicationController
   end
 
   def create
-    p doctor_params
     @doctor = Doctor.find_or_create_by(doctor_params)
     if !@doctor.save
       errors_route
