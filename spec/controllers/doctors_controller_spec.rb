@@ -130,4 +130,25 @@ RSpec.describe DoctorsController, type: :controller do
     end
   end
 
+  describe "doctors#edit" do
+    let!(:doctor) { create(:doctor) }
+    before(:each) { get :edit, params:{id: doctor.id}}
+    it "assigns the doctor variable with appropriate doctor" do
+      expect(assigns[:doctor]).to eq (doctor)
+    end
+    it "renders the edit page" do
+      expect(response).to render_template(:edit)
+    end
+  end
+
+  describe "doctors#update" do
+    let!(:doctor) { create(:doctor) }
+    before(:each) { get :update, params: {doctor: {first_name: 'Georgette', last_name: 'Tronkenheim', specialty: 'Family Practice',email_address: 'georgette@doctor.com',zipcode: "98103", street:'33 Orange St', city: 'Seattle',state: 'WA'}, id: doctor.id}}
+    it "assigns the doctor variable" do
+      expect(assigns[:doctor]).to eq (doctor)
+    end
+    it "returns a 302 status to redirect" do
+      expect(response.status).to eq 302
+    end
+  end
 end#end of class
