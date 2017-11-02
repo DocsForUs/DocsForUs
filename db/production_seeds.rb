@@ -29,8 +29,9 @@ class ProductionSeed
     puts "Tags have been seeded"
   end
 
-  def self.superadmin(username)
+  def self.superadmin(username, password)
     user = User.find_by(username: username)
+    user.password = password
     user.superadmin = true
     user.admin = true
     user.save!

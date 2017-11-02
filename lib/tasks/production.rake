@@ -7,8 +7,8 @@ namespace :production do
   end
 
   desc "Make a user a superadmin."
-  task :make_superadmin, [:username] => :environment do |task, args|
-    ProductionSeed.superadmin(args[:username])
+  task :make_superadmin, [:username, :password] => :environment do |task, args|
+    ProductionSeed.superadmin(args[:username], args[:password])
   end
 
 end
