@@ -14,17 +14,17 @@
       <%= f.text_field :last_name, placeholder: 'Last Name*', required: true %>
 
       <%= f.label "Specialty" %>
-      <%= f.select :specialty, options_for_select(@form_data[:specialties], :last), include_blank: true  %>
+      <%= f.select :specialty, options_for_select(form_data[:specialties], :last), include_blank: true  %>
       <%= f.label "Insurance Taken" %>
-      <%= f.select :insurances, options_for_select(@form_data[:insurance], 'name'), include_blank: true  %>
+      <%= f.select :insurances, options_for_select(form_data[:insurance], 'name'), include_blank: true  %>
       <%= f.label "Gender" %>
-      <%= f.select :gender, options_for_select(@form_data[:genders], :first), include_blank: true %>
+      <%= f.select :gender, options_for_select(form_data[:genders], :first), include_blank: true %>
       <%= f.email_field :email_address, placeholder: 'Email' %>
       <%= f.text_field :phone_number, placeholder: 'Phone Number' %>
       <%= f.text_field :street, placeholder: 'Street*', required: true%>
       <%= f.text_field :city, placeholder: 'City*', required: true%>
       <%= f.label "State*" %>
-      <%= f.select :state, options_for_select(@form_data[:states], :first), required: true %>
+      <%= f.select :state, options_for_select(form_data[:states], :first), required: true %>
       <%= f.text_field :zipcode, placeholder: 'Zipcode*', required: true %>
       <%= f.submit "Add Doctor" %>
     <% end %>

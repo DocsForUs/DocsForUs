@@ -5,7 +5,7 @@ RSpec.describe RecommendationsController, type: :controller do
   let!(:admin) {User.create(username: 'admin', email: 'admin@email.com', password: 'P@ssword1', admin: true)}
   describe "initiating a new recommendation" do
     it "returns a status 200" do
-      get :add
+      get :add, session: {user_id: user.id}
       expect(response).to have_http_status 200
     end
   end
@@ -72,7 +72,7 @@ RSpec.describe RecommendationsController, type: :controller do
     context 'when user is not logged in' do
       it 'redirects to root path' do
         post :create, params: {"recommendation"=>{"doctor_id"=>doctor.id, "review"=>"fish fish fish", "tags"=>["ham"]}}
-        expect(response).to redirect_to root_path
+        expect(response).to redirect_to login_path
       end
     end
   end
@@ -84,7 +84,7 @@ RSpec.describe RecommendationsController, type: :controller do
     context "when user is not logged in" do
       it "redirects to home page" do
         get :edit, params: {id: 1}
-        expect(response).to redirect_to root_path
+        expect(response).to redirect_to login_path
       end
     end
     context "when user is not the author of the post" do
@@ -121,7 +121,7 @@ RSpec.describe RecommendationsController, type: :controller do
     context "when user is not logged in" do
       it "redirects to home page" do
         put :update, params: { id: recommendation.id, recommendation: {review: '', doctor_id: doctor.id.to_s, tags: []}}
-        expect(response).to redirect_to root_path
+        expect(response).to redirect_to login_path
       end
     end
     context "successful update" do

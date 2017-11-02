@@ -21,7 +21,6 @@ RSpec.describe Recommendation, type: :model do
     end
 
     describe 'methods' do
-      it 'can be edited by users'
       it 'can be deleted by admins' do
         expect{ rec.remove(admin.id) }.to change{ Recommendation.count }.by -1
       end
