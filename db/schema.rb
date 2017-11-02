@@ -67,6 +67,8 @@ ActiveRecord::Schema.define(version: 20171101213452) do
     t.string "description", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "default", null: false
+    t.string "category", null: false
   end
 
   create_table "users", force: :cascade do |t|

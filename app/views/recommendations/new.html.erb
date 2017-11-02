@@ -7,13 +7,17 @@
     <%= f.hidden_field :doctor_id, value: @doctor.id %>
     <%= f.text_area :review, placeholder: "Write a review..." %>
     <ul class="tag-list">
-      <% @tags.each do |tag| %>
-      <li class="tag-li">
-        <%= f.check_box :tags, {multiple: true, class: "tag"}, tag, nil %>
-        <% id = ("tags_" + tag.gsub(" ", "_")).to_sym %>
-        <%= f.label id, tag, class: "tag-label" %>
-      </li>
+      <% @tags.each_pair do |category, tags| %>
+        <h3><%= tag_title[category] %></h3>
+        <% tags.each do |tag| %>
+          <li class="tag-li">
+            <%= f.check_box :tags, {multiple: true, class: "tag"}, tag.description, nil %>
+            <% id = ("tags_" + tag.description.gsub(" ", "_")).to_sym %>
+            <%= f.label id, tag.description, class: "tag-label" %>
+          </li>
+        <% end %>
       <% end %>
+      <h3>Additional tags...</h3>
     </ul>
     <%= f.submit "Submit Recommendation", id: "rec-submit-button" %>
   <% end %>
