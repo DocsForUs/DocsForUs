@@ -126,7 +126,8 @@ RSpec.describe RecommendationsController, type: :controller do
     end
     context "successful update" do
       before(:each) do
-        put :update, params: { id: recommendation.id, recommendation: {review: "i had a really positive experience", doctor_id: doctor.id.to_s, tags: ['cats']}}, session: { user_id: user.id}
+        tag = Tag.create(description: 'developmental disability', category: "actions", default: true)
+        put :update, params: { id: recommendation.id, recommendation: {review: "i had a really positive experience", doctor_id: doctor.id.to_s, tags: ['developmental disability']}}, session: { user_id: user.id}
       end
       it "redirects to doctor page" do
         expect(response).to redirect_to doctor_path(doctor)
@@ -138,7 +139,7 @@ RSpec.describe RecommendationsController, type: :controller do
       it "updates recommendation tags to the ones selected on edit page" do
         recommendation.reload
         tags = recommendation.tags.map { |t| t.description}
-        expect(tags).to eq ['cats']
+        expect(tags).to eq ['developmental disability']
       end
     end
 
