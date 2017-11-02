@@ -107,8 +107,12 @@ RSpec.describe UsersController, type: :controller do
       expect(response.status).to eq 302
     end
     it 'creates an instance variable collection of user objects based on username search' do
-      get :index, session: {user_id: superadmin.id}
+      get :index, params: {username: 'llama'}, session: {user_id: superadmin.id}
       expect(assigns[:users]).to include(user)
+    end
+    it '@users is nil if passed no params' do
+      get :index, session: {user_id: superadmin.id}
+      expect(assigns[:users]).to be_nil
     end
   end
 end#end of UsersController
