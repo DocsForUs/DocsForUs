@@ -53,7 +53,7 @@ class UsersController < ApplicationController
     @user_doctor = User.new(user_params)
     if @user_doctor.save
       session[:user_id] = @user_doctor.id
-      session[:doctor] = true 
+      session[:doctor] = true
       redirect_to doctor_signup_path
     else
       @errors = @user_doctor.errors.full_messages

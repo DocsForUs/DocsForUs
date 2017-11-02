@@ -8,7 +8,7 @@ Rails.application.routes.draw do
       get 'find'
     end
   end
-  resources :doctors, only: [:new, :create, :index, :show] do
+  resources :doctors, only: [:new, :create, :index, :show, :edit, :update] do
     collection do
       get 'find'
     end
@@ -28,6 +28,6 @@ Rails.application.routes.draw do
   get '/doctor_new' => 'users#doctor_new'
   post '/doctor_create' => 'users#doctor_create'
   get '/doctor_signup' => 'users#doctor_signup'
-  
+
   get '/recommendations/add', to: "recommendations#add"
 end
