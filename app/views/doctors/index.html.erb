@@ -8,10 +8,13 @@
     <%= f.search_field :first_name_cont %>
     <%= f.label 'last name' %>
     <%= f.search_field :last_name_cont %>
+    <div class="city_state">
+
     <%= f.label 'City' %>
     <%= f.select :city_eq, options_from_collection_for_select(Doctor.select('city').distinct , 'city','city'), include_blank: true %>
     <%= f.label 'State' %>
     <%= f.select :state_eq, options_from_collection_for_select(Doctor.select('state').distinct, 'state', 'state'), include_blank: true%>
+    </div>
     <%= f.label 'Specialty' %>
     <%= f.select :specialty_matches_any, options_for_select(@form_data[:specialties]), include_blank: true %>
     <%= f.label 'Insurance' %>

@@ -265,3 +265,53 @@
 #new-rec-section {
   padding-bottom: 20px;
 }
+
+.select2-dropdown.select2-dropdown--below{
+    width: 350px !important;
+}
+
+.select2-selection__rendered {
+  font-size: 16px;
+}
+
+.select2-container--default .select2-selection--single{
+    padding:6px;
+    height: 37px;
+    width: 350px;
+    font-size: 1.2em;
+    position: relative;
+}
+.fa-chevron-down {
+  color: white;
+  margin-left: 3px;
+}
+.select2-container--default .select2-selection--single .select2-selection__arrow {
+    background-image: -khtml-gradient(linear, left top, left bottom, from(#c7d7dd), to($teal));
+    background-image: -moz-linear-gradient(top, #c7d7dd, $teal);
+    background-image: -ms-linear-gradient(top, #c7d7dd, $teal);
+    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #c7d7dd), color-stop(100%, $teal));
+    background-image: -webkit-linear-gradient(top, #c7d7dd, $teal);
+    background-image: -o-linear-gradient(top, #c7d7dd, $teal);
+    background-image: linear-gradient(#c7d7dd, $teal);
+    color: #fff;
+    font-size: 1.3em;
+    padding: 4px 12px;
+    height: 27px;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    width: 16px;
+}
+
+.city_state .select2-container--default .select2-selection--single{
+  width: 150px;
+}
+
+.city_state .select2-dropdown.select2-dropdown--below{
+    width: 150px !important;
+}
+
+.select2-selection--multiple {
+  width: 350px;
+  height: 75px;
+}
