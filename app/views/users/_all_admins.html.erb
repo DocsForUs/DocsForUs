@@ -1,8 +1,9 @@
-<h2>All Admins</h2>
+<h3>All Admins</h3>
 <ul>
   <% @admins.each do |admin| %>
   <li>
     <%= admin.username %>
+    <%= link_to "Change Admin Status", user_path(admin), :method=> :put %>
   </li>
   <% end %>
 </ul>

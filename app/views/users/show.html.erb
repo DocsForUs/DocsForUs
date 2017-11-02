@@ -1,15 +1,15 @@
 <main class="user-profile">
   <% if current_user.doctor %>
-    <h2>Welcome, Dr. <%= @user.username.capitalize %></h2>
+    <h2>Welcome, Dr. <%= current_user.username.capitalize %></h2>
     <%= link_to 'View Profile', doctor_path(current_user.doctor) %>
   <% else %>
-  <h2>Welcome, <%= @user.username %></h2>
+  <h2>Welcome, <%= current_user.username %></h2>
   <% end %>
   <div class="profile-wrapper">
     <section class="recent-recs-section">
       <h3>Your recommendations</h3>
-      <% if @user.recommendations.length > 0 %>
-        <% @user.recommendations.each do |rec| %>
+      <% if current_user.recommendations.length > 0 %>
+        <% current_user.recommendations.each do |rec| %>
           <div class="single-rec">
             <h4><%= link_to "Dr. #{rec.doctor.first_name} #{rec.doctor.last_name}", doctor_path(rec.doctor) %></h4>
             <div class="review-profile"><%= rec.review %></div>
@@ -35,9 +35,9 @@
 
     <section class="saved-doctors-section">
       <h3>Your saved doctors</h3>
-      <% if @user.doctors.length > 0 %>
+      <% if current_user.doctors.length > 0 %>
         <ul class="saved-docs-list">
-          <% @user.doctors.each do |doc| %>
+          <% current_user.doctors.each do |doc| %>
             <li><%= link_to "#{doc.first_name} #{doc.last_name}", doctor_path(doc) %></li>
           <% end %>
         </ul>
@@ -46,4 +46,10 @@
       <% end %>
     </section>
   </div>
+
+  <% if current_user.superadmin %>
+    <aside class="admin-link">
+      <%= link_to "Admin Control Page", users_path %>
+    </aside>
+  <% end %>
 </main>

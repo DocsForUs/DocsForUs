@@ -21,7 +21,6 @@ class UsersController < ApplicationController
     if !current_user
       redirect_to login_path
     elsif current_user.id == params[:id].to_i
-      @user = current_user
       render :show
     else
       redirect_to user_path(current_user)
