@@ -1,5 +1,4 @@
 class DoctorsController < ApplicationController
-    include StatesHelper
     include SpecialtyDataHelper
     include HTTParty
     include GendersHelper
@@ -7,6 +6,7 @@ class DoctorsController < ApplicationController
     include FormVariablesHelper
     helper_method :current_user
     helper_method :states
+    helper_method :form_data
 
   def find
     @our_doctors = Doctor.where("first_name LIKE ? AND last_name LIKE ?", "%#{search_params[:first_name]}%", "%#{search_params[:last_name]}%")
@@ -18,7 +18,7 @@ class DoctorsController < ApplicationController
 
   def new
     if current_user
-      @form_data = helpers.get_variables
+
       @doctor = Doctor.new
     else
       flash[:alert] = 'You must be logged in to add a doctor'
@@ -37,7 +37,6 @@ class DoctorsController < ApplicationController
   end
 
   def index
-    @form_data = helpers.get_variables
     @tags = Tag.all.map {|tag| tag.description}
     page = params[:page]
     @q = Doctor.ransack(params[:q])
@@ -58,7 +57,6 @@ class DoctorsController < ApplicationController
   end
 
   def edit
-    @form_data = helpers.get_variables
     @doctor = Doctor.find(params[:id])
   end
 
@@ -80,7 +78,7 @@ class DoctorsController < ApplicationController
 
   def errors_route
     @errors = @doctor.errors.full_messages
-    @form_data = helpers.get_variables
+
     render :new
   end
 

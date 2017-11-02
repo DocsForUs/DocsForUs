@@ -6,10 +6,6 @@ RSpec.describe DoctorsController, type: :controller do
   let(:doctor) { create(:doctor) }
   let(:doctor2) { Doctor.create(first_name: 'Atul', last_name: 'Gawande', city: 'seattle', state:'wa') }
   describe 'doctors#index route for searching' do
-    it "assigns data for form dropdowns to @form_data variable" do
-      get :index
-      expect(assigns[:form_data]).to include(:specialties, :insurance, :genders)
-    end
     it "assigns tag strings to @tags variable for form dropdown" do
       create(:tag)
       get :index

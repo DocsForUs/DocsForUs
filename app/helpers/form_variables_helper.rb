@@ -6,7 +6,7 @@ module FormVariablesHelper
   include SpecialtyDataHelper
 
 
-  def get_variables
+  def form_data
     @insurance = get_insurance
     @states = states
     @genders = genders
