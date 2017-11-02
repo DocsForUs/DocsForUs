@@ -3,6 +3,7 @@
   <% @admins.each do |admin| %>
   <li>
     <%= admin.username %>
+    <%= link_to "Change Admin Status", user_path(admin), :method=> :put %>
   </li>
   <% end %>
 </ul>
