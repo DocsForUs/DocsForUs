@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  helper_method :current_user
 
   def new
     @user = User.new
@@ -48,11 +49,23 @@ class UsersController < ApplicationController
     render "users/new_doctor_user"
   end
 
+  def doctor_create
+    @user_doctor = User.new(user_params)
+    if @user_doctor.save
+      session[:user_id] = @user_doctor.id
+      session[:doctor] = true 
+      redirect_to doctor_signup_path
+    else
+      @errors = @user_doctor.errors.full_messages
+      render :new
+    end
+  end
+
   def doctor_signup
     #gets the new doctor form when they dont exist in the database.
     @form_data = helpers.get_variables
     @doctor = Doctor.new
-    render "users/new_doc_user_form"
+    render "new_doc_user_form"
   end
 
   private

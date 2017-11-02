@@ -26,6 +26,8 @@ Rails.application.routes.draw do
   get '/check' => 'users#check'
   post '/check' => 'users#doc_search'
   get '/doctor_new' => 'users#doctor_new'
+  post '/doctor_create' => 'users#doctor_create'
   get '/doctor_signup' => 'users#doctor_signup'
+  
   get '/recommendations/add', to: "recommendations#add"
 end

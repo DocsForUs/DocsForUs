@@ -12,7 +12,7 @@
     <% end %>
   </div>
   <% end %>
-  <%= form_for @user_doctor do |f| %>
+  <%= form_for @user_doctor, url: doctor_create_path  do |f| %>
     <%= f.text_field :username, placeholder: 'username', required: true %>
     <%= f.email_field :email, placeholder: 'email', required: true %>
     <%= f.password_field :password, placeholder: 'password', required: true %>

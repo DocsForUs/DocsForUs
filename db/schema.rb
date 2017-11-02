@@ -78,7 +78,7 @@ ActiveRecord::Schema.define(version: 20171101223308) do
     t.datetime "updated_at", null: false
     t.boolean "admin", default: false
     t.boolean "superadmin", default: false
-    t.integer "doctor_id"
   end
 
+  add_foreign_key "doctors", "users"
 end

@@ -3,6 +3,7 @@
   <h1>Add your information, Doctor</h1>
   <div class="doctor-search-box">
     <%= form_for @doctor do |f| %>
+      <%= f.hidden_field :user_id, value: current_user.id %>
       <%= f.text_field :first_name, placeholder: 'First Name*',required: true %>
       <%= f.text_field :last_name, placeholder: 'Last Name*', required: true %>
       <%= f.label "Specialty" %>
