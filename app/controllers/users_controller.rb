@@ -27,12 +27,13 @@ class UsersController < ApplicationController
   end
 
   def index
-    if current_user.superadmin == false
+    if !current_user || !current_user.superadmin
       redirect_to(root_path)
     end
     if params[:username]
       @users = User.where("username LIKE ?", "%#{params[:username]}")
     end
+    @admins = User.where(admin: true)
   end
 
   private

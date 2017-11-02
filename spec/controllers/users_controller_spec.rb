@@ -97,6 +97,7 @@ RSpec.describe UsersController, type: :controller do
 
   describe '#index' do
     let!(:user) { create(:user) }
+    let!(:admin) {User.create(username: 'admino', email: 'admino@email.com', password: 'P@ssword1', admin: true)}
     let!(:superadmin) {User.create(username: 'admin', email: 'admin@email.com', password: 'P@ssword1', admin: true, superadmin: true)}
     it 'is accessible to superadmins' do
       get :index, session: {user_id: superadmin.id}
@@ -113,6 +114,11 @@ RSpec.describe UsersController, type: :controller do
     it '@users is nil if passed no params' do
       get :index, session: {user_id: superadmin.id}
       expect(assigns[:users]).to be_nil
+    end
+    it 'renders a search partial when passed params of users'
+    it 'lists all admins when visiting the page' do
+      get :index
+      expect(assigns[:admins]).to include(admin)
     end
   end
 end#end of UsersController
