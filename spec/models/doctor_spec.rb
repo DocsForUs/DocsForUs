@@ -28,4 +28,19 @@ describe Doctor, type: :model do
       expect(response[0][:uid]).to eq "insurance-insurance"
     end
   end
+
+  describe 'methods' do
+    context 'that delete' do
+      it 'remove the doctor from the database' do
+        doctor = create(:doctor)
+        admin = User.create(username: 'admin', email: 'admin@email.com', password: 'P@ssword1', admin: true)
+        expect{ doctor.remove(admin.id) }.to change{ Doctor.count }.by -1
+      end
+      it 'wont work unless an admin' do
+        doctor = create(:doctor)
+        user = create(:user)
+        expect{ doctor.remove(user.id) }.to change{ Doctor.count }.by 0
+      end
+    end
+  end
 end

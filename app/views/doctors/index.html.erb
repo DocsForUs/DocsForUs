@@ -51,13 +51,18 @@
           <td><%= doctor.specialty %></td>
           <td><%= doctor.gender %></td>
           <td class="table-tags"> <% if doctor.recommendations.length > 0 %>
+            <% tags = [] %>
             <% doctor.recommendations.each do |rec| %>
-            <% if rec.tags.length > 0 %>
-              <% rec.tags.each do |tag| %>
-              <p><%= tag.description %></p>
+              <% if rec.tags.length > 0 %>
+                <% rec.tags.each do |tag| %>
+                  <% tags << tag.description %>
+                <% end %>
               <% end %>
+              <% tags = tags.uniq %>
             <% end %>
-            <% end %>
+              <% tags.each do |tag| %>
+              <p><%= tag %></p>
+              <% end %>
           <% end %> </td>
           <td><%= link_to "View Doctor", doctor_path(doctor.id) %></td>
         </tr>
