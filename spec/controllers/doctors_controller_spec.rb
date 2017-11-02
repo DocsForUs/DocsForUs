@@ -107,13 +107,6 @@ RSpec.describe DoctorsController, type: :controller do
     end
   end
 
-  describe "creating insurances for the doctor" do
-    before(:each) {post :create, params: {doctor: {first_name: 'Laura', last_name: 'Spring', specialty: 'Family Medicine',zipcode: '98103',city:'Seattle',state:'WA',uid:"ewrwewrewrew"}}}
-    xit "creates the insurances if it isnt available in the database" do
-      expect(assigns[:doctor].insurances.count).to eq 2
-    end
-  end
-
   describe "deleting a doctor as an admin" do
     context 'when an admin is deleting a doctor' do
       before(:each) do
