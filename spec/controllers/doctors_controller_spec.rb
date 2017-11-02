@@ -123,7 +123,7 @@ RSpec.describe DoctorsController, type: :controller do
         doctor2 = build(:doctor)
         doctor2.first_name = "Mary"
         doctor2.save
-        delete :destroy, params: { id: '1' }
+        delete :destroy, params: { id: doctor.id }
       end
       it 'assigns the doctor instance variable from params' do
         expect(assigns[:doctor]).to be_a Doctor

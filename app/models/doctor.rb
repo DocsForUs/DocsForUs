@@ -11,7 +11,7 @@ class Doctor < ApplicationRecord
   def remove(id)
     user = User.find(id)
     if user.admin
-      self.delete
+      self.destroy
     end
   end
 
