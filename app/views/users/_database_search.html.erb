@@ -13,7 +13,7 @@
         <%= doctor.city %>, <%= doctor.state %>
       </p>
 
-      <%= button_to "This is Me" %>
+      <%= button_to "This is Me", doctor_new_path, method: :get, params: { id: doctor.id} %>
 
       <% end %>
   </div>
