@@ -26,7 +26,6 @@
 
 .search-form {
   background:$bg-grey;
-  border: 1px solid $border-grey;
   margin: 0 auto;
   margin-bottom: 50px;
   padding-left: 15px;
@@ -43,6 +42,11 @@
 	margin-right: 5px;
   margin-bottom: 10px;
 	padding: 15px;
+    &:hover {
+      color: $white;
+      background-color: $teal;
+
+    }
 }
 
 .search-form select {
@@ -59,7 +63,7 @@
   margin-left: 5px;
   font-size: 1em;
   line-height: 15px;
-  color: $text-grey;
+  color: $bg-grey;
   font-style: italic;
   display: inline;
 }
@@ -76,7 +80,7 @@
   display: block;
   margin: auto;
   &:hover {
-    background-color: $teal;
+    background-color: $text-grey;
     color: $white;
   }
 }
