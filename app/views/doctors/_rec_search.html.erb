@@ -14,7 +14,7 @@
         <%= doctor.city %>, <%= doctor.state %>
       </p>
 
-      <%= button_to "Recommend", new_recommendation_path , method: :get, params: { id: doctor.id} %>
+      <%= button_to "Recommend", new_recommendation_path , method: :get, params: { id: doctor.id}, class: "rec-doctor-button" %>
 
       <% end %>
   </div>
