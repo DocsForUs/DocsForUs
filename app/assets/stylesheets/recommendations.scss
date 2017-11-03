@@ -29,7 +29,7 @@
   border: 1px solid $border-grey;
   margin: 0 auto;
   margin-bottom: 50px;
-  padding: 2px 5px;
+  padding-left: 15px;
   padding-top: 10px;
   padding-bottom: 10px;
   width:40%;
@@ -37,6 +37,7 @@
 }
 
 .search-form input {
+  // margin: auto;
   display: block;
   background: $white;
 	margin-right: 5px;
