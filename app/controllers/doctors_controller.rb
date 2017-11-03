@@ -13,7 +13,6 @@ class DoctorsController < ApplicationController
 
   def new
     if current_user
-
       @doctor = Doctor.new
     else
       flash[:alert] = 'You must be logged in to add a doctor'
@@ -26,7 +25,7 @@ class DoctorsController < ApplicationController
     if !@doctor.save
       errors_route
     else
-      @doctor.insurance(params)
+      @doctor.associate_insurances(insurance_params["uid"])
       save_route
     end
   end
@@ -85,6 +84,10 @@ class DoctorsController < ApplicationController
 
   def search_params
    params.require(:doctor).permit(:first_name, :last_name,:city,:state)
+  end
+
+  def insurance_params
+    params.require(:doctor).permit(:uid)
   end
 
   def doctor_params

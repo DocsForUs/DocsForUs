@@ -1,4 +1,6 @@
 @import "variables";
+
+// NEW DOCTOR FORM
 .new-doctor-form{
   background-color: $bg-grey;
   display: flex;
@@ -27,7 +29,6 @@
 }
 
 #dr-search-page {
-    height: 100vw;
     width: 100%;
   h1 {
     color: $teal;
@@ -40,7 +41,6 @@
 .container {
   width: 90%;
   margin: auto;
-  height: 100vw;
   background-color: $white;
 }
 
@@ -51,11 +51,14 @@
   margin: auto;
   height: relative;
   padding: 15px;
+  // padding-left: 45px;
+  // padding-top: 45px;
   margin-top: 20px;
   input{
-    display: block;
+    display: inline;
     margin-bottom: 10px;
-    border-radius: 5px;
+    padding: 10px;
+    // border-radius: 5px;
   }
   span {
     display: block;
@@ -78,7 +81,6 @@
     margin-top: 20px;
     border-top: 5px solid $teal;
     width: 100%;
-    height: 70vw;
   }
 
 
@@ -150,9 +152,24 @@
   }
 
 /* Kaminari Pagination a tags */
+//
+#paginator {
+  height: 15px;
+  width: 80%;
+  margin:auto;
+}
+
+.pagination {
+  height: 30px;
+  margin-bottom: 30px;
+  padding: 0;
+  padding-top: 5px;
+  padding-left: 15px;
+}
 
 .pagination a {
   color: $white;
+  line-height: 20px;
 }
 .pagination a:hover {
   color: $border-grey;
@@ -200,6 +217,12 @@
   border-right: 1px dotted $teal;
   flex-basis: 50%;
   margin: 0px 10px;
+}
+
+.doctor-details-rec {
+  flex-basis: 70%;
+  margin: 0px 10px;
+  border-bottom: 1px dotted $teal;
 }
 
 .doc-info-list {
@@ -255,3 +278,63 @@
   width: 300px;
   height: 300px;
 }
+
+#new-rec-section {
+  padding-bottom: 20px;
+}
+
+.select2-dropdown.select2-dropdown--below{
+    width: 350px !important;
+}
+
+.select2-selection__rendered {
+  font-size: 16px;
+}
+
+.select2-container--default .select2-selection--single{
+    padding:6px;
+    height: 37px;
+    width: 350px;
+    font-size: 1.2em;
+    position: relative;
+}
+.fa-chevron-down {
+  color: white;
+  margin-left: 3px;
+}
+.select2-container--default .select2-selection--single .select2-selection__arrow {
+    // background-image: -khtml-gradient(linear, left top, left bottom, from(#c7d7dd), to($teal));
+    // background-image: -moz-linear-gradient(top, #c7d7dd, $teal);
+    // background-image: -ms-linear-gradient(top, #c7d7dd, $teal);
+    // background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #c7d7dd), color-stop(100%, $teal));
+    // background-image: -webkit-linear-gradient(top, #c7d7dd, $teal);
+    // background-image: -o-linear-gradient(top, #c7d7dd, $teal);
+    // background-image: linear-gradient(#c7d7dd, $teal);
+    background-color: $teal;
+    color: white;
+    font-size: 1.3em;
+    padding: 4px 12px;
+    height: 27px;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    width: 16px;
+}
+
+.city_state .select2-container--default .select2-selection--single{
+  width: 150px;
+}
+
+.city_state .select2-dropdown.select2-dropdown--below{
+    width: 150px !important;
+}
+
+.select2-selection--multiple {
+  width: 350px;
+  height: 75px;
+}
+
+.doctor-search-box input:focus {
+		outline: none;
+		box-shadow:0 0 4px $teal inset;
+	}

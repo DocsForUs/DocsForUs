@@ -1,6 +1,7 @@
 class RecommendationsController < ApplicationController
   include StatesHelper
   before_action :authorize
+
   def add
     render :add
   end

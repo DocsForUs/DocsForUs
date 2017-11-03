@@ -145,5 +145,82 @@ RSpec.describe UsersController, type: :controller do
       expect(response).to render_template :check
     end
   end
-
+  describe "users#doc_search" do
+    it "should return 200 status" do
+      get :doc_search
+      expect(response.status).to eq 200
+    end
+    it "should render the doctor form" do
+      get :doc_search
+      expect(response).to render_template
+    end
+  end
+  describe "users#find" do
+    let!(:doctor) { create(:doctor) }
+    before(:each) {get :find, params: {doctor: {first_name:"Georgette", last_name: "Tronkenheim", city: "Seattle", state: "WA"}}}
+    it "returns the doctor form page" do
+      expect(response).to render_template(:doctor_form)
+    end
+    it "assigns the variable our_doctors with doctors from database" do
+      expect(assigns(:our_doctors).first).to eq(doctor)
+    end
+  end
+  describe "users#doctor_new" do
+    let!(:doctor) { create(:doctor) }
+    before(:each) { get :doctor_new, params: {id: 1} }
+    it "returns a 200 status" do
+      expect(response.status).to eq 200
+    end
+    it "renders the new doctor user page " do
+      expect(response).to render_template(:new_doctor_user)
+    end
+    it "assigns the session[:doctor_id] with the doctor's id" do
+      expect(session[:doctor_id]).to eq "1"
+    end
+  end
+  describe "users#doctor_create" do
+    context "when valid input are given" do
+      let!(:doctor) { create(:doctor) }
+      let!(:user) {create(:user)}
+      before(:each) { post :doctor_create, params:{user: {username: "ko", email: "ko@ko.com", password: 'Password1!', password_confirmation: 'Password1!'}}}
+      it "returns a 302 status" do
+        session[:doctor_id] = doctor.id
+        expect(response.status).to eq 302
+      end
+      it "assigns the session user_id with user doctor id" do
+        expect(session[:user_id]).to eq 2
+      end
+    end
+    context "when invalid input are given" do
+      let!(:doctor) { create(:doctor) }
+      let!(:user) {create(:user)}
+      before(:each) { post :doctor_create, params:{user: {username: "ko", email: "ko@ko.com", password: 'Password1!', password_confirmation: 'Password1'}}}
+      it "returns an error that the passwords dont match" do
+        expect(assigns[:errors]).to eq (["Password confirmation doesn't match Password"])
+      end
+      it "renders the new doctor user" do
+        expect(response).to render_template(:new_doctor_user)
+      end
+    end
+  end
+  describe "users#doctor_signup" do
+    let!(:doctor) { create(:doctor) }
+    let!(:user) {create(:user)}
+    it "returns a 302 status" do
+      session[:doctor_id] = doctor.id
+      session[:user_id] = user.id
+      get :doctor_signup
+      expect(response.status).to eq 302
+    end
+    it "renders the new doc user form page" do
+      get :doctor_signup
+      expect(response).to render_template(:new_doc_user_form)
+    end
+    it "assigns the doctor variable as an instance of Doctor" do
+      session[:doctor_id] = doctor.id
+      session[:user_id] = user.id
+      get :doctor_signup
+      expect(assigns[:doctor]).to eq(doctor)
+    end
+  end
 end#end of UsersController

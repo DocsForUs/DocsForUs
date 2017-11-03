@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   helper_method :current_user
+  helper_method :form_data
 
   def new
     @user = User.new
@@ -8,7 +9,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      UserMailer.welcome_email(@user).deliver_now
+      # UserMailer.welcome_email(@user).deliver_now
       session[:user_id] = @user.id
       redirect_to '/'
     else
@@ -64,8 +65,11 @@ class UsersController < ApplicationController
   end
 
   def doctor_new
-    @user_doctor = User.new
-    render "users/new_doctor_user"
+    if params[:id]
+      session[:doctor_id]=params[:id]
+      @user_doctor = User.new
+      render "users/new_doctor_user"
+    end
   end
 
   def doctor_create
@@ -76,15 +80,20 @@ class UsersController < ApplicationController
       redirect_to doctor_signup_path
     else
       @errors = @user_doctor.errors.full_messages
-      render :new
+      render "users/new_doctor_user"
     end
   end
 
   def doctor_signup
     #gets the new doctor form when they dont exist in the database.
-    @form_data = helpers.get_variables
+    if session[:doctor_id]
+      @doctor = Doctor.find(session[:doctor_id])
+      current_user.doctor = @doctor
+      redirect_to doctor_path(@doctor)
+    else
     @doctor = Doctor.new
     render "new_doc_user_form"
+    end
   end
 
   private

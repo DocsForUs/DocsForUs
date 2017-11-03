@@ -11,6 +11,8 @@
   crossorigin="anonymous"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.4/css/select2.min.css" rel="stylesheet" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.4/js/select2.min.js"></script>
+    <script scr="https://use.fontawesome.com/dba621e4a6.js"></script>
+    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
     <script type="text/javascript">
       $(document).ready(() => {
         $('#q_specialty_matches_any').select2();
@@ -23,6 +25,8 @@
         $('#q_recommendations_tags_description_in').select2();
         $('#q_insurances_insurance_uid_eq').select2();
         $('#doctor_insurances').select2();
+        $('b[role="presentation"]').hide();
+        $('.select2-selection__arrow').append('<i class="fa fa-caret-down" aria-hidden="true"></i>');
       })
     </script>
     <%= stylesheet_link_tag    'application', media: 'all' %>
