@@ -94,5 +94,19 @@ class ProductionSeed
     rec4.tags << Tag.find_by(description: "genderqueer")
     rec4.tags << Tag.find_by(description: "transgender")
     rec4.tags << Tag.find_by(description: "non-binary")
+
+    doc5 = Doctor.create(first_name: 'Rachel', last_name: "Pelto", city: "Seattle", state: "WA", zipcode: "98104", street: "1101 Madison St", specialty: "Nurse Practitioner", gender: "female", phone_number: "2063863400", website: "https://www.nwwomenshealth.com/providers/rachel-pelto/")
+
+    doc5.insurances << Insurance.find_by(uid: "aetna")
+    doc5.insurances << Insurance.find_by(uid: "cigna")
+    doc5.insurances << Insurance.find_by(uid: "multiplan")
+    doc5.insurances << Insurance.find_by(uid: "regencebluecrossblueshieldoforegon")
+
+    rec5 = Recommendation.create(user: User.find_by(username: "anonymous"), doctor: doc5, review: "Rachel Pelto consistently listens to my concerns, and is very empathetic. I feel comfortable bringing all of my medical concerns to her, and feel that she is competent to help me get well.")
+
+    rec5.tags << Tag.find_by(description: "female")
+    rec5.tags << Tag.find_by(description: "was sex positive")
+    rec5.tags << Tag.find_by(description: "listened actively")
+
   end
 end
