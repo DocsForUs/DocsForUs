@@ -1,8 +1,8 @@
 @import "variables";
 
-.image-text h1 {
+.image-text h2 {
   letter-spacing: .25rem;
-  font-size: 3rem;
+  font-size: 3em;
   position: relative;
   height: 250px;
   width: 300px;
@@ -29,8 +29,10 @@
   background-repeat: no-repeat;
 }
 
+
 .btn-container {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: center;
 }
@@ -38,19 +40,33 @@
 .big-btn {
   color: $text-grey;
   background-color: transparent;
-  font-size:20px;
+  font-size: 1.45rem;
   letter-spacing: .15rem;
   font-weight: bold;
   text-align: center;
   border: solid $border-grey 1px;
   border-radius: 5px;
-  padding: 4rem 0;
-  width: 285px;
-  margin:2rem 2rem;
+  padding: 4rem 1.2rem;
+  width: 290px;
+  margin: 2rem 2rem;
   text-decoration: none;
 }
 
 .big-btn:hover {
   color: $white;
   background-color: $teal;
+}
+
+@media only screen and (max-device-width: 1366px) {
+  .image-container {
+    width: 95%;
+  }
+
+}
+
+@media only screen and (max-device-width: 1023px) {
+  .big-btn {
+    width: 80%;
+    font-size: 2.5em;
+  }
 }

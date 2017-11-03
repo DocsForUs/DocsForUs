@@ -43,4 +43,4 @@ describe Doctor, type: :model do
       end
     end
   end
-end
+end#end of class
