@@ -27,7 +27,6 @@ class DoctorsController < ApplicationController
       errors_route
     else
       @doctor.insurance(params)
-      p params
       save_route
     end
   end
