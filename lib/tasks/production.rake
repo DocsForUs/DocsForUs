@@ -11,4 +11,11 @@ namespace :production do
     ProductionSeed.superadmin(args[:username], args[:password])
   end
 
+  desc "Seed first doctors and reviews"
+  task seed_doctors: :environment do
+    ProductionSeed.seed_insurance
+    ProductionSeed.seed_anon_user
+    ProductionSeed.seed_doctors
+  end
+
 end
