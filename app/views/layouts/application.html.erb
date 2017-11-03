@@ -35,7 +35,7 @@
 
   <body>
     <nav class="main-nav">
-      <ul>
+      <ul class= "experiment">
         <li class="title"><h1><%= link_to "DocsForUs", root_path %></h1></li>
         <li class="about2"> <%= link_to "About", about_path%> </li>
         <li class="add-rec"><%= link_to "Recommend a Doctor", recommendations_add_path %></li>
@@ -46,8 +46,8 @@
           <li class="register"><%= link_to "Logout", logout_path %></li>
         <% else %>
           <li class="login"><%= link_to "Login", login_path %></li>
-          <li class="register"><%= link_to "Register", new_user_path %></li>
-          <li class="doctor-signup"><%= link_to "Register as Provider", check_path %></li>
+          <li class="signup"><%= link_to "Signup", new_user_path %></li>
+          <li class="doctor-register"><%= link_to "Register as Provider", check_path %></li>
         <% end %>
       </ul>
     </nav>
