@@ -59,4 +59,4 @@ RSpec.describe User, type: :model do
       expect(user.authenticate('!m0pdxsPd')).to eq user
     end
   end
-end
+end#end of class

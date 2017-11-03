@@ -8,8 +8,10 @@
   <%= f.text_field :first_name, placeholder: "First Name", required: true %>
   <%= f.text_field :last_name, placeholder: "Last Name", required: true%>
   <%= f.text_field :city, placeholder: "City", required: true %>
+  <div class="city_state">
   <%= f.label "State" %>
   <%= f.select :state, options_for_select(states, :first), required: true %>
+</div>
   <%= f.submit "Search", class: "search-submit" %>
 
   <% end %>
