@@ -1,0 +1,1619 @@
+/*! normalize.css v4.1.1 | MIT License | github.com/necolas/normalize.css */
+/**
+ * 1. Change the default font family in all browsers (opinionated).
+ * 2. Prevent adjustments of font size after orientation changes in IE and iOS.
+ */
+/* line 8, /Users/yihdego/.rbenv/versions/2.4.0/lib/ruby/gems/2.4.0/gems/normalize-rails-4.1.1/vendor/assets/stylesheets/normalize-rails/normalize.css */
+html {
+  font-family: sans-serif;
+  /* 1 */
+  -ms-text-size-adjust: 100%;
+  /* 2 */
+  -webkit-text-size-adjust: 100%;
+  /* 2 */
+}
+
+/**
+ * Remove the margin in all browsers (opinionated).
+ */
+/* line 18, /Users/yihdego/.rbenv/versions/2.4.0/lib/ruby/gems/2.4.0/gems/normalize-rails-4.1.1/vendor/assets/stylesheets/normalize-rails/normalize.css */
+body {
+  margin: 0;
+}
+
+/* HTML5 display definitions
+   ========================================================================== */
+/**
+ * Add the correct display in IE 9-.
+ * 1. Add the correct display in Edge, IE, and Firefox.
+ * 2. Add the correct display in IE.
+ */
+/* line 31, /Users/yihdego/.rbenv/versions/2.4.0/lib/ruby/gems/2.4.0/gems/normalize-rails-4.1.1/vendor/assets/stylesheets/normalize-rails/normalize.css */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+main,
+menu,
+nav,
+section,
+summary {
+  /* 1 */
+  display: block;
+}
+
+/**
+ * Add the correct display in IE 9-.
+ */
+/* line 50, /Users/yihdego/.rbenv/versions/2.4.0/lib/ruby/gems/2.4.0/gems/normalize-rails-4.1.1/vendor/assets/stylesheets/normalize-rails/normalize.css */
+audio,
+canvas,
+progress,
+video {
+  display: inline-block;
+}
+
+/**
+ * Add the correct display in iOS 4-7.
+ */
+/* line 61, /Users/yihdego/.rbenv/versions/2.4.0/lib/ruby/gems/2.4.0/gems/normalize-rails-4.1.1/vendor/assets/stylesheets/normalize-rails/normalize.css */
+audio:not([controls]) {
+  display: none;
+  height: 0;
+}
+
+/**
+ * Add the correct vertical alignment in Chrome, Firefox, and Opera.
+ */
+/* line 70, /Users/yihdego/.rbenv/versions/2.4.0/lib/ruby/gems/2.4.0/gems/normalize-rails-4.1.1/vendor/assets/stylesheets/normalize-rails/normalize.css */
+progress {
+  vertical-align: baseline;
+}
+
+/**
+ * Add the correct display in IE 10-.
+ * 1. Add the correct display in IE.
+ */
+/* line 79, /Users/yihdego/.rbenv/versions/2.4.0/lib/ruby/gems/2.4.0/gems/normalize-rails-4.1.1/vendor/assets/stylesheets/normalize-rails/normalize.css */
+template,
+[hidden] {
+  display: none;
+}
+
+/* Links
+   ========================================================================== */
+/**
+ * 1. Remove the gray background on active links in IE 10.
+ * 2. Remove gaps in links underline in iOS 8+ and Safari 8+.
+ */
+/* line 92, /Users/yihdego/.rbenv/versions/2.4.0/lib/ruby/gems/2.4.0/gems/normalize-rails-4.1.1/vendor/assets/stylesheets/normalize-rails/normalize.css */
+a {
+  background-color: transparent;
+  /* 1 */
+  -webkit-text-decoration-skip: objects;
+  /* 2 */
+}
+
+/**
+ * Remove the outline on focused links when they are also active or hovered
+ * in all browsers (opinionated).
+ */
+/* line 102, /Users/yihdego/.rbenv/versions/2.4.0/lib/ruby/gems/2.4.0/gems/normalize-rails-4.1.1/vendor/assets/stylesheets/normalize-rails/normalize.css */
+a:active,
+a:hover {
+  outline-width: 0;
+}
+
+/* Text-level semantics
+   ========================================================================== */
+/**
+ * 1. Remove the bottom border in Firefox 39-.
+ * 2. Add the correct text decoration in Chrome, Edge, IE, Opera, and Safari.
+ */
+/* line 115, /Users/yihdego/.rbenv/versions/2.4.0/lib/ruby/gems/2.4.0/gems/normalize-rails-4.1.1/vendor/assets/stylesheets/normalize-rails/normalize.css */
+abbr[title] {
+  border-bottom: none;
+  /* 1 */
+  text-decoration: underline;
+  /* 2 */
+  text-decoration: underline dotted;
+  /* 2 */
+}
+
+/**
+ * Prevent the duplicate application of `bolder` by the next rule in Safari 6.
+ */
+/* line 125, /Users/yihdego/.rbenv/versions/2.4.0/lib/ruby/gems/2.4.0/gems/normalize-rails-4.1.1/vendor/assets/stylesheets/normalize-rails/normalize.css */
+b,
+strong {
+  font-weight: inherit;
+}
+
+/**
+ * Add the correct font weight in Chrome, Edge, and Safari.
+ */
+/* line 134, /Users/yihdego/.rbenv/versions/2.4.0/lib/ruby/gems/2.4.0/gems/normalize-rails-4.1.1/vendor/assets/stylesheets/normalize-rails/normalize.css */
+b,
+strong {
+  font-weight: bolder;
+}
+
+/**
+ * Add the correct font style in Android 4.3-.
+ */
+/* line 143, /Users/yihdego/.rbenv/versions/2.4.0/lib/ruby/gems/2.4.0/gems/normalize-rails-4.1.1/vendor/assets/stylesheets/normalize-rails/normalize.css */
+dfn {
+  font-style: italic;
+}
+
+/**
+ * Correct the font size and margin on `h1` elements within `section` and
+ * `article` contexts in Chrome, Firefox, and Safari.
+ */
+/* line 152, /Users/yihdego/.rbenv/versions/2.4.0/lib/ruby/gems/2.4.0/gems/normalize-rails-4.1.1/vendor/assets/stylesheets/normalize-rails/normalize.css */
+h1 {
+  font-size: 2em;
+  margin: 0.67em 0;
+}
+
+/**
+ * Add the correct background and color in IE 9-.
+ */
+/* line 161, /Users/yihdego/.rbenv/versions/2.4.0/lib/ruby/gems/2.4.0/gems/normalize-rails-4.1.1/vendor/assets/stylesheets/normalize-rails/normalize.css */
+mark {
+  background-color: #ff0;
+  color: #000;
+}
+
+/**
+ * Add the correct font size in all browsers.
+ */
+/* line 170, /Users/yihdego/.rbenv/versions/2.4.0/lib/ruby/gems/2.4.0/gems/normalize-rails-4.1.1/vendor/assets/stylesheets/normalize-rails/normalize.css */
+small {
+  font-size: 80%;
+}
+
+/**
+ * Prevent `sub` and `sup` elements from affecting the line height in
+ * all browsers.
+ */
+/* line 179, /Users/yihdego/.rbenv/versions/2.4.0/lib/ruby/gems/2.4.0/gems/normalize-rails-4.1.1/vendor/assets/stylesheets/normalize-rails/normalize.css */
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+/* line 187, /Users/yihdego/.rbenv/versions/2.4.0/lib/ruby/gems/2.4.0/gems/normalize-rails-4.1.1/vendor/assets/stylesheets/normalize-rails/normalize.css */
+sub {
+  bottom: -0.25em;
+}
+
+/* line 191, /Users/yihdego/.rbenv/versions/2.4.0/lib/ruby/gems/2.4.0/gems/normalize-rails-4.1.1/vendor/assets/stylesheets/normalize-rails/normalize.css */
+sup {
+  top: -0.5em;
+}
+
+/* Embedded content
+   ========================================================================== */
+/**
+ * Remove the border on images inside links in IE 10-.
+ */
+/* line 202, /Users/yihdego/.rbenv/versions/2.4.0/lib/ruby/gems/2.4.0/gems/normalize-rails-4.1.1/vendor/assets/stylesheets/normalize-rails/normalize.css */
+img {
+  border-style: none;
+}
+
+/**
+ * Hide the overflow in IE.
+ */
+/* line 210, /Users/yihdego/.rbenv/versions/2.4.0/lib/ruby/gems/2.4.0/gems/normalize-rails-4.1.1/vendor/assets/stylesheets/normalize-rails/normalize.css */
+svg:not(:root) {
+  overflow: hidden;
+}
+
+/* Grouping content
+   ========================================================================== */
+/**
+ * 1. Correct the inheritance and scaling of font size in all browsers.
+ * 2. Correct the odd `em` font sizing in all browsers.
+ */
+/* line 222, /Users/yihdego/.rbenv/versions/2.4.0/lib/ruby/gems/2.4.0/gems/normalize-rails-4.1.1/vendor/assets/stylesheets/normalize-rails/normalize.css */
+code,
+kbd,
+pre,
+samp {
+  font-family: monospace, monospace;
+  /* 1 */
+  font-size: 1em;
+  /* 2 */
+}
+
+/**
+ * Add the correct margin in IE 8.
+ */
+/* line 234, /Users/yihdego/.rbenv/versions/2.4.0/lib/ruby/gems/2.4.0/gems/normalize-rails-4.1.1/vendor/assets/stylesheets/normalize-rails/normalize.css */
+figure {
+  margin: 1em 40px;
+}
+
+/**
+ * 1. Add the correct box sizing in Firefox.
+ * 2. Show the overflow in Edge and IE.
+ */
+/* line 243, /Users/yihdego/.rbenv/versions/2.4.0/lib/ruby/gems/2.4.0/gems/normalize-rails-4.1.1/vendor/assets/stylesheets/normalize-rails/normalize.css */
+hr {
+  box-sizing: content-box;
+  /* 1 */
+  height: 0;
+  /* 1 */
+  overflow: visible;
+  /* 2 */
+}
+
+/* Forms
+   ========================================================================== */
+/**
+ * 1. Change font properties to `inherit` in all browsers (opinionated).
+ * 2. Remove the margin in Firefox and Safari.
+ */
+/* line 257, /Users/yihdego/.rbenv/versions/2.4.0/lib/ruby/gems/2.4.0/gems/normalize-rails-4.1.1/vendor/assets/stylesheets/normalize-rails/normalize.css */
+button,
+input,
+select,
+textarea {
+  font: inherit;
+  /* 1 */
+  margin: 0;
+  /* 2 */
+}
+
+/**
+ * Restore the font weight unset by the previous rule.
+ */
+/* line 269, /Users/yihdego/.rbenv/versions/2.4.0/lib/ruby/gems/2.4.0/gems/normalize-rails-4.1.1/vendor/assets/stylesheets/normalize-rails/normalize.css */
+optgroup {
+  font-weight: bold;
+}
+
+/**
+ * Show the overflow in IE.
+ * 1. Show the overflow in Edge.
+ */
+/* line 278, /Users/yihdego/.rbenv/versions/2.4.0/lib/ruby/gems/2.4.0/gems/normalize-rails-4.1.1/vendor/assets/stylesheets/normalize-rails/normalize.css */
+button,
+input {
+  /* 1 */
+  overflow: visible;
+}
+
+/**
+ * Remove the inheritance of text transform in Edge, Firefox, and IE.
+ * 1. Remove the inheritance of text transform in Firefox.
+ */
+/* line 288, /Users/yihdego/.rbenv/versions/2.4.0/lib/ruby/gems/2.4.0/gems/normalize-rails-4.1.1/vendor/assets/stylesheets/normalize-rails/normalize.css */
+button,
+select {
+  /* 1 */
+  text-transform: none;
+}
+
+/**
+ * 1. Prevent a WebKit bug where (2) destroys native `audio` and `video`
+ *    controls in Android 4.
+ * 2. Correct the inability to style clickable types in iOS and Safari.
+ */
+/* line 299, /Users/yihdego/.rbenv/versions/2.4.0/lib/ruby/gems/2.4.0/gems/normalize-rails-4.1.1/vendor/assets/stylesheets/normalize-rails/normalize.css */
+button,
+html [type="button"],
+[type="reset"],
+[type="submit"] {
+  -webkit-appearance: button;
+  /* 2 */
+}
+
+/**
+ * Remove the inner border and padding in Firefox.
+ */
+/* line 310, /Users/yihdego/.rbenv/versions/2.4.0/lib/ruby/gems/2.4.0/gems/normalize-rails-4.1.1/vendor/assets/stylesheets/normalize-rails/normalize.css */
+button::-moz-focus-inner,
+[type="button"]::-moz-focus-inner,
+[type="reset"]::-moz-focus-inner,
+[type="submit"]::-moz-focus-inner {
+  border-style: none;
+  padding: 0;
+}
+
+/**
+ * Restore the focus styles unset by the previous rule.
+ */
+/* line 322, /Users/yihdego/.rbenv/versions/2.4.0/lib/ruby/gems/2.4.0/gems/normalize-rails-4.1.1/vendor/assets/stylesheets/normalize-rails/normalize.css */
+button:-moz-focusring,
+[type="button"]:-moz-focusring,
+[type="reset"]:-moz-focusring,
+[type="submit"]:-moz-focusring {
+  outline: 1px dotted ButtonText;
+}
+
+/**
+ * Change the border, margin, and padding in all browsers (opinionated).
+ */
+/* line 333, /Users/yihdego/.rbenv/versions/2.4.0/lib/ruby/gems/2.4.0/gems/normalize-rails-4.1.1/vendor/assets/stylesheets/normalize-rails/normalize.css */
+fieldset {
+  border: 1px solid #c0c0c0;
+  margin: 0 2px;
+  padding: 0.35em 0.625em 0.75em;
+}
+
+/**
+ * 1. Correct the text wrapping in Edge and IE.
+ * 2. Correct the color inheritance from `fieldset` elements in IE.
+ * 3. Remove the padding so developers are not caught out when they zero out
+ *    `fieldset` elements in all browsers.
+ */
+/* line 346, /Users/yihdego/.rbenv/versions/2.4.0/lib/ruby/gems/2.4.0/gems/normalize-rails-4.1.1/vendor/assets/stylesheets/normalize-rails/normalize.css */
+legend {
+  box-sizing: border-box;
+  /* 1 */
+  color: inherit;
+  /* 2 */
+  display: table;
+  /* 1 */
+  max-width: 100%;
+  /* 1 */
+  padding: 0;
+  /* 3 */
+  white-space: normal;
+  /* 1 */
+}
+
+/**
+ * Remove the default vertical scrollbar in IE.
+ */
+/* line 359, /Users/yihdego/.rbenv/versions/2.4.0/lib/ruby/gems/2.4.0/gems/normalize-rails-4.1.1/vendor/assets/stylesheets/normalize-rails/normalize.css */
+textarea {
+  overflow: auto;
+}
+
+/**
+ * 1. Add the correct box sizing in IE 10-.
+ * 2. Remove the padding in IE 10-.
+ */
+/* line 368, /Users/yihdego/.rbenv/versions/2.4.0/lib/ruby/gems/2.4.0/gems/normalize-rails-4.1.1/vendor/assets/stylesheets/normalize-rails/normalize.css */
+[type="checkbox"],
+[type="radio"] {
+  box-sizing: border-box;
+  /* 1 */
+  padding: 0;
+  /* 2 */
+}
+
+/**
+ * Correct the cursor style of increment and decrement buttons in Chrome.
+ */
+/* line 378, /Users/yihdego/.rbenv/versions/2.4.0/lib/ruby/gems/2.4.0/gems/normalize-rails-4.1.1/vendor/assets/stylesheets/normalize-rails/normalize.css */
+[type="number"]::-webkit-inner-spin-button,
+[type="number"]::-webkit-outer-spin-button {
+  height: auto;
+}
+
+/**
+ * 1. Correct the odd appearance in Chrome and Safari.
+ * 2. Correct the outline style in Safari.
+ */
+/* line 388, /Users/yihdego/.rbenv/versions/2.4.0/lib/ruby/gems/2.4.0/gems/normalize-rails-4.1.1/vendor/assets/stylesheets/normalize-rails/normalize.css */
+[type="search"] {
+  -webkit-appearance: textfield;
+  /* 1 */
+  outline-offset: -2px;
+  /* 2 */
+}
+
+/**
+ * Remove the inner padding and cancel buttons in Chrome and Safari on OS X.
+ */
+/* line 397, /Users/yihdego/.rbenv/versions/2.4.0/lib/ruby/gems/2.4.0/gems/normalize-rails-4.1.1/vendor/assets/stylesheets/normalize-rails/normalize.css */
+[type="search"]::-webkit-search-cancel-button,
+[type="search"]::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+
+/**
+ * Correct the text style of placeholders in Chrome, Edge, and Safari.
+ */
+/* line 406, /Users/yihdego/.rbenv/versions/2.4.0/lib/ruby/gems/2.4.0/gems/normalize-rails-4.1.1/vendor/assets/stylesheets/normalize-rails/normalize.css */
+::-webkit-input-placeholder {
+  color: inherit;
+  opacity: 0.54;
+}
+
+/**
+ * 1. Correct the inability to style clickable types in iOS and Safari.
+ * 2. Change font properties to `inherit` in Safari.
+ */
+/* line 416, /Users/yihdego/.rbenv/versions/2.4.0/lib/ruby/gems/2.4.0/gems/normalize-rails-4.1.1/vendor/assets/stylesheets/normalize-rails/normalize.css */
+::-webkit-file-upload-button {
+  -webkit-appearance: button;
+  /* 1 */
+  font: inherit;
+  /* 2 */
+}
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+
+
+
+ */
+
+ /*#468499
+ Optimism Blue: #269ccc
+ Blue Algae: #9ed2c5*/
+
+/* line 3, /Users/yihdego/Desktop/DocsForUs/app/assets/stylesheets/about.scss */
+.about-page {
+  border-radius: 5px;
+  width: 80%;
+  margin: auto;
+  margin-top: 30px;
+  border: 1px solid #468499;
+  padding: 15px;
+  border-radius: 5px;
+}
+
+/* line 13, /Users/yihdego/Desktop/DocsForUs/app/assets/stylesheets/about.scss */
+.about-content {
+  width: 60%;
+  padding: 10px;
+  margin: auto;
+  text-align: justify;
+}
+
+/* line 20, /Users/yihdego/Desktop/DocsForUs/app/assets/stylesheets/about.scss */
+.about-content p {
+  text-indent: 50px;
+  line-height: 2em;
+}
+
+/* line 26, /Users/yihdego/Desktop/DocsForUs/app/assets/stylesheets/about.scss */
+.header {
+  text-align: center;
+  padding: 5px;
+  margin: 2px;
+}
+
+/* line 32, /Users/yihdego/Desktop/DocsForUs/app/assets/stylesheets/about.scss */
+#rally-image {
+  width: 100%;
+  max-width: 1042px;
+}
+/* line 4, /Users/yihdego/Desktop/DocsForUs/app/assets/stylesheets/doctors.scss */
+.new-doctor-form {
+  background-color: #e5e5e5;
+  display: flex;
+  flex-direction: column;
+  width: 40%;
+  margin: auto;
+  padding: 15px;
+}
+/* line 11, /Users/yihdego/Desktop/DocsForUs/app/assets/stylesheets/doctors.scss */
+.new-doctor-form input {
+  margin: 10px auto;
+}
+/* line 14, /Users/yihdego/Desktop/DocsForUs/app/assets/stylesheets/doctors.scss */
+.new-doctor-form input[type=text] {
+  padding: 15px;
+  display: block;
+  font-size: 1em;
+}
+/* line 19, /Users/yihdego/Desktop/DocsForUs/app/assets/stylesheets/doctors.scss */
+.new-doctor-form input[type=email] {
+  padding: 15px;
+  display: block;
+  font-size: 1em;
+}
+/* line 24, /Users/yihdego/Desktop/DocsForUs/app/assets/stylesheets/doctors.scss */
+.new-doctor-form input[type=submit] {
+  display: block;
+  font-size: 1em;
+  border-radius: 5px;
+  background-color: #468499;
+  letter-spacing: .09rem;
+  box-shadow: none !important;
+  padding: 5px 20px 5px;
+  border: 1px solid #d3d3d3;
+  color: #ffffff;
+  -webkit-appearance: none;
+}
+/* line 32, /Users/yihdego/Desktop/DocsForUs/app/assets/stylesheets/_variables.scss */
+.new-doctor-form input[type=submit]:hover {
+  background-color: #999999;
+  border: 1px solid #999999;
+  color: #ffffff;
+}
+
+/* line 31, /Users/yihdego/Desktop/DocsForUs/app/assets/stylesheets/doctors.scss */
+#dr-search-page {
+  width: 100%;
+}
+/* line 33, /Users/yihdego/Desktop/DocsForUs/app/assets/stylesheets/doctors.scss */
+#dr-search-page h1 {
+  color: #468499;
+  margin: auto;
+  padding-top: 20px;
+  width: 300px;
+}
+
+/* line 41, /Users/yihdego/Desktop/DocsForUs/app/assets/stylesheets/doctors.scss */
+.container {
+  width: 90%;
+  margin: auto;
+  background-color: #ffffff;
+}
+
+/* line 47, /Users/yihdego/Desktop/DocsForUs/app/assets/stylesheets/doctors.scss */
+.doctor-search-box {
+  border-radius: 5px;
+  background-color: #e5e5e5;
+  width: 650px;
+  margin: auto;
+  height: relative;
+  padding: 15px;
+  margin-top: 20px;
+}
+/* line 55, /Users/yihdego/Desktop/DocsForUs/app/assets/stylesheets/doctors.scss */
+.doctor-search-box input {
+  display: inline;
+  margin-bottom: 10px;
+  padding: 10px;
+}
+/* line 60, /Users/yihdego/Desktop/DocsForUs/app/assets/stylesheets/doctors.scss */
+.doctor-search-box span {
+  display: block;
+  margin-bottom: 10px;
+}
+/* line 64, /Users/yihdego/Desktop/DocsForUs/app/assets/stylesheets/doctors.scss */
+.doctor-search-box input[type=submit] {
+  display: block;
+  margin: auto;
+  border-radius: 5px;
+  background-color: #468499;
+  letter-spacing: .09rem;
+  box-shadow: none !important;
+  padding: 5px 20px 5px;
+  border: 1px solid #d3d3d3;
+  color: #ffffff;
+  -webkit-appearance: none;
+  margin-right: 20px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+/* line 32, /Users/yihdego/Desktop/DocsForUs/app/assets/stylesheets/_variables.scss */
+.doctor-search-box input[type=submit]:hover {
+  background-color: #999999;
+  border: 1px solid #999999;
+  color: #ffffff;
+}
+/* line 72, /Users/yihdego/Desktop/DocsForUs/app/assets/stylesheets/doctors.scss */
+.doctor-search-box select {
+  display: block;
+}
+
+/* line 77, /Users/yihdego/Desktop/DocsForUs/app/assets/stylesheets/doctors.scss */
+.search-results-container {
+  margin-top: 20px;
+  border-top: 5px solid #468499;
+  width: 100%;
+}
+
+/* line 84, /Users/yihdego/Desktop/DocsForUs/app/assets/stylesheets/doctors.scss */
+table {
+  padding-top: 20px;
+  width: 80%;
+  margin: auto;
+}
+/* line 88, /Users/yihdego/Desktop/DocsForUs/app/assets/stylesheets/doctors.scss */
+table .table-heading {
+  text-align: center;
+  background-color: #e5e5e5;
+}
+/* line 91, /Users/yihdego/Desktop/DocsForUs/app/assets/stylesheets/doctors.scss */
+table .table-heading th {
+  width: 5%;
+  height: 20px;
+}
+/* line 95, /Users/yihdego/Desktop/DocsForUs/app/assets/stylesheets/doctors.scss */
+table .table-heading .tags {
+  width: 15%;
+}
+/* line 98, /Users/yihdego/Desktop/DocsForUs/app/assets/stylesheets/doctors.scss */
+table .table-heading .insurance-tags {
+  width: 15%;
+  padding: 0px;
+}
+/* line 103, /Users/yihdego/Desktop/DocsForUs/app/assets/stylesheets/doctors.scss */
+table tr:nth-child(2n) {
+  background-color: #c7d7dd;
+}
+/* line 106, /Users/yihdego/Desktop/DocsForUs/app/assets/stylesheets/doctors.scss */
+table .table-tags p {
+  background-color: rgba(70, 132, 153, 0.25);
+  width: 47%;
+  display: inline-block;
+  padding: 0;
+  margin: 0;
+  border: 1px solid #468499;
+  border-radius: 5px;
+  margin: 1px;
+  text-align: center;
+}
+/* line 117, /Users/yihdego/Desktop/DocsForUs/app/assets/stylesheets/doctors.scss */
+table td {
+  padding: 4px;
+}
+/* line 120, /Users/yihdego/Desktop/DocsForUs/app/assets/stylesheets/doctors.scss */
+table .table-tags {
+  padding: 0px;
+  margin: 0;
+}
+
+/* line 125, /Users/yihdego/Desktop/DocsForUs/app/assets/stylesheets/doctors.scss */
+.ins-text:nth-child(even) {
+  font-weight: bolder;
+}
+
+/* line 128, /Users/yihdego/Desktop/DocsForUs/app/assets/stylesheets/doctors.scss */
+.ins-text {
+  margin: 0;
+}
+
+/* line 132, /Users/yihdego/Desktop/DocsForUs/app/assets/stylesheets/doctors.scss */
+.button {
+  background-color: #ffffff;
+  font-size: 18px;
+  letter-spacing: .15rem;
+  text-align: center;
+  border-radius: 5px;
+  width: 120px;
+  margin: 2rem 2rem;
+}
+
+/* line 142, /Users/yihdego/Desktop/DocsForUs/app/assets/stylesheets/doctors.scss */
+.reset {
+  width: 180px;
+}
+
+/* line 146, /Users/yihdego/Desktop/DocsForUs/app/assets/stylesheets/doctors.scss */
+.button:hover {
+  color: #ffffff;
+  background-color: #c7d7dd;
+}
+
+/* Kaminari Pagination a tags */
+/* line 153, /Users/yihdego/Desktop/DocsForUs/app/assets/stylesheets/doctors.scss */
+#paginator {
+  height: 15px;
+  width: 80%;
+  margin: auto;
+}
+
+/* line 159, /Users/yihdego/Desktop/DocsForUs/app/assets/stylesheets/doctors.scss */
+.pagination {
+  height: 30px;
+  margin-bottom: 30px;
+  padding: 0;
+  padding-top: 5px;
+  padding-left: 15px;
+}
+
+/* line 167, /Users/yihdego/Desktop/DocsForUs/app/assets/stylesheets/doctors.scss */
+.pagination a {
+  color: #ffffff;
+  line-height: 20px;
+}
+
+/* line 171, /Users/yihdego/Desktop/DocsForUs/app/assets/stylesheets/doctors.scss */
+.pagination a:hover {
+  color: #d3d3d3;
+}
+
+/* line 175, /Users/yihdego/Desktop/DocsForUs/app/assets/stylesheets/doctors.scss */
+.page.current {
+  color: #d3d3d3;
+}
+
+/*Doctor Show Page*/
+/* line 181, /Users/yihdego/Desktop/DocsForUs/app/assets/stylesheets/doctors.scss */
+.doctor-info-container {
+  box-sizing: border-box;
+  width: 70%;
+  margin: auto;
+  border: 1px solid #468499;
+  padding: 0px 15px;
+  border-radius: 5px;
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+/* line 192, /Users/yihdego/Desktop/DocsForUs/app/assets/stylesheets/doctors.scss */
+.doctor-info-container h3 {
+  margin-left: 20px;
+  text-align: center;
+}
+
+/* line 198, /Users/yihdego/Desktop/DocsForUs/app/assets/stylesheets/doctors.scss */
+.doctor-main {
+  flex-shrink: 30%;
+  flex-grow: 100%;
+  text-align: center;
+  margin: 10px 10px 10px 0px;
+  padding-right: 20px;
+  border-right: 1px dotted #468499;
+}
+/* line 205, /Users/yihdego/Desktop/DocsForUs/app/assets/stylesheets/doctors.scss */
+.doctor-main .doctor-links {
+  list-style-type: none;
+}
+/* line 207, /Users/yihdego/Desktop/DocsForUs/app/assets/stylesheets/doctors.scss */
+.doctor-main .doctor-links li {
+  padding: 10px 0px;
+}
+
+/* line 213, /Users/yihdego/Desktop/DocsForUs/app/assets/stylesheets/doctors.scss */
+.doctor-details {
+  border-right: 1px dotted #468499;
+  flex-basis: 50%;
+  margin: 0px 10px;
+}
+
+/* line 219, /Users/yihdego/Desktop/DocsForUs/app/assets/stylesheets/doctors.scss */
+.doctor-details-rec {
+  flex-basis: 70%;
+  margin: 0px 10px;
+  border-bottom: 1px dotted #468499;
+}
+
+/* line 225, /Users/yihdego/Desktop/DocsForUs/app/assets/stylesheets/doctors.scss */
+.doc-info-list {
+  list-style-type: none;
+}
+
+/* line 229, /Users/yihdego/Desktop/DocsForUs/app/assets/stylesheets/doctors.scss */
+.doctor-reviews {
+  flex-basis: 95%;
+  margin: auto;
+  border-top: 1px dotted #468499;
+}
+
+/* line 235, /Users/yihdego/Desktop/DocsForUs/app/assets/stylesheets/doctors.scss */
+.single-rec {
+  width: 98%;
+  padding: 10px;
+  border-top: 1px dotted #468499;
+}
+
+/* line 241, /Users/yihdego/Desktop/DocsForUs/app/assets/stylesheets/doctors.scss */
+.doctor-tags li {
+  display: inline-block;
+  list-style-type: none;
+  border: 1px solid #468499;
+  border-radius: 5px;
+  padding: 5px;
+  margin: 5px;
+}
+
+/* line 250, /Users/yihdego/Desktop/DocsForUs/app/assets/stylesheets/doctors.scss */
+.save-button {
+  background-color: inherit;
+  border: none;
+  color: #269ccc;
+  cursor: pointer;
+}
+
+/* line 258, /Users/yihdego/Desktop/DocsForUs/app/assets/stylesheets/doctors.scss */
+.errors-cont {
+  width: 400px;
+  margin: auto;
+  margin-top: 20px;
+  border: 1px solid #ff0000;
+  color: #ff0000;
+  background-color: rgba(255, 0, 0, 0.3);
+  text-align: center;
+  border-radius: 10px;
+}
+
+/* line 269, /Users/yihdego/Desktop/DocsForUs/app/assets/stylesheets/doctors.scss */
+.map {
+  float: right;
+  flex-basis: 20%;
+  margin: auto;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  width: 300px;
+  height: 300px;
+}
+
+/* line 279, /Users/yihdego/Desktop/DocsForUs/app/assets/stylesheets/doctors.scss */
+#new-rec-section {
+  padding-bottom: 20px;
+}
+
+/* line 283, /Users/yihdego/Desktop/DocsForUs/app/assets/stylesheets/doctors.scss */
+.select2-dropdown.select2-dropdown--below {
+  width: 350px !important;
+}
+
+/* line 287, /Users/yihdego/Desktop/DocsForUs/app/assets/stylesheets/doctors.scss */
+.select2-selection__rendered {
+  font-size: 16px;
+}
+
+/* line 291, /Users/yihdego/Desktop/DocsForUs/app/assets/stylesheets/doctors.scss */
+.select2-container--default .select2-selection--single {
+  padding: 6px;
+  height: 37px;
+  width: 350px;
+  font-size: 1.2em;
+  position: relative;
+}
+
+/* line 298, /Users/yihdego/Desktop/DocsForUs/app/assets/stylesheets/doctors.scss */
+.fa-chevron-down {
+  color: white;
+  margin-left: 3px;
+}
+
+/* line 302, /Users/yihdego/Desktop/DocsForUs/app/assets/stylesheets/doctors.scss */
+.select2-container--default .select2-selection--single .select2-selection__arrow {
+  background-color: #468499;
+  color: white;
+  font-size: 1.3em;
+  padding: 4px 12px;
+  height: 27px;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  width: 16px;
+}
+
+/* line 314, /Users/yihdego/Desktop/DocsForUs/app/assets/stylesheets/doctors.scss */
+.city_state .select2-container--default .select2-selection--single {
+  width: 150px;
+}
+
+/* line 318, /Users/yihdego/Desktop/DocsForUs/app/assets/stylesheets/doctors.scss */
+.city_state .select2-dropdown.select2-dropdown--below {
+  width: 150px !important;
+}
+
+/* line 322, /Users/yihdego/Desktop/DocsForUs/app/assets/stylesheets/doctors.scss */
+.select2-selection--multiple {
+  width: 350px;
+  height: 75px;
+}
+
+/* line 327, /Users/yihdego/Desktop/DocsForUs/app/assets/stylesheets/doctors.scss */
+.doctor-search-box input:focus {
+  outline: none;
+  box-shadow: 0 0 4px #468499 inset;
+}
+/* line 3, /Users/yihdego/Desktop/DocsForUs/app/assets/stylesheets/global.scss */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  width: 100%;
+  color: #444444;
+}
+
+/* line 11, /Users/yihdego/Desktop/DocsForUs/app/assets/stylesheets/global.scss */
+.flash-alert {
+  width: 400px;
+  margin: auto;
+  margin-top: 20px;
+  border: 1px solid #ff0000;
+  color: #ff0000;
+  background-color: rgba(255, 0, 0, 0.3);
+  text-align: center;
+  border-radius: 10px;
+}
+
+/* line 22, /Users/yihdego/Desktop/DocsForUs/app/assets/stylesheets/global.scss */
+.accreditation {
+  font-size: .8em;
+  position: relative;
+  top: 10px;
+}
+
+/* line 28, /Users/yihdego/Desktop/DocsForUs/app/assets/stylesheets/global.scss */
+.accreditation a:link {
+  text-decoration: none;
+}
+
+/* line 32, /Users/yihdego/Desktop/DocsForUs/app/assets/stylesheets/global.scss */
+#primary_nav_wrap {
+  margin-top: 15px;
+  height: 30px;
+  width: 100%;
+  margin-top: 0;
+  padding: 3rem;
+  background-color: #468499;
+  letter-spacing: .2rem;
+}
+
+/* line 43, /Users/yihdego/Desktop/DocsForUs/app/assets/stylesheets/global.scss */
+#primary_nav_wrap ul {
+  list-style: none;
+  position: relative;
+  margin: 0;
+  margin-right: 100px;
+  padding: 0;
+}
+
+/* line 52, /Users/yihdego/Desktop/DocsForUs/app/assets/stylesheets/global.scss */
+#primary_nav_wrap ul a {
+  display: block;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 1rem;
+  line-height: 32px;
+  padding: 0 15px;
+  font-family: Arial, sans-serif;
+  color: #ffffff;
+}
+
+/* line 63, /Users/yihdego/Desktop/DocsForUs/app/assets/stylesheets/global.scss */
+#primary_nav_wrap li a:hover {
+  color: #468499;
+}
+
+/* line 68, /Users/yihdego/Desktop/DocsForUs/app/assets/stylesheets/global.scss */
+#primary_nav_wrap a:visited {
+  color: #ffffff;
+}
+
+/* line 73, /Users/yihdego/Desktop/DocsForUs/app/assets/stylesheets/global.scss */
+#primary_nav_wrap ul li {
+  position: relative;
+  float: left;
+  margin: 0;
+  padding: 0;
+}
+
+/* line 82, /Users/yihdego/Desktop/DocsForUs/app/assets/stylesheets/global.scss */
+#menu-items {
+  float: right;
+}
+
+/* line 86, /Users/yihdego/Desktop/DocsForUs/app/assets/stylesheets/global.scss */
+#menu-items li:hover {
+  background: #ddd;
+}
+
+/* line 92, /Users/yihdego/Desktop/DocsForUs/app/assets/stylesheets/global.scss */
+#menu-items ul {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: #ddd;
+  padding: 0;
+}
+
+/* line 102, /Users/yihdego/Desktop/DocsForUs/app/assets/stylesheets/global.scss */
+#primary_nav_wrap ul ul li {
+  float: none;
+  width: 200px;
+}
+
+/* line 108, /Users/yihdego/Desktop/DocsForUs/app/assets/stylesheets/global.scss */
+#primary_nav_wrap ul ul a {
+  line-height: 120%;
+  padding: 10px 15px;
+}
+
+/* line 114, /Users/yihdego/Desktop/DocsForUs/app/assets/stylesheets/global.scss */
+#primary_nav_wrap ul ul ul {
+  top: 0;
+  left: 100%;
+}
+
+/* line 120, /Users/yihdego/Desktop/DocsForUs/app/assets/stylesheets/global.scss */
+#primary_nav_wrap ul li:hover > ul {
+  display: block;
+  color: #468499;
+}
+
+/* line 125, /Users/yihdego/Desktop/DocsForUs/app/assets/stylesheets/global.scss */
+#site-title .title a {
+  font-family: 'Oswald', sans-serif;
+  font-size: 3rem;
+  letter-spacing: .1rem;
+  text-decoration: none;
+}
+/* line 130, /Users/yihdego/Desktop/DocsForUs/app/assets/stylesheets/global.scss */
+#site-title .title a:hover {
+  color: #c7d7dd;
+}
+/* line 3, /Users/yihdego/Desktop/DocsForUs/app/assets/stylesheets/home.scss */
+.image-text h2 {
+  letter-spacing: .25rem;
+  font-size: 3em;
+  position: relative;
+  height: 250px;
+  width: 350px;
+  margin-left: 100px;
+  position: relative;
+  padding-top: 150px;
+  color: #ffffff;
+}
+
+/* line 15, /Users/yihdego/Desktop/DocsForUs/app/assets/stylesheets/home.scss */
+#home-page {
+  grid-template-columns: 2fr 3fr 3fr 2fr;
+}
+
+/* line 19, /Users/yihdego/Desktop/DocsForUs/app/assets/stylesheets/home.scss */
+.image-container {
+  position: relative;
+  border-radius: 5px;
+  grid-column-start: 2;
+  width: 60%;
+  margin: auto;
+  margin-top: 50px;
+  height: 600px;
+  background-image: url(https://static.pexels.com/photos/5350/wave-ocean.jpg);
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+
+/* line 33, /Users/yihdego/Desktop/DocsForUs/app/assets/stylesheets/home.scss */
+.btn-container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+
+/* line 40, /Users/yihdego/Desktop/DocsForUs/app/assets/stylesheets/home.scss */
+.big-btn {
+  color: #999999;
+  background-color: transparent;
+  font-size: 1.5rem;
+  letter-spacing: .17rem;
+  font-weight: 600;
+  text-align: center;
+  border: solid #d3d3d3 1px;
+  border-radius: 5px;
+  padding: 4rem 1.2rem;
+  width: 290px;
+  margin: 2rem 2rem;
+  text-decoration: none;
+  font-family: 'Oswald', sans-serif;
+}
+
+/* line 56, /Users/yihdego/Desktop/DocsForUs/app/assets/stylesheets/home.scss */
+.big-btn:hover {
+  color: #ffffff;
+  background-color: #468499;
+}
+
+@media only screen and (max-device-width: 1366px) {
+  /* line 62, /Users/yihdego/Desktop/DocsForUs/app/assets/stylesheets/home.scss */
+  .image-container {
+    width: 95%;
+  }
+}
+@media only screen and (max-device-width: 1023px) {
+  /* line 69, /Users/yihdego/Desktop/DocsForUs/app/assets/stylesheets/home.scss */
+  .big-btn {
+    width: 80%;
+    font-size: 2.5em;
+  }
+}
+/* line 4, /Users/yihdego/Desktop/DocsForUs/app/assets/stylesheets/recommendations.scss */
+.recommend-new {
+  border: 1px solid #468499;
+  border-radius: 5px;
+  width: 80%;
+  margin: auto;
+  padding-bottom: 20px;
+  margin-top: 30px;
+}
+/* line 11, /Users/yihdego/Desktop/DocsForUs/app/assets/stylesheets/recommendations.scss */
+.recommend-new h2 {
+  text-align: center;
+}
+
+/* line 16, /Users/yihdego/Desktop/DocsForUs/app/assets/stylesheets/recommendations.scss */
+.instruction-box {
+  width: 50%;
+  margin: auto;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  border: 1px solid #468499;
+  border-radius: 5px;
+  text-align: center;
+  font-size: 1.2em;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+/* line 30, /Users/yihdego/Desktop/DocsForUs/app/assets/stylesheets/recommendations.scss */
+.search-form {
+  clear: both;
+  height: 270px;
+  background: #e5e5e5;
+  margin: 0 auto;
+  margin-bottom: 50px;
+  padding-left: 15px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  width: 40%;
+  border-radius: 10px;
+}
+
+/* line 43, /Users/yihdego/Desktop/DocsForUs/app/assets/stylesheets/recommendations.scss */
+.search-form input {
+  display: block;
+  background: #ffffff;
+  margin-right: 5px;
+  margin-bottom: 10px;
+  padding: 15px;
+}
+/* line 50, /Users/yihdego/Desktop/DocsForUs/app/assets/stylesheets/recommendations.scss */
+.search-form input:hover {
+  color: #ffffff;
+  background-color: #468499;
+}
+
+/* line 57, /Users/yihdego/Desktop/DocsForUs/app/assets/stylesheets/recommendations.scss */
+.search-form select {
+  display: inline;
+  margin-bottom: 5px;
+  margin-left: 5px;
+}
+
+/* line 63, /Users/yihdego/Desktop/DocsForUs/app/assets/stylesheets/recommendations.scss */
+.search-form input::placeholder {
+  line-height: 15px;
+}
+
+/* line 67, /Users/yihdego/Desktop/DocsForUs/app/assets/stylesheets/recommendations.scss */
+.search-form label {
+  margin-left: 5px;
+  font-size: 1em;
+  line-height: 15px;
+  color: #e5e5e5;
+  font-style: italic;
+  display: inline;
+}
+
+/* line 76, /Users/yihdego/Desktop/DocsForUs/app/assets/stylesheets/recommendations.scss */
+.state-selector {
+  width: 150px;
+  margin: 0 auto;
+  margin-bottom: 10px;
+}
+/* line 80, /Users/yihdego/Desktop/DocsForUs/app/assets/stylesheets/recommendations.scss */
+.state-selector .select2-container--open {
+  width: 150px;
+}
+
+/* line 85, /Users/yihdego/Desktop/DocsForUs/app/assets/stylesheets/recommendations.scss */
+#button-add {
+  border-radius: 5px;
+  background-color: #468499;
+  letter-spacing: .09rem;
+  box-shadow: none !important;
+  padding: 5px 20px 5px;
+  border: 1px solid #d3d3d3;
+  color: #ffffff;
+  -webkit-appearance: none;
+  float: right;
+  width: 200px;
+  margin: auto;
+}
+/* line 32, /Users/yihdego/Desktop/DocsForUs/app/assets/stylesheets/_variables.scss */
+#button-add:hover {
+  background-color: #999999;
+  border: 1px solid #999999;
+  color: #ffffff;
+}
+
+/* line 94, /Users/yihdego/Desktop/DocsForUs/app/assets/stylesheets/recommendations.scss */
+.rec-doctor-button {
+  border-radius: 5px;
+  background-color: #468499;
+  letter-spacing: .09rem;
+  box-shadow: none !important;
+  padding: 5px 20px 5px;
+  border: 1px solid #d3d3d3;
+  color: #ffffff;
+  -webkit-appearance: none;
+  background-color: #468499;
+  color: #ffffff;
+  display: block;
+  margin: auto;
+}
+/* line 32, /Users/yihdego/Desktop/DocsForUs/app/assets/stylesheets/_variables.scss */
+.rec-doctor-button:hover {
+  background-color: #999999;
+  border: 1px solid #999999;
+  color: #ffffff;
+}
+/* line 100, /Users/yihdego/Desktop/DocsForUs/app/assets/stylesheets/recommendations.scss */
+.rec-doctor-button:hover {
+  background-color: #999999;
+  color: #ffffff;
+}
+
+/* line 108, /Users/yihdego/Desktop/DocsForUs/app/assets/stylesheets/recommendations.scss */
+.tag-list {
+  width: 95%;
+  display: block;
+}
+
+/* line 113, /Users/yihdego/Desktop/DocsForUs/app/assets/stylesheets/recommendations.scss */
+.tag-li {
+  display: inline-block;
+  list-style-type: none;
+}
+
+/* line 118, /Users/yihdego/Desktop/DocsForUs/app/assets/stylesheets/recommendations.scss */
+.tag-label {
+  border: 1px solid #468499;
+  border-radius: 5px;
+  padding: 5px;
+  margin: 5px;
+  display: inline-block;
+}
+
+/* line 126, /Users/yihdego/Desktop/DocsForUs/app/assets/stylesheets/recommendations.scss */
+.tag {
+  display: none;
+}
+
+/* line 130, /Users/yihdego/Desktop/DocsForUs/app/assets/stylesheets/recommendations.scss */
+.tag:checked + .tag-label {
+  background-color: #468499;
+  color: #ffffff;
+}
+
+/* line 135, /Users/yihdego/Desktop/DocsForUs/app/assets/stylesheets/recommendations.scss */
+#new-rec-section {
+  width: 60%;
+  margin: auto;
+  margin-top: 20px;
+}
+
+/* line 141, /Users/yihdego/Desktop/DocsForUs/app/assets/stylesheets/recommendations.scss */
+#recommendation_review {
+  width: 90%;
+  margin: auto;
+  height: 10vh;
+  padding: 10px;
+  display: block;
+  font-size: 1em;
+}
+/* line 148, /Users/yihdego/Desktop/DocsForUs/app/assets/stylesheets/recommendations.scss */
+#recommendation_review:focus {
+  border: 1px solid #468499;
+  outline: none;
+  box-shadow: 0 0 10px #468499;
+}
+
+/* line 155, /Users/yihdego/Desktop/DocsForUs/app/assets/stylesheets/recommendations.scss */
+#rec-submit-button {
+  border: 1px solid #468499;
+  border-radius: 5px;
+  padding: 10px;
+  margin: 5px;
+  margin-top: 20px;
+  background-color: #ffffff;
+  float: right;
+}
+
+/* line 165, /Users/yihdego/Desktop/DocsForUs/app/assets/stylesheets/recommendations.scss */
+.add-tags-form {
+  margin-left: 50px;
+  float: left;
+  margin-top: 20px;
+}
+/* line 169, /Users/yihdego/Desktop/DocsForUs/app/assets/stylesheets/recommendations.scss */
+.add-tags-form input[type=text] {
+  padding: 10px;
+  font-size: 1em;
+  margin-right: 5px;
+}
+/* line 173, /Users/yihdego/Desktop/DocsForUs/app/assets/stylesheets/recommendations.scss */
+.add-tags-form input[type=text]:focus {
+  border: 1px solid #468499;
+  outline: none;
+  box-shadow: 0 0 10px #468499;
+}
+/* line 179, /Users/yihdego/Desktop/DocsForUs/app/assets/stylesheets/recommendations.scss */
+.add-tags-form .add-tag {
+  border: 1px solid #468499;
+  border-radius: 5px;
+  padding: 5px;
+  margin: 5px;
+  background-color: #ffffff;
+}
+
+/* line 188, /Users/yihdego/Desktop/DocsForUs/app/assets/stylesheets/recommendations.scss */
+.rec-errors {
+  clear: both;
+  text-align: center;
+  margin: 120px;
+}
+
+/* line 194, /Users/yihdego/Desktop/DocsForUs/app/assets/stylesheets/recommendations.scss */
+.errors {
+  color: #ff0000;
+}
+
+/* line 198, /Users/yihdego/Desktop/DocsForUs/app/assets/stylesheets/recommendations.scss */
+.partials-doctors {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: flex-start;
+}
+
+/* line 205, /Users/yihdego/Desktop/DocsForUs/app/assets/stylesheets/recommendations.scss */
+.rec-search-result {
+  flex: 1;
+  min-height: auto;
+  margin: 10px;
+  padding: 25px 50px;
+  border: 1px solid #468499;
+  border-radius: 5px;
+  max-width: 300px;
+}
+/* line 3, /Users/yihdego/Desktop/DocsForUs/app/assets/stylesheets/resources.scss */
+.resources-container {
+  background-image: url(https://static.pexels.com/photos/129105/pexels-photo-129105.jpeg);
+  background-size: cover;
+  height: 100vh;
+  width: 100%;
+}
+
+/* line 11, /Users/yihdego/Desktop/DocsForUs/app/assets/stylesheets/resources.scss */
+.content-container {
+  padding: 50px;
+  padding-top: 20px;
+  margin: 300px;
+  max-width: 50%;
+  margin: auto;
+  text-align: justify;
+  background-color: #ffffff;
+  opacity: .8;
+}
+
+/* line 22, /Users/yihdego/Desktop/DocsForUs/app/assets/stylesheets/resources.scss */
+.link-container {
+  display: block;
+  position: relative;
+  border-radius: 5px;
+  margin: 50px;
+  border: 1px solid #468499;
+  padding: 15px;
+  border-radius: 5px;
+}
+
+/* line 32, /Users/yihdego/Desktop/DocsForUs/app/assets/stylesheets/resources.scss */
+.resources-list li {
+  padding: 20px;
+  list-style-type: square;
+  text-align: justify;
+}
+
+/* line 38, /Users/yihdego/Desktop/DocsForUs/app/assets/stylesheets/resources.scss */
+.header {
+  text-align: center;
+  padding: 5px;
+  margin: 2px;
+}
+/* line 4, /Users/yihdego/Desktop/DocsForUs/app/assets/stylesheets/users.scss */
+.new-user-form {
+  border-radius: 5px;
+  background-color: #e5e5e5;
+  display: flex;
+  flex-direction: column;
+  width: 30%;
+  margin: auto;
+  margin-top: 20px;
+  padding: 15px;
+}
+/* line 13, /Users/yihdego/Desktop/DocsForUs/app/assets/stylesheets/users.scss */
+.new-user-form input {
+  margin: 10px auto;
+}
+/* line 16, /Users/yihdego/Desktop/DocsForUs/app/assets/stylesheets/users.scss */
+.new-user-form input[type=text], .new-user-form input[type=email], .new-user-form input[type=password] {
+  padding: 15px;
+  display: block;
+  font-size: 1em;
+}
+/* line 21, /Users/yihdego/Desktop/DocsForUs/app/assets/stylesheets/users.scss */
+.new-user-form input[type=submit] {
+  display: block;
+  font-size: 1em;
+  border-radius: 5px;
+  background-color: #468499;
+  letter-spacing: .09rem;
+  box-shadow: none !important;
+  padding: 5px 20px 5px;
+  border: 1px solid #d3d3d3;
+  color: #ffffff;
+  -webkit-appearance: none;
+}
+/* line 32, /Users/yihdego/Desktop/DocsForUs/app/assets/stylesheets/_variables.scss */
+.new-user-form input[type=submit]:hover {
+  background-color: #999999;
+  border: 1px solid #999999;
+  color: #ffffff;
+}
+
+/* line 28, /Users/yihdego/Desktop/DocsForUs/app/assets/stylesheets/users.scss */
+.new-user-form .errors {
+  color: #ff0000;
+  text-align: center;
+}
+
+/* line 34, /Users/yihdego/Desktop/DocsForUs/app/assets/stylesheets/users.scss */
+#new-user-page h1 {
+  color: #468499;
+  margin: auto;
+  margin-top: 20px;
+  width: 290px;
+}
+
+/* line 44, /Users/yihdego/Desktop/DocsForUs/app/assets/stylesheets/users.scss */
+#login-page h1 {
+  color: #468499;
+  margin: auto;
+  margin-top: 20px;
+  width: 90px;
+}
+
+/* line 52, /Users/yihdego/Desktop/DocsForUs/app/assets/stylesheets/users.scss */
+.login-form {
+  border-radius: 5px;
+  background-color: #e5e5e5;
+  display: flex;
+  flex-direction: column;
+  width: 30%;
+  margin: auto;
+  margin-top: 20px;
+  padding: 15px;
+}
+/* line 61, /Users/yihdego/Desktop/DocsForUs/app/assets/stylesheets/users.scss */
+.login-form input {
+  margin: 10px auto;
+}
+/* line 64, /Users/yihdego/Desktop/DocsForUs/app/assets/stylesheets/users.scss */
+.login-form input[type=text], .login-form input[type=email], .login-form input[type=password] {
+  padding: 15px;
+  display: block;
+  font-size: 1em;
+}
+/* line 69, /Users/yihdego/Desktop/DocsForUs/app/assets/stylesheets/users.scss */
+.login-form input[type=submit] {
+  display: block;
+  font-size: 1em;
+  border-radius: 5px;
+  background-color: #468499;
+  letter-spacing: .09rem;
+  box-shadow: none !important;
+  padding: 5px 20px 5px;
+  border: 1px solid #d3d3d3;
+  color: #ffffff;
+  -webkit-appearance: none;
+}
+/* line 32, /Users/yihdego/Desktop/DocsForUs/app/assets/stylesheets/_variables.scss */
+.login-form input[type=submit]:hover {
+  background-color: #999999;
+  border: 1px solid #999999;
+  color: #ffffff;
+}
+
+/* line 77, /Users/yihdego/Desktop/DocsForUs/app/assets/stylesheets/users.scss */
+.user-profile {
+  width: 80%;
+  margin: auto;
+}
+/* line 80, /Users/yihdego/Desktop/DocsForUs/app/assets/stylesheets/users.scss */
+.user-profile a {
+  color: #269ccc;
+}
+
+/* line 85, /Users/yihdego/Desktop/DocsForUs/app/assets/stylesheets/users.scss */
+.profile-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
+/* line 91, /Users/yihdego/Desktop/DocsForUs/app/assets/stylesheets/users.scss */
+.recent-recs-section {
+  margin: 0px 20px 0px 20px;
+  border: 1px solid #468499;
+  border-radius: 5px;
+  padding: 0px 15px;
+  flex-basis: 55%;
+}
+
+/* line 99, /Users/yihdego/Desktop/DocsForUs/app/assets/stylesheets/users.scss */
+.saved-doctors-section {
+  margin: 0px 20px 0px 20px;
+  border: 1px solid #468499;
+  border-radius: 5px;
+  padding: 0px 15px;
+  flex-basis: 30%;
+}
+
+/* line 107, /Users/yihdego/Desktop/DocsForUs/app/assets/stylesheets/users.scss */
+.tag-list {
+  display: block;
+}
+
+/* line 111, /Users/yihdego/Desktop/DocsForUs/app/assets/stylesheets/users.scss */
+.single-rec {
+  width: 98%;
+  border-top: 1px dotted #468499;
+}
+
+/* line 116, /Users/yihdego/Desktop/DocsForUs/app/assets/stylesheets/users.scss */
+.rec-tags-profile {
+  display: inline-block;
+  list-style-type: none;
+  border: 1px solid #468499;
+  border-radius: 5px;
+  padding: 5px;
+  margin: 5px;
+}
+
+/* line 125, /Users/yihdego/Desktop/DocsForUs/app/assets/stylesheets/users.scss */
+.review-profile {
+  border: 1px solid #468499;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+/* line 131, /Users/yihdego/Desktop/DocsForUs/app/assets/stylesheets/users.scss */
+.saved-docs-list li {
+  margin-bottom: 15px;
+}
+
+/* line 137, /Users/yihdego/Desktop/DocsForUs/app/assets/stylesheets/users.scss */
+.admin-home {
+  text-align: center;
+}
+
+/* line 141, /Users/yihdego/Desktop/DocsForUs/app/assets/stylesheets/users.scss */
+.admin-home ul {
+  list-style-type: none;
+  margin: auto;
+  padding: 0;
+}
+
+/* line 147, /Users/yihdego/Desktop/DocsForUs/app/assets/stylesheets/users.scss */
+.admin-link {
+  padding-left: 4%;
+}
