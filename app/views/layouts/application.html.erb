@@ -34,22 +34,46 @@
   </head>
 
   <body>
-    <nav class="main-nav">
-      <ul class= "experiment">
-        <li class="title"><h1><%= link_to "DocsForUs", root_path %></h1></li>
-        <li class="about2"> <%= link_to "About", about_path%> </li>
-        <li class="add-rec"><%= link_to "Recommend a Doctor", recommendations_add_path %></li>
-        <li class="find-doctor"><%= link_to "Find a Doctor", doctors_path %></li>
-        <li class="resources"> <%= link_to "Resources", resources_path %> </li>
-        <% if session[:user_id] %>
-          <li class="login"><%= link_to "Profile", user_path(User.find(session[:user_id])) %></li>
-          <li class="register"><%= link_to "Logout", logout_path %></li>
-        <% else %>
-          <li class="login"><%= link_to "Login", login_path %></li>
-          <li class="signup"><%= link_to "Signup", new_user_path %></li>
-          <li class="doctor-register"><%= link_to "Register as Provider", check_path %></li>
-        <% end %>
+    <!-- <nav class="main-nav"> -->
+      <!-- <ul class= "experiment"> -->
+        <!-- <li class="title"><h1><%= link_to "DocsForUs", root_path %></h1></li> -->
+        <!-- <li class="about2"> <%= link_to "About", about_path%> </li> -->
+        <!-- <li class="add-rec"><%= link_to "Recommend a Doctor", recommendations_add_path %></li> -->
+        <!-- <li class="find-doctor"><%= link_to "Find a Doctor", doctors_path %></li> -->
+        <!-- <li class="resources"> <%= link_to "Resources", resources_path %> </li> -->
+        <!-- <% if session[:user_id] %> -->
+          <!-- <li class="login"><%= link_to "Profile", user_path(User.find(session[:user_id])) %></li> -->
+          <!-- <li class="register"><%= link_to "Logout", logout_path %></li> -->
+        <!-- <% else %> -->
+          <!-- <li class="login"><%= link_to "Login", login_path %></li> -->
+          <!-- <li class="signup"><%= link_to "Signup", new_user_path %></li> -->
+          <!-- <li class="doctor-register"><%= link_to "Register as Provider", check_path %></li> -->
+        <!-- <% end %> -->
+      <!-- </ul> -->
+    <!-- </nav> -->
+
+
+    <nav id="primary_nav_wrap">
+      <ul id="site-title">
+        <li class="title"> <%= link_to "DocsForUs", root_path %> </li>
       </ul>
+    <ul id="menu-items">
+      <li><%= link_to "About", about_path%>
+        <ul>
+          <li><%= link_to "Resources", resources_path %></li>
+          </li>
+        </ul>
+      <li><%= link_to "Find a Doctor", doctors_path %></li>
+      <li><%= link_to "Recommend a Doctor", recommendations_add_path %></li>
+      <% if session[:user_id] %>
+        <li class="login"><%= link_to "Profile", user_path(User.find(session[:user_id])) %></li>
+        <li class="register"><%= link_to "Logout", logout_path %></li>
+      <% else %>
+        <li class="login"><%= link_to "Login", login_path %></li>
+        <li class="signup"><%= link_to "Signup", new_user_path %></li>
+        <li class="doctor-register"><%= link_to "Register as Provider", check_path %></li>
+      <% end %>
+    </ul>
     </nav>
     <%= yield %>
   </body>

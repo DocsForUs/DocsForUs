@@ -1,129 +1,223 @@
 @import 'variables';
 
 body {
- font-family: Arial;
- // font-family: 'Muli', sans-serif;
+ font-family: Arial, sans-serif;;
  margin: 0;
  width: 100%;
  color: $body-black;
 }
+//
+// a {
+//   color: $link-blue;
+//   text-decoration: none;
+// }
+//
+// nav {
+//  background-color: $teal;
+//  margin: 0 auto;
+//  padding: 1rem;
+//  box-sizing: border-box;
+// }
+//
+// ul {
+//   list-style: none;
+//   padding: 0;
+// }
+//
+//
+// .main-nav ul {
+//  color: $white;
+//  display: grid;
+//  grid-template-columns: minmax(auto, 0 ) minmax(auto) repeat(8, minmax(100px,1fr));
+//  letter-spacing: .25rem;
+//  list-style: none;
+//  margin: 0;
+//  margin-left: 25px;
+//  width: 90%;
+// }
+//
+//
+// .about2 {
+//   grid-column-start: 1;
+//   line-height: 36px;
+//   grid-row: 2;
+// }
+//
+// .resources {
+//   grid-column-start: 2;
+//   line-height: 36px;
+//   grid-row: 2;
+//   padding-right: 20px;
+// }
+// .find-doctor {
+//   grid-column-start: 3;
+//   line-height: 36px;
+//   grid-row: 2;
+// }
+//
+// .add-rec {
+//   grid-column-start:4;
+//   line-height: 36px;
+//   grid-row: 2;
+// }
+//
+// .title {
+//   // font-family: 'Oswald', sans-serif;
+//   grid-column-start: 5;
+//   letter-spacing: .1rem;
+//   font-size: 1rem;
+//   font-weight: 800;
+// }
+//
+// .login {
+//   grid-column-start: 6;
+//   line-height: 36px;
+//   grid-row: 2;
+// }
+//
+// .signup {
+//  grid-column-start: 7;
+//  line-height: 36px;
+//  padding-right: 20px;
+//  grid-row: 2;
+// }
+//
+// .doctor-register{
+//   grid-column-start: 8;
+//   line-height: 36px;
+//   grid-row: 2;
+// }
+//
+//
+// .main-nav {
+//  text-decoration: none;
+// }
+//
+// .main-nav  a {
+//  text-decoration: none;
+//  color: $white;
+//   &:visited {
+//    color: $white;
+//   }
+//   &:hover {
+//    color: $contrast-blue;
+//   }
+// }
+//
+//
+//
+// .flash-alert {
+//  width: 400px;
+//  margin: auto;
+//  margin-top: 20px;
+//  border: 1px solid $error-red;
+//  color: $error-red;
+//  background-color: rgba(255, 0, 0, 0.3);
+//  text-align: center;
+//  border-radius: 10px;
+// }
+//
+// .accreditation {
+//   font-size: .8em;
+//   position: relative;
+//   top: 10px;
+// }
+//
+// .accreditation a:link {
+//   text-decoration: none;
+// }
 
-a {
-  color: $link-blue;
-  text-decoration: none;
+#primary_nav_wrap
+{
+	margin-top:15px;
+  width:100%;
+	margin-top:0;
+  padding:3rem;
+  background-color: $teal;
+  letter-spacing: .2rem;
 }
 
-nav {
- background-color: $teal;
- margin: 0 auto;
- padding: 1rem;
- box-sizing: border-box;
+#primary_nav_wrap ul
+{
+	list-style:none;
+	position:relative;
+	float:left;
+	margin:0;
+	padding:0
 }
 
-ul {
-  list-style: none;
-  padding: 0;
+#primary_nav_wrap ul a {
+	display:block;
+  text-decoration:none;
+	font-weight:700;
+	font-size: 1rem;
+	line-height:32px;
+	padding: 0 15px;
+	font-family: "Arial", "sans-serif";
+  color: $white;
+}
+
+#primary_nav_wrap li a:hover {
+ color: $contrast-blue;
 }
 
 
-.main-nav ul {
- color: $white;
- display: grid;
- grid-template-columns: minmax(auto, ) minmax(auto, ) repeat(8, minmax(100px,1fr));
- letter-spacing: .25rem;
- list-style: none;
- margin: 0;
- margin-left: 15px;
- width: 90%;
+#primary_nav_wrap a:visited {
+  color: $white;
+ }
+
+
+#primary_nav_wrap ul li
+{
+	position:relative;
+	float:left;
+	margin:0;
+	padding:0
+
 }
 
 
-.about2 {
-  grid-column-start: 1;
-  line-height: 36px;
-  grid-row: 2;
+#primary_nav_wrap ul li:hover
+{
+	background:#ddd;
+  // color: #ddd;
 }
 
-.resources {
-  grid-column-start: 2;
-  line-height: 36px;
-  grid-row: 2;
-  padding-right: 20px;
-}
-.find-doctor {
-  grid-column-start: 3;
-  line-height: 36px;
-  grid-row: 2;
+#menu-items ul
+{
+	display:none;
+	position:absolute;
+	top:100%;
+	left:0;
+	background:#ddd;
+	padding:0;
 }
 
-.add-rec {
-  grid-column-start:4;
-  line-height: 36px;
-  grid-row: 2;
+#primary_nav_wrap ul ul li
+{
+	float:none;
+	width:200px
 }
 
-.title {
-  // font-family: 'Oswald', sans-serif;
-  grid-column-start: 5;
+#primary_nav_wrap ul ul a
+{
+	line-height:120%;
+	padding:10px 15px
+}
+
+#primary_nav_wrap ul ul ul
+{
+	top:0;
+	left:100%
+}
+
+#primary_nav_wrap ul li:hover > ul
+{
+	display:block;
+  color: $teal;
+}
+#site-title .title a {
+  font-size: 32px;
   letter-spacing: .1rem;
-  font-size: 1rem;
-  font-weight: 800;
-}
-
-.login {
-  grid-column-start: 6;
-  line-height: 36px;
-  grid-row: 2;
-}
-
-.signup {
- grid-column-start: 7;
- line-height: 36px;
- padding-right: 20px;
- grid-row: 2;
-}
-
-.doctor-register{
-  grid-column-start: 8;
-  line-height: 36px;
-  grid-row: 2;
-}
-
-
-.main-nav {
- text-decoration: none;
-}
-
-.main-nav  a {
- text-decoration: none;
- color: $white;
-  &:visited {
-   color: $white;
-  }
-  &:hover {
-   color: $contrast-blue;
-  }
-}
-
-
-
-.flash-alert {
- width: 400px;
- margin: auto;
- margin-top: 20px;
- border: 1px solid $error-red;
- color: $error-red;
- background-color: rgba(255, 0, 0, 0.3);
- text-align: center;
- border-radius: 10px;
-}
-
-.accreditation {
-  font-size: .8em;
-  position: relative;
-  top: 10px;
-}
-
-.accreditation a:link {
-  text-decoration: none;
+  text-decoration:none;
 }
