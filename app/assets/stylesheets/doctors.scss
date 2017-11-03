@@ -1,4 +1,9 @@
 @import "variables";
+
+html, body {
+  height: 100%;
+}
+
 .new-doctor-form{
   background-color: $bg-grey;
   display: flex;
@@ -27,7 +32,7 @@
 }
 
 #dr-search-page {
-    height: 100vw;
+    // height: 100vh;
     width: 100%;
   h1 {
     color: $teal;
@@ -40,7 +45,6 @@
 .container {
   width: 90%;
   margin: auto;
-  height: 100vw;
   background-color: $white;
 }
 
@@ -81,7 +85,6 @@
     margin-top: 20px;
     border-top: 5px solid $teal;
     width: 100%;
-    height: 70vw;
   }
 
 
@@ -153,9 +156,24 @@
   }
 
 /* Kaminari Pagination a tags */
+//
+#paginator {
+  height: 15px;
+  width: 80%;
+  margin:auto;
+}
+
+.pagination {
+  height: 30px;
+  margin-bottom: 30px;
+  padding: 0;
+  padding-top: 5px;
+  padding-left: 15px;
+}
 
 .pagination a {
   color: $white;
+  line-height: 20px;
 }
 .pagination a:hover {
   color: $border-grey;
