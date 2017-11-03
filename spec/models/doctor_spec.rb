@@ -29,6 +29,21 @@ describe Doctor, type: :model do
     end
   end
 
+  describe '#associate_insurances' do
+    it "gets the insurance of the doctor and associates it (when insurance isn't already in the database)" do
+      doctor = create(:doctor)
+      doctor.associate_insurances("ewrwewrewrew")
+      expect(doctor.insurances[0].insurance_name).to eq 'Some insurance'
+    end
+
+    it "gets the insurance of the doctor and associates it (when insurance isn't already in the database)" do
+      Insurance.create!(insurance_uid: "insurance-insurance", insurance_name: "Some insurance")
+      doctor = create(:doctor)
+      doctor.associate_insurances("ewrwewrewrew")
+      expect(doctor.insurances[0].insurance_name).to eq 'Some insurance'
+    end
+  end
+
   describe 'methods' do
     context 'that delete' do
       it 'remove the doctor from the database' do
