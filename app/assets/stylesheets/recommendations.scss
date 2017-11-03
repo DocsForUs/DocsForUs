@@ -56,9 +56,9 @@
   margin-left: 5px;
 }
 
-  .search-form input::placeholder {
-  line-height: 15px
-	}
+.search-form input::placeholder {
+line-height: 15px
+}
 
 .search-form label {
   margin-left: 5px;
@@ -73,6 +73,9 @@
   width: 150px;
   margin: 0 auto;
   margin-bottom: 10px;
+  .select2-container--open {
+    width: 150px;
+  }
 }
 
 #button-add {
