@@ -40,7 +40,7 @@ class ProductionSeed
   end
 
   def self.seed_insurance
-    insurances = InsuranceDataHelper.get_insurance
+    insurances = helpers.get_insurance
     insurances.length.times do |i|
       Insurance.create(insurance_uid: insurances[i][1], insurance_name: insurances[i][0])
     end
