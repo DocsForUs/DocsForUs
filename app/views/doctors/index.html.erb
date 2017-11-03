@@ -8,6 +8,7 @@
     <%= f.search_field :first_name_cont %>
     <%= f.label 'last name' %>
     <%= f.search_field :last_name_cont %>
+    <div class="city_state">
     <%= f.label 'City' %>
     <%= f.select :city_eq, options_from_collection_for_select(Doctor.select('city').distinct , 'city','city'), include_blank: true %>
     <%= f.label 'State' %>
