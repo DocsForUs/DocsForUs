@@ -20,7 +20,6 @@ RSpec.describe DoctorsController, type: :controller do
       get :find, params: { doctor: {first_name: 'Georgette', last_name: 'Tronkenheim', city: 'Seattle', state: "WA"} }
       expect(assigns[:our_doctors]).to_not include(doctor2)
     end
-
   end
 
   describe "GET #show" do
@@ -79,6 +78,10 @@ RSpec.describe DoctorsController, type: :controller do
       it "checks if the doctor is available in the database first before creating" do
         post :create, params: {doctor: {first_name: 'Georgette', last_name: 'Tronkenheim', specialty: 'Family Practice',email_address: 'georgette@doctor.com',zipcode: "98103", street:'33 Orange St', city: 'Seattle',state: 'WA'}}
         expect(Doctor.where(first_name: 'Georgette').count).to eq 1
+      end
+      xit "gets the insurance of the doctor" do
+        post :create, params: {doctor: {first_name: 'Laura', last_name: 'Spring', specialty: 'Family Medicine',phone_number: '2065559999',zipcode: "98103", street:'555 Doctor Pl', city: 'Seattle',state: 'WA',uid:"insurance-insurance",name:"Other Insurance"}}
+        expect(doctor.insurances).to eq "1"
       end
     end
 
@@ -143,7 +146,7 @@ RSpec.describe DoctorsController, type: :controller do
 
   describe "doctors#update" do
     let!(:doctor) { create(:doctor) }
-    before(:each) { get :update, params: {doctor: {first_name: 'Georgette', last_name: 'Tronkenheim', specialty: 'Family Practice',email_address: 'georgette@doctor.com',zipcode: "98103", street:'33 Orange St', city: 'Seattle',state: 'WA'}, id: doctor.id}}
+    before(:each) { get :update, params: {doctor: {first_name: 'Laura', last_name: 'Spring', specialty: 'Family Medicine',email_address: 'georgette@doctor.com',zipcode: "98103", street:'33 Orange St', city: 'Seattle',state: 'WA'}, id: doctor.id}}
     it "assigns the doctor variable" do
       expect(assigns[:doctor]).to eq (doctor)
     end
