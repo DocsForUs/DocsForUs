@@ -6,6 +6,7 @@
   border-radius: 5px;
   width: 80%;
   margin: auto;
+  padding-bottom: 20px;
   margin-top: 30px;
   h2 {
     text-align: center;
@@ -13,7 +14,7 @@
 }
 
 .instruction-box {
-  width: 65%;
+  width: 50%;
   margin: auto;
   margin-top: 30px;
   margin-bottom: 30px;
@@ -21,10 +22,14 @@
   border-radius: 5px;
   text-align: center;
   font-size: 1.2em;
+  padding-right: 15px;
+  padding-left: 15px;
 }
 
 
 .search-form {
+  clear: both;
+  height: 270px;
   background:$bg-grey;
   border: 1px solid $border-grey;
   margin: 0 auto;
@@ -51,9 +56,9 @@
   margin-left: 5px;
 }
 
-  .search-form input::placeholder {
-  line-height: 15px
-	}
+.search-form input::placeholder {
+line-height: 15px
+}
 
 .search-form label {
   margin-left: 5px;
@@ -64,9 +69,22 @@
   display: inline;
 }
 
-.search-submit {
+.state-selector {
+  width: 150px;
+  margin: 0 auto;
+  margin-bottom: 10px;
+  .select2-container--open {
+    width: 150px;
+  }
+}
+
+#button-add {
   @include submit;
-  margin: 10px;
+  // margin: 10px;
+  // margin-right: 20px;
+  float: right;
+  width: 200px;
+  margin: auto;
 }
 
 .rec-doctor-button {
