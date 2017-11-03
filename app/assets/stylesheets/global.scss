@@ -158,7 +158,7 @@ body {
 }
 
 #primary_nav_wrap li a:hover {
- color: $contrast-blue;
+ color: $teal;
 }
 
 
@@ -177,7 +177,7 @@ body {
 }
 
 
-#primary_nav_wrap ul li:hover
+#menu-items li:hover
 {
 	background:#ddd;
   // color: #ddd;
@@ -220,4 +220,7 @@ body {
   font-size: 32px;
   letter-spacing: .1rem;
   text-decoration:none;
+    &:hover {
+      color: $contrast-blue;
+    }
 }
