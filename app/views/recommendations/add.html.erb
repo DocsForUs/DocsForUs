@@ -1,7 +1,8 @@
-<section class="recommend-new">
+<main class="recommend-new">
+  <h2>Recommend a Doctor</h2>
   <article class="instruction-box">
     <p>
-      Enter the name of the doctor you would like to recommend!
+      Enter the name and location of the doctor you would like to recommend:
     </p>
   </article>
   <%= form_for :doctor, url: { controller: "doctors", action: "find" }, method: :get, html: {class: "search-form"} do |f| %>
@@ -20,7 +21,7 @@
       <%= render 'doctors/rec_search'  %>
     <% end %>
     <% if @api_doctors %>
-      <% if@api_doctors.length > 0 %>
+      <% if @api_doctors.length > 0 %>
     <%= render 'doctors/rec_api_search'  %>
 
       <% end %>
@@ -29,4 +30,4 @@
       <%= render 'doctors/new_button' %>
     <% end %>
   </aside>
-</section>
+</main>

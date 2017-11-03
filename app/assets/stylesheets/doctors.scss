@@ -1,9 +1,6 @@
 @import "variables";
 
-html, body {
-  height: 100%;
-}
-
+// NEW DOCTOR FORM
 .new-doctor-form{
   background-color: $bg-grey;
   display: flex;
@@ -32,7 +29,6 @@ html, body {
 }
 
 #dr-search-page {
-    // height: 100vh;
     width: 100%;
   h1 {
     color: $teal;

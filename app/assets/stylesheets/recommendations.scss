@@ -1,25 +1,28 @@
 @import "variables";
 
 // RECOMMENDATION ADD PAGE
-.instruction-box {
-  width: 600px;
-  margin: auto;
-  margin-top: 50px;
-  margin-bottom: 50px;
-  height: 200px;
-  border: 5px solid $teal;
+.recommend-new {
+  border: 1px solid $teal;
   border-radius: 5px;
-  text-align: center;
-  background-color: $contrast-blue;
+  width: 80%;
+  margin: auto;
+  margin-top: 30px;
+  h2 {
+    text-align: center;
+  }
 }
 
-.instruction-box p {
-  font-family: helvetica;
-  font-size: 1.5rem;
-  padding-left: 60px;
-  padding-right: 60px;
-  padding-top: 30px;
+.instruction-box {
+  width: 65%;
+  margin: auto;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  border: 1px solid $teal;
+  border-radius: 5px;
+  text-align: center;
+  font-size: 1.2em;
 }
+
 
 .search-form {
   background:$bg-grey;
@@ -29,19 +32,17 @@
   padding-left: 15px;
   padding-top: 10px;
   padding-bottom: 10px;
-  width:339px;
-  border-radius: 5px;
+  width:40%;
+  border-radius: 10px;
 }
 
 .search-form input {
   // margin: auto;
   display: block;
   background: $white;
-	border: none;
+	margin-right: 5px;
   margin-bottom: 10px;
-	padding: 10px;
-	width: 216px;
-  // border-radius: 9px;
+	padding: 15px;
 }
 
 .search-form select {
@@ -50,15 +51,9 @@
   margin-left: 5px;
 }
 
-.search-form input:focus {
-		outline: none;
-		box-shadow:0 0 4px $teal inset;
+  .search-form input::placeholder {
+  line-height: 15px
 	}
-
-.search-form input::placeholder {
-	font-style: italic;
-	line-height: 15px
-}
 
 .search-form label {
   margin-left: 5px;
@@ -70,12 +65,20 @@
 }
 
 .search-submit {
+  @include submit;
+  margin: 10px;
+}
+
+.rec-doctor-button {
+  @include submit;
+  background-color: $teal;
+  color: $white;
   display: block;
   margin: auto;
-  @include submit;
-  margin-right: 20px;
-  margin-top: 10px;
-  margin-bottom: 10px;
+  &:hover {
+    background-color: $teal;
+    color: $white;
+  }
 }
 
 // NEW RECOMMENDATION PAGE
