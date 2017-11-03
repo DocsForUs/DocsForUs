@@ -9,7 +9,7 @@
 </div>
 </main> -->
 
-<% if current_user.doctor == @doctor %>
+<% if current_user && current_user.doctor == @doctor %>
 <section id="new-user-page">
 <h2>Review Your Information as it Appears on Your Profile</h2>
 <% else %>
