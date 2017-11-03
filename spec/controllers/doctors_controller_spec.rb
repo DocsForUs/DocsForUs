@@ -20,7 +20,6 @@ RSpec.describe DoctorsController, type: :controller do
       get :find, params: { doctor: {first_name: 'Georgette', last_name: 'Tronkenheim', city: 'Seattle', state: "WA"} }
       expect(assigns[:our_doctors]).to_not include(doctor2)
     end
-
   end
 
   describe "GET #show" do
@@ -80,6 +79,10 @@ RSpec.describe DoctorsController, type: :controller do
         post :create, params: {doctor: {first_name: 'Georgette', last_name: 'Tronkenheim', specialty: 'Family Practice',email_address: 'georgette@doctor.com',zipcode: "98103", street:'33 Orange St', city: 'Seattle',state: 'WA'}}
         expect(Doctor.where(first_name: 'Georgette').count).to eq 1
       end
+      xit "gets the insurance of the doctor" do
+        post :create, params: {doctor: {first_name: 'Laura', last_name: 'Spring', specialty: 'Family Medicine',phone_number: '2065559999',zipcode: "98103", street:'555 Doctor Pl', city: 'Seattle',state: 'WA',uid:"insurance-insurance",name:"Other Insurance"}}
+        expect(doctor.insurances).to eq "1"
+      end
     end
 
     context "when inputs are invalid" do
@@ -130,4 +133,25 @@ RSpec.describe DoctorsController, type: :controller do
     end
   end
 
+  describe "doctors#edit" do
+    let!(:doctor) { create(:doctor) }
+    before(:each) { get :edit, params:{id: doctor.id}}
+    it "assigns the doctor variable with appropriate doctor" do
+      expect(assigns[:doctor]).to eq (doctor)
+    end
+    it "renders the edit page" do
+      expect(response).to render_template(:edit)
+    end
+  end
+
+  describe "doctors#update" do
+    let!(:doctor) { create(:doctor) }
+    before(:each) { get :update, params: {doctor: {first_name: 'Laura', last_name: 'Spring', specialty: 'Family Medicine',email_address: 'georgette@doctor.com',zipcode: "98103", street:'33 Orange St', city: 'Seattle',state: 'WA'}, id: doctor.id}}
+    it "assigns the doctor variable" do
+      expect(assigns[:doctor]).to eq (doctor)
+    end
+    it "returns a 302 status to redirect" do
+      expect(response.status).to eq 302
+    end
+  end
 end#end of class
