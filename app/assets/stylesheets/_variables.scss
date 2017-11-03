@@ -22,14 +22,15 @@ $body-black: #444444;
 
 @mixin submit {
   border-radius: 5px;
-  background-color: $white;
+  background-color: $teal;
   letter-spacing: .09rem;
   box-shadow: none;
   padding: 5px 20px 5px;
-  border: 1px solid $border-grey;
-  color: $text-grey;
+  border: 1px solid $teal;
+  color: $white;
   &:hover{
-  background-color: $contrast-blue;
+  background-color: $text-grey;
+  border: 1px solid $text-grey;
   color: $white;
   }
 }
