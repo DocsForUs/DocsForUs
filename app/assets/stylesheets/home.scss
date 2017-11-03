@@ -40,9 +40,9 @@
 .big-btn {
   color: $text-grey;
   background-color: transparent;
-  font-size: 1.45rem;
-  letter-spacing: .15rem;
-  font-weight: bold;
+  font-size: 1.5rem;
+  letter-spacing: .17rem;
+  font-weight: 600;
   text-align: center;
   border: solid $border-grey 1px;
   border-radius: 5px;
@@ -50,6 +50,7 @@
   width: 290px;
   margin: 2rem 2rem;
   text-decoration: none;
+  font-family: 'Oswald', sans-serif;
 }
 
 .big-btn:hover {
