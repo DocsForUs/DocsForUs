@@ -13,7 +13,6 @@ class DoctorsController < ApplicationController
 
   def new
     if current_user
-
       @doctor = Doctor.new
     else
       flash[:alert] = 'You must be logged in to add a doctor'
