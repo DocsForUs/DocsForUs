@@ -6,7 +6,6 @@ class DoctorsController < ApplicationController
   def find
     @our_doctors = Doctor.where("first_name LIKE ? AND last_name LIKE ?", "%#{search_params[:first_name]}%", "%#{search_params[:last_name]}%")
     doctor_args = {first_name: search_params[:first_name], last_name: search_params[:last_name],city: search_params[:city].downcase, state: search_params[:state].downcase}
-    @api_doctors=Doctor.search_doctor(doctor_args)
     @show_new_doctor = true
     render "recommendations/add"
   end
@@ -94,4 +93,4 @@ class DoctorsController < ApplicationController
     params.require(:doctor).permit(:first_name, :last_name, :specialty, :gender, :email_address, :phone_number, :street, :city, :state, :zipcode, :user_id)
   end
 
-end#end of class
+end #end of class
