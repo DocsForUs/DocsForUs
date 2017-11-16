@@ -1,13 +1,12 @@
 module FormVariablesHelper
   include ApplicationHelper
   include GendersHelper
-  include InsuranceDataHelper
   include StatesHelper
   include SpecialtyDataHelper
 
 
   def form_data
-    @insurance = get_insurance
+    @insurance = Insurance.all
     @states = states
     @genders = genders
     @specialties = get_specialties + Doctor.select('specialty').distinct.map {|dr| dr.specialty}
